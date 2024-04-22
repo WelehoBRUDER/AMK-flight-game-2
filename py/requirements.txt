@@ -1,0 +1,5 @@
+geopy~=2.4.1
+mysql-connector-python~=8.3.0
+python-dotenv~=1.0.1
+geographiclib~=2.0
+flask-cors~=4.0.0

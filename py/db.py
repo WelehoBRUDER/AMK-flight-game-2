@@ -133,7 +133,7 @@ def get_multiple_airports(codes):
     return airports
 
 
-# This function returns the data of all airports in the db (hundreds of entries)
+# This function returns the data of all airports in the db (thousands of entries)
 def get_all_airports():
     db["cursor"].execute(f"SELECT * FROM AIRPORT")
     airports = db["cursor"].fetchall()
