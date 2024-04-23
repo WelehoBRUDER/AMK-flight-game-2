@@ -30,4 +30,11 @@ const routes = {
 			return data;
 		}
 	},
+	createId: async () => {
+		const response = await fetch(`${host}/create-id`);
+		if (response.status === 200) {
+			const data = await response.json();
+			return data;
+		}
+	},
 };

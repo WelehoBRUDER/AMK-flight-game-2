@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from db import get_all_players_from_db, get_all_airports, get_country
+from db import get_all_players_from_db, get_all_airports, get_country, generate_random_id
 
 app = Flask(__name__)
 CORS(app)  # This configures the CORS requests automatically so that we don't need to rip all our hair out.
@@ -24,6 +24,11 @@ def all_players():
 @app.route("/get-country/<code>", methods=["GET"])
 def get_country_with_code(code: str):
     response = jsonify(get_country(code))
+    return response
+
+@app.route("/create-id", methods=["GET"])
+def create_id():
+    response = jsonify(generate_random_id())
     return response
 
 
