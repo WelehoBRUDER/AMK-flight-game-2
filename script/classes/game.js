@@ -80,8 +80,4 @@ class Game {
 	//         .flights.append({"flights": flights_from_airport, "from": airport})
 }
 
-function sleep(ms) {
-	return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 const game = new Game();

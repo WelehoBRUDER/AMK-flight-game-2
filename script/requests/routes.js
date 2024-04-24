@@ -10,31 +10,47 @@ const host = "http://127.0.0.1:5000";
 // If they are used without await, all that will be returned is a promise.
 const routes = {
 	getAllAirports: async () => {
-		const response = await fetch(`${host}/get-all-airports`);
-		if (response.status === 200) {
-			const data = await response.json();
-			return data;
+		try {
+			const response = await fetch(`${host}/get-all-airports`);
+			if (response.status === 200) {
+				const data = await response.json();
+				return data;
+			}
+		} catch (err) {
+			console.warn(`getAllAirports request failed: ${err}. Most likely backend server is off.`);
 		}
 	},
 	getAllPlayers: async () => {
-		const response = await fetch(`${host}/get-all-players`);
-		if (response.status === 200) {
-			const data = await response.json();
-			return data;
+		try {
+			const response = await fetch(`${host}/get-all-players`);
+			if (response.status === 200) {
+				const data = await response.json();
+				return data;
+			}
+		} catch (err) {
+			console.warn(`getAllPlayers request failed: ${err}. Most likely backend server is off.`);
 		}
 	},
 	getCountry: async (code) => {
-		const response = await fetch(`${host}/get-country/${code}`);
-		if (response.status === 200) {
-			const data = await response.json();
-			return data;
+		try {
+			const response = await fetch(`${host}/get-country/${code}`);
+			if (response.status === 200) {
+				const data = await response.json();
+				return data;
+			}
+		} catch (err) {
+			console.warn(`getCountry request failed: ${err}. Most likely backend server is off.`);
 		}
 	},
 	createId: async () => {
-		const response = await fetch(`${host}/create-id`);
-		if (response.status === 200) {
-			const data = await response.json();
-			return data;
+		try {
+			const response = await fetch(`${host}/create-id`);
+			if (response.status === 200) {
+				const data = await response.json();
+				return data;
+			}
+		} catch (err) {
+			console.warn(`createId request failed: ${err}. Most likely backend server is off.`);
 		}
 	},
 };

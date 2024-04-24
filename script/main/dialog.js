@@ -1,6 +1,11 @@
-const textBox = document.querySelector(".text-side");
-const nameElem = textBox.querySelector(".name");
+const textArea = document.querySelector(".text-side");
+const nameElem = textArea.querySelector(".name");
+const textBox = textArea.querySelector(".text-box");
 const textElem = textBox.querySelector(".text");
+
+function sleep(ms) {
+	return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 class Dialog {
 	constructor() {
@@ -10,20 +15,27 @@ class Dialog {
 		this.skip = false;
 	}
 
+	advanceDialog() {
+		this.currentLine++;
+	}
+
+	setDialogScene(scene) {}
+
 	async generateDialog(txt) {
 		this.skip = false;
 		textElem.textContent = "";
 		const parsedText = this.parseTextForDialog(txt);
 		console.log(parsedText);
-		for (let ltr of txt) {
-			await sleep(50);
-			textElem.textContent += ltr;
-			if (this.skip) {
-				break;
+		for (const property of parsedText) {
+			const span = document.createElement("span");
+			textElem.append(span);
+			if (property.color) {
+				span.style.color = property.color;
 			}
-		}
-		if (this.skip) {
-			textElem.textContent = txt;
+			for (const ltr of property.text) {
+				if (!this.skip) await sleep(50);
+				span.textContent += ltr;
+			}
 		}
 	}
 
@@ -47,12 +59,14 @@ class Dialog {
 				const _text = getFirstPartWithoutTag(textSlices);
 				textPart.text = _text;
 			}
-			total.push(textPart);
+			if (textPart.text) {
+				total.push(textPart);
+			}
 		}
 		return total;
 
 		function getFirstPartWithoutTag(list) {
-			return list.find((p) => !p.includes("<") && p.length > 0);
+			return list.find((p) => !p.includes("<") && p.trim().length > 0);
 		}
 	}
 }
