@@ -29,7 +29,7 @@ def connect_to_db():
     db["cursor"] = db["database"].cursor(dictionary=True)
 
 
-# This function returns 16 random airports, 2 in each direction
+# This function returns 128 random airports, 16 in each direction
 # The origin point is the latitude and longitude of the current airport
 # The return value is a list of dictionaries with the keys "flight_direction", "distance" and "airport"
 # Distance is returned in kilometers.
@@ -40,7 +40,7 @@ def draw_airports_from_origin(lat, lon, port_type):
     bearings_text = ("North", "North-East", "East", "South-East", "South", "South-West", "West", "North-West")
     flights = []
     # Minimum and maximum distance from current airport in miles
-    min_max_dists = {"small_airport": (1000, 1500), "medium_airport": (1000, 2250), "large_airport": (1700, 3000)}
+    min_max_dists = {"small_airport": (10, 300), "medium_airport": (75, 450), "large_airport": (90, 600)}
     min_dist, max_dist = min_max_dists[port_type]
     for i in range(len(flight_bearings)):
         bearing = flight_bearings[i]
@@ -55,10 +55,10 @@ def draw_airports_from_origin(lat, lon, port_type):
         db["cursor"].execute(
             f"""SELECT * FROM airport
              ORDER BY ABS({point_lat} - latitude_deg) + ABS({point_lon} - longitude_deg) ASC
-              LIMIT 2;""")
-        # This could also be fetchall() since the query is limited to 2
+              LIMIT 16;""")
+        # This could also be fetchall() since the query is limited to 16
         # But things might break if somehow more were to slip past
-        airport_data = db["cursor"].fetchmany(2)
+        airport_data = db["cursor"].fetchmany(16)
         # If airports were found, add them to the list that will be returned
         if airport_data:
             for airport in airport_data:
@@ -136,6 +136,11 @@ def get_multiple_airports(codes):
 # This function returns the data of all airports in the db (thousands of entries)
 def get_all_airports():
     db["cursor"].execute(f"SELECT * FROM AIRPORT")
+    airports = db["cursor"].fetchall()
+    return airports
+
+def get_all_non_small_airports():
+    db["cursor"].execute(f"SELECT * FROM AIRPORT WHERE NOT type='small_airport' LIMIT 250;")
     airports = db["cursor"].fetchall()
     return airports
 

@@ -30,5 +30,3 @@ const english = {
 	story_intro_18: "§<c>silver<c>*grandfather grins*§ Brave lad! Here's the 20000€ in cash.",
 	story_intro_19: "Good luck!",
 };
-
-const xix = "imus";

@@ -20,6 +20,28 @@ const routes = {
 			console.warn(`getAllAirports request failed: ${err}. Most likely backend server is off.`);
 		}
 	},
+	getAllNonSmallAirports: async () => {
+		try {
+			const response = await fetch(`${host}/get-non-small-airports`);
+			if (response.status === 200) {
+				const data = await response.json();
+				return data;
+			}
+		} catch (err) {
+			console.warn(`getAllNonSmallAirports request failed: ${err}. Most likely backend server is off.`);
+		}
+	},
+	getAirportsAround: async (ident, type) => {
+		try {
+			const response = await fetch(`${host}/get-airports-around?ident=${ident}&type=${type}`);
+			if (response.status === 200) {
+				const data = await response.json();
+				return data;
+			}
+		} catch (err) {
+			console.warn(`getAirportsAround request failed: ${err}. Most likely backend server is off.`);
+		}
+	},
 	getAllPlayers: async () => {
 		try {
 			const response = await fetch(`${host}/get-all-players`);
