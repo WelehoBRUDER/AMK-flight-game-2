@@ -1,6 +1,10 @@
 const english = {
 	code: "en",
 	name: "English",
+	// Characters
+	narrator: "Narrator",
+	granfather: "Grandfather",
+	ronald: "Ronald",
 	// Dialog
 	story_intro_1: "§<c>yellow<c>Ronald§ hasn't seen his grandfather in 20 years and was pretty anxious about the visit.",
 	story_intro_2:
@@ -23,7 +27,7 @@ const english = {
 	story_intro_16:
 		"If you don't make it, §<c>crimson<c>I'm liquidating everything I own§, and giving the money to charity, my savings included.",
 	story_intro_17: "Well, I guess I need to pack my things then!",
-	story_intro_18: "*grins* Brave lad! Here's the 20000€ in cash.",
+	story_intro_18: "§<c>silver<c>*grandfather grins*§ Brave lad! Here's the 20000€ in cash.",
 	story_intro_19: "Good luck!",
 };
 

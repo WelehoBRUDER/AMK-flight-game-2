@@ -4,7 +4,7 @@ const textBox = textArea.querySelector(".text-box");
 const textElem = textBox.querySelector(".text");
 const portrait = document.querySelector(".portrait-img");
 
-let lang = english;
+let lang = finnish;
 
 function sleep(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
@@ -45,9 +45,11 @@ class Dialog {
 		const char = scene.character;
 		const text = translate(scene.text);
 		if (!char) {
-			nameElem.textContent = "Narrator";
+			nameElem.textContent = translate("narrator");
+			nameElem.style.color = "silver";
 		} else {
 			nameElem.textContent = translate(char.id);
+			nameElem.style.color = char.color;
 		}
 		if (!char || !char.image) {
 			portrait.src = "/images/unknown.png";

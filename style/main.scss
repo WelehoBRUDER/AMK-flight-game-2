@@ -11,6 +11,13 @@
   --neon-purple: rgb(97, 3, 97);
 }
 
+#map {
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  left: 0;
+}
+
 #dialog-box {
   /* background: var(--purple);
   border: 1rem solid var(--dark-purple); */

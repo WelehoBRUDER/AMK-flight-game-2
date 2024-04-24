@@ -5,7 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flight Game v2</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
   <link rel="stylesheet" href="style/compiled/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js" defer></script>
+  <script src="script/main/Polyline.encoded.js" defer></script>
   <!-- Languages -->
   <script src="script/localisation/english.js" defer></script>
   <script src="script/localisation/finnish.js" defer></script>
@@ -16,6 +19,7 @@
   <!-- Main -->
   <script src="script/main/scenes.js" defer></script>
   <script src="script/main/dialog.js" defer></script>
+  <script src="script/main/map.js" defer></script>
 
   <!-- Classes -->
   <script src="script/classes/game.js" defer></script>
@@ -25,15 +29,16 @@
 <body>
   <div id="dialog-box">
     <div class="text-side">
-      <h2 class="name">Grandfather</h2>
+      <h2 class="name"></h2>
       <div class="text-box">
         <pre class="text"></pre>
       </div>
     </div>
     <div class="portrait">
-      <img src="images/harold-03.jpg" alt="Grandfather" class="portrait-img">
+      <img src="images/unknown.png" alt="Portrait of the current character" class="portrait-img">
     </div>
   </div>
+  <div id="map"></div>
 </body>
 
 </html>
