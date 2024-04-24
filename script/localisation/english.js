@@ -2,7 +2,7 @@ const english = {
 	code: "en",
 	name: "English",
 	// Dialog
-	story_intro_1: "Ronald hasn't seen his grandfather in 20 years and was pretty anxious about the visit.",
+	story_intro_1: "§<c>yellow<c>Ronald§ hasn't seen his grandfather in 20 years and was pretty anxious about the visit.",
 	story_intro_2:
 		"He remembers his grandfather as a sweet guy, always ready to share \n with him life advice and wisdom, that he learned the hard way in life.",
 	story_intro_3: " §<c>yellow<c>Ronald§ knocks at the door, and there was his grandfather, §<c>lime<c>a grin on his face.§",

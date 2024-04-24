@@ -2,41 +2,86 @@ const textArea = document.querySelector(".text-side");
 const nameElem = textArea.querySelector(".name");
 const textBox = textArea.querySelector(".text-box");
 const textElem = textBox.querySelector(".text");
+const portrait = document.querySelector(".portrait-img");
+
+let lang = english;
 
 function sleep(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+function translate(id) {
+	const txt = lang[id];
+	return txt ? txt : id;
+}
+
+window.addEventListener("keyup", (e) => {
+	// Space key event
+	if (e.key === " ") {
+		dialog.advanceOrSkipDialog();
+	}
+});
 
 class Dialog {
 	constructor() {
 		this.id = "dialog";
 		this.currentLine = 0;
 		this.currentDialog = [];
+		this.reading = false;
 		this.skip = false;
 	}
 
-	advanceDialog() {
-		this.currentLine++;
+	advanceOrSkipDialog() {
+		if (this.reading) {
+			this.skip = true;
+		} else {
+			if (this.currentLine === this.currentDialog.length - 1) return;
+			this.currentLine++;
+			this.setDialogScene(this.currentDialog[this.currentLine]);
+		}
 	}
 
-	setDialogScene(scene) {}
+	setDialogScene(scene) {
+		const char = scene.character;
+		const text = translate(scene.text);
+		if (!char) {
+			nameElem.textContent = "Narrator";
+		} else {
+			nameElem.textContent = translate(char.id);
+		}
+		if (!char || !char.image) {
+			portrait.src = "/images/unknown.png";
+		} else {
+			portrait.src = `/images/${char.image}`;
+		}
+		this.generateDialog(text);
+	}
+
+	setFullDialog(fDialog) {
+		this.currentLine = 0;
+		this.currentDialog = fDialog;
+		this.setDialogScene(this.currentDialog[this.currentLine]);
+	}
 
 	async generateDialog(txt) {
 		this.skip = false;
+		this.reading = true;
 		textElem.textContent = "";
 		const parsedText = this.parseTextForDialog(txt);
-		console.log(parsedText);
+		const wrapper = document.createElement("span");
+		textElem.append(wrapper);
 		for (const property of parsedText) {
 			const span = document.createElement("span");
-			textElem.append(span);
+			wrapper.append(span);
 			if (property.color) {
 				span.style.color = property.color;
 			}
 			for (const ltr of property.text) {
-				if (!this.skip) await sleep(50);
+				if (!this.skip) await sleep(25);
 				span.textContent += ltr;
 			}
 		}
+		this.reading = false;
 	}
 
 	parseTextForDialog(txt) {
@@ -66,12 +111,11 @@ class Dialog {
 		return total;
 
 		function getFirstPartWithoutTag(list) {
-			return list.find((p) => !p.includes("<") && p.trim().length > 0);
+			return list.find((p) => !p.includes("<") && p.length > 0);
 		}
 	}
 }
 
 const dialog = new Dialog();
 
-dialog.parseTextForDialog(english.story_intro_3);
-dialog.generateDialog(english.story_intro_3);
+dialog.setFullDialog(dialogScenes.intro);
