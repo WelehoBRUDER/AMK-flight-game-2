@@ -5,13 +5,14 @@ const english = {
 	story_intro_1: "Ronald hasn't seen his grandfather in 20 years and was pretty anxious about the visit.",
 	story_intro_2:
 		"He remembers his grandfather as a sweet guy, always ready to share \n with him life advice and wisdom, that he learned the hard way in life.",
-	story_intro_3: " Ronald knocks at the door, and there was his grandfather, a grin on his face.",
+	story_intro_3:
+		" §<c>yellow<c>Ronald§ knocks at the door, and there was his grandfather§<c>orange<c><v>xix<v>§, §<c>lime<c>a grin on his face.§",
 	story_intro_4: "Hey Ronald, long time",
 	story_intro_5: "Hello",
 	story_intro_6: "They sat face to face in his grandfather's personal study.",
 	story_intro_7: "You wanted to see me... here I am. How are you?",
 	story_intro_8: "Let's skip the pleasantries and all the boring stuff, eh?",
-	story_intro_9: "I'm about to die.",
+	story_intro_9: "§<c>red<c>I'm about to die.§",
 	story_intro_10: "Ok.",
 	story_intro_11:
 		"So... because you are practically my only family left, I am\nleaving everything I own, and the money I saved for you, but there is a catch...",
@@ -24,3 +25,5 @@ const english = {
 	story_intro_18: "*grins* Brave lad! Here's the 20000€ in cash.",
 	story_intro_19: "Good luck!",
 };
+
+const xix = "imus";
