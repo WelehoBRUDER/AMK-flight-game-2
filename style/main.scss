@@ -11,6 +11,22 @@
   --neon-purple: rgb(97, 3, 97);
 }
 
+.plane {
+  position: absolute;
+  z-index: 10000;
+  left: 40rem;
+  top: 22.5rem;
+
+  img {
+    width: 10rem;
+    transform: rotateZ(-135deg);
+  }
+
+  &.hide {
+    display: none;
+  }
+}
+
 #map {
   width: 80rem;
   height: 45rem;
