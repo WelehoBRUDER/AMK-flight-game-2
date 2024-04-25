@@ -4,7 +4,7 @@ const textBox = textArea.querySelector(".text-box");
 const textElem = textBox.querySelector(".text");
 const portrait = document.querySelector(".portrait-img");
 
-let lang = finnish;
+let lang = english;
 
 function sleep(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
@@ -15,7 +15,16 @@ function translate(id) {
 	return txt ? txt : id;
 }
 
+function closeEverything() {
+	if (devConsole.open) {
+		devConsole.toggle();
+	}
+}
+
 window.addEventListener("keyup", (e) => {
+	if (e.key === "Escape") return closeEverything();
+	if (e.key === "§") return devConsole.toggle();
+	if (devConsole.open) return;
 	// Space key event
 	if (e.key === " ") {
 		dialog.advanceOrSkipDialog();

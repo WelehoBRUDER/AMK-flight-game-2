@@ -7,12 +7,17 @@
   <title>Flight Game v2</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
   <link rel="stylesheet" href="style/compiled/main.css">
+  <link rel="stylesheet" href="style/compiled/console.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js" defer></script>
   <script src="script/main/Polyline.encoded.js" defer></script>
   <!-- Languages -->
   <script src="script/localisation/english.js" defer></script>
   <script src="script/localisation/finnish.js" defer></script>
 
+  <!-- Dev -->
+  <script src="script/dev/commands.js" defer></script>
+  <script src="script/dev/console.js" defer></script>
+  '
   <!-- Requests -->
   <script src="script/requests/routes.js" defer></script>
 
@@ -27,6 +32,19 @@
 </head>
 
 <body>
+  <!-- Developer console -->
+  <div class="console" style="display: none">
+    <div class="log"></div>
+    <div class="input">
+      <input type="text" id="console-input">
+      <div class="prediction">
+        <span class="phantom"></span>
+        <span class="trailing"></span>
+      </div>
+    </div>
+    <div class="console-intellisense"></div>
+  </div>
+  <!-- Everything else -->
   <div id="dialog-box">
     <div class="text-side">
       <h2 class="name"></h2>

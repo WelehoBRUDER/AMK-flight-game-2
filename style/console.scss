@@ -1,0 +1,133 @@
+.console {
+  width: 64rem;
+  height: 40rem;
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 0 0 1.6rem 1rem rgb(25, 25, 25);
+
+  .log {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 4.8rem);
+    padding: 0.75rem;
+    box-sizing: border-box;
+    color: white;
+    font-size: 1.2rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.25rem;
+    text-shadow: 0 0 0.5rem black;
+    overflow: hidden;
+    overflow-y: auto;
+
+    p {
+      height: max-content;
+      margin: 0;
+      padding: 0;
+      font-size: 1.28rem;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      white-space: pre-wrap;
+    }
+  }
+
+  .input {
+    position: relative;
+    width: 100%;
+    height: 4.8rem;
+    input#console-input {
+      width: 100%;
+      height: 4rem;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      font-weight: lighter;
+      font-size: 1.6rem;
+      color: white;
+      box-sizing: border-box;
+      padding: 0.75rem 0.75rem;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+      &:hover {
+        filter: brightness(1.25);
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .prediction {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 4rem;
+      padding: 0.75rem 0.42rem;
+      box-sizing: border-box;
+      pointer-events: none;
+      margin-top: 0.125rem;
+
+      span {
+        font-weight: lighter;
+        font-size: 1.6rem;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .phantom {
+        color: transparent;
+      }
+      .trailing {
+        color: white;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .console-intellisense {
+    width: auto;
+    height: auto;
+    max-height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+
+    .intellisense-option {
+      width: 100%;
+      height: 3.2rem;
+      background: rgba(0, 0, 0, 0.5);
+      border: dotted 1px silver;
+      font-weight: lighter;
+      font-size: 1.6rem;
+      color: white;
+      box-sizing: border-box;
+      padding: 0.4rem 1.6rem;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      user-select: none;
+
+      &:hover {
+        filter: brightness(1.25);
+        background: silver;
+        color: black;
+        cursor: pointer;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &.selected {
+        background: silver;
+        color: black;
+      }
+    }
+  }
+}
