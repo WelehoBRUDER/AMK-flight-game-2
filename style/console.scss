@@ -12,6 +12,17 @@
   align-items: flex-start;
   box-shadow: 0 0 1.6rem 1rem rgb(25, 25, 25);
 
+  .drag {
+    width: 100%;
+    height: 2rem;
+    position: absolute;
+    left: 0;
+    top: -2rem;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 1.2rem 0.4rem rgb(25, 25, 25, 0.7);
+    cursor: move;
+  }
+
   .log {
     position: relative;
     width: 100%;

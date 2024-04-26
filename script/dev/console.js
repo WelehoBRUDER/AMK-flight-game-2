@@ -5,6 +5,8 @@ const consoleIntellisenseElem = consoleElement.querySelector(".console-intellise
 const phantomText = consoleElement.querySelector(".phantom");
 const trailingText = consoleElement.querySelector(".trailing");
 
+dragElem(consoleElement);
+
 consoleInput.oninput = (e) => {
 	clearBadSymbols();
 	typeToConsole(e);
