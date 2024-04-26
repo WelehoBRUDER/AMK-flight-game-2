@@ -24,4 +24,20 @@ const developerCommands = [
 			}
 		},
 	},
+	{
+		name: "fly",
+		help: "Fly to target cords",
+		verboseHelp: "fly [lat] [lon] - flies to latitude and longitude specified.",
+		availableParams: [[{ id: "latitude coordinate", onSelect: 50 }], [{ id: "longitude coordinate", onSelect: 50 }]],
+		execute: (args) => {
+			const lat = parseFloat(args[0]);
+			const lon = parseFloat(args[1]);
+			if (lat && lon) {
+				moveMap(lat, lon);
+				devConsole.commandHistory.push(`Flying to (${lat},${lon})`);
+			} else {
+				devConsole.commandHistory.push("Too few arguments, expected: fly [lat] [lon]");
+			}
+		},
+	},
 ];

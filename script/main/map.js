@@ -15,10 +15,10 @@ async function addMarkers() {
 	console.log(ports);
 }
 
-function moveMap() {
+function moveMap(lat, lon) {
 	plane.classList.remove("hide");
 	setTimeout(() => plane.classList.add("hide"), 2700);
-	map.setView([52, 13], map.getZoom(), {
+	map.setView([lat, lon], map.getZoom(), {
 		animate: true,
 		pan: {
 			duration: 2.5,
