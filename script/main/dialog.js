@@ -55,7 +55,7 @@ class Dialog {
 		const text = translate(scene.text);
 		if (!char) {
 			nameElem.textContent = translate("narrator");
-			nameElem.style.color = "silver";
+			nameElem.style.color = "black";
 		} else {
 			nameElem.textContent = translate(char.id);
 			nameElem.style.color = char.color;
