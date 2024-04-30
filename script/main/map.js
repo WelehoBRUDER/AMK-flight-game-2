@@ -16,6 +16,10 @@ async function addMarkers() {
 		const marker = L.marker([port.airport.latitude_deg, port.airport.longitude_deg], { icon: mapIcons.port, interactive: true }).addTo(map);
 		const tooltip = new Tooltip({ marker, text: port.airport.name });
 		tooltip.create();
+
+		marker.on("click", (e) => {
+			moveMap(e.latlng.lat, e.latlng.lng);
+		});
 	}
 }
 
