@@ -13,10 +13,10 @@ async function addMarkers() {
 	const ports = await routes.getAirportsAround("EFHK", "large_airport");
 	// const ports = await routes.getAllNonSmallAirports();
 	for (const port of ports) {
-		console.log(port);
-		const marker = L.marker([port.airport.latitude_deg, port.airport.longitude_deg], { icon: mapIcons.port }).addTo(map);
+		const marker = L.marker([port.airport.latitude_deg, port.airport.longitude_deg], { icon: mapIcons.port, interactive: true }).addTo(map);
+		const tooltip = new Tooltip({ marker, text: port.airport.name });
+		tooltip.create();
 	}
-	console.log(ports);
 }
 
 function setup() {
@@ -29,6 +29,7 @@ async function moveMap(lat2, lon2) {
 	const { lat, lon } = currentCords;
 	const bearing = await routes.bearing(lat, lon, lat2, lon2);
 	plane.style.setProperty("--angle", `${bearing}deg`);
+	map.setView([lat, lon], map.getZoom());
 	map.setView([lat2, lon2], map.getZoom(), {
 		animate: true,
 		pan: {
