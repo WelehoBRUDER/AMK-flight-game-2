@@ -11,90 +11,106 @@
   --neon-purple: rgb(97, 3, 97);
 }
 
-.plane {
-  position: absolute;
-  z-index: 10000;
-  left: 40rem;
-  top: 22.5rem;
-  --angle: 0deg;
+$black: black;
 
-  img {
-    width: 10rem;
-    transform: rotate(var(--angle));
+.game {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+
+  .plane {
+    position: absolute;
+    z-index: 10000;
+    left: 40rem;
+    top: 22.5rem;
+    --angle: 0deg;
+
+    img {
+      width: 10rem;
+      transform: rotate(var(--angle));
+    }
+
+    &.hide {
+      display: none;
+    }
   }
 
-  &.hide {
-    display: none;
+  #map {
+    width: 80rem;
+    height: 45rem;
+    position: absolute;
+    left: 5rem;
+    top: 5rem;
   }
-}
 
-#map {
-  width: 80rem;
-  height: 45rem;
-  position: absolute;
-  left: 5rem;
-  top: 5rem;
-  display: none;
-}
-
-#dialog-box {
-  /* background: var(--purple);
-  border: 1rem solid var(--dark-purple); */
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  margin-left: -40rem;
-  display: flex;
-  align-items: center;
-}
-
-.text-side {
-  width: 60rem;
-  height: 20rem;
-  margin: 0;
-  font-size: 1.5rem;
-  color: var(--text-purple);
-  display: flex;
-  flex-direction: column;
-
-  .text-box {
-    background: var(--purple);
-    border: 0.6rem solid var(--dark-purple);
-    box-sizing: border-box;
-    margin: 0;
-    width: 100%;
-    height: 70%;
+  .bottom-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 20rem;
 
-    .text {
-      width: 100%;
+    #dialog-box {
+      /* background: var(--purple);
+      border: 1rem solid var(--dark-purple); */
+      position: relative;
+      left: 0;
+      bottom: 0;
       display: flex;
-      flex-wrap: wrap;
-      margin: 2rem;
+      align-items: center;
 
-      span {
-        white-space: normal;
+      .text-side {
+        width: 60rem;
+        height: 15rem;
+        margin: 0;
+        font-size: 1.5rem;
+        color: $black;
+        display: flex;
+        flex-direction: column;
+        background: gray;
+
+        .name {
+          width: 18rem;
+          text-align: center;
+          margin: auto 0 0 auto;
+        }
+
+        .text-box {
+          box-sizing: border-box;
+          margin: 0;
+          width: 100%;
+          height: 70%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .text {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 2rem;
+
+            span {
+              white-space: normal;
+            }
+          }
+        }
       }
     }
+
+    .portrait {
+      width: 24rem;
+      height: 20rem;
+      border: 0.8rem solid var(--purple);
+      box-sizing: border-box;
+      margin: 0;
+    }
   }
-}
-
-.name {
-  background: var(--neon-purple);
-  border: 0.3rem dotted var(--dark-purple);
-  width: 18rem;
-  text-align: center;
-  margin: auto 0 0 auto;
-}
-
-.portrait {
-  width: 20rem;
-  height: 20rem;
-  border: 0.8rem solid var(--purple);
-  box-sizing: border-box;
-  margin: 0;
 }
 
 .mainmenu {
