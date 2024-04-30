@@ -50,7 +50,7 @@ const mapIcons = {
 
 		iconSize: [60, 60], // size of the icon
 		shadowSize: [1, 1], // size of the shadow
-		iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+		iconAnchor: [30, 30], // point of the icon which will correspond to marker's location
 		shadowAnchor: [4, 62], // the same for the shadow
 		popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
 	}),
