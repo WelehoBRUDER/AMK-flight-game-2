@@ -1,0 +1,33 @@
+.mainmenu {
+  background-color: dimgray;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.mainmenu .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.mainmenu .buttons .option {
+  padding: 1rem;
+  margin: 1rem;
+  width: 15rem;
+  background-color: lightgray;
+  border: none;
+  transition-duration: 0.2s;
+}
+.mainmenu .buttons .option:hover {
+  box-shadow: 0 0 30px 5px rgb(60, 60, 60);
+}
+.mainmenu .buttons .option:active {
+  background-color: gray;
+  box-shadow: 0 0 60px 5px rgba(60, 60, 60, 0.25);
+  transform: translateY(4px);
+}
+
+/*# sourceMappingURL=mainmenu.css.map */
