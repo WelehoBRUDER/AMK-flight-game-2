@@ -1,10 +1,13 @@
 const currentCords = { lat: 60.1785553, lon: 24.8786212 };
-const map = L.map("map").setView([currentCords.lat, currentCords.lon], 5);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(map);
-
 const plane = document.querySelector(".plane");
+let map;
+
+function createMap() {
+	map = L.map("map").setView([currentCords.lat, currentCords.lon], 5);
+	L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	}).addTo(map);
+}
 
 async function addMarkers() {
 	const ports = await routes.getAirportsAround("EFHK", "large_airport");
@@ -14,6 +17,11 @@ async function addMarkers() {
 		const marker = L.marker([port.airport.latitude_deg, port.airport.longitude_deg], { icon: mapIcons.port }).addTo(map);
 	}
 	console.log(ports);
+}
+
+function setup() {
+	createMap();
+	addMarkers();
 }
 
 async function moveMap(lat2, lon2) {
@@ -46,5 +54,3 @@ const mapIcons = {
 		popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
 	}),
 };
-
-addMarkers();
