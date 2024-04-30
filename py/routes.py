@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from db import get_all_players_from_db, get_all_airports, get_country, generate_random_id, get_all_non_small_airports, draw_airports_from_origin, get_airport
+from db import get_all_players_from_db, get_all_airports, get_country, generate_random_id, get_all_non_small_airports, draw_airports_from_origin, get_airport, bearing_between_two_points
 
 app = Flask(__name__)
 CORS(app)  # This configures the CORS requests automatically so that we don't need to rip all our hair out.
@@ -45,6 +45,16 @@ def get_country_with_code(code: str):
 def create_id():
     response = jsonify(generate_random_id())
     return response
+
+@app.route("/bearing/", methods=["GET"])
+def get_bearing():
+    lat1 = float(request.args.get("lat1"))
+    lon1 = float(request.args.get("lon1"))
+    lat2 = float(request.args.get("lat2"))
+    lon2 = float(request.args.get("lon2"))
+    angle = jsonify(bearing_between_two_points((lat1, lon1), (lat2, lon2)))
+    return angle
+    
 
 
 # Run server

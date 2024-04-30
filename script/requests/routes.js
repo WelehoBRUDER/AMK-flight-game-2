@@ -64,6 +64,17 @@ const routes = {
 			console.warn(`getCountry request failed: ${err}. Most likely backend server is off.`);
 		}
 	},
+	bearing: async (lat1, lon1, lat2, lon2) => {
+		try {
+			const response = await fetch(`${host}/bearing?lat1=${lat1}&lon1=${lon1}&lat2=${lat2}&lon2=${lon2}`);
+			if (response.status === 200) {
+				const data = await response.json();
+				return data;
+			}
+		} catch (err) {
+			console.warn(`bearing request failed: ${err}. Most likely backend server is off.`);
+		}
+	},
 	createId: async () => {
 		try {
 			const response = await fetch(`${host}/create-id`);

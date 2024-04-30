@@ -16,10 +16,11 @@
   z-index: 10000;
   left: 40rem;
   top: 22.5rem;
+  --angle: 0deg;
 
   img {
     width: 10rem;
-    transform: rotateZ(-135deg);
+    transform: rotate(var(--angle));
   }
 
   &.hide {
@@ -117,7 +118,7 @@
     }
 
     .option:hover {
-        box-shadow: 0 0 30px 5px rgb(60, 60, 60);
+      box-shadow: 0 0 30px 5px rgb(60, 60, 60);
     }
 
     .option:active {
