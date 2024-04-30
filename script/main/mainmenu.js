@@ -10,4 +10,12 @@ startbutton.addEventListener("click", function (evt) {
 	mainmenu.style.display = "none";
 	gamediv.hidden = false;
 	setup();
-});
+})
+
+helpbutton.addEventListener("click", function(evt) {
+	const newdiv = document.createElement("div");
+	const h1 = document.createElement("h1");
+	newdiv.class = "helpscreen";
+	h1.textContent = "Help";
+
+})
