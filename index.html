@@ -55,17 +55,34 @@
     <div class="console-intellisense"></div>
   </div>
   <!-- Everything else -->
-  <div class="game" id="game" hidden>
+  <div class="game" id="game">
     <div class="top-bar">
       <div class="quest-title">Grandpa's lost sauce</div>
+      <div class="buttons" id="buttons">
+        <button class="button" id="startgame">Start a new game</button>
+        <button class="button" id="loadgame">Load game</button>
+        <button class="button" id="readhelp">Help</button>
+        <button class="button" id="readstory">Story</button>
+      </div>
     </div>
-    <div class="map-area">
+    <div class="map-area" id="map-area">
+      <div class="mainmenu" id="mainmenu">
+        <!--Background image goes here-->
+      </div>
+      <div class="helpscreen" id="helpscreen" hidden>
+        <article>
+          <h1>Help</h1>
+          <p>Lorem ipsum</p>
+          <button class="button" id="return">Return</button>
+        </article>
+      </div>
       <div class="plane hide">
         <img src="images/plane.png" alt="plane icon">
       </div>
       <div id="map"></div>
     </div>
     <div class="bottom-bar">
+      <button class="button" id="close-dialog" hidden>Close</button>
       <div id="dialog-box">
         <div class="text-side">
           <h2 class="name"></h2>
@@ -79,22 +96,6 @@
       </div>
     </div>
   </div>
-  <div class="mainmenu" id="mainmenu">
-    <div class="buttons" id="buttons">
-      <button class="option" id="startGame">Start a new game</button>
-      <button class="option" id="loadGame">Load game</button>
-      <button class="option" id="readHelp">Help</button>
-      <button class="option" id="readStory">Story</button>
-    </div>
-  </div>
-  <div class="helpscreen" id="helpscreen" hidden>
-    <article>
-      <h1>Help</h1>
-      <p>Lorem ipsum</p>
-      <button class="return" id="return">Return</button>
-    </article>
-  </div>
-
 </body>
 
 </html>
