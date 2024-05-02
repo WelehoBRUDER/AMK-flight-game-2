@@ -44,14 +44,14 @@ class SoundController {
 	pauseSound(id) {
 		const player = this.players.find((pl) => pl.id === id);
 		if (player) {
-			player.stop();
+			player.pause();
 		}
 	}
 
 	pauseMusic() {
 		this.players.forEach((pl) => {
 			if (pl.music) {
-				pl.audio.stop();
+				pl.audio.pause();
 			}
 		});
 	}
@@ -75,7 +75,7 @@ class SoundController {
 	stopAllSounds(options) {
 		this.players.forEach((pl) => {
 			if (!this.music || options.stopMusic) {
-				pl.audio.stop();
+				pl.audio.pause();
 			}
 		});
 	}
