@@ -4,13 +4,15 @@ const dialogbox = document.querySelector("#dialog-box");
 
 const mainmenu = document.querySelector("#mainmenu");
 const helpscreen = document.querySelector("#helpscreen");
+const loadscreen = document.querySelector("#loadscreen");
 
 const startbutton = document.querySelector("#startgame");
 const loadbutton = document.querySelector("#loadgame");
+const loadreturn = document.querySelector("#loadreturn");
 const helpbutton = document.querySelector("#readhelp");
 const storybutton = document.querySelector("#readstory");
 const musicbutton = document.querySelector("#music");
-const returnbutton = document.querySelector("#return");
+const helpreturn = document.querySelector("#helpreturn");
 const closebutton = document.querySelector("#close-dialog");
 
 const click = new Audio("sounds/click.mp3");
@@ -31,23 +33,40 @@ function playMusic(src, volume) {
 	src.play();
 }
 
-startbutton.addEventListener("click", function () {
+startbutton.addEventListener("click", function() {
 	playAudio(click, 0.3);
 	mainmenu.hidden = true;
 	helpscreen.hidden = true;
+	loadscreen.hidden = true;
 	maparea.hidden = false;
 	mapscreen.hidden = false;
 	setup();
+})
+
+loadbutton.addEventListener("click", function() {
+	playAudio(click, 0.3);
+	mainmenu.hidden = true;
+	helpscreen.hidden = true;
+	mapscreen.hidden = true;
+	loadscreen.hidden = false;
+})
+
+loadreturn.addEventListener("click", function() {
+	playAudio(click, 0.3);
+	loadscreen.hidden = true;
+	mainmenu.hidden = false;
+	mapscreen.hidden = false;
 })
 
 helpbutton.addEventListener("click", function() {
 	playAudio(click, 0.3);
 	mainmenu.hidden = true;
 	mapscreen.hidden = true;
+	loadscreen.hidden = true;
 	helpscreen.hidden = false;
 })
 
-returnbutton.addEventListener("click", function() {
+helpreturn.addEventListener("click", function() {
 	playAudio(click, 0.3);
 	helpscreen.hidden = true;
 	mainmenu.hidden = false;
