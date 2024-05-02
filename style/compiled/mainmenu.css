@@ -1,3 +1,15 @@
+:root {
+  font-size: 62.5%;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  margin: 0;
+  text-shadow: 0 0 0.25rem rgb(39, 10, 27);
+  --text-purple: rgb(252, 35, 252);
+  --dark-purple: rgb(66, 20, 66);
+  --purple: rgb(88, 25, 88);
+  --neon-purple: rgb(97, 3, 97);
+}
+
 .mainmenu {
   background-color: rgb(50, 50, 50);
   width: 100%;
@@ -59,6 +71,60 @@
 }
 .option-menu .container .box p {
   font-size: 1.5rem;
+}
+.option-menu .container .box #dialog-box {
+  /* background: var(--purple);
+  border: 1rem solid var(--dark-purple); */
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.option-menu .container .box #dialog-box .text-side {
+  width: 60rem;
+  height: 14rem;
+  margin: 0;
+  font-size: 1.5rem;
+  color: rgb(14, 14, 14);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: silver;
+  border: 0.5rem solid rgb(14, 14, 14);
+  box-sizing: border-box;
+}
+.option-menu .container .box #dialog-box .text-side .name {
+  text-align: center;
+  margin: 0;
+  color: rgb(14, 14, 14);
+}
+.option-menu .container .box #dialog-box .text-side .text-box {
+  box-sizing: border-box;
+  margin: 0;
+  width: 95%;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.option-menu .container .box #dialog-box .text-side .text-box .text {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem;
+}
+.option-menu .container .box #dialog-box .text-side .text-box .text span {
+  white-space: normal;
+}
+.option-menu .container .box .portrait {
+  border: 0.5rem solid rgb(14, 14, 14);
+  box-sizing: border-box;
+  margin: 0;
+}
+.option-menu .container .box .portrait .portrait-img {
+  height: 16rem;
 }
 
 .button {

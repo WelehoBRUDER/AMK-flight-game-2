@@ -66,7 +66,7 @@
         <!--Background image goes here-->
       </div>
       <div class="option-menu" id="option-menu" hidden>
-        <div class="buttons">
+        <div class="buttons" id="buttons">
           <button class="option" id="new-game">Start a new game</button>
           <button class="option" id="load-game">Load game</button>
           <button class="option" id="read-help">Help</button>
@@ -75,7 +75,7 @@
           <button class="option" id="close">Close</button>
         </div>
         <div class="container">
-          <div class="box" id="start-screen" hidden>
+          <div class="box" id="start-screen">
             <h1>Start a new game</h1>
             <button class="button" id="start-game">Start</button>
           </div>
@@ -88,7 +88,18 @@
           </div>
           <div class="box" id="story-screen" hidden>
             <h1>Story</h1>
-            <p>Lorem ipsum</p>
+            <div id="dialog-box">
+              <div class="text-side">
+                <h2 class="name"></h2>
+                <div class="text-box">
+                  <pre class="text"></pre>
+                </div>
+              </div>
+              <div class="portrait">
+                <img src="images/unknown.png" alt="Portrait of the current character" class="portrait-img">
+              </div>
+            </div>
+            <button class="button" id="close-dialog">Close</button>
           </div>
         </div>
       </div>
@@ -98,20 +109,8 @@
       <div id="map"></div>
     </div>
     <div class="bottom-bar">
-      <button class="button" id="close-dialog" hidden>Close</button>
-      <div id="dialog-box">
-        <div class="text-side">
-          <h2 class="name"></h2>
-          <div class="text-box">
-            <pre class="text"></pre>
-          </div>
-        </div>
-        <div class="portrait">
-          <img src="images/unknown.png" alt="Portrait of the current character" class="portrait-img">
-        </div>
-      </div>
+
     </div>
   </div>
 </body>
-
 </html>
