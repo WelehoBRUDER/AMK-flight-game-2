@@ -19,7 +19,7 @@ const closedialog = document.querySelector("#close-dialog");
 const musicbutton = document.querySelector("#music");
 const closebutton = document.querySelector("#close");
 
-let optionsopen = false;
+let optionsopen = true;
 
 function hideBoxes() {
 	startscreen.hidden = true;
@@ -29,9 +29,9 @@ function hideBoxes() {
 }
 
 document.querySelectorAll("button").forEach((btn) => {
-    btn.addEventListener("click", () => {
-			soundController.playSound("click", true);
-		})
+	btn.addEventListener("click", () => {
+		soundController.playSound("click", true);
+	})
 })
 
 function hideStart() {
@@ -40,6 +40,7 @@ function hideStart() {
 
 startmenu.addEventListener("click", function() {
 	startmenu.style.opacity = "0";
+	closebutton.style.display = "none";
 	setTimeout(hideStart, 1000);
 })
 
@@ -62,6 +63,8 @@ startbutton.addEventListener("click", function() {
 	optionsmenu.style.display = "none";
 	mapscreen.hidden = false;
 	maparea.hidden = false;
+	closebutton.style.display = "block";
+	optionbutton.hidden = false;
 	setup();
 })
 
@@ -99,7 +102,4 @@ musicbutton.addEventListener("click", function() {
 closebutton.addEventListener("click", function() {
 	optionsmenu.style.display = "none";
 	optionsopen = false;
-})
-
-closedialog.addEventListener("click", function() {
 })
