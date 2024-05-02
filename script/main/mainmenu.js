@@ -72,8 +72,10 @@ storybutton.addEventListener("click", function() {
 musicbutton.addEventListener("click", function() {
 	if (soundController.isMusicPlaying()) {
   	soundController.pauseMusic();
+		musicbutton.textContent = "Music: OFF";
 	} else {
 		soundController.playSound("shanty");
+		musicbutton.textContent = "Music: ON";
 	}
 })
 
