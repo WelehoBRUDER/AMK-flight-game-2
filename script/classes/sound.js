@@ -87,6 +87,7 @@ class SoundController {
 		const audio = new Audio(sound.src);
 		audio.loop = sound.loop;
 		audio.volume = this.volume;
+		audio.load();
 		soundObject.id = `${sound.id}${increment > 0 ? increment : ""}`;
 		soundObject.music = sound.music;
 		soundObject.audio = audio;

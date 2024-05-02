@@ -35,6 +35,34 @@ class Player {
 	getAll() {
 		return this;
 	}
+
+	getViewableStats() {
+		return {
+			screen_name: this.screen_name,
+			co2_consumed: this.co2_consumed,
+			location: this.location,
+			money: this.money,
+			time: this.time,
+			real_time: this.real_time,
+			distance_traveled: this.distance_traveled,
+		};
+	}
+	// Returns stats as an element that can be embedded anywhere.
+	getStatsDisplay() {
+		const statsElem = document.createElement("div");
+		statsElem.classList.add("player-stats");
+		Object.entries(this.getViewableStats()).forEach(([id, value]) => {
+			const statContainer = document.createElement("div");
+			const statName = document.createElement("p");
+			const statValue = document.createElement("p");
+			statContainer.classList.add("stat");
+			statName.innerText = `${translate(id)}:`;
+			statValue.innerText = value;
+			statContainer.append(statName, statValue);
+			statsElem.append(statContainer);
+		});
+		return statsElem;
+	}
 }
 
 const testPlayer = new Player({
@@ -50,3 +78,7 @@ const testPlayer = new Player({
 	origin_longitude: 0,
 	finished: false,
 });
+
+setTimeout(() => {
+	document.querySelector(".top-bar").append(testPlayer.getStatsDisplay());
+}, 500);

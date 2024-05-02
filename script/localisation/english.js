@@ -1,6 +1,14 @@
 const english = {
 	code: "en",
 	name: "English",
+	// Stats
+	screen_name: "Name",
+	co2_consumed: "CO2 Consumption",
+	location: "Location",
+	money: "Money",
+	time: "Date",
+	real_time: "Time",
+	distance_traveled: "Distance",
 	// Characters
 	narrator: "Narrator",
 	granfather: "Grandfather",

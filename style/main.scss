@@ -24,6 +24,16 @@ $text-light: rgb(243, 240, 240);
   display: none;
 }
 
+.player-stats {
+  display: flex;
+  gap: 0.5rem;
+
+  .stat {
+    display: flex;
+    gap: 0.25rem;
+  }
+}
+
 .game {
   position: absolute;
   width: 100%;
