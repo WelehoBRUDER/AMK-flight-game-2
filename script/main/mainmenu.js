@@ -6,36 +6,18 @@ const optionbutton = document.querySelector("#option-button");
 const optionsmenu = document.querySelector("#option-menu");
 
 const startbutton = document.querySelector("#startgame");
-const startreturn = document.querySelector("#startreturn");
 const loadbutton = document.querySelector("#loadgame");
-const loadreturn = document.querySelector("#loadreturn");
 const helpbutton = document.querySelector("#readhelp");
 const storybutton = document.querySelector("#readstory");
 const musicbutton = document.querySelector("#music");
-const helpreturn = document.querySelector("#helpreturn");
-const closebutton = document.querySelector("#close-dialog");
+const closebutton = document.querySelector("#close");
 
-const click = new Audio("sounds/click.mp3");
-const shanty = new Audio("sounds/seashanty2.mp3");
-click.load();
-shanty.load();
+const closedialog = document.querySelector("#close-dialog");
 
-let audioplaying = false;
 let optionsopen = false;
 
-function playAudio(src, volume) {
-	src.volume = volume;
-	src.play();
-}
-
-function playMusic(src, volume) {
-	src.volume = volume;
-	src.loop = true;
-	src.play();
-}
-
 optionbutton.addEventListener("click", function() {
-	playAudio(click, 0.3);
+	soundController.playSound("click");
 	if (optionsopen) {
 		optionsmenu.style.display = "none";
 		optionsopen = false;
@@ -46,47 +28,34 @@ optionbutton.addEventListener("click", function() {
 })
 
 startbutton.addEventListener("click", function() {
-	playAudio(click, 0.3);
+	soundController.playSound("click");
 	mapscreen.hidden = false;
 	maparea.hidden = false;
 	setup();
 })
 
-startreturn.addEventListener("click", function() {
-	playAudio(click, 0.3);
-})
-
 loadbutton.addEventListener("click", function() {
-	playAudio(click, 0.3);
-})
-
-loadreturn.addEventListener("click", function() {
-	playAudio(click, 0.3);
+	soundController.playSound("click");
 })
 
 helpbutton.addEventListener("click", function() {
-	playAudio(click, 0.3);
-})
-
-helpreturn.addEventListener("click", function() {
-	playAudio(click, 0.3);
+	soundController.playSound("click");
 })
 
 storybutton.addEventListener("click", function() {
-	playAudio(click, 0.3);
-})
-
-closebutton.addEventListener("click", function() {
-	playAudio(click, 0.3);
+	soundController.playSound("click");
 })
 
 musicbutton.addEventListener("click", function() {
-	playAudio(click, 0.3);
-	if (audioplaying) {
-		playMusic(shanty, 0);
-		audioplaying = false;
-	} else {
-		playMusic(shanty, 0.2);
-		audioplaying = true;
-	}
+	soundController.playSound("click");
+})
+
+closebutton.addEventListener("click", function() {
+	soundController.playSound("click");
+	optionsmenu.style.display = "none";
+	optionsopen = false;
+})
+
+closedialog.addEventListener("click", function() {
+	soundController.playSound("click");
 })
