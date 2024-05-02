@@ -27,16 +27,21 @@ const developerCommands = [
 	{
 		name: "fly",
 		help: "Fly to target cords",
-		verboseHelp: "fly [lat] [lon] - flies to latitude and longitude specified.",
-		availableParams: [[{ id: "latitude coordinate", onSelect: 50 }], [{ id: "longitude coordinate", onSelect: 50 }]],
+		verboseHelp: "fly [lat] [lon] [speed] - flies to latitude and longitude specified at set speed.",
+		availableParams: [
+			[{ id: "latitude coordinate", onSelect: 50 }],
+			[{ id: "longitude coordinate", onSelect: 50 }],
+			[{ id: "flight time in ms", onSelect: 1000 }],
+		],
 		execute: (args) => {
 			const lat = parseFloat(args[0]);
 			const lon = parseFloat(args[1]);
-			if (lat && lon) {
-				moveMap(lat, lon);
-				devConsole.commandHistory.push(`Flying to (${lat},${lon})`);
+			const spd = parseInt(args[2]);
+			if (lat && lon && spd) {
+				moveMap(lat, lon, spd / 2);
+				devConsole.commandHistory.push(`Flying to (${lat},${lon}) in ${spd}ms`);
 			} else {
-				devConsole.commandHistory.push("Too few arguments, expected: fly [lat] [lon]");
+				devConsole.commandHistory.push("Too few arguments, expected: fly [lat] [lon] [speed]");
 			}
 		},
 	},
