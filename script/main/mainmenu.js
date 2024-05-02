@@ -2,11 +2,6 @@ const maparea = document.querySelector("#map-area");
 const mapscreen = document.querySelector("#map");
 const dialogbox = document.querySelector("#dialog-box");
 
-const mainmenu = document.querySelector("#mainmenu");
-const startscreen = document.querySelector("#startscreen");
-const helpscreen = document.querySelector("#helpscreen");
-const loadscreen = document.querySelector("#loadscreen");
-
 const optionbutton = document.querySelector("#option-button");
 const optionsmenu = document.querySelector("#option-menu");
 
@@ -42,10 +37,10 @@ function playMusic(src, volume) {
 optionbutton.addEventListener("click", function() {
 	playAudio(click, 0.3);
 	if (optionsopen) {
-		optionsmenu.hidden = true;
+		optionsmenu.style.display = "none";
 		optionsopen = false;
 	} else {
-		optionsmenu.hidden = false;
+		optionsmenu.style.display = "flex"
 		optionsopen = true;
 	}
 })
