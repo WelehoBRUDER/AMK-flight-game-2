@@ -54,7 +54,7 @@ function unlockMap() {
 
 async function moveMap(lat2, lon2, dist) {
 	const { lat, lon } = currentCords;
-	map.setView([lat, lon], 8, {
+	map.setView([lat, lon], 7, {
 		animate: false,
 	});
 	lockMap();
@@ -63,7 +63,6 @@ async function moveMap(lat2, lon2, dist) {
 	const duration = dist * 2;
 	const bearing = await routes.bearing(lat, lon, lat2, lon2);
 	plane.style.setProperty("--angle", `${bearing}deg`);
-	//map.setView([lat, lon], 8);
 	console.log(lat, lon, lat2, lon2);
 	console.log(dist);
 	setTimeout(() => {
