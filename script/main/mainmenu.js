@@ -17,8 +17,6 @@ const closebutton = document.querySelector("#close");
 const closedialog = document.querySelector("#close-dialog");
 const startbutton = document.querySelector("#start-game");
 
-const button = document.querySelector("button");
-
 let optionsopen = false;
 
 function hideBoxes() {
@@ -72,6 +70,11 @@ storybutton.addEventListener("click", function() {
 })
 
 musicbutton.addEventListener("click", function() {
+	if (soundController.isMusicPlaying()) {
+  	soundController.pauseMusic();
+	} else {
+		soundController.playSound("shanty");
+	}
 })
 
 closebutton.addEventListener("click", function() {
