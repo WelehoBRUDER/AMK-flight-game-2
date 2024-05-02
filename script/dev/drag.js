@@ -44,7 +44,7 @@ function dragElem(elem, snapContainers, onclick, callback, onclick_args, onclick
 		dragProperties.positions.pos3 = e.x;
 		dragProperties.positions.pos4 = e.y;
 		elem.style.position = "absolute";
-		elem.style.zIndex = "9999";
+		elem.style.zIndex = "999";
 		if (snapContainers) elem.style.boxShadow = "inset 0 0 8px 4px gold, 0 0 8px 6px gold";
 		document.onmouseup = closeDragElem;
 		document.onmousemove = (e) => elemDrag(e);
