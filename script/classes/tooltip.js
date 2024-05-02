@@ -21,7 +21,7 @@ class Tooltip {
 			});
 		} else {
 			this.element.addEventListener("mouseover", (e) => {
-				this.show(e, text);
+				this.show(e, this.text);
 			});
 			this.element.addEventListener("mousemove", this.move);
 			this.element.addEventListener("mouseleave", this.hide);

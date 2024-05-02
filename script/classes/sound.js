@@ -16,7 +16,6 @@ const sounds = {
 
 class SoundController {
 	constructor() {
-		this.volume = 0.3;
 		this.players = [];
 	}
 
@@ -58,7 +57,7 @@ class SoundController {
 
 	updateVolume() {
 		this.players.forEach((pl) => {
-			pl.audio.volume = this.volume;
+			pl.audio.volume = settings.getVolume({ music: pl.music });
 		});
 	}
 
@@ -92,7 +91,7 @@ class SoundController {
 		const soundObject = {};
 		const audio = new Audio(sound.src);
 		audio.loop = sound.loop;
-		audio.volume = this.volume;
+		audio.volume = settings.getVolume({ music: sound.music });
 		audio.load();
 		soundObject.id = `${sound.id}${increment > 0 ? increment : ""}`;
 		soundObject.music = sound.music;
