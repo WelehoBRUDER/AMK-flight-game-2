@@ -63,8 +63,8 @@ class SoundController {
 	}
 
 	isMusicPlaying() {
-		const firstMusicPlayer = this.players.forEach((pl) => pl.music);
-		if (firstMusicPlayer && !firstMusicPlayer.paused && firstMusicPlayer.currentTime > 0) return true;
+		const firstMusicPlayer = this.players.find((pl) => pl.music);
+		if (firstMusicPlayer && !firstMusicPlayer?.audio.paused && firstMusicPlayer?.audio.currentTime > 0) return true;
 		return false;
 	}
 
