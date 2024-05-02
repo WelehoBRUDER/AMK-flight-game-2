@@ -67,23 +67,30 @@
       </div>
       <div class="option-menu" id="option-menu" hidden>
         <div class="buttons">
-          <button class="option" id="startgame">Start a new game</button>
-          <button class="option" id="loadgame">Load game</button>
-          <button class="option" id="readhelp">Help</button>
-          <button class="option" id="readstory">Story</button>
+          <button class="option" id="new-game">Start a new game</button>
+          <button class="option" id="load-game">Load game</button>
+          <button class="option" id="read-help">Help</button>
+          <button class="option" id="read-story">Story</button>
           <button class="option" id="music">♫</button>
           <button class="option" id="close">Close</button>
         </div>
         <div class="container">
-          <p>Lorem ipsum</p>
+          <div class="box" id="start-screen" hidden>
+            <h1>Start a new game</h1>
+            <button class="button" id="start-game">Start</button>
+          </div>
+          <div class="box" id="load-screen" hidden>
+            <h1>Load game</h1>
+          </div>
+          <div class="box" id="help-screen" hidden>
+            <h1>Help</h1>
+            <p>Lorem ipsum</p>
+          </div>
+          <div class="box" id="story-screen" hidden>
+            <h1>Story</h1>
+            <p>Lorem ipsum</p>
+          </div>
         </div>
-      </div>
-      <div class="screen" id="loadscreen" hidden>
-        <article>
-          <h1>Load game</h1>
-          <p>(Saved games go here)</p>
-          <button class="button" id="loadreturn">Return</button>
-        </article>
       </div>
       <div class="plane hide">
         <img src="images/plane.png" alt="plane icon">
