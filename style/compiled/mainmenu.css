@@ -53,8 +53,7 @@
   background-color: rgb(60, 60, 150);
 }
 .option-menu .buttons .option:active {
-  background-color: gray;
-  box-shadow: 0 0 60px 5px rgba(60, 60, 60, 0.25);
+  background-color: rgb(30, 30, 75);
   transform: translateY(4px);
 }
 .option-menu .container {
@@ -142,8 +141,7 @@
 }
 
 .button:active {
-  background-color: gray;
-  box-shadow: 0 0 60px 5px rgba(60, 60, 60, 0.25);
+  background-color: rgb(30, 30, 75);
   transform: translateY(4px);
 }
 
