@@ -62,6 +62,12 @@ class SoundController {
 		});
 	}
 
+	isMusicPlaying() {
+		const firstMusicPlayer = this.players.forEach((pl) => pl.music);
+		if (firstMusicPlayer && !firstMusicPlayer.paused && firstMusicPlayer.currentTime > 0) return true;
+		return false;
+	}
+
 	/**
 	 * Stops every sound currently being played
 	 * @param {*} options - {stopMusic: boolean} also stops all music being played.
