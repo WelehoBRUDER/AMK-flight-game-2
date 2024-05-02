@@ -1,12 +1,13 @@
-const maparea = document.querySelector("#map-area");
-const mapscreen = document.querySelector("#map");
-
+const startmenu = document.querySelector("#start-menu");
 const optionsmenu = document.querySelector("#option-menu");
 const buttons = document.querySelector("#buttons");
 const startscreen = document.querySelector("#start-screen");
 const loadscreen = document.querySelector("#load-screen");
 const helpscreen = document.querySelector("#help-screen");
 const storyscreen = document.querySelector("#story-screen");
+
+const maparea = document.querySelector("#map-area");
+const mapscreen = document.querySelector("#map");
 
 const optionbutton = document.querySelector("#option-button");
 const newgamebutton = document.querySelector("#new-game");
@@ -29,9 +30,18 @@ function hideBoxes() {
 
 document.querySelectorAll("button").forEach((btn) => {
     btn.addEventListener("click", () => {
-			soundController.playSound("click", true)
-		});
-});
+			soundController.playSound("click", true);
+		})
+})
+
+function hideStart() {
+	startmenu.hidden = true;
+}
+
+startmenu.addEventListener("click", function() {
+	startmenu.style.opacity = "0";
+	setTimeout(hideStart, 1000);
+})
 
 optionbutton.addEventListener("click", function() {
 	if (optionsopen) {
