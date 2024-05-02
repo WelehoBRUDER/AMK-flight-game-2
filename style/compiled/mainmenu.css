@@ -21,7 +21,8 @@
   transform: translate(-50%, -50%);
 }
 .option-menu .buttons {
-  border: 2px solid white;
+  border: 1rem rgb(60, 60, 60) ridge;
+  border-right: none;
   box-sizing: border-box;
   padding: 1rem;
   align-content: center;
@@ -46,9 +47,18 @@
 }
 .option-menu .container {
   display: flex;
-  border: 2px solid blue;
+  border: 1rem rgb(60, 60, 60) ridge;
   box-sizing: border-box;
   width: 100%;
+}
+.option-menu .container .box {
+  margin: 1rem;
+}
+.option-menu .container .box h1 {
+  font-size: 3rem;
+}
+.option-menu .container .box p {
+  font-size: 1.5rem;
 }
 
 .button {

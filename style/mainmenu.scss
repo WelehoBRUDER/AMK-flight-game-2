@@ -21,7 +21,8 @@
   transform: translate(-50%, -50%);
 
   .buttons {
-    border: 2px solid white;
+    border: 1rem rgb(60, 60, 60) ridge;
+    border-right: none;
     box-sizing: border-box;
     padding: 1rem;
     align-content: center;
@@ -50,9 +51,21 @@
 
   .container {
     display: flex;
-    border: 2px solid blue;
+    border: 1rem rgb(60, 60, 60) ridge;
     box-sizing: border-box;
     width: 100%;
+
+    .box {
+      margin: 1rem;
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
   }
 }
 
