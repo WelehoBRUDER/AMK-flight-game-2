@@ -3,10 +3,15 @@ const mapscreen = document.querySelector("#map");
 const dialogbox = document.querySelector("#dialog-box");
 
 const mainmenu = document.querySelector("#mainmenu");
+const startscreen = document.querySelector("#startscreen");
 const helpscreen = document.querySelector("#helpscreen");
 const loadscreen = document.querySelector("#loadscreen");
 
+const optionbutton = document.querySelector("#option-button");
+const optionsmenu = document.querySelector("#option-menu");
+
 const startbutton = document.querySelector("#startgame");
+const startreturn = document.querySelector("#startreturn");
 const loadbutton = document.querySelector("#loadgame");
 const loadreturn = document.querySelector("#loadreturn");
 const helpbutton = document.querySelector("#readhelp");
@@ -21,6 +26,7 @@ click.load();
 shanty.load();
 
 let audioplaying = false;
+let optionsopen = false;
 
 function playAudio(src, volume) {
 	src.volume = volume;
@@ -33,56 +39,50 @@ function playMusic(src, volume) {
 	src.play();
 }
 
+optionbutton.addEventListener("click", function() {
+	playAudio(click, 0.3);
+	if (optionsopen) {
+		optionsmenu.hidden = true;
+		optionsopen = false;
+	} else {
+		optionsmenu.hidden = false;
+		optionsopen = true;
+	}
+})
+
 startbutton.addEventListener("click", function() {
 	playAudio(click, 0.3);
-	mainmenu.hidden = true;
-	helpscreen.hidden = true;
-	loadscreen.hidden = true;
-	maparea.hidden = false;
 	mapscreen.hidden = false;
+	maparea.hidden = false;
 	setup();
+})
+
+startreturn.addEventListener("click", function() {
+	playAudio(click, 0.3);
 })
 
 loadbutton.addEventListener("click", function() {
 	playAudio(click, 0.3);
-	mainmenu.hidden = true;
-	helpscreen.hidden = true;
-	mapscreen.hidden = true;
-	loadscreen.hidden = false;
 })
 
 loadreturn.addEventListener("click", function() {
 	playAudio(click, 0.3);
-	loadscreen.hidden = true;
-	mainmenu.hidden = false;
-	mapscreen.hidden = false;
 })
 
 helpbutton.addEventListener("click", function() {
 	playAudio(click, 0.3);
-	mainmenu.hidden = true;
-	mapscreen.hidden = true;
-	loadscreen.hidden = true;
-	helpscreen.hidden = false;
 })
 
 helpreturn.addEventListener("click", function() {
 	playAudio(click, 0.3);
-	helpscreen.hidden = true;
-	mainmenu.hidden = false;
-	mapscreen.hidden = false;
 })
 
 storybutton.addEventListener("click", function() {
 	playAudio(click, 0.3);
-	dialogbox.style.display = "flex";
-	closebutton.hidden = false;
 })
 
 closebutton.addEventListener("click", function() {
 	playAudio(click, 0.3);
-	dialogbox.style.display = "none";
-	closebutton.hidden = true;
 })
 
 musicbutton.addEventListener("click", function() {

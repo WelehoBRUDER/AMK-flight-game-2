@@ -58,17 +58,26 @@
   <div class="game" id="game">
     <div class="top-bar">
       <div class="quest-title">Grandpa's lost sauce</div>
-      <div class="buttons" id="buttons">
+      <button class="button" id="option-button">Options</button>
+    </div>
+    <div class="map-area" id="map-area">
+      <div class="mainmenu" id="mainmenu">
+        <!--Background image goes here-->
+      </div>
+      <div class="option-menu" id="option-menu" hidden>
         <button class="button" id="startgame">Start a new game</button>
         <button class="button" id="loadgame">Load game</button>
         <button class="button" id="readhelp">Help</button>
         <button class="button" id="readstory">Story</button>
         <button class="button" id="music">♫</button>
       </div>
-    </div>
-    <div class="map-area" id="map-area">
-      <div class="mainmenu" id="mainmenu">
-        <!--Background image goes here-->
+      <div class="screen" id="startscreen" hidden>
+        <article>
+          <h1>Start a new game</h1>
+          <p>(Number of players etc etc)</p>
+          <button class="button" id="game-begin">Start game</button>
+          <button class="button" id="startreturn">Return</button>
+        </article>
       </div>
       <div class="screen" id="helpscreen" hidden>
         <article>
