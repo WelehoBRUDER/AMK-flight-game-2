@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from db import get_all_players_from_db, get_all_airports, get_country, generate_random_id, get_all_non_small_airports, draw_airports_from_origin, get_airport, bearing_between_two_points
+from db import get_all_players_from_db, get_all_airports, get_country, generate_random_id, get_all_non_small_airports, draw_airports_from_origin, get_airport, bearing_between_two_points, init_tables
 
 app = Flask(__name__)
 CORS(app)  # This configures the CORS requests automatically so that we don't need to rip all our hair out.
@@ -23,7 +23,6 @@ def airports_around():
     ident = request.args.get("ident")
     type = request.args.get("type")
     airport = get_airport(ident)
-    print(airport["latitude_deg"])
     response = jsonify(draw_airports_from_origin(airport["latitude_deg"], airport["longitude_deg"], type))
     return response
 
@@ -55,7 +54,23 @@ def get_bearing():
     angle = jsonify(bearing_between_two_points((lat1, lon1), (lat2, lon2)))
     return angle
     
+# This function ensures that the database tables have been modified to suit the game's needs.
+# It looks for a file named "init.txt". If it can't be found, then the tables will be altered.
+# If the file is found, then this function is essentially skipped.
+# The contents of init.txt don't matter, the file just needs to exist. It is in .gitignore.
+def initialize_db():
+    init_found = False
+    try:
+        open("init.txt", "r")
+        init_found = True
+    except FileNotFoundError:
+        print("Initializing game (First launch detected)")
+    if not init_found:
+        init_tables()
+        init = open("init.txt", "w")
+        init.write("finished=True")
+        print("Game initialized!")
 
-
+initialize_db()
 # Run server
 app.run(host="127.0.0.1", port=5000)

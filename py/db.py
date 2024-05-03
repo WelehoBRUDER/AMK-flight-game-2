@@ -10,6 +10,33 @@ db = {}
 debug_mode = False
 
 
+all_airports = []
+
+class Airport:
+  def __init__(self, port):
+    self.id = port["id"]
+    self.ident = port["ident"]
+    self.type = port["type"]
+    self.name = port["name"]
+    self.latitude_deg = port["latitude_deg"]
+    self.longitude_deg = port["longitude_deg"]
+    self.elevation_ft = port["elevation_ft"]
+    self.continent = port["continent"]
+    self.iso_country = port["iso_country"]
+    self.municipality = port["municipality"]
+    self.gps_code = port["gps_code"]
+    self.wikipedia_link = port["wikipedia_link"]
+    
+    
+def load_ports():
+    ports = get_all_airports()
+    for port in ports:
+        all_airports.append(port)
+    
+
+
+
+
 def connect_to_db():
     # Loads .env to current os.environ
     load_dotenv()
@@ -40,7 +67,7 @@ def draw_airports_from_origin(lat, lon, port_type):
     bearings_text = ("North", "North-East", "East", "South-East", "South", "South-West", "West", "North-West")
     flights = []
     # Minimum and maximum distance from current airport in miles
-    min_max_dists = {"small_airport": (10, 300), "medium_airport": (75, 450), "large_airport": (90, 600)}
+    min_max_dists = {"medium_airport": (200, 1000), "large_airport": (200, 1000)}
     min_dist, max_dist = min_max_dists[port_type]
     for i in range(len(flight_bearings)):
         bearing = flight_bearings[i]
@@ -52,14 +79,15 @@ def draw_airports_from_origin(lat, lon, port_type):
         point_lat, point_lon = destination.latitude, destination.longitude
         # Request two airports that are as close as possible to the point
         # This is done by adding the latitude and longitude together and sorting the absolute value
-        db["cursor"].execute(
-            f"""SELECT * FROM airport
-             ORDER BY ABS({point_lat} - latitude_deg) + ABS({point_lon} - longitude_deg) ASC
-              LIMIT 16;""")
+        # db["cursor"].execute(
+        #     f"""SELECT * FROM airport
+        #      ORDER BY ABS({point_lat} - latitude_deg) + ABS({point_lon} - longitude_deg) ASC
+        #       LIMIT 16;""")
         # This could also be fetchall() since the query is limited to 16
         # But things might break if somehow more were to slip past
-        airport_data = db["cursor"].fetchmany(16)
+        # airport_data = db["cursor"].fetchmany(16)
         # If airports were found, add them to the list that will be returned
+        airport_data = get_airports_sorted_by_distance(point_lat, point_lon, 16)
         if airport_data:
             for airport in airport_data:
                 # Calculate the distance between origin and flight point
@@ -73,10 +101,18 @@ def draw_airports_from_origin(lat, lon, port_type):
 # Just gets a random airport with no criteria.
 # This is used for picking the starting airport.
 def get_random_airport():
-    db["cursor"].execute("SELECT * FROM airport ORDER BY RAND() LIMIT 1;")
-    airport_data = db["cursor"].fetchone()
-    if airport_data:
-        return airport_data
+    index = random.randint(0, len(all_airports) - 1)
+    return all_airports[index]
+
+def get_airports_sorted_by_distance(lat, lon, amnt):
+    def sorting(p):
+        return abs((p["latitude_deg"] - lat) + (p["longitude_deg"] - lon))
+    all_airports.sort(key=sorting)
+    items = []
+    for i in range(amnt + 1):
+        items.append(all_airports[i])
+    return items
+    
 
 
 # This function calculates the distance between two geographical points
@@ -102,20 +138,25 @@ def bearing_between_two_points(point_a, point_b):
 # Example: get_airport("EFHK")
 def get_airport(code):
     if code:
-        db["cursor"].execute(f"SELECT * FROM airport WHERE ident = '{code}';")
-        airport = db["cursor"].fetchone()
-        if airport:
-            return airport
+        port = {}
+        for airport in all_airports:
+          if airport["ident"] == code:
+              port = airport
+        if port:
+            return port
         return print(f"Airport {code} doesn't exist.")
+        
     return print("Airport code can't be empty!")
 
 
 def get_airport_by_cords(lat, lon):
     if lat and lon:
-        db["cursor"].execute(f"SELECT * FROM airport WHERE latitude_deg = {lat} AND longitude_deg = {lon};")
-        airport = db["cursor"].fetchone()
-        if airport:
-            return airport
+        port = {}
+        for airport in all_airports:
+          if airport["latitude_deg"] == lat and airport["longitude_deg"] == lon:
+              port = airport
+        if port:
+            return port
 
 
 # This function returns data about all requested airports at once
@@ -200,7 +241,7 @@ def delete_unnecessary_airports():
     # First trim to the airport types we like
     db["cursor"].execute("""
     DELETE FROM airport
-    WHERE NOT type = "small_airport" AND NOT type = "medium_airport" AND NOT type = "large_airport";
+    WHERE NOT type = "medium_airport" AND NOT type = "large_airport";
     ;""")
     db["database"].commit()
     # Then remove ports without a municipality
@@ -339,7 +380,9 @@ def track_progress(origin_latitude, origin_longitude, halfway_latitude, halfway_
     return {}
 
 
+
 connect_to_db()
+load_ports()
 # print(distance_between_airports("EFHK", "EFIV"))
 # print(get_some_airports())
 # port = get_airport(code="EFHK")

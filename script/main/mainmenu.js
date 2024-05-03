@@ -106,4 +106,10 @@ closebutton.addEventListener("click", function () {
 
 if (dev.enabled) {
 	hideStart();
+	optionsmenu.style.display = "none";
+	mapscreen.hidden = false;
+	maparea.hidden = false;
+	closebutton.style.display = "block";
+	optionbutton.hidden = false;
+	setup();
 }
