@@ -3,6 +3,16 @@ const mainCon = document.createElement('div');
 mainCon.className = 'diceGame';
 document.body.appendChild(mainCon);
 
+// NPC Container
+const computerCon = document.createElement('div');
+computerCon.className = 'computer';
+mainCon.appendChild(computerCon);
+
+// Container for NPC's dices
+const computerDices = document.createElement('div');
+computerDices.className = 'diceSet';
+computerCon.appendChild(computerDices);
+
 // PLayers container
 const playerCon = document.createElement('div');
 playerCon.className = 'player';
@@ -19,16 +29,6 @@ rollBtn.textContent = 'Roll the Dices';
 rollBtn.className = 'roll';
 playerCon.appendChild(rollBtn);
 
-// NPC Container
-const computerCon = document.createElement('div');
-computerCon.className = 'computer';
-mainCon.appendChild(computerCon);
-
-// Container for NPC's dices
-const computerDices = document.createElement('div');
-computerDices.className = 'diceSet';
-computerCon.appendChild(computerDices);
-
 function diceCreation() {
   const diceClass = document.createElement('div');
   diceClass.className = 'dice';
@@ -42,6 +42,10 @@ function diceCreation() {
   }
   return diceClass;
 }
+
+let pElemOne = document.createElement('p')
+computerCon.appendChild(pElemOne)
+let computerTotal = 0;
 
 function rollComputerDices() {
   const diceSet = computerCon.querySelector('.diceSet');
@@ -61,25 +65,65 @@ function rollComputerDices() {
 
     displayDiceValues(compDice, [value]);
   }
+  computerTotal = 0;
+  for (let i = 0; i < compDiceValues.length; i++) {
+    computerTotal += compDiceValues[i];
+  }
+  setTimeout(() => {
+    pElemOne.textContent = `Ahmed's total: ${computerTotal}`
+  }, 3500)
 }
 
+let h1Elem = document.createElement('h1');
+let pElemTwo = document.createElement('p');
+mainCon.appendChild(h1Elem);
+playerCon.appendChild(pElemTwo);
+let playerTotal = 0;
+let attempts = 3;
+
 function rollPlayerDices() {
-  const diceSet = playerCon.querySelector('.diceSet');
-  diceSet.innerHTML = '';
+  if (attempts > 0) {
+    attempts--;
 
-  const playerDiceValues = [];
+    const diceSet = playerCon.querySelector('.diceSet');
+    diceSet.innerHTML = '';
 
-  // Create and append three separate dice models for the player
-  for (let i = 0; i < 3; i++) {
-    const playerDice = diceCreation();
-    diceSet.appendChild(playerDice);
+    const playerDiceValues = [];
 
-    const value = Math.floor(Math.random() * 6) + 1;
-    playerDiceValues.push(value);
+    // Create and append three separate dice models for the player
+    for (let i = 0; i < 3; i++) {
+      const playerDice = diceCreation();
+      diceSet.appendChild(playerDice);
 
-    console.log('Player dice values: ' + playerDiceValues);
+      const value = Math.floor(Math.random() * 6) + 1;
+      playerDiceValues.push(value);
 
-    displayDiceValues(playerDice, [value]);
+      console.log('Player dice values: ' + playerDiceValues);
+
+      displayDiceValues(playerDice, [value]);
+    }
+
+    h1Elem.textContent = 'Attempts left ' + attempts + '.';
+
+    playerTotal = 0;
+    for (let i = 0; i < playerDiceValues.length; i++) {
+      playerTotal += playerDiceValues[i];
+      console.log(playerTotal);
+    }
+    pElemTwo.textContent = `Your total: ${playerTotal}`;
+
+    if (playerTotal > computerTotal) {
+      rollBtn.hidden = true;
+      h1Elem.hidden = true
+      setTimeout(() => {
+        pElemTwo.innerHTML = `
+          <p>\Congratulations you've defeated me with a score of ${playerTotal}.<br>Promise is a promise. Here's your (insert item name)\</br></p>
+        `
+      }, 3500)
+    } else if (attempts === 0) {
+      rollBtn.hidden = true;
+      pElemTwo.textContent = `You didn't beat me this time. Unfortunately (insert item name) is gonna cost you.`;
+    }
   }
 }
 
@@ -90,7 +134,7 @@ function displayDiceValues(dice, values) {
       const rotation = getRotationForValue(value);
 
       dice.style.transition = '0.2s';
-      dice.style.animationFillMode = 'forwards'
+      dice.style.animationFillMode = 'forwards';
       dice.style.transform = rotation;
       setTimeout(() => {
         dice.style.transition = '1s ease';
