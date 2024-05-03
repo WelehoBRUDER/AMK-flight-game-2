@@ -31,75 +31,79 @@ function hideBoxes() {
 document.querySelectorAll("button").forEach((btn) => {
 	btn.addEventListener("click", () => {
 		soundController.playSound("click", true);
-	})
-})
+	});
+});
 
 function hideStart() {
 	startmenu.hidden = true;
 }
 
-startmenu.addEventListener("click", function() {
+startmenu.addEventListener("click", function () {
 	startmenu.style.opacity = "0";
 	closebutton.style.display = "none";
 	setTimeout(hideStart, 1000);
-})
+});
 
-optionbutton.addEventListener("click", function() {
+optionbutton.addEventListener("click", function () {
 	if (optionsopen) {
 		optionsmenu.style.display = "none";
 		optionsopen = false;
 	} else {
-		optionsmenu.style.display = "flex"
+		optionsmenu.style.display = "flex";
 		optionsopen = true;
 	}
-})
+});
 
-newgamebutton.addEventListener("click", function() {
+newgamebutton.addEventListener("click", function () {
 	hideBoxes();
 	startscreen.hidden = false;
-})
+});
 
-startbutton.addEventListener("click", function() {
+startbutton.addEventListener("click", function () {
 	optionsmenu.style.display = "none";
 	mapscreen.hidden = false;
 	maparea.hidden = false;
 	closebutton.style.display = "block";
 	optionbutton.hidden = false;
 	setup();
-})
+});
 
-loadbutton.addEventListener("click", function() {
+loadbutton.addEventListener("click", function () {
 	hideBoxes();
 	loadscreen.hidden = false;
-})
+});
 
-helpbutton.addEventListener("click", function() {
+helpbutton.addEventListener("click", function () {
 	hideBoxes();
 	helpscreen.hidden = false;
-})
+});
 
-storybutton.addEventListener("click", function() {
+storybutton.addEventListener("click", function () {
 	hideBoxes();
 	buttons.hidden = true;
 	storyscreen.hidden = false;
-})
+});
 
-closedialog.addEventListener("click", function() {
+closedialog.addEventListener("click", function () {
 	buttons.hidden = false;
 	storyscreen.hidden = true;
-})
+});
 
-musicbutton.addEventListener("click", function() {
+musicbutton.addEventListener("click", function () {
 	if (soundController.isMusicPlaying()) {
-  	soundController.pauseMusic();
+		soundController.pauseMusic();
 		musicbutton.textContent = "Music: OFF";
 	} else {
 		soundController.playSound("shanty");
 		musicbutton.textContent = "Music: ON";
 	}
-})
+});
 
-closebutton.addEventListener("click", function() {
+closebutton.addEventListener("click", function () {
 	optionsmenu.style.display = "none";
 	optionsopen = false;
-})
+});
+
+if (dev.enabled) {
+	hideStart();
+}

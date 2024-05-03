@@ -28,9 +28,7 @@ class Settings {
 
 	setVolume(options) {
 		if (options.music !== undefined) {
-			console.log(options.music);
 			this.musicVolume = options.music;
-			console.log(this.musicVolume);
 		}
 		if (options.sound) {
 			this.soundVolume = options.sound;
@@ -107,6 +105,25 @@ settingsOptions;
 
 const settings = new Settings({});
 
-setTimeout(() => {
-	document.querySelector("#game").append(createSettings());
-}, 800);
+class Dev {
+	constructor() {
+		this.enabled = false;
+	}
+
+	load() {
+		const saved = localStorage.getItem("grandpas-lost-sauce_dev");
+		if (saved) {
+			const mode = JSON.parse(saved);
+			Object.keys(this).forEach((key) => {
+				this[key] = mode[key] ?? this[key];
+			});
+		}
+	}
+
+	save() {
+		localStorage.setItem("grandpas-lost-sauce_dev", JSON.stringify(this));
+	}
+}
+
+const dev = new Dev();
+dev.load();

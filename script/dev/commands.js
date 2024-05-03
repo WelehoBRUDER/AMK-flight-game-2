@@ -45,4 +45,36 @@ const developerCommands = [
 			}
 		},
 	},
+	{
+		name: "dev",
+		help: "Enable developer mode",
+		verboseHelp:
+			"dev [enable/disable] [save (optional)] - Developer mode allows the use of cheats and debug info. Parameter save enables developer mode automatically every time.",
+		availableParams: [
+			[{ id: "y/n - enable or disable developer mode", onSelect: "y" }],
+			[{ id: "save dev mode (leave empty to not save)", onSelect: "save" }],
+		],
+		execute: (args) => {
+			const mode = args[0];
+			const save = args[1];
+			if (mode) {
+				let message = "";
+				if (mode === "y" || mode === "yes") {
+					dev.enabled = true;
+					message = "Enabled developer mode.";
+				} else if (mode === "n" || mode === "no") {
+					dev.enabled = false;
+					message = "Disabled developer mode.";
+				} else {
+					message = `Incorrect argument "${mode}". Expected either y/yes or n/no.`;
+				}
+				if (save === "save") {
+					dev.save();
+					devConsole.commandHistory.push(message + " Saved developer mode settings");
+				}
+			} else {
+				devConsole.commandHistory.push("Too few arguments, expected: dev [enable/disable] [save]");
+			}
+		},
+	},
 ];
