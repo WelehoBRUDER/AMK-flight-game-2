@@ -56,47 +56,6 @@ def connect_to_db():
     db["cursor"] = db["database"].cursor(dictionary=True)
 
 
-# This function returns 128 random airports, 16 in each direction
-# The origin point is the latitude and longitude of the current airport
-# The return value is a list of dictionaries with the keys "flight_direction", "distance" and "airport"
-# Distance is returned in kilometers.
-# [{"flight_direction: "North-West", "distance": 129, "airport": {...}}, ...]
-def draw_airports_from_origin(lat, lon, port_type):
-    # North, North-East, East, South-East, South, South-West, West, North-West
-    flight_bearings = (0, 45, 90, 135, 180, 225, 270, 315)
-    bearings_text = ("North", "North-East", "East", "South-East", "South", "South-West", "West", "North-West")
-    flights = []
-    # Minimum and maximum distance from current airport in miles
-    min_max_dists = {"medium_airport": (200, 1000), "large_airport": (200, 1000)}
-    min_dist, max_dist = min_max_dists[port_type]
-    for i in range(len(flight_bearings)):
-        bearing = flight_bearings[i]
-        # Randomly pick distance to travel to
-        flight_distance = random.randint(min_dist, max_dist)
-        # Get latitude and longitude of randomly selected place using the origin point
-        destination = distance.distance(miles=flight_distance).destination((lat, lon), bearing=bearing)
-        # Gets the latitude and longitude of the desired point
-        point_lat, point_lon = destination.latitude, destination.longitude
-        # Request two airports that are as close as possible to the point
-        # This is done by adding the latitude and longitude together and sorting the absolute value
-        # db["cursor"].execute(
-        #     f"""SELECT * FROM airport
-        #      ORDER BY ABS({point_lat} - latitude_deg) + ABS({point_lon} - longitude_deg) ASC
-        #       LIMIT 16;""")
-        # This could also be fetchall() since the query is limited to 16
-        # But things might break if somehow more were to slip past
-        # airport_data = db["cursor"].fetchmany(16)
-        # If airports were found, add them to the list that will be returned
-        airport_data = get_airports_sorted_by_distance(point_lat, point_lon, 16)
-        if airport_data:
-            for airport in airport_data:
-                # Calculate the distance between origin and flight point
-                point_a, point_b = [lat, lon], [airport["latitude_deg"], airport["longitude_deg"]]
-                dist_to_port = int(distance_between_two_points(point_a, point_b))
-                flights.append({"flight_direction": bearings_text[i], "distance": dist_to_port, "airport": airport})
-
-    return flights
-
 
 # Just gets a random airport with no criteria.
 # This is used for picking the starting airport.
@@ -105,11 +64,10 @@ def get_random_airport():
     return all_airports[index]
 
 def get_airports_sorted_by_distance(lat, lon, amnt):
-    def sorting(p):
-        return abs((p["latitude_deg"] - lat) + (p["longitude_deg"] - lon))
-    all_airports.sort(key=sorting)
     items = []
     for i in range(amnt + 1):
+        item = all_airports[i]
+        item["distance"] = distance_between_two_points([item["latitude_deg"], item["longitude_deg"]],  [lat, lon])
         items.append(all_airports[i])
     return items
     
@@ -241,7 +199,7 @@ def delete_unnecessary_airports():
     # First trim to the airport types we like
     db["cursor"].execute("""
     DELETE FROM airport
-    WHERE NOT type = "medium_airport" AND NOT type = "large_airport";
+    WHERE NOT type = "large_airport";
     ;""")
     db["database"].commit()
     # Then remove ports without a municipality
@@ -293,92 +251,6 @@ def modify_game_table():
 def init_tables():
     delete_unnecessary_airports()
     modify_game_table()
-
-
-"""
-    This function checks if the player has traveled around the entire world.
-    It will check when the player flies over the halfway point, and when they finish their journey.
-"""
-
-
-def track_progress(origin_latitude, origin_longitude, halfway_latitude, halfway_longitude, location, last_location,
-                   **kwargs):
-    # This local function is used when the player overshoots their flight.
-    # If the player for example flies >500km over the check point, then this would happen:
-    # The flight between the player's last airport and current point is broken into twenty steps.
-    # Each step is 5% of the distance and will be checked in order.
-    # Once the step that crosses the distance is found, it is set as the player's halfway point.
-    # From then on, the halfway point will be treated as the origin.
-    def check_steps(start_lat, start_lon, finish=False):
-        # Break the flight up to ten steps.
-        for i in range(1, 21):
-            # Gets the current step's point in the flight path.
-            # (i / 10) will yield a multiplier that starts at 0.05 (5%) and increments by 5% each step.
-            # 1.609344 = 1 mile to km.
-            # This part essentially goes through the current flight at 5% intervals.
-            point_in_flight = distance.distance(
-                miles=(cur_last_dist * (i / 20)) / 1.609344).destination(
-                (last_lat, last_lon), bearing=angle)
-            point_lat, point_lon = point_in_flight.latitude, point_in_flight.longitude
-            # Check the distance between current flight point and the origin / halfway point.
-            # If not, then continue the loop until we reach 100%
-            if distance_between_two_points((start_lat, start_lon),
-                                           (point_lat, point_lon)) >= halfway_distance:
-                # If the player hasn't yet reached the halfway point, then it will be set.
-                if not finish:
-                    return {"halfway": True, "point": (point_lat, point_lon)}
-                # If the player has reached the halfway point before, they win!
-                else:
-                    return {"finished": True, "point": (point_lat, point_lon)}
-
-        return {"halfway": False, "finished": False}
-
-    # Half of the earth's circumference would be ~20000km
-    # But reaching that is nearly impossible, so we're checking for something far less than that.
-    halfway_distance = 15000
-    # Get current and last airport
-    current_location = get_airport(location)
-    last_location = get_airport(last_location)
-    # Get coordinates of current and last airport
-    current_lat, current_lon = current_location["latitude_deg"], current_location["longitude_deg"]
-    last_lat, last_lon = last_location["latitude_deg"], last_location["longitude_deg"]
-    # Get distance between current and last airport.
-    cur_last_dist = distance_between_two_points((last_lat, last_lon), (current_lat, current_lon))
-    # Calculate the flight angle between current and last airport.
-    angle = bearing_between_two_points((last_lat, last_lon), (current_lat, current_lon))
-
-    # If the player hasn't yet reached the halfway point, then use origin.
-    if not halfway_latitude or not halfway_longitude:
-
-        # Calculate distance between origin and player's location
-        distance_between = distance_between_two_points((origin_latitude, origin_longitude), (current_lat, current_lon))
-        # If the player has passed the halfway point, inform them
-        if distance_between >= halfway_distance:
-            return {"halfway": True, "point": (current_lat, current_lon)}
-        # If the player overshot, then find the passing point with a more thorough check.
-        if (distance_between + cur_last_dist) >= halfway_distance:
-            check_steps(origin_latitude, origin_longitude)
-        # You didn't get far enough yet!
-        else:
-            return {"halfway": False}
-
-    # Otherwise, use the halfway point as origin.
-    else:
-
-        # Calculate distance between halfway and player's location
-        distance_between = distance_between_two_points((halfway_latitude, halfway_longitude),
-                                                       (current_lat, current_lon))
-        # If the player has returned to their origin, they win!
-        if distance_between >= halfway_distance:
-            return {"finished": True}
-        # If the player overshot their origin, check more thoroughly.
-        if (distance_between + cur_last_dist) >= halfway_distance:
-            check_steps(halfway_latitude, halfway_longitude)
-        # You didn't get far enough yet (twice)!
-        else:
-            return {"finished": False}
-    return {}
-
 
 
 connect_to_db()

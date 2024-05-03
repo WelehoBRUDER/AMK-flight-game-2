@@ -4,6 +4,7 @@ class Player {
 		this.screen_name = player.screen_name;
 		this.co2_consumed = parseInt(player.co2_consumed);
 		this.location = player.location;
+		this.location_name = player.location_name;
 		this.money = player.money;
 		this.time = player.time;
 		this.real_time_last_check = 0;
@@ -40,7 +41,7 @@ class Player {
 		return {
 			screen_name: this.screen_name,
 			co2_consumed: this.co2_consumed,
-			location: this.location,
+			location: this.location_name,
 			money: this.money,
 			time: this.time,
 			real_time: this.real_time,
@@ -68,7 +69,8 @@ class Player {
 const testPlayer = new Player({
 	screen_name: "Test",
 	co2_consumed: 0,
-	location: "HS",
+	location: "EFHK",
+	location_name: "Helsinki Vantaa Airport",
 	money: 500,
 	time: 0,
 	real_time_last_check: 0,

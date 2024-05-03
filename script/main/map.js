@@ -10,21 +10,46 @@ function createMap() {
 	document.querySelector("#map").style.zIndex = "1";
 }
 
+function canClick(marker) {
+	return map.dragging._enabled && !marker._icon.classList.contains("greyed-out") && !marker._icon.classList.contains("gold-shine");
+}
+
 async function addMarkers() {
-	const ports = await routes.getAirportsAround("EFHK", "large_airport");
-	// const ports = await routes.getAllNonSmallAirports();
+	clearMarkers();
+	const ports = await routes.getAirportsAround(testPlayer.location, "large_airport");
+	const markers = [];
 	for (const port of ports) {
-		const marker = L.marker([port.airport.latitude_deg, port.airport.longitude_deg], { icon: mapIcons.port, interactive: true }).addTo(map);
+		const marker = L.marker([port.latitude_deg, port.longitude_deg], { icon: mapIcons.port, interactive: true }).addTo(map);
 		marker.distance = port.distance;
-		const tooltip = new Tooltip({ marker, text: port.airport.name });
+		let hoverText = port.name;
+
+		if (port.ident === testPlayer.location) {
+			marker._icon.classList.add("gold-shine");
+			hoverText += " (currently here)";
+		}
+		const tooltip = new Tooltip({ marker, text: hoverText });
 		tooltip.create();
 
+		if (marker.distance > 4300) {
+			marker._icon.classList.add("greyed-out");
+		}
+
 		marker.on("click", (e) => {
-			if (map.dragging._enabled) {
-				moveMap(e.latlng.lat, e.latlng.lng, marker.distance);
+			if (canClick(marker)) {
+				moveMap(e.latlng.lat, e.latlng.lng, marker.distance, port);
 			}
 		});
+
+		markers.push(marker);
 	}
+}
+
+function clearMarkers() {
+	map.eachLayer((layer) => {
+		if (layer instanceof L.Marker) {
+			layer.remove();
+		}
+	});
 }
 
 function setup() {
@@ -52,7 +77,7 @@ function unlockMap() {
 	document.querySelector(".leaflet-control-zoom").style.display = "block";
 }
 
-async function moveMap(lat2, lon2, dist) {
+async function moveMap(lat2, lon2, dist, port) {
 	const { lat, lon } = currentCords;
 	map.setView([lat, lon], 7, {
 		animate: false,
@@ -60,11 +85,9 @@ async function moveMap(lat2, lon2, dist) {
 	lockMap();
 	plane.classList.remove("hide");
 
-	const duration = dist * 2;
+	const duration = dist * 1.1;
 	const bearing = await routes.bearing(lat, lon, lat2, lon2);
 	plane.style.setProperty("--angle", `${bearing}deg`);
-	console.log(lat, lon, lat2, lon2);
-	console.log(dist);
 	setTimeout(() => {
 		map.setView([lat2, lon2], map.getZoom(), {
 			animate: true,
@@ -79,7 +102,10 @@ async function moveMap(lat2, lon2, dist) {
 		currentCords.lat = lat2;
 		currentCords.lon = lon2;
 		unlockMap();
-	}, duration + 200);
+		testPlayer.location = port.ident;
+		testPlayer.location_name = port.name;
+		addMarkers();
+	}, duration + 25);
 }
 
 const mapIcons = {
