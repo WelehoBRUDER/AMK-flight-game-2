@@ -19,6 +19,15 @@ class SoundController {
 		this.players = [];
 	}
 
+	getAvailablePlayer(id) {
+		return this.players.find((pl) => {
+			if (pl.id === id) {
+				if ((pl.audio.currentTime === pl.audio.duration && pl.audio.paused) || pl.music) {
+					return pl;
+				}
+			}
+		});
+	}
 	/**
 	 * Plays the sound file specified
 	 * @param {string} id - id of the sound to be played
@@ -26,11 +35,11 @@ class SoundController {
 	 */
 	playSound(id, forceParallel = false) {
 		const sound = sounds[id];
-		const player = this.players.find((pl) => pl.id === id);
-		if (player && !forceParallel) {
+		const player = this.getAvailablePlayer(id);
+		if (player) {
 			player.audio.play();
 		} else {
-			const newPlayer = this.createPlayer(sound, player && forceParallel ? this.players.length : -1);
+			const newPlayer = this.createPlayer(sound);
 			newPlayer.audio.play();
 			this.players.push(newPlayer);
 		}
@@ -87,13 +96,13 @@ class SoundController {
 		this.players = [];
 	}
 
-	createPlayer(sound, increment = -1) {
+	createPlayer(sound) {
 		const soundObject = {};
 		const audio = new Audio(sound.src);
 		audio.loop = sound.loop;
 		audio.volume = settings.getVolume({ music: sound.music });
 		audio.load();
-		soundObject.id = `${sound.id}${increment > 0 ? increment : ""}`;
+		soundObject.id = sound.id;
 		soundObject.music = sound.music;
 		soundObject.audio = audio;
 		return soundObject;

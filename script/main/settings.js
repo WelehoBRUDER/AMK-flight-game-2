@@ -27,8 +27,10 @@ class Settings {
 	}
 
 	setVolume(options) {
-		if (options.music) {
+		if (options.music !== undefined) {
+			console.log(options.music);
 			this.musicVolume = options.music;
+			console.log(this.musicVolume);
 		}
 		if (options.sound) {
 			this.soundVolume = options.sound;
@@ -80,7 +82,6 @@ function createSettings() {
 			slider.type = "range";
 			slider.min = `${setting.values[0]}`;
 			slider.max = `${setting.values[1]}`;
-			console.log(settings[setting.id]);
 			slider.value = settings[setting.id].toString() / setting.scale;
 			container.classList.add(setting.id);
 			if (setting.tooltip) {
@@ -89,7 +90,7 @@ function createSettings() {
 			}
 			textVal.textContent = `${parseInt(slider.value).toString()}`;
 			slider.oninput = () => {
-				const value = parseFloat(slider.value) * setting.scale;
+				const value = parseInt(slider.value) * setting.scale;
 				const callback = setting.callback.replace("<x>", value);
 				eval(callback);
 				textVal.textContent = `${parseInt(slider.value).toString()}`;
