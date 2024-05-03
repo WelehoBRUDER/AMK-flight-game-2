@@ -6,6 +6,9 @@ function createMap() {
 	map = L.map("map").setView([currentCords.lat, currentCords.lon], 5);
 	L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		minZoom: 3,
+		maxZoom: 12,
+		noWrap: true,
 	}).addTo(map);
 	document.querySelector("#map").style.zIndex = "1";
 }
@@ -55,6 +58,7 @@ function clearMarkers() {
 function setup() {
 	createMap();
 	addMarkers();
+	testPlayer.updateStatsScreen();
 }
 
 function lockMap() {
@@ -105,6 +109,9 @@ async function moveMap(lat2, lon2, dist, port) {
 		testPlayer.location = port.ident;
 		testPlayer.location_name = port.name;
 		addMarkers();
+		testPlayer.distance_traveled += dist;
+		testPlayer.co2_consumed += (157 * dist) / 1000;
+		testPlayer.updateStatsScreen();
 	}, duration + 25);
 }
 

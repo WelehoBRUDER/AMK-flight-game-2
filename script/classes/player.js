@@ -54,15 +54,27 @@ class Player {
 		statsElem.classList.add("player-stats");
 		Object.entries(this.getViewableStats()).forEach(([id, value]) => {
 			const statContainer = document.createElement("div");
-			const statName = document.createElement("p");
-			const statValue = document.createElement("p");
+			const statValueText = document.createElement("p");
+			const icon = document.createElement("img");
 			statContainer.classList.add("stat");
-			statName.innerText = `${translate(id)}:`;
-			statValue.innerText = value;
-			statContainer.append(statName, statValue);
+			icon.classList = `stat-icon ${id}`;
+			statValueText.classList = `stat-value ${id}`;
+			const displayValue = typeof value === "number" ? value.toFixed(2) : value;
+			statValueText.innerText = displayValue + statUnits[id];
+			icon.src = statIcons[id];
+
+			new Tooltip({ element: statContainer, text: translate(`${id}_tt`) }).create();
+
+			statContainer.append(icon, statValueText);
 			statsElem.append(statContainer);
 		});
 		return statsElem;
+	}
+
+	updateStatsScreen() {
+		const bottomBar = document.querySelector(".bottom-bar");
+		bottomBar.innerHTML = "";
+		bottomBar.append(this.getStatsDisplay());
 	}
 }
 
@@ -81,6 +93,22 @@ const testPlayer = new Player({
 	finished: false,
 });
 
-setTimeout(() => {
-	document.querySelector(".top-bar").append(testPlayer.getStatsDisplay());
-}, 500);
+const statUnits = {
+	screen_name: "",
+	co2_consumed: "kg",
+	location: "",
+	money: "$",
+	time: "",
+	real_time: "",
+	distance_traveled: "km",
+};
+
+const statIcons = {
+	screen_name: "images/player-time.png",
+	co2_consumed: "images/burning-forest.png",
+	location: "images/port_icon.png",
+	money: "images/money-stack.png",
+	time: "images/calendar.png",
+	real_time: "images/watch.png",
+	distance_traveled: "images/walking-boot.png",
+};
