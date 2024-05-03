@@ -83,15 +83,13 @@
 .option-menu .container .box #dialog-box {
   /* background: var(--purple);
   border: 1rem solid var(--dark-purple); */
-  left: 0;
-  bottom: 0;
   display: flex;
   align-items: center;
   gap: 2px;
 }
 .option-menu .container .box #dialog-box .text-side {
   width: 60rem;
-  height: 14rem;
+  height: 20rem;
   margin: 0;
   font-size: 1.5rem;
   color: rgb(14, 14, 14);
@@ -100,7 +98,7 @@
   align-items: center;
   justify-content: center;
   background: silver;
-  border: 0.5rem solid rgb(14, 14, 14);
+  border: 1rem rgb(60, 60, 60) ridge;
   box-sizing: border-box;
 }
 .option-menu .container .box #dialog-box .text-side .name {
@@ -127,12 +125,13 @@
   white-space: normal;
 }
 .option-menu .container .box .portrait {
-  border: 0.5rem solid rgb(14, 14, 14);
+  border: 1rem rgb(60, 60, 60) ridge;
   box-sizing: border-box;
   margin: 0;
+  height: 20rem;
 }
 .option-menu .container .box .portrait .portrait-img {
-  height: 16rem;
+  height: 100%;
 }
 
 .button {

@@ -93,15 +93,13 @@ $text-light: rgb(243, 240, 240);
       #dialog-box {
         /* background: var(--purple);
         border: 1rem solid var(--dark-purple); */
-        left: 0;
-        bottom: 0;
         display: flex;
         align-items: center;
         gap: 2px;
 
         .text-side {
           width: 60rem;
-          height: 14rem;
+          height: 20rem;
           margin: 0;
           font-size: 1.5rem;
           color: $text-dark;
@@ -110,7 +108,7 @@ $text-light: rgb(243, 240, 240);
           align-items: center;
           justify-content: center;
           background: silver;
-          border: 0.5rem solid $text-dark;
+          border: 1rem rgb(60, 60, 60) ridge;
           box-sizing: border-box;
 
           .name {
@@ -143,12 +141,13 @@ $text-light: rgb(243, 240, 240);
       }
 
       .portrait {
-        border: 0.5rem solid $text-dark;
+        border: 1rem rgb(60, 60, 60) ridge;
         box-sizing: border-box;
         margin: 0;
+        height: 20rem;
 
         .portrait-img {
-          height: 16rem;
+          height: 100%;
         }
       }
     }

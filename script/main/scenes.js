@@ -1,12 +1,12 @@
 const characters = {
 	ronald: {
-		id: "ronald",
+		id: "Ronald",
 		color: "yellow",
 	},
 	grandfather: {
-		id: "grandfather",
+		id: "Grandfather",
 		color: "violet",
-		image: "harold-03.jpg",
+		image: "grandpa.png",
 	},
 };
 

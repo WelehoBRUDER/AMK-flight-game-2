@@ -25,8 +25,8 @@ const english = {
 	story_intro_2:
 		"He remembers his grandfather as a sweet guy, always ready to share \n with him life advice and wisdom, that he learned the hard way in life.",
 	story_intro_3: " §<c>yellow<c>Ronald§ knocks at the door, and there was his grandfather, §<c>lime<c>a grin on his face.§",
-	story_intro_4: "Hey §<c>yellow<c>Ronald§, long time",
-	story_intro_5: "Hello",
+	story_intro_4: "Hey §<c>yellow<c>Ronald§, long time.",
+	story_intro_5: "Hello.",
 	story_intro_6: "They sat face to face in his grandfather's personal study.",
 	story_intro_7: "You wanted to see me... here I am. How are you?",
 	story_intro_8: "Let's skip the pleasantries and all the boring stuff, eh?",
