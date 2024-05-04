@@ -28,6 +28,10 @@ html {
   display: none;
 }
 
+.hidden.start-button {
+  display: none;
+}
+
 .invisible {
   visibility: hidden;
 }
