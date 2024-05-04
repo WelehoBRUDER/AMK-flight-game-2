@@ -40,11 +40,32 @@ class Game {
 	}
 
 	nextPlayer() {
+		lockMap();
 		this.currentPlayerIndex += 1;
 		if (this.currentPlayerIndex >= this.playersAmount()) {
-			this.currentPlayerIndex = 0;
-			this.turn++;
+			this.advanceTurn();
+		} else {
+			badassText(
+				`§<c>gold<c>${translate("next_player")}§`,
+				`${translate("player")} ${this.currentPlayerIndex + 1} | ${this.currentPlayer().screen_name}`
+			);
+			setTimeout(() => {
+				this.currentPlayer().rollFlights();
+			}, 5550);
 		}
+	}
+
+	advanceTurn() {
+		lockMap();
+		this.currentPlayerIndex = 0;
+		this.turn++;
+		badassText(
+			`§<c>gold<c>${translate("new_turn")}§`,
+			`${translate("turn")} ${this.turn + 1} | ${translate("player")}: ${this.currentPlayer().screen_name}`
+		);
+		setTimeout(() => {
+			this.currentPlayer().rollFlights();
+		}, 5550);
 	}
 
 	resetTurns() {

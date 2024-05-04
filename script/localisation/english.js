@@ -37,6 +37,9 @@ const english = {
 	distance: "Distance",
 	flight_cost: "Flight cost",
 	fly_to_airport: "Fly to this port",
+	new_turn: "Beginning new turn",
+	turn: "Turn",
+	player: "Player",
 	// Dialog
 	story_intro_1: "§<c>yellow<c>Ronald§ hasn't seen his grandfather in 20 years and was pretty anxious about the visit.",
 	story_intro_2:
