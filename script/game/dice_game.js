@@ -173,7 +173,7 @@ function getRotationForValue(value) {
   }
 }
 
-window.addEventListener('DOMContentLoaded', rollComputerDices);
+window.addEventListener('DOMContentLoaded', rollComputerDices); // Subject to change
 rollBtn.addEventListener('click', () => {
   rollPlayerDices();
   checkWinner();
