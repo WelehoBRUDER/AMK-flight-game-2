@@ -190,6 +190,12 @@ settingsOptions;
 
 const settings = new Settings({});
 
+/**
+ * Rolls an integer between min and max.
+ * @param {*} max - maximum number that can be rolled
+ * @param {*} min - minimum number that can be rolled (default = 1)
+ * @returns {number} number between min and max
+ */
 function random(max, min = 1) {
 	return Math.floor(Math.random() * max) + min;
 }

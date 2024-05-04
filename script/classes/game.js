@@ -33,6 +33,10 @@ class Game {
 		this.players.push(new Player(player));
 	}
 
+	/**
+	 * Get player who's turn it is currently.
+	 * @returns {Player} player object
+	 */
 	currentPlayer() {
 		return this.players[this.currentPlayerIndex];
 	}

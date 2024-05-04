@@ -134,6 +134,13 @@ const mapIcons = {
 	}),
 };
 
+/**
+ * Spawns a text element that slowly floats up and fades away.
+ * Text supports parseTextFast meaning that color and variable syntax can be used
+ * @param {HTMLElement} origin - element the text should spawn from
+ * @param {string} text - text displayed. Run through translate() before giving to this function.
+ * @param {number} size - font size in rem
+ */
 function floatingText(origin, text, size) {
 	const textContainer = document.createElement("pre");
 	textContainer.append(dialog.parseTextFast(text));
