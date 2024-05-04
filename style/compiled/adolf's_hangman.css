@@ -1,0 +1,128 @@
+.game-body {
+    background-color: #524d4d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    width: 70vw;
+    border-radius: 10px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 850px;
+    gap: 10px;
+    padding: 60px 40px;
+    justify-content: space-between;
+}
+
+.hangman-container {
+    margin-left: 2rem;
+}
+
+.hangman-container img {
+    user-select: none;
+    max-width: 270px;
+}
+
+.hangman-container h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.main-container .display-boxes {
+    gap: 10px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-boxes .letter {
+    width: 28px;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 3px solid #000;
+}
+
+.display-boxes .letter.guessed {
+    margin: -40px 0 35px;
+    border-color: transparent;
+    font-family: Courier, sans-serif;
+}
+
+.main-container h2 {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    font-family: "Courier New", sans-serif;
+}
+
+.main-container h2 b {
+    font-weight: 600;
+}
+
+.main-container .guess-display b {
+    color: #ff0000;
+}
+
+.main-container .keyboard {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+:where(.game-modal, .keyboard) button {
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background: #353f8f;
+}
+
+.keyboard button {
+    padding: 7px;
+    width: calc(100% / 9 - 5px);
+}
+
+.keyboard button[disabled] {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.keyboard button s {
+    margin-left: 1rem;
+}
+
+.display-boxes.hidden {
+    display: none;
+}
+
+h3 {
+    text-align: center;
+    font-family: Courier, sans-serif;
+    color: #1d8602;
+}
+
+h4 {
+    text-align: center;
+    font-family: Courier, sans-serif;
+    color: #b40101;
+}
+
+
+
