@@ -20,7 +20,7 @@
   transition: 1s;
 }
 
-.mainmenu {
+.main-menu {
   background-color: rgb(50, 50, 50);
   width: 100%;
   height: 100%;
@@ -32,7 +32,7 @@
   position: absolute;
   display: flex;
   background-color: rgb(14, 14, 14);
-  border: none;
+  border: 1rem rgb(60, 60, 60) ridge;
   border-radius: 1rem;
   z-index: 2;
   width: 80%;
@@ -42,8 +42,7 @@
   transform: translate(-50%, -50%);
 }
 .options-menu .buttons {
-  border: 1rem rgb(60, 60, 60) ridge;
-  border-right: none;
+  border-right: 1rem rgb(60, 60, 60) ridge;
   box-sizing: border-box;
   padding: 1rem;
   align-content: center;
@@ -55,7 +54,6 @@
   background-color: rgb(120, 120, 200);
   border: none;
   border-radius: 1rem;
-  transition-duration: 0.2s;
   display: block;
 }
 .options-menu .buttons .option:hover {
@@ -67,7 +65,6 @@
 }
 .options-menu .container {
   display: flex;
-  border: 1rem rgb(60, 60, 60) ridge;
   box-sizing: border-box;
   width: 100%;
 }
@@ -134,14 +131,38 @@
   height: 100%;
 }
 
+.quests-screen {
+  position: absolute;
+  background-color: rgb(14, 14, 14);
+  border: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  z-index: 2;
+  width: 80%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+}
+.quests-screen h1 {
+  font-size: 3rem;
+}
+.quests-screen p {
+  font-size: 1.5rem;
+}
+.quests-screen .button {
+  position: absolute;
+  margin-bottom: 1rem;
+  bottom: 0;
+}
+
 .button {
   padding: 1rem;
-  margin: 1rem;
   width: 15rem;
   background-color: rgb(120, 120, 200);
   border: none;
   border-radius: 1rem;
-  transition-duration: 0.2s;
 }
 
 .button:hover {

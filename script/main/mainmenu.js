@@ -1,43 +1,48 @@
 const start_menu = document.querySelector("#start-menu");
 
-const options_button = document.querySelector("#options-button");
+const options_btn = document.querySelector("#options");
 const options_menu = document.querySelector("#options-menu");
 const buttons = document.querySelector("#buttons");
 
-const new_game_button = document.querySelector("#new-game");
-const new_game_screen = document.querySelector("#new-game-screen");
-const start_button = document.querySelector("#start-game");
+const new_game_btn = document.querySelector("#new-game");
+const new_game_scrn = document.querySelector("#new-game-screen");
+const start_btn = document.querySelector("#start-game");
 
-const save_load_button = document.querySelector("#save-load");
-const save_load_screen = document.querySelector("#save-load-screen");
+const save_load_btn = document.querySelector("#save-load");
+const save_load_scrn = document.querySelector("#save-load-screen");
 
-const help_button = document.querySelector("#read-help");
-const help_screen = document.querySelector("#help-screen");
+const help_btn = document.querySelector("#read-help");
+const help_scrn = document.querySelector("#help-screen");
 
-const story_button = document.querySelector("#read-story");
-const story_screen = document.querySelector("#story-screen");
-const close_dialog = document.querySelector("#close-dialog");
+const story_btn = document.querySelector("#read-story");
+const story_scrn = document.querySelector("#story-screen");
+const close_dialog_btn = document.querySelector("#close-dialog");
 
-const settings_button = document.querySelector("#settings");
-const settings_screen = document.querySelector("#settings-screen");
-const music_button = document.querySelector("#music");
-const english_button = document.querySelector("#lang-english");
-const finnish_button = document.querySelector("#lang-suomi");
+const settings_btn = document.querySelector("#settings");
+const settings_scrn = document.querySelector("#settings-screen");
+const music_btn = document.querySelector("#music");
+const english_btn = document.querySelector("#lang-english");
+const finnish_btn = document.querySelector("#lang-suomi");
 
-const close_button = document.querySelector("#close");
+const close_options_btn = document.querySelector("#close-options");
+
+const quests_btn = document.querySelector("#quests");
+const quests_scrn = document.querySelector("#quests-screen");
+const close_quests_btn = document.querySelector("#close-quests");
 
 const map_area = document.querySelector("#map-area");
-const map_screen = document.querySelector("#map");
+const map_scrn = document.querySelector("#map");
 
 let options_open = true;
+let quests_open = false;
 
 // Hides all the option menu screens. Used right before opening a screen, to prevent overlap.
 function hideBoxes() {
-	new_game_screen.hidden = true;
-	save_load_screen.hidden = true;
-	help_screen.hidden = true;
-	story_screen.hidden = true;
-	settings_screen.hidden = true;
+	new_game_scrn.hidden = true;
+	save_load_scrn.hidden = true;
+	help_scrn.hidden = true;
+	story_scrn.hidden = true;
+	settings_scrn.hidden = true;
 }
 
 // Plays a 'click' sound effect every time any button is clicked.
@@ -54,90 +59,109 @@ function hideStart() {
 // Fading animation for the start screen
 start_menu.addEventListener("click", function () {
 	start_menu.style.opacity = "0";
-	close_button.style.display = "none";
+	close_options_btn.style.display = "none";
 	setTimeout(hideStart, 1000);
 });
 
-options_button.addEventListener("click", function () {
+options_btn.addEventListener("click", function () {
 	if (options_open) {
 		options_menu.style.display = "none";
 		options_open = false;
 	} else {
+		quests_scrn.hidden = true;
+		quests_open = true;
 		options_menu.style.display = "flex";
 		options_open = true;
 	}
 });
 
-new_game_button.addEventListener("click", function () {
+new_game_btn.addEventListener("click", function () {
 	hideBoxes();
-	new_game_screen.hidden = false;
+	new_game_scrn.hidden = false;
 });
 
-start_button.addEventListener("click", function () {
+start_btn.addEventListener("click", function () {
 	options_menu.style.display = "none";
-	map_screen.hidden = false;
+	map_scrn.hidden = false;
 	map_area.hidden = false;
-	close_button.style.display = "block";
-	options_button.hidden = false;
+	close_options_btn.style.display = "block";
+	options_btn.hidden = false;
+	quests_btn.hidden = false;
 	setup();
 });
 
-save_load_button.addEventListener("click", function () {
+save_load_btn.addEventListener("click", function () {
 	hideBoxes();
-	save_load_screen.hidden = false;
+	save_load_scrn.hidden = false;
 });
 
-help_button.addEventListener("click", function () {
+help_btn.addEventListener("click", function () {
 	hideBoxes();
-	help_screen.hidden = false;
+	help_scrn.hidden = false;
 });
 
-story_button.addEventListener("click", function () {
+story_btn.addEventListener("click", function () {
 	hideBoxes();
 	buttons.hidden = true;
-	story_screen.hidden = false;
+	story_scrn.hidden = false;
 });
 
-close_dialog.addEventListener("click", function () {
+close_dialog_btn.addEventListener("click", function () {
 	buttons.hidden = false;
-	story_screen.hidden = true;
+	story_scrn.hidden = true;
 });
 
-settings_button.addEventListener("click", function() {
+settings_btn.addEventListener("click", function() {
 	hideBoxes();
-	settings_screen.hidden = false;
+	settings_scrn.hidden = false;
 })
 
 // Pauses the music if it's currently playing, and vice versa. Also toggles the button text.
-music_button.addEventListener("click", function () {
+music_btn.addEventListener("click", function () {
 	if (soundController.isMusicPlaying()) {
 		soundController.pauseMusic();
-		music_button.textContent = "Music: OFF";
+		music_btn.textContent = "Music: OFF";
 	} else {
 		soundController.playSound("shanty");
-		music_button.textContent = "Music: ON";
+		music_btn.textContent = "Music: ON";
 	}
 });
 
-english_button.addEventListener("click", function() {
+english_btn.addEventListener("click", function() {
 
 })
 
-finnish_button.addEventListener("click", function() {
+finnish_btn.addEventListener("click", function() {
 
 })
 
-close_button.addEventListener("click", function () {
+close_options_btn.addEventListener("click", function () {
 	options_menu.style.display = "none";
 	options_open = false;
 });
 
+quests_btn.addEventListener("click", function() {
+	if (quests_open) {
+		quests_scrn.hidden = true;
+		quests_open = false;
+	} else {
+		options_menu.style.display = "none";
+		quests_scrn.hidden = false;
+		quests_open = true;
+	}
+})
+
+close_quests_btn.addEventListener("click", function() {
+	quests_scrn.hidden = true;
+	quests_open = false;
+})
+
 if (dev.enabled) {
 	hideStart();
 	options_menu.style.display = "none";
-	map_screen.hidden = false;
+	map_scrn.hidden = false;
 	map_area.hidden = false;
-	close_button.style.display = "block";
-	options_button.hidden = false;
+	close_options_btn.style.display = "block";
+	options_btn.hidden = false;
 	setup();
 }

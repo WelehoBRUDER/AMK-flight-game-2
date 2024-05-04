@@ -72,10 +72,11 @@
   <div class="game" id="game">
     <div class="top-bar">
       <div class="quest-title">Grandpa's lost sauce</div>
-      <button class="button" id="options-button" hidden>Options</button>
+      <button class="button" id="options" hidden>Options</button>
+      <button class="button" id="quests" hidden>Grandpa's travels</button>
     </div>
     <div class="map-area" id="map-area">
-      <div class="mainmenu" id="mainmenu">
+      <div class="main-menu" id="main-menu">
         <!-- Background image goes here -->
       </div>
       <div class="options-menu" id="options-menu">
@@ -85,7 +86,7 @@
           <button class="option" id="read-help">Help</button>
           <button class="option" id="read-story">Story</button>
           <button class="option" id="settings">Settings</button>
-          <button class="option" id="close">Close</button>
+          <button class="option" id="close-options">Close</button>
         </div>
         <div class="container">
           <div class="box" id="new-game-screen">
@@ -126,6 +127,11 @@
             <button class="button" id="lang-suomi">Suomi</button>
           </div>
         </div>
+      </div>
+      <div class="quests-screen" id="quests-screen" hidden>
+        <h1>Grandpa's travels</h1>
+        <p>Lorem ipsum</p>
+        <button class="button" id="close-quests">Close</button>
       </div>
       <div class="plane hide">
         <img src="images/plane.png" alt="plane icon">
