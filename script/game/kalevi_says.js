@@ -92,7 +92,7 @@ const tileContainer = document.querySelector('.tile-container');
 function startGame() {
   startButton.classList.add('hidden');
   info.classList.remove('hidden');
-  info.textContent = 'Wait for Urho Kalevi to show you the pattern.';
+  info.textContent = 'Wait for Urho to show you the pattern.';
   nextRound();
 }
 
