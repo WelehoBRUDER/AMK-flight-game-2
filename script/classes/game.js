@@ -18,17 +18,6 @@ class Game {
 		});
 	}
 
-	// Creates player using Player class and adds to the list
-	// addPlayer(i, start) {
-	// 	playerName = `${i}Player`;
-	// 	clear_and_exit_check(player_name);
-	// 	playerLocation = "EFHK"
-	// 	playerMoney = 10000;
-	// 	.players.append(
-	// 		Player(i, player_name, 0, player_location, player_money, 0, 0, 0, start["latitude_deg"], start["longitude_deg"])
-	// 	);
-	// }
-
 	addPlayer(player) {
 		this.players.push(new Player(player));
 	}
@@ -66,7 +55,32 @@ class Game {
 		return this.getRemainingPlayers().length;
 	}
 
-	saveGame() {}
+	/**
+	 * Creates a popup window in the middle of the screen.
+	 * Content buttons should use game.removeAllWindows() if the popup needs to be closed.
+	 * @param {HTMLElement} content - The actual content of the screen
+	 * @param {boolean} canIgnore - Whether or not this window can be closed without consequence (default = true)
+	 */
+	createWindow(content, canIgnore = true) {
+		if (!content) return console.error("This window doesn't have any content! (Missing content HTMLElement from parameters)");
+		const popUpWindow = document.createElement("div");
+		const closeButton = document.createElement("div");
+		popUpWindow.classList.add("pop-up-window");
+		closeButton.classList.add("close-button", canIgnore ? "." : "unavailable");
+		closeButton.textContent = "x";
+		closeButton.addEventListener("click", () => {
+			popUpWindow.remove();
+		});
+		content.classList.add("content");
+		popUpWindow.append(closeButton, content);
+		document.body.append(popUpWindow);
+	}
+
+	removeAllWindows() {
+		document.querySelectorAll(".pop-up-window").forEach((wind) => wind.remove());
+	}
 }
 
 const game = new Game();
+
+game.currentPlayer();

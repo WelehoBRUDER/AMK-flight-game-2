@@ -13,6 +13,32 @@ function createMap() {
 	document.querySelector("#map").style.zIndex = "1";
 }
 
+/**
+ * Returns an element that has an icon, a name and a value element.
+ * @param {string} icon - ID of the icon
+ * @param {string} name - Name of the icon value pair (id corresponding to language)
+ * @param {string} value - Actual value of the pair
+ */
+function iconNameValue(icon, name, value) {
+	const container = document.createElement("div");
+	const iconImage = document.createElement("img");
+	const nameText = document.createElement("p");
+	const valueText = document.createElement("span");
+	container.classList.add("iconNameValue");
+	iconImage.src = statIcons[icon];
+	nameText.textContent = translate(name);
+	valueText.textContent = value;
+	container.append(iconImage, nameText, valueText);
+	return container;
+}
+
+function airportInfo(port) {
+	const info = document.createElement("div");
+	info.classList.add("airport-info");
+	const airportName = document.createElement("h2");
+	airportName.classList.add("airport-name");
+}
+
 function canClick(marker) {
 	return map.dragging._enabled && !marker._icon.classList.contains("greyed-out") && !marker._icon.classList.contains("gold-shine");
 }

@@ -92,7 +92,7 @@ class Player {
 			diceRolling.innerHTML = "";
 			this.setFlights(roll);
 			unlockMap();
-		}, 3500);
+		}, 3000);
 	}
 }
 

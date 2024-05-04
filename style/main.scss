@@ -85,8 +85,50 @@ $text-light: rgb(243, 240, 240);
   filter: grayscale(1);
 }
 
+.unavailable {
+  filter: grayscale(1);
+  pointer-events: none;
+}
+
 .gold-shine {
   filter: drop-shadow(0 0 1rem gold);
+}
+
+.pop-up-window {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  min-width: 18rem;
+  min-height: 14rem;
+  background: $text-dark;
+  border: 0.5rem solid $text-light;
+  box-sizing: border-box;
+  z-index: 100;
+  font-size: 1.5rem;
+
+  .content {
+    position: absolute;
+    left: 0;
+    top: 5rem;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  background: darkred;
+  user-select: none;
+  font-size: 2rem;
+  padding: 0rem 0.5rem;
+  box-sizing: border-box;
+  border: 0.1rem solid silver;
+
+  &:hover {
+    filter: brightness(1.5);
+  }
 }
 
 .game {
