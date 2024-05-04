@@ -164,7 +164,10 @@ function createSettings() {
 				container.classList.add("languageSelection");
 				languages.forEach((language) => {
 					const langButton = document.createElement("div");
-					langButton.textContent = translate(language);
+					const langIcon = document.createElement("img");
+					const langText = document.createElement("p");
+					langIcon.src = `images/${language}.png`;
+					langText.textContent = translate(language);
 					if (language == settings.lang) langButton.classList.add("selectedLang");
 					langButton.addEventListener("click", () => {
 						soundController.playSound("click");
@@ -176,6 +179,7 @@ function createSettings() {
 						settings.setLanguage(language);
 						openSettingsScreen();
 					});
+					langButton.append(langIcon, langText);
 					container.append(langButton);
 				});
 				mainContainer.append(container);
