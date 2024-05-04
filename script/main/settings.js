@@ -190,6 +190,18 @@ settingsOptions;
 
 const settings = new Settings({});
 
+function random(num) {
+	return Math.floor(Math.random() * num) + 1;
+}
+
+function generateID() {
+	const chars = "abcdefghijklmnopqrstuvwxyz0123456789!@#¤%&§";
+	return new Array(21)
+		.fill("0")
+		.map(() => chars[random(chars.length - 1)])
+		.join("");
+}
+
 class Dev {
 	constructor() {
 		this.enabled = false;

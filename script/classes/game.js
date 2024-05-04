@@ -61,6 +61,8 @@ class Game {
 	playersAmount() {
 		return this.getRemainingPlayers().length;
 	}
+
+	saveGame() {}
 }
 
 const game = new Game();
