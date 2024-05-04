@@ -5,7 +5,8 @@ class Settings {
 	constructor(base, noLoad = false) {
 		this.musicVolume = base.musicVolume ?? 0.2;
 		this.soundVolume = base.soundVolume ?? 0.2;
-		this.lang = "english";
+		this.lang = base.flightSpeed ?? "english";
+		this.flightSpeed = base.flightSpeed ?? 1;
 		if (!noLoad) this.load();
 	}
 
@@ -49,6 +50,11 @@ class Settings {
 		return this.soundVolume;
 	}
 
+	setFlightSpeed(value) {
+		this.flightSpeed = value;
+		this.save();
+	}
+
 	setLanguage(code) {
 		this.lang = code;
 		lang = eval(code);
@@ -56,6 +62,23 @@ class Settings {
 	}
 }
 const settingsOptions = [
+	{
+		group: "gameplay",
+		options: [
+			{
+				id: "flightSpeed",
+				type: "range",
+				callback: "settings.setFlightSpeed(<x>)",
+				scale: 0.1,
+				values: [2, 40],
+				display: {
+					scale: "use",
+					appendix: "x",
+				},
+				tooltip: "flight_speed_tt",
+			},
+		],
+	},
 	{
 		group: "sound",
 		options: [
@@ -117,12 +140,22 @@ function createSettings() {
 					const tt = new Tooltip({ element: container, text: translate(setting.tooltip) });
 					tt.create();
 				}
-				textVal.textContent = `${parseInt(slider.value).toString()}`;
+				if (setting.display) {
+					const _value = setting.display.scale === "use" ? parseFloat(slider.value) / 10 : slider.value;
+					textVal.textContent = `${_value}${setting.display.appendix}`;
+				} else {
+					textVal.textContent = `${parseInt(slider.value).toString()}`;
+				}
 				slider.oninput = () => {
 					const value = parseInt(slider.value) * setting.scale;
 					const callback = setting.callback.replace("<x>", value);
 					eval(callback);
-					textVal.textContent = `${parseInt(slider.value).toString()}`;
+					if (setting.display) {
+						const _value = setting.display.scale === "use" ? parseFloat(slider.value) / 10 : slider.value;
+						textVal.textContent = `${_value}${setting.display.appendix}`;
+					} else {
+						textVal.textContent = `${parseInt(slider.value).toString()}`;
+					}
 				};
 				text.append(textVal);
 				container.append(text, slider);
