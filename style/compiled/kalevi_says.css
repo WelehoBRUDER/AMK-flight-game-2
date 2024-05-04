@@ -54,6 +54,7 @@ h1 {
   position: relative;
   margin-top: 30px;
   margin-bottom: 40px;
+  justify-content: center;
 }
 
 .unclickable {

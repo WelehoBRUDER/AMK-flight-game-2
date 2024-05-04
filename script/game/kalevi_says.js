@@ -145,9 +145,7 @@ function resetGame(text) {
   sequence = [];
   playerSequence = [];
   level = 0;
-  startButton.classList.remove('hidden');
   heading.textContent = 'Kalevi\'s Game';
-  info.classList.add('hidden');
   tileContainer.classList.add('unclickable');
 }
 
