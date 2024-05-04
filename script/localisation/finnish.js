@@ -21,6 +21,8 @@ const finnish = {
 	grandfather: "Isoisä",
 	ronald: "Ronald",
 	// Settings
+	gameplay: "Pelattavuus",
+	flightSpeed: "Lentonopeus",
 	sound: "Ääni",
 	musicVolume: "Musiikin äänenvoimakkuus",
 	soundVolume: "Efektien äänenvoimakkuus",

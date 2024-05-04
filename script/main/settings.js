@@ -5,7 +5,7 @@ class Settings {
 	constructor(base, noLoad = false) {
 		this.musicVolume = base.musicVolume ?? 0.2;
 		this.soundVolume = base.soundVolume ?? 0.2;
-		this.lang = base.flightSpeed ?? "english";
+		this.lang = base.lang ?? "english";
 		this.flightSpeed = base.flightSpeed ?? 1;
 		if (!noLoad) this.load();
 	}
