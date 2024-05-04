@@ -26,7 +26,11 @@ const sounds = {
 		src: "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3",
 		loop: false,
 	},
-
+	newarea: {
+		id: "newarea",
+		src: "sounds/newarea.mp3",
+		loop: false,
+	},
 	shanty: {
 		id: "shanty",
 		src: "sounds/seashanty2.mp3",

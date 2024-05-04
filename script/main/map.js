@@ -215,10 +215,9 @@ function badassText(title, bottom) {
 	titleText.append(dialog.parseTextFast(title));
 	bottomText.append(dialog.parseTextFast(bottom));
 	document.body.append(titleText, bottomText);
+	soundController.playSound("newarea");
 	setTimeout(() => {
 		titleText.remove();
 		bottomText.remove();
 	}, 5500);
 }
-
-badassText("I JUST SHAT MY PANTS", "I SERIOSLY NEED YOUR HELP THIS IS EMBARASSING");
