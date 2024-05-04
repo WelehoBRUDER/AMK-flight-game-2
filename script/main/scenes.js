@@ -2,11 +2,12 @@ const characters = {
 	ronald: {
 		id: "Ronald",
 		color: "yellow",
+		image: "ronald.webp"
 	},
 	grandfather: {
 		id: "Grandfather",
 		color: "violet",
-		image: "grandpa.png",
+		image: "grandpa.webp",
 	},
 };
 
