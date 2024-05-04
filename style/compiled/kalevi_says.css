@@ -32,10 +32,10 @@ html {
     visibility: hidden;
 }
 
-header {
-    color: whitesmoke;
+h1 {
+    color: #2f2f2f;
     text-align: center;
-    font-size: 18px;
+    font-size: 26px;
 }
 
 .heading {
