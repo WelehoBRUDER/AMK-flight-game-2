@@ -16,6 +16,8 @@ const finnish = {
 	time_tt: "Tämänhetkinen päivämäärä",
 	real_time_tt: "Peliaika",
 	distance_traveled_tt: "Yhteensä kuljettu matka",
+	// Floating texts
+	not_enough_flight_points: "§<c>red<c>Liian vähän lentopisteitä!§",
 	// Characters
 	narrator: "Kertoja",
 	grandfather: "Isoisä",

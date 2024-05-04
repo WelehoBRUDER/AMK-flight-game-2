@@ -39,7 +39,7 @@ async function addMarkers() {
 
 		marker.on("click", (e) => {
 			if (canClick(marker)) {
-				moveMap(e.latlng.lat, e.latlng.lng, marker.distance, port);
+				moveMap(e.latlng.lat, e.latlng.lng, marker.distance, port, marker._icon);
 			}
 		});
 
@@ -81,8 +81,11 @@ function unlockMap() {
 	document.querySelector(".leaflet-control-zoom").style.display = "block";
 }
 
-async function moveMap(lat2, lon2, dist, port) {
-	if (game.currentPlayer().flights < 1) return;
+async function moveMap(lat2, lon2, dist, port, marker) {
+	if (game.currentPlayer().flights < 1) {
+		floatingText(marker, translate("not_enough_flight_points"), 2);
+		return;
+	}
 	const { lat, lon } = currentCords;
 	map.setView([lat, lon], 6, {
 		animate: false,
@@ -130,3 +133,16 @@ const mapIcons = {
 		popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
 	}),
 };
+
+function floatingText(origin, text, size) {
+	const textContainer = document.createElement("pre");
+	textContainer.append(dialog.parseTextFast(text));
+	textContainer.classList.add("floating-text");
+	textContainer.style.left = `${origin.getBoundingClientRect().x}px`;
+	textContainer.style.top = `${origin.getBoundingClientRect().y}px`;
+	textContainer.style.fontSize = `${size}rem`;
+	document.body.append(textContainer);
+	setTimeout(() => {
+		document.body.removeChild(textContainer);
+	}, 2500);
+}

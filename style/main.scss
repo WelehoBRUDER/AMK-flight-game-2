@@ -58,6 +58,29 @@ $text-light: rgb(243, 240, 240);
   }
 }
 
+@keyframes flying-up {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
+}
+
+.floating-text {
+  position: absolute;
+  z-index: 25;
+  animation-name: flying-up;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  user-select: none;
+  pointer-events: none;
+}
+
 .greyed-out {
   filter: grayscale(1);
 }

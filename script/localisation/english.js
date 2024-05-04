@@ -17,6 +17,8 @@ const english = {
 	real_time_tt: "Playtime",
 	distance_traveled_tt: "Total distance traveled",
 	flights_tt: "Flight points",
+	// Floating texts
+	not_enough_flight_points: "§<c>red<c>Not enough flight points!§",
 	// Characters
 	narrator: "Narrator",
 	granfather: "Grandfather",

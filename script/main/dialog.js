@@ -93,6 +93,21 @@ class Dialog {
 		this.reading = false;
 	}
 
+	parseTextFast(txt) {
+		const parsedText = this.parseTextForDialog(txt);
+		const wrapper = document.createElement("span");
+		for (const property of parsedText) {
+			const span = document.createElement("span");
+			wrapper.append(span);
+			if (property.color) {
+				span.style.color = property.color;
+			}
+
+			span.textContent = property.text;
+		}
+		return wrapper;
+	}
+
 	parseTextForDialog(txt) {
 		const total = [];
 		const parts = txt.split("§");
