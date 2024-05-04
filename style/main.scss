@@ -96,6 +96,14 @@ $text-light: rgb(243, 240, 240);
     width: 100%;
     height: calc(100% - 23rem);
 
+    .dice-rolling {
+      position: absolute;
+      z-index: 100;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%);
+    }
+
     .plane {
       position: absolute;
       z-index: 100;

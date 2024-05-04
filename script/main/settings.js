@@ -190,8 +190,8 @@ settingsOptions;
 
 const settings = new Settings({});
 
-function random(num) {
-	return Math.floor(Math.random() * num) + 1;
+function random(max, min = 1) {
+	return Math.floor(Math.random() * max) + min;
 }
 
 function generateID() {

@@ -166,3 +166,5 @@ if (dev.enabled) {
 	options_open = false;
 	setup();
 }
+
+game.currentPlayer().rollFlights();

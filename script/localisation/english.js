@@ -16,6 +16,7 @@ const english = {
 	time_tt: "Current date",
 	real_time_tt: "Playtime",
 	distance_traveled_tt: "Total distance traveled",
+	flights_tt: "Flight points",
 	// Characters
 	narrator: "Narrator",
 	granfather: "Grandfather",

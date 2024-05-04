@@ -5,7 +5,7 @@ class Player {
 		this.co2_consumed = parseInt(player.co2_consumed);
 		this.location = player.location;
 		this.location_name = player.location_name;
-		this.money = player.money;
+		this.money = player.money ?? 10000;
 		this.time = player.time;
 		this.real_time_last_check = 0;
 		this.real_time = player.real_time;
@@ -13,6 +13,7 @@ class Player {
 		this.origin_latitude = player.origin_latitude;
 		this.origin_longitude = player.origin_longitude;
 		this.finished = player.finished;
+		this.flights = 0;
 	}
 
 	hasLost() {
@@ -38,6 +39,7 @@ class Player {
 			time: this.time,
 			real_time: this.real_time,
 			distance_traveled: this.distance_traveled,
+			flights: this.flights,
 		};
 	}
 	// Returns stats as an element that can be embedded anywhere.
@@ -51,7 +53,7 @@ class Player {
 			statContainer.classList.add("stat");
 			icon.classList = `stat-icon ${id}`;
 			statValueText.classList = `stat-value ${id}`;
-			const displayValue = typeof value === "number" ? value.toFixed(2) : value;
+			const displayValue = typeof value === "number" && statUnits[id] !== "" ? value.toFixed(2) : value;
 			statValueText.innerText = displayValue + statUnits[id];
 			icon.src = statIcons[id];
 
@@ -68,14 +70,39 @@ class Player {
 		bottomBar.innerHTML = "";
 		bottomBar.append(this.getStatsDisplay());
 	}
+
+	setMoney(value) {
+		this.money = value;
+		this.updateStatsScreen();
+	}
+
+	setFlights(value) {
+		this.flights = value;
+		this.updateStatsScreen();
+	}
+
+	rollFlights() {
+		lockMap();
+		diceRolling.innerHTML = "";
+		const dice = diceCreation();
+		const roll = random(6);
+		diceRolling.append(dice);
+		displayDiceValues(dice, [roll]);
+		setTimeout(() => {
+			diceRolling.innerHTML = "";
+			this.setFlights(roll);
+			unlockMap();
+		}, 3500);
+	}
 }
+
+const diceRolling = document.querySelector(".dice-rolling");
 
 game.addPlayer({
 	screen_name: "Test",
 	co2_consumed: 0,
 	location: "EFHK",
 	location_name: "Helsinki Vantaa Airport",
-	money: 500,
 	time: 0,
 	real_time_last_check: 0,
 	real_time: 0,
@@ -93,6 +120,7 @@ const statUnits = {
 	time: "",
 	real_time: "",
 	distance_traveled: "km",
+	flights: "",
 };
 
 const statIcons = {
@@ -103,4 +131,5 @@ const statIcons = {
 	time: "images/calendar.png",
 	real_time: "images/watch.png",
 	distance_traveled: "images/walking-boot.png",
+	flights: "images/commercial-airplane.png",
 };

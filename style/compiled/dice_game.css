@@ -37,7 +37,7 @@ Dice Styles
 
 @keyframes rolling {
     50% {
-        transform: rotateX(455deg) rotateY(455deg);
+        transform: rotateX(355deg) rotateY(355deg);
     }
 }
 

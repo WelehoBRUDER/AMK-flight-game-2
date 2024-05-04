@@ -5,7 +5,7 @@ class GameState {
 	}
 
 	loadSavedGames() {
-		const savedGames = localStorage.getItem("grandpas-lost-sauce_save_games");
+		const savedGames = localStorage.getItem("grandpas-lost-sauce_save-games");
 		if (savedGames) {
 			this.savedGames = JSON.parse(savedGames);
 		}
@@ -40,7 +40,7 @@ class GameState {
 			this.savedGames.push(saveFile);
 		}
 		this.sortSaves();
-		localStorage.setItem("grandpas-lost-sauce_save_games", JSON.stringify(this.savedGames));
+		localStorage.setItem("grandpas-lost-sauce_save-games", JSON.stringify(this.savedGames));
 	}
 
 	saveOver(id, auto) {
@@ -54,7 +54,7 @@ class GameState {
 		const save = this.savedGames[this.getFile(id)];
 		if (save) {
 			this.savedGames = this.savedGames.filter((save) => save.id !== id);
-			localStorage.setItem("grandpas-lost-sauce_save_games", JSON.stringify(this.savedGames));
+			localStorage.setItem("grandpas-lost-sauce_save-games", JSON.stringify(this.savedGames));
 		}
 	}
 }

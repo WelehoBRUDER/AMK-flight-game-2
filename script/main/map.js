@@ -82,6 +82,7 @@ function unlockMap() {
 }
 
 async function moveMap(lat2, lon2, dist, port) {
+	if (game.currentPlayer().flights < 1) return;
 	const { lat, lon } = currentCords;
 	map.setView([lat, lon], 6, {
 		animate: false,
@@ -92,6 +93,8 @@ async function moveMap(lat2, lon2, dist, port) {
 	const duration = dist / settings.flightSpeed;
 	const bearing = await routes.bearing(lat, lon, lat2, lon2);
 	plane.style.setProperty("--angle", `${bearing}deg`);
+	game.currentPlayer().setMoney(game.currentPlayer().money - dist * 0.17);
+	game.currentPlayer().setFlights(game.currentPlayer().flights - 1);
 	setTimeout(() => {
 		map.setView([lat2, lon2], map.getZoom(), {
 			animate: true,
