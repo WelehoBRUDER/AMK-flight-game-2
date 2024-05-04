@@ -49,6 +49,7 @@
 }
 .options-menu .buttons .option {
   width: 15rem;
+  height: 4rem;
   padding: 1rem;
   margin-bottom: 1rem;
   background-color: rgb(120, 120, 200);
@@ -160,9 +161,14 @@
 .button {
   padding: 1rem;
   width: 15rem;
+  height: 4rem;
   background-color: rgb(120, 120, 200);
   border: none;
   border-radius: 1rem;
+  text-align: center;
+}
+.button img {
+  margin-right: 1rem;
 }
 
 .button:hover {
