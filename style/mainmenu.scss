@@ -24,7 +24,7 @@ $text-light: rgb(243, 240, 240);
   transition: 1s;
 }
 
-.mainmenu {
+.main-menu {
   background-color: rgb(50, 50, 50);
   width: 100%;
   height: 100%;
@@ -36,7 +36,7 @@ $text-light: rgb(243, 240, 240);
   position: absolute;
   display: flex;
   background-color: $text-dark;
-  border: none;
+  border: 1rem rgb(60, 60, 60) ridge;
   border-radius: 1rem;
   z-index: 2;
   width: 80%;
@@ -46,8 +46,7 @@ $text-light: rgb(243, 240, 240);
   transform: translate(-50%, -50%);
 
   .buttons {
-    border: 1rem rgb(60, 60, 60) ridge;
-    border-right: none;
+    border-right: 1rem rgb(60, 60, 60) ridge;
     box-sizing: border-box;
     padding: 1rem;
     align-content: center;
@@ -59,7 +58,6 @@ $text-light: rgb(243, 240, 240);
       background-color: rgb(120, 120, 200);
       border: none;
       border-radius: 1rem;
-      transition-duration: 0.2s;
       display: block;
     }
 
@@ -75,7 +73,6 @@ $text-light: rgb(243, 240, 240);
 
   .container {
     display: flex;
-    border: 1rem rgb(60, 60, 60) ridge;
     box-sizing: border-box;
     width: 100%;
 
@@ -154,14 +151,41 @@ $text-light: rgb(243, 240, 240);
   }
 }
 
+.quests-screen {
+  position: absolute;
+  background-color: $text-dark;
+  border: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  z-index: 2;
+  width: 80%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  .button {
+    position: absolute;
+    margin-bottom: 1rem;
+    bottom: 0;
+  }
+}
+
 .button {
   padding: 1rem;
-  margin: 1rem;
   width: 15rem;
   background-color: rgb(120, 120, 200);
   border: none;
   border-radius: 1rem;
-  transition-duration: 0.2s;
 }
 
 .button:hover {
