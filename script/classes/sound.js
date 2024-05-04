@@ -6,6 +6,27 @@ const sounds = {
 		src: "sounds/click.mp3",
 		loop: false,
 	},
+	simon1: {
+		id: "simon1",
+		src: "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3",
+		loop: false,
+	},
+	simon2: {
+		id: "simon2",
+		src: "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3",
+		loop: false,
+	},
+	simon3: {
+		id: "simon3",
+		src: "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3",
+		loop: false,
+	},
+	simon4: {
+		id: "simon4",
+		src: "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3",
+		loop: false,
+	},
+
 	shanty: {
 		id: "shanty",
 		src: "sounds/seashanty2.mp3",
