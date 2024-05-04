@@ -83,13 +83,13 @@ function unlockMap() {
 
 async function moveMap(lat2, lon2, dist, port) {
 	const { lat, lon } = currentCords;
-	map.setView([lat, lon], 7, {
+	map.setView([lat, lon], 6, {
 		animate: false,
 	});
 	lockMap();
 	plane.classList.remove("hide");
 
-	const duration = dist * 1.1;
+	const duration = dist / settings.flightSpeed;
 	const bearing = await routes.bearing(lat, lon, lat2, lon2);
 	plane.style.setProperty("--angle", `${bearing}deg`);
 	setTimeout(() => {

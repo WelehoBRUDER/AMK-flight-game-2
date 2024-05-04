@@ -2,11 +2,11 @@
   transition: 0.06s;
   width: 40rem;
   height: auto;
-  max-height: 65%;
+  max-height: 90%;
   position: absolute;
-  top: 20%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-50%);
   background: rgba(39, 39, 39, 0.9);
   z-index: 51 !important;
   box-shadow: -4px 4px 12px rgba(20, 20, 20, 0.95);

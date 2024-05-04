@@ -21,6 +21,8 @@ const english = {
 	granfather: "Grandfather",
 	ronald: "Ronald",
 	// Settings
+	gameplay: "Gameplay",
+	flightSpeed: "Flight speed",
 	sound: "Sound",
 	musicVolume: "Music volume",
 	soundVolume: "Sound effect volume",
