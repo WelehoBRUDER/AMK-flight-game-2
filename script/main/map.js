@@ -44,7 +44,7 @@ function airportInfo(port, marker) {
 	const price = port.distance * 0.17;
 	info.append(airportName);
 	info.append(iconNameValue("distance_traveled", "distance", port.distance, "km"));
-	info.append(iconNameValue("money", "flight_cost", price, "$"));
+	info.append(iconNameValue("money", "flight_cost", price, "€"));
 	const buttons = document.createElement("div");
 	const flyToButton = document.createElement("button");
 	buttons.classList.add("buttons");
@@ -199,3 +199,26 @@ function floatingText(origin, text, size) {
 		document.body.removeChild(textContainer);
 	}, 2500);
 }
+
+// 😎
+/**
+ * Creates text that swoops from both sides of the screen, leaves the other way and then disappears.
+ * Supports parseTextFast meaning that color and variable syntax can be used
+ * @param {string} title - Massive title text that is displayed in the center
+ * @param {string} bottom - Smaller text that is displayed below the title
+ */
+function badassText(title, bottom) {
+	const titleText = document.createElement("pre");
+	const bottomText = document.createElement("pre");
+	titleText.classList.add("badass-title");
+	bottomText.classList.add("badass-bottom-text");
+	titleText.append(dialog.parseTextFast(title));
+	bottomText.append(dialog.parseTextFast(bottom));
+	document.body.append(titleText, bottomText);
+	setTimeout(() => {
+		titleText.remove();
+		bottomText.remove();
+	}, 5500);
+}
+
+badassText("I JUST SHAT MY PANTS", "I SERIOSLY NEED YOUR HELP THIS IS EMBARASSING");

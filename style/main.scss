@@ -4,6 +4,7 @@
   color: white;
   margin: 0;
   text-shadow: 0 0 0.25rem rgb(39, 10, 27);
+  overflow: hidden;
 
   --text-purple: rgb(252, 35, 252);
   --dark-purple: rgb(66, 20, 66);
@@ -178,6 +179,66 @@ $text-light: rgb(243, 240, 240);
   &:hover {
     filter: brightness(1.5);
   }
+}
+
+@keyframes swoop-in-right {
+  0% {
+    left: -200%;
+  }
+  20% {
+    left: 50%;
+  }
+  80% {
+    left: 50%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+@keyframes swoop-in-left {
+  0% {
+    right: -200%;
+  }
+  20% {
+    right: 50%;
+  }
+  80% {
+    right: 50%;
+  }
+  100% {
+    right: 200%;
+  }
+}
+
+.badass-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 5rem;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  animation-name: swoop-in-right;
+  animation-duration: 5.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  margin: 0;
+}
+
+.badass-bottom-text {
+  position: absolute;
+  top: calc(50% + 7rem);
+  right: 50%;
+  transform: translateX(50%) translateY(-50%);
+  font-size: 2rem;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  animation-name: swoop-in-left;
+  animation-duration: 5.5s;
+  animation-fill-mode: forwards;
+  margin: 0;
 }
 
 .game {

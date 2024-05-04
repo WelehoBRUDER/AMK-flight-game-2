@@ -116,7 +116,7 @@ const statUnits = {
 	screen_name: "",
 	co2_consumed: "kg",
 	location: "",
-	money: "$",
+	money: "€",
 	time: "",
 	real_time: "",
 	distance_traveled: "km",
