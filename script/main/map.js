@@ -19,14 +19,14 @@ function canClick(marker) {
 
 async function addMarkers() {
 	clearMarkers();
-	const ports = await routes.getAirportsAround(testPlayer.location, "large_airport");
+	const ports = await routes.getAirportsAround(game.currentPlayer().location, "large_airport");
 	const markers = [];
 	for (const port of ports) {
 		const marker = L.marker([port.latitude_deg, port.longitude_deg], { icon: mapIcons.port, interactive: true }).addTo(map);
 		marker.distance = port.distance;
 		let hoverText = port.name;
 
-		if (port.ident === testPlayer.location) {
+		if (port.ident === game.currentPlayer().location) {
 			marker._icon.classList.add("gold-shine");
 			hoverText += " (currently here)";
 		}
@@ -58,7 +58,7 @@ function clearMarkers() {
 function setup() {
 	createMap();
 	addMarkers();
-	testPlayer.updateStatsScreen();
+	game.currentPlayer().updateStatsScreen();
 }
 
 function lockMap() {
@@ -106,12 +106,12 @@ async function moveMap(lat2, lon2, dist, port) {
 		currentCords.lat = lat2;
 		currentCords.lon = lon2;
 		unlockMap();
-		testPlayer.location = port.ident;
-		testPlayer.location_name = port.name;
+		game.currentPlayer().location = port.ident;
+		game.currentPlayer().location_name = port.name;
 		addMarkers();
-		testPlayer.distance_traveled += dist;
-		testPlayer.co2_consumed += (157 * dist) / 1000;
-		testPlayer.updateStatsScreen();
+		game.currentPlayer().distance_traveled += dist;
+		game.currentPlayer().co2_consumed += (157 * dist) / 1000;
+		game.currentPlayer().updateStatsScreen();
 	}, duration + 25);
 }
 

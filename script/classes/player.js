@@ -33,6 +33,16 @@ class Player {
 		return id;
 	}
 
+	hasLost() {
+		let lost = false;
+		switch (this) {
+			case this.money <= 0:
+				lost = true;
+				break;
+		}
+		return lost;
+	}
+
 	getAll() {
 		return this;
 	}
@@ -78,7 +88,7 @@ class Player {
 	}
 }
 
-const testPlayer = new Player({
+game.addPlayer({
 	screen_name: "Test",
 	co2_consumed: 0,
 	location: "EFHK",
