@@ -1,9 +1,30 @@
 const finnish = {
-	code: "fi",
+	code: "finnish",
 	name: "Suomi",
+	// Stats
+	screen_name: "Nimi",
+	co2_consumed: "Hiilidioksidi päästöt",
+	location: "Paikka",
+	money: "Raha",
+	time: "päivämäärä",
+	real_time: "Peliaika",
+	distance_traveled: "Kuljettu matka",
+	screen_name_tt: "Tämän hetkisen pelaajan nimi",
+	co2_consumed_tt: "Hiilidioksidi päästöt",
+	location_tt: "Tämän hetkinen paikka (lentokenttä)",
+	money_tt: "Rahasi",
+	time_tt: "Tämänhetkinen päivämäärä",
+	real_time_tt: "Peliaika",
+	distance_traveled_tt: "Yhteensä kuljettu matka",
+	// Characters
 	narrator: "Kertoja",
 	grandfather: "Isoisä",
 	ronald: "Ronald",
+	// Settings
+	sound: "Ääni",
+	musicVolume: "Musiikin äänenvoimakkuus",
+	soundVolume: "Efektien äänenvoimakkuus",
+	language: "Pelin kieli",
 	// Dialog
 	story_intro_1: "§<c>yellow<c>Ronald§ ei ole nähnyt isoisäänsä 20 vuoteen ja jännitti odotettua tapaamista.",
 	story_intro_2:
@@ -26,4 +47,7 @@ const finnish = {
 	story_intro_17: "Kaitpa mun pitää mennä sit pakkaamaan!",
 	story_intro_18: "§<c>silver<c>*isoisä virnuilee*§ Nonih, otappa tästä nää rahat!",
 	story_intro_19: "Ja onnea matkaan!",
+	// Languages
+	english: "English",
+	finnish: "Suomi",
 };

@@ -4,8 +4,6 @@ const textBox = textArea.querySelector(".text-box");
 const textElem = textBox.querySelector(".text");
 const portrait = document.querySelector(".portrait-img");
 
-let lang = english;
-
 function sleep(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }

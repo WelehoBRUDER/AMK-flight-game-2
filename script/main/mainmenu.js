@@ -111,10 +111,14 @@ close_dialog_btn.addEventListener("click", function () {
 	story_scrn.hidden = true;
 });
 
-settings_btn.addEventListener("click", function() {
+settings_btn.addEventListener("click", openSettingsScreen);
+
+function openSettingsScreen() {
 	hideBoxes();
 	settings_scrn.hidden = false;
-})
+	settings_scrn.innerHTML = "";
+	settings_scrn.append(createSettings());
+}
 
 // Pauses the music if it's currently playing, and vice versa. Also toggles the button text.
 music_btn.addEventListener("click", function () {
@@ -127,20 +131,16 @@ music_btn.addEventListener("click", function () {
 	}
 });
 
-english_btn.addEventListener("click", function() {
+english_btn.addEventListener("click", function () {});
 
-})
-
-finnish_btn.addEventListener("click", function() {
-
-})
+finnish_btn.addEventListener("click", function () {});
 
 close_options_btn.addEventListener("click", function () {
 	options_menu.style.display = "none";
 	options_open = false;
 });
 
-quests_btn.addEventListener("click", function() {
+quests_btn.addEventListener("click", function () {
 	if (quests_open) {
 		quests_scrn.hidden = true;
 		quests_open = false;
@@ -149,12 +149,12 @@ quests_btn.addEventListener("click", function() {
 		quests_scrn.hidden = false;
 		quests_open = true;
 	}
-})
+});
 
-close_quests_btn.addEventListener("click", function() {
+close_quests_btn.addEventListener("click", function () {
 	quests_scrn.hidden = true;
 	quests_open = false;
-})
+});
 
 if (dev.enabled) {
 	hideStart();
@@ -163,5 +163,6 @@ if (dev.enabled) {
 	map_area.hidden = false;
 	close_options_btn.style.display = "block";
 	options_btn.hidden = false;
+	options_open = false;
 	setup();
 }

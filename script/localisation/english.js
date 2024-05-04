@@ -1,5 +1,5 @@
 const english = {
-	code: "en",
+	code: "english",
 	name: "English",
 	// Stats
 	screen_name: "Name",
@@ -20,6 +20,11 @@ const english = {
 	narrator: "Narrator",
 	granfather: "Grandfather",
 	ronald: "Ronald",
+	// Settings
+	sound: "Sound",
+	musicVolume: "Music volume",
+	soundVolume: "Sound effect volume",
+	language: "Game language",
 	// Dialog
 	story_intro_1: "§<c>yellow<c>Ronald§ hasn't seen his grandfather in 20 years and was pretty anxious about the visit.",
 	story_intro_2:
@@ -44,4 +49,7 @@ const english = {
 	story_intro_17: "Well, I guess I need to pack my things then!",
 	story_intro_18: "§<c>silver<c>*grandfather grins*§ Brave lad! Here's the 20000€ in cash.",
 	story_intro_19: "Good luck!",
+	// Languages
+	english: "English",
+	finnish: "Suomi",
 };
