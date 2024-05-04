@@ -65,15 +65,19 @@ class Game {
 		if (!content) return console.error("This window doesn't have any content! (Missing content HTMLElement from parameters)");
 		const popUpWindow = document.createElement("div");
 		const closeButton = document.createElement("div");
+		const drag = document.createElement("div");
 		popUpWindow.classList.add("pop-up-window");
 		closeButton.classList.add("close-button", canIgnore ? "." : "unavailable");
+		drag.classList.add("drag");
 		closeButton.textContent = "x";
 		closeButton.addEventListener("click", () => {
 			popUpWindow.remove();
 		});
 		content.classList.add("content");
-		popUpWindow.append(closeButton, content);
+		popUpWindow.append(drag, closeButton, content);
 		document.body.append(popUpWindow);
+
+		dragElem(popUpWindow);
 	}
 
 	removeAllWindows() {

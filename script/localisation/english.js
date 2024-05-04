@@ -30,6 +30,10 @@ const english = {
 	musicVolume: "Music volume",
 	soundVolume: "Sound effect volume",
 	language: "Game language",
+	// UI
+	distance: "Distance",
+	flight_cost: "Flight cost",
+	fly_to_airport: "Fly to this port",
 	// Dialog
 	story_intro_1: "§<c>yellow<c>Ronald§ hasn't seen his grandfather in 20 years and was pretty anxious about the visit.",
 	story_intro_2:

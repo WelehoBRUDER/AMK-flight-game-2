@@ -29,6 +29,10 @@ const finnish = {
 	musicVolume: "Musiikin äänenvoimakkuus",
 	soundVolume: "Efektien äänenvoimakkuus",
 	language: "Pelin kieli",
+	// UI
+	distance: "Matka",
+	flight_cost: "Lennon hinta",
+	fly_to_airport: "Lennä tälle kentälle",
 	// Dialog
 	story_intro_1: "§<c>yellow<c>Ronald§ ei ole nähnyt isoisäänsä 20 vuoteen ja jännitti odotettua tapaamista.",
 	story_intro_2:

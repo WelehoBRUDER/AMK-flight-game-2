@@ -17,26 +17,48 @@ function createMap() {
  * Returns an element that has an icon, a name and a value element.
  * @param {string} icon - ID of the icon
  * @param {string} name - Name of the icon value pair (id corresponding to language)
- * @param {string} value - Actual value of the pair
+ * @param {any} value - Actual value of the pair
  */
-function iconNameValue(icon, name, value) {
+function iconNameValue(icon, name, value, appendix = "") {
 	const container = document.createElement("div");
+	const iconAndName = document.createElement("div");
 	const iconImage = document.createElement("img");
 	const nameText = document.createElement("p");
 	const valueText = document.createElement("span");
 	container.classList.add("iconNameValue");
 	iconImage.src = statIcons[icon];
 	nameText.textContent = translate(name);
-	valueText.textContent = value;
-	container.append(iconImage, nameText, valueText);
+	valueText.textContent = typeof value === "number" ? value.toFixed(2) : value;
+	valueText.textContent += appendix;
+	iconAndName.append(iconImage, nameText);
+	container.append(iconAndName, valueText);
 	return container;
 }
 
-function airportInfo(port) {
+function airportInfo(port, marker) {
 	const info = document.createElement("div");
 	info.classList.add("airport-info");
 	const airportName = document.createElement("h2");
 	airportName.classList.add("airport-name");
+	airportName.textContent = port.name;
+	const price = port.distance * 0.17;
+	info.append(airportName);
+	info.append(iconNameValue("distance_traveled", "distance", port.distance, "km"));
+	info.append(iconNameValue("money", "flight_cost", price, "$"));
+	const buttons = document.createElement("div");
+	const flyToButton = document.createElement("button");
+	buttons.classList.add("buttons");
+	flyToButton.classList.add("fly");
+	flyToButton.textContent = translate("fly_to_airport");
+	flyToButton.addEventListener("click", () => {
+		if (canClick(marker)) {
+			game.removeAllWindows();
+			moveMap(port.latitude_deg, port.longitude_deg, port.distance, port, marker._icon);
+		}
+	});
+	buttons.append(flyToButton);
+	info.append(buttons);
+	game.createWindow(info);
 }
 
 function canClick(marker) {
@@ -63,10 +85,8 @@ async function addMarkers() {
 			marker._icon.classList.add("greyed-out");
 		}
 
-		marker.on("click", (e) => {
-			if (canClick(marker)) {
-				moveMap(e.latlng.lat, e.latlng.lng, marker.distance, port, marker._icon);
-			}
+		marker.on("click", () => {
+			airportInfo(port, marker);
 		});
 
 		markers.push(marker);

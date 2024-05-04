@@ -107,10 +107,59 @@ $text-light: rgb(243, 240, 240);
   z-index: 100;
   font-size: 1.5rem;
 
-  .content {
+  .drag {
+    width: 100%;
+    height: 3rem;
     position: absolute;
     left: 0;
-    top: 5rem;
+    top: 0;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 1.2rem 0.4rem rgb(25, 25, 25, 0.7);
+    cursor: move;
+  }
+
+  .content {
+    position: relative;
+    left: 0;
+    box-sizing: border-box;
+    padding: 1rem;
+    margin-top: 5rem;
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      button {
+        background: $text-dark;
+        border: 0.2rem solid $text-light;
+        font-size: 2rem;
+        color: $text-light;
+        padding: 0rem 1rem;
+
+        &:hover {
+          filter: brightness(1.5);
+        }
+      }
+    }
+
+    h2 {
+      margin: 0;
+    }
+  }
+}
+
+.iconNameValue {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 2rem;
+    }
   }
 }
 
