@@ -43,13 +43,18 @@ function diceCreation() {
   return diceClass;
 }
 
-let pElemOne = document.createElement('p')
-computerCon.appendChild(pElemOne)
+let pElemOne = document.createElement('p');
+computerCon.appendChild(pElemOne);
 let computerTotal = 0;
 
 function rollComputerDices() {
   const diceSet = computerCon.querySelector('.diceSet');
   diceSet.innerHTML = '';
+
+  rollBtn.hidden = true;
+  setTimeout(() => {
+    rollBtn.hidden = false;
+  }, 3500);
 
   const compDiceValues = [];
 
@@ -65,21 +70,21 @@ function rollComputerDices() {
 
     displayDiceValues(compDice, [value]);
   }
-  computerTotal = 0;
   for (let i = 0; i < compDiceValues.length; i++) {
     computerTotal += compDiceValues[i];
   }
   setTimeout(() => {
-    pElemOne.textContent = `Ahmed's total: ${computerTotal}`
-  }, 3500)
+    pElemOne.textContent = `Ahmed's total: ${computerTotal}`;
+  }, 3500);
 }
 
 let h1Elem = document.createElement('h1');
 let pElemTwo = document.createElement('p');
 mainCon.appendChild(h1Elem);
 playerCon.appendChild(pElemTwo);
-let playerTotal = 0;
+
 let attempts = 3;
+let playerTotal = 0;
 
 function rollPlayerDices() {
   if (attempts > 0) {
@@ -102,28 +107,32 @@ function rollPlayerDices() {
 
       displayDiceValues(playerDice, [value]);
     }
-
     h1Elem.textContent = 'Attempts left ' + attempts + '.';
 
     playerTotal = 0;
     for (let i = 0; i < playerDiceValues.length; i++) {
       playerTotal += playerDiceValues[i];
-      console.log(playerTotal);
     }
-    pElemTwo.textContent = `Your total: ${playerTotal}`;
+    setTimeout(() => {
+      pElemTwo.textContent = `Player's total: ${playerTotal}`;
+    }, 3500);
+  }
+}
 
-    if (playerTotal > computerTotal) {
+function checkWinner() {
+  if (playerTotal > computerTotal) {
+    setTimeout(() => {
       rollBtn.hidden = true;
-      h1Elem.hidden = true
-      setTimeout(() => {
-        pElemTwo.innerHTML = `
-          <p>\Congratulations you've defeated me with a score of ${playerTotal}.<br>Promise is a promise. Here's your (insert item name)\</br></p>
-        `
-      }, 3500)
-    } else if (attempts === 0) {
+      h1Elem.hidden = true;
+      pElemTwo.innerHTML = `
+        <p>Congratulations you've defeated me with a score of <b style="font-size: 18px; color: #1d8602;">${playerTotal}</b>.<br>Promise is a promise. Here's your (insert item name)</br></p>
+      `;
+    }, 3500);
+  } else if (attempts === 0) {
+    setTimeout(() => {
       rollBtn.hidden = true;
       pElemTwo.textContent = `You didn't beat me this time. Unfortunately (insert item name) is gonna cost you.`;
-    }
+    });
   }
 }
 
@@ -165,4 +174,7 @@ function getRotationForValue(value) {
 }
 
 window.addEventListener('DOMContentLoaded', rollComputerDices);
-rollBtn.addEventListener('click', rollPlayerDices);
+rollBtn.addEventListener('click', () => {
+  rollPlayerDices();
+  checkWinner();
+});
