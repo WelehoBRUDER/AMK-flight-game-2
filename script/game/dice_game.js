@@ -132,7 +132,7 @@ function checkWinner() {
     setTimeout(() => {
       rollBtn.hidden = true;
       pElemTwo.textContent = `You didn't beat me this time. Unfortunately (insert item name) is gonna cost you.`;
-    });
+    }, 3500);
   }
 }
 
