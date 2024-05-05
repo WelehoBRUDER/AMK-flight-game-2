@@ -322,7 +322,6 @@ function getRandomWord() {
   const {word, hint} = wordList[randomIndex];
   currentWord = word;
   document.querySelector('.hint-display').innerHTML = hint;
-  wordDisplay.innerHTML = '';
 
   for (let i = 0; i < currentWord.length; i++) {
     const letterItem = document.createElement('li');
@@ -344,9 +343,15 @@ function lossScreen() {
   wordDisplay.classList.add('hidden');
   keyboard.style.display = 'none';
   guessDisplay.style.display = 'none'
-  const loss = document.createElement('h4');
+  const correctWord = document.createElement('h4')
+  gameplayCon.appendChild(correctWord)
+  const correctWordText = correctWord.innerHTML = `Correct word: <br>${currentWord.toUpperCase()}</br>`
+  const loss = document.createElement('h5');
   gameplayCon.appendChild(loss);
-  return loss.textContent = `Not worthy! (insert item name) is gonna cost ya!`;
+  const lossText = loss.textContent = `Not worthy! (insert item name) is gonna cost ya!`
+
+
+  return correctWordText && lossText
 }
 
 const initGame = (button, clickedLetter) => {

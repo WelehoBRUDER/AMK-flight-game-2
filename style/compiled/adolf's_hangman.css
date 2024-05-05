@@ -118,11 +118,19 @@ h3 {
     color: #1d8602;
 }
 
-h4 {
+h5 {
     text-align: center;
     font-family: Courier, sans-serif;
+    font-size: 24px;
     color: #b40101;
 }
+
+h4 {
+    text-align: center;
+    font-family: "Courier New", sans-serif;
+    font-size: 32px;
+}
+
 
 
 
