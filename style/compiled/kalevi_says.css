@@ -14,7 +14,17 @@ html {
   display: flex;
   justify-content: center;
   font-family: 'Rubik', sans-serif;
-  background-color: #2f2f2f;
+  background-color: #342567;
+  width: 1000px;
+  height: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0 8px 10px rgb(47, 47, 47);
+  border: 2px solid #715fff;
+
 }
 
 .game {
@@ -37,9 +47,10 @@ html {
 }
 
 h1 {
-  color: #2f2f2f;
+  color: #e1d9d9;
   text-align: center;
   font-size: 26px;
+  font-family: "Palatino Linotype", sans-serif;
 }
 
 .heading {
@@ -145,7 +156,7 @@ h1 {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
-  color: #555;
+  color: #c9c2c2;
   text-align: center;
   font-size: 14px;
   font-weight: 600;
@@ -161,8 +172,8 @@ h1 {
 }
 
 .start-button:hover {
-  color: #333;
-  border-color: #888;
+  color: #5162ff;
+  border-color: #5162ff;
   outline: 0;
 }
 
@@ -173,3 +184,4 @@ h1 {
 span.info.js-info {
   color: whitesmoke;
 }
+
