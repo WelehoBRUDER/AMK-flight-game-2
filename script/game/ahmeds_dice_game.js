@@ -67,9 +67,9 @@ function rollComputerDices() {
   const diceSet = mainCon.querySelector('.diceSet');
   diceSet.innerHTML = '';
 
-  rollBtn.hidden = true;
+  rollBtn.disabled = true;
   setTimeout(() => {
-    rollBtn.hidden = false;
+    rollBtn.disabled = false;
   }, 3500);
 
   const compDiceValues = [];
@@ -92,6 +92,15 @@ function rollComputerDices() {
   setTimeout(() => {
     pElemOne.innerHTML = `Ahmed's roll: <b style="color: darkred">${computerTotal}</b>`;
   }, 3500);
+  updateRollsLeft();
+}
+
+function updateRollsLeft() {
+  if (attempts >= 2) {
+    h1Elem.innerHTML = `Rolls left: <b style="color: green">${attempts}</b>`;
+  } else {
+    h1Elem.innerHTML = `Rolls left: <b style="color: red">${attempts}</b>`;
+  }
 }
 
 let h1Elem = document.createElement('h1');
@@ -121,7 +130,12 @@ function rollPlayerDices() {
 
       displayDiceValues(playerDice, [value]);
     }
-    h1Elem.textContent = 'Attempts left: ' + attempts;
+    rollBtn.disabled = true;
+    setTimeout(() => {
+      rollBtn.disabled = false;
+    }, 3500);
+
+    updateRollsLeft()
 
     playerTotal = 0;
     for (let i = 0; i < playerDiceValues.length; i++) {
@@ -154,6 +168,7 @@ function checkWinner() {
       h1Elem.style.color = 'red';
       endScreenMsg.textContent = `HAA NO ONE CAN BEAT AHMED! Show me the moneyyy... That is, if you want
        your grandpa's (insert item name), because it's gonna cost ya.`;
+      endScreenMsg.classList.remove('hidden');
     }, 3500);
   }
 }
