@@ -58,7 +58,6 @@ function hideStart() {
 // Fading animation for the start screen
 title_screen.addEventListener("click", function () {
 	title_screen.style.opacity = "0";
-	close_options_btn.style.display = "none";
 	setTimeout(hideStart, 1000);
 });
 

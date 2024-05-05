@@ -11,13 +11,33 @@
 }
 
 .title-screen {
+  z-index: 3;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 3;
   width: 100vw;
   height: 100vh;
   transition: 1s;
+}
+.title-screen img {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.title-screen h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  font-size: 3.5rem;
+  -webkit-text-stroke: 2px black;
+  animation: blinker 2s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
 
 .main-menu {
