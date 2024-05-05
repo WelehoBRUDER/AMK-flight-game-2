@@ -3,9 +3,14 @@ General Styles
 */
 
 .diceGame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: grid;
     place-items: center;
     width: 50rem;
+    height: 600px;
     padding: 60px 0 40px;
     border-radius: 30px;
     background: #524d4d;
@@ -37,7 +42,7 @@ Dice Styles
 
 @keyframes rolling {
     50% {
-        transform: rotateX(355deg) rotateY(355deg);
+        transform: rotateX(455deg) rotateY(455deg);
     }
 }
 
@@ -146,7 +151,6 @@ Dice Styles
 .roll {
     cursor: pointer;
     color: #b33951;
-    margin: 40px 0 40px 0;
     padding: 6px 12px;
     border-radius: 3px;
     font: 700 16px 'Verdana';
@@ -165,4 +169,59 @@ Dice Styles
     display: flex;
     flex-direction: column;
 }
-/*# sourceMappingURL=ahmeds_dice_game.css.map */
+
+.comp-score {
+    font-family: "Courier New", sans-serif;
+    font-size: 28px;
+    text-align: center;
+}
+
+.player-score {
+    font-family: "Courier New", sans-serif;
+    font-size: 28px;
+    text-align: center;
+}
+
+.game-title {
+    font-family: "Courier New", sans-serif;
+    font-size: 36px;
+}
+
+.npc {
+    position: absolute; /* Position the NPC containers relative to the .diceGame container */
+    width: 200px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    background-color: #ccc; /* Example background color */
+    border-radius: 10px 0 10px 0;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+}
+
+.player {
+    position: absolute; /* Position the NPC containers relative to the .diceGame container */
+    width: 200px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    background-color: #ccc; /* Example background color */
+    border-radius: 10px 0 10px 0;
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.end-screen {
+    margin: 0;
+    width: 50%;
+    text-align: center;
+    font-size: 18px;
+    font-family: Courier, sans-serif;
+}
+/*# sourceMappingURL=mini_games.css.map */
