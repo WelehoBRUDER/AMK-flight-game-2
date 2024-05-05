@@ -1,4 +1,5 @@
-const start_menu = document.querySelector("#start-menu");
+const title_screen = document.querySelector("#title-screen");
+const main_menu = document.querySelector("#main-menu");
 
 const options_btn = document.querySelector("#options");
 const options_menu = document.querySelector("#options-menu");
@@ -20,9 +21,6 @@ const close_dialog_btn = document.querySelector("#close-dialog");
 
 const settings_btn = document.querySelector("#settings");
 const settings_scrn = document.querySelector("#settings-screen");
-const music_btn = document.querySelector("#music");
-const english_btn = document.querySelector("#lang-english");
-const finnish_btn = document.querySelector("#lang-suomi");
 
 const close_options_btn = document.querySelector("#close-options");
 
@@ -32,6 +30,7 @@ const close_quests_btn = document.querySelector("#close-quests");
 
 const map_area = document.querySelector("#map-area");
 const map_scrn = document.querySelector("#map");
+const bottom_bar = document.querySelector("#bottom-bar");
 
 let options_open = true;
 let quests_open = false;
@@ -53,12 +52,12 @@ document.querySelectorAll("button").forEach((btn) => {
 });
 
 function hideStart() {
-	start_menu.hidden = true;
+	title_screen.hidden = true;
 }
 
 // Fading animation for the start screen
-start_menu.addEventListener("click", function () {
-	start_menu.style.opacity = "0";
+title_screen.addEventListener("click", function () {
+	title_screen.style.opacity = "0";
 	close_options_btn.style.display = "none";
 	setTimeout(hideStart, 1000);
 });
@@ -81,9 +80,11 @@ new_game_btn.addEventListener("click", function () {
 });
 
 start_btn.addEventListener("click", function () {
+	main_menu.hidden = true;
 	options_menu.style.display = "none";
 	map_scrn.hidden = false;
 	map_area.hidden = false;
+	bottom_bar.style.display = "flex";
 	close_options_btn.style.display = "block";
 	options_btn.hidden = false;
 	quests_btn.hidden = false;
@@ -119,21 +120,6 @@ function openSettingsScreen() {
 	settings_scrn.innerHTML = "";
 	settings_scrn.append(createSettings());
 }
-
-// Pauses the music if it's currently playing, and vice versa. Also toggles the button text.
-music_btn.addEventListener("click", function () {
-	if (soundController.isMusicPlaying()) {
-		soundController.pauseMusic();
-		music_btn.textContent = "Music: OFF";
-	} else {
-		soundController.playSound("shanty");
-		music_btn.textContent = "Music: ON";
-	}
-});
-
-english_btn.addEventListener("click", function () {});
-
-finnish_btn.addEventListener("click", function () {});
 
 close_options_btn.addEventListener("click", function () {
 	options_menu.style.display = "none";

@@ -14,7 +14,7 @@
 $text-dark: rgb(14, 14, 14);
 $text-light: rgb(243, 240, 240);
 
-.start-menu {
+.title-screen {
   position: absolute;
   top: 0;
   left: 0;
@@ -26,17 +26,22 @@ $text-light: rgb(243, 240, 240);
 
 .main-menu {
   background-color: rgb(50, 50, 50);
-  width: 100%;
-  height: 100%;
-  margin: 0;
+  width: 100vw;
+  height: 100vh;
   position: absolute;
+  margin: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .options-menu {
   position: absolute;
   display: flex;
-  background-color: $text-dark;
-  border: 1rem rgb(60, 60, 60) ridge;
+  background-color: rgb(14, 14, 14, 0.85);
+  border: 1rem rgba(60, 60, 60) ridge;
   border-radius: 1rem;
   z-index: 2;
   width: 80%;
@@ -154,7 +159,7 @@ $text-light: rgb(243, 240, 240);
 
 .quests-screen {
   position: absolute;
-  background-color: $text-dark;
+  background-color: rgb(14, 14, 14, 0.85);
   border: 1rem rgb(60, 60, 60) ridge;
   box-sizing: border-box;
   border-radius: 1rem;

@@ -1,1 +1,185 @@
-.settings{transition:.06s;width:40rem;height:auto;max-height:90%;position:absolute;top:50%;left:50%;transform:translateX(-50%) translateY(-50%);background:rgba(39,39,39,.9);z-index:51 !important;box-shadow:-4px 4px 12px rgba(20,20,20,.95);border-radius:4px;font-size:22px;color:#fff;text-shadow:-2px 2px 4px #000;user-select:none;overflow:hidden;overflow-y:auto;white-space:nowrap}.settings .toggle{transition:.03s;padding:4px;display:flex;margin:0;width:auto;height:min-content;animation-name:popIn;animation-duration:.175s}.settings .toggle p{width:auto;height:24px;margin:0}.settings .toggle div{width:16px;height:16px;padding:4px;text-align:center;border:2px solid #3b3b3b;background:#161616;margin-left:10px;font-size:15px;border-radius:50%}.settings .hotkeySelection{transition:.03s;padding:4px;display:flex;margin:0;width:auto;height:min-content;animation-name:popIn;animation-duration:.175s}.settings .hotkeySelection p{width:auto;height:24px;margin:0}.settings .hotkeySelection div{min-width:18px;width:auto;height:18px;padding:4px;text-align:center;border:2px solid #3b3b3b;background:#161616;margin-left:10px;font-size:16px}.settings .sliderContainer{transition:.03s;padding:4px;margin:0;width:auto;height:min-content;animation-name:popIn;animation-duration:.175s}.settings .sliderContainer p{position:relative;width:100%;height:24px;margin:0;display:flex}.settings .sliderContainer p p{position:absolute;left:325px}.settings .sliderContainer input{transition:.05s;appearance:none;width:90%;margin-left:4%;margin-top:8px;height:20px;opacity:.8;outline:none;overflow:hidden;border-radius:25px;background:#3d3c3c;box-shadow:0 0 2px 2px #b1a4a0}.settings .sliderContainer input::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;background:#6e2d07;box-shadow:inset 0 0 3px 3px #833f18,0 0 3px 3px #d3430a;cursor:pointer;box-shadow:-200px 0 0 200px #bb581f}.settings .sliderContainer input::-moz-range-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;background:#6e2d07;box-shadow:inset 0 0 3px 3px #833f18,0 0 3px 3px #d3430a;cursor:pointer;box-shadow:-200px 0 0 200px #bb581f}.settings .sliderContainer input::-webkit-slider-runnable-track,.settings .sliderContainer input::-moz-range-progress{height:20px;-webkit-appearance:none;color:#13bba4;margin-top:-1px}.settings .sliderContainer input:hover{opacity:1}.settings .languageSelection{transition:.03s;padding:4px;display:flex;margin:0;width:auto;height:min-content;animation-name:popIn;animation-duration:.175s}.settings .languageSelection p{width:auto;height:24px;margin:0}.settings .languageSelection div{width:auto;padding:4px;text-align:center;border:2px solid #3b3b3b;background:#161616;margin-left:10px;display:flex;justify-content:center;align-items:center}.settings .languageSelection div img{width:1.5rem;height:1.5rem}.settings .languageSelection div p{padding:0;margin:0;height:auto;font-size:1.5rem}.settings .languageSelection div:hover{border:2px solid #fff}.settings .languageSelection .selectedLang{background:#0f0f8f}.settings .toggle:hover,.settings .hotkeySelection:hover{background:rgba(25,66,100,.55)}/*# sourceMappingURL=settings.css.map */
+.settings {
+  transition: 0.06s;
+  width: 40rem;
+  height: auto;
+  max-height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background: rgba(39, 39, 39, 0.9);
+  z-index: 51 !important;
+  box-shadow: -4px 4px 12px rgba(20, 20, 20, 0.95);
+  border-radius: 4px;
+  font-size: 22px;
+  color: white;
+  text-shadow: -2px 2px 4px black;
+  user-select: none;
+  overflow: hidden;
+  overflow-y: auto;
+  white-space: nowrap;
+}
+.settings .toggle {
+  transition: 0.03s;
+  padding: 4px;
+  display: flex;
+  margin: 0;
+  width: auto;
+  height: min-content;
+  animation-name: popIn;
+  animation-duration: 0.175s;
+}
+.settings .toggle p {
+  width: auto;
+  height: 24px;
+  margin: 0;
+}
+.settings .toggle div {
+  width: 16px;
+  height: 16px;
+  padding: 4px;
+  text-align: center;
+  border: 2px solid rgb(59, 59, 59);
+  background: rgb(22, 22, 22);
+  margin-left: 10px;
+  font-size: 15px;
+  border-radius: 50%;
+}
+.settings .hotkeySelection {
+  transition: 0.03s;
+  padding: 4px;
+  display: flex;
+  margin: 0;
+  width: auto;
+  height: min-content;
+  animation-name: popIn;
+  animation-duration: 0.175s;
+}
+.settings .hotkeySelection p {
+  width: auto;
+  height: 24px;
+  margin: 0;
+}
+.settings .hotkeySelection div {
+  min-width: 18px;
+  width: auto;
+  height: 18px;
+  padding: 4px;
+  text-align: center;
+  border: 2px solid rgb(59, 59, 59);
+  background: rgb(22, 22, 22);
+  margin-left: 10px;
+  font-size: 16px;
+}
+.settings .sliderContainer {
+  transition: 0.03s;
+  padding: 4px;
+  margin: 0;
+  width: auto;
+  height: min-content;
+  animation-name: popIn;
+  animation-duration: 0.175s;
+}
+.settings .sliderContainer p {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  margin: 0;
+  display: flex;
+}
+.settings .sliderContainer p p {
+  position: absolute;
+  left: 325px;
+}
+.settings .sliderContainer input {
+  transition: 0.05s;
+  appearance: none;
+  width: 90%;
+  margin-left: 4%;
+  margin-top: 8px;
+  height: 20px;
+  opacity: 0.8;
+  outline: none;
+  overflow: hidden;
+  border-radius: 25px;
+  background: rgb(61, 60, 60);
+  box-shadow: 0 0 2px 2px rgb(177, 164, 160);
+}
+.settings .sliderContainer input::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 20px; /* Set a specific slider handle width */
+  height: 20px; /* Slider handle height */
+  background: #6e2d07;
+  box-shadow: inset 0 0 3px 3px #833f18, 0 0 3px 3px rgb(211, 67, 10);
+  cursor: pointer; /* Cursor on hover */
+  box-shadow: -200px 0 0 200px #bb581f;
+}
+.settings .sliderContainer input::-moz-range-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 20px; /* Set a specific slider handle width */
+  height: 20px; /* Slider handle height */
+  background: #6e2d07;
+  box-shadow: inset 0 0 3px 3px #833f18, 0 0 3px 3px rgb(211, 67, 10);
+  cursor: pointer; /* Cursor on hover */
+  box-shadow: -200px 0 0 200px #bb581f;
+}
+.settings .sliderContainer input::-webkit-slider-runnable-track,
+.settings .sliderContainer input::-moz-range-progress {
+  height: 20px;
+  -webkit-appearance: none;
+  color: #13bba4;
+  margin-top: -1px;
+}
+.settings .sliderContainer input:hover {
+  opacity: 1;
+}
+.settings .languageSelection {
+  transition: 0.03s;
+  padding: 4px;
+  display: flex;
+  margin: 0;
+  width: auto;
+  height: min-content;
+  animation-name: popIn;
+  animation-duration: 0.175s;
+}
+.settings .languageSelection p {
+  width: auto;
+  height: 24px;
+  margin: 0;
+}
+.settings .languageSelection div {
+  width: auto;
+  padding: 4px;
+  text-align: center;
+  border: 2px solid rgb(59, 59, 59);
+  background: rgb(22, 22, 22);
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.settings .languageSelection div img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.settings .languageSelection div p {
+  padding: 0;
+  margin: 0;
+  height: auto;
+  font-size: 1.5rem;
+}
+.settings .languageSelection div:hover {
+  border: 2px solid rgb(255, 255, 255);
+}
+.settings .languageSelection .selectedLang {
+  background: rgb(15, 15, 143);
+}
+.settings .toggle:hover,
+.settings .hotkeySelection:hover {
+  background: rgba(25, 66, 100, 0.55);
+}
+
+/*# sourceMappingURL=settings.css.map */
