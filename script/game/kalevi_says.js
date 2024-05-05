@@ -92,7 +92,7 @@ const tileContainer = document.querySelector('.tile-container');
 function startGame() {
   startButton.classList.add('hidden');
   info.classList.remove('hidden');
-  info.textContent = 'Wait for Urho to show you the pattern.';
+  info.textContent = 'Wait for Urho Kalevi to show you the pattern.';
   nextRound();
 }
 
@@ -168,7 +168,7 @@ function handleClick(tile) {
 
   if (playerSequence.length === sequence.length) {
     if (playerSequence.length === 6) {
-      resetGame("Congratulations you've bested me! Here's you (insert item name)");
+      resetGame("*Kekkonen is impressed* Congratulations you've bested me! Here's you (insert item name)");
       return
     }
 
