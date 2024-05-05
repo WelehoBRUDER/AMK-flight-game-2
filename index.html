@@ -72,7 +72,7 @@
     <div class="console-intellisense"></div>
   </div>
   <!-- Start screen (image is a placeholder) -->
-  <img src="images/airplane.jpeg" alt="placeholder" class="start-menu" id="start-menu">
+  <img src="images/titlescreen.webp" alt="title screen" class="title-screen" id="title-screen">
   <!-- Everything else -->
   <div class="game" id="game">
     <div class="top-bar">
@@ -80,11 +80,11 @@
       <button class="button" id="options" hidden>Options</button>
       <button class="button" id="quests" hidden>Grandpa's travels</button>
     </div>
+    <div class="main-menu" id="main-menu">
+      <img src="images/titleless-screen.webp" alt="background">
+    </div>
     <div class="map-area" id="map-area">
       <div class="dice-rolling"></div>
-      <div class="main-menu" id="main-menu">
-        <!-- Background image goes here -->
-      </div>
       <div class="options-menu" id="options-menu">
         <div class="buttons" id="buttons">
           <button class="option" id="new-game">Start a new game</button>
@@ -123,15 +123,7 @@
             </div>
             <button class="button" id="close-dialog">Close</button>
           </div>
-          <div class="box" id="settings-screen" hidden>
-            <h1>Settings</h1>
-            <h2>Sound</h2>
-            <button class="button" id="music">Music: OFF</button>
-            <p>(Volume slider goes here)</p>
-            <h2>Language</h2>
-            <button class="button" id="lang-english"><img src="images/eng.png" alt="flag">English</button>
-            <button class="button" id="lang-suomi"><img src="images/fi.png" alt="flag">Suomi</button>
-          </div>
+          <div class="box" id="settings-screen" hidden></div>
         </div>
       </div>
       <div class="quests-screen" id="quests-screen" hidden>
@@ -144,7 +136,7 @@
       </div>
       <div id="map"></div>
     </div>
-    <div class="bottom-bar">
+    <div class="bottom-bar" id="bottom-bar">
 
     </div>
   </div>

@@ -10,7 +10,7 @@
   --neon-purple: rgb(97, 3, 97);
 }
 
-.start-menu {
+.title-screen {
   position: absolute;
   top: 0;
   left: 0;
@@ -22,16 +22,20 @@
 
 .main-menu {
   background-color: rgb(50, 50, 50);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  margin: 0;
+}
+.main-menu img {
   width: 100%;
   height: 100%;
-  margin: 0;
-  position: absolute;
 }
 
 .options-menu {
   position: absolute;
   display: flex;
-  background-color: rgb(14, 14, 14);
+  background-color: rgba(14, 14, 14, 0.85);
   border: 1rem rgb(60, 60, 60) ridge;
   border-radius: 1rem;
   z-index: 2;
@@ -134,7 +138,7 @@
 
 .quests-screen {
   position: absolute;
-  background-color: rgb(14, 14, 14);
+  background-color: rgba(14, 14, 14, 0.85);
   border: 1rem rgb(60, 60, 60) ridge;
   box-sizing: border-box;
   border-radius: 1rem;
