@@ -33,6 +33,17 @@ const finnish = {
 	distance: "Matka",
 	flight_cost: "Lennon hinta",
 	fly_to_airport: "Lennä tälle kentälle",
+	// Options
+	options: "Valikko",
+	new_game: "Aloita uusi peli",
+	start_game: "Aloita peli",
+	load_save: "Lataa / Tallenna peli",
+	load_game: "Lataa peli",
+	save_game: "Tallenna peli",
+	read_help: "Apua",
+	read_story: "Tarina",
+	settings: "Asetukset",
+	close: "Sulje",
 	// Dialog
 	story_intro_1: "§<c>yellow<c>Ronald§ ei ole nähnyt isoisäänsä 20 vuoteen ja jännitti odotettua tapaamista.",
 	story_intro_2:

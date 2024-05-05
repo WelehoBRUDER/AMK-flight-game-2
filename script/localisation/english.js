@@ -40,6 +40,17 @@ const english = {
 	new_turn: "Beginning new turn",
 	turn: "Turn",
 	player: "Player",
+	// Options
+	options: "Options",
+	new_game: "Start a new game",
+	start_game: "Start game",
+	load_save: "Load / Save game",
+	load_game: "Load game",
+	save_game: "Save game",
+	read_help: "Help",
+	read_story: "Story",
+	settings: "Settings",
+	close: "Close",
 	// Dialog
 	story_intro_1: "§<c>yellow<c>Ronald§ hasn't seen his grandfather in 20 years and was pretty anxious about the visit.",
 	story_intro_2:
