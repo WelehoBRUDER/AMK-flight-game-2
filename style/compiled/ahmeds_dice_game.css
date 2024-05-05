@@ -13,8 +13,13 @@ General Styles
     height: 600px;
     padding: 60px 0 40px;
     border-radius: 30px;
-    background: #524d4d;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    background: linear-gradient(90deg, #8B4513 1px, transparent 1px) 0 0 / 20px 20px,
+    linear-gradient(90deg, #8B4513 1px, transparent 1px) 0 0 / 20px 20px,
+    linear-gradient(90deg, #8B4513 1px, transparent 1px) 0 0 / 20px 20px,
+    linear-gradient(90deg, #8B4513 1px, transparent 1px) 0 0 / 20px 20px;
+    background-color: #522c2c;
+    box-shadow: 0 8px 10px rgb(47, 47, 47),
+    5px 0 10px rgba(0, 0, 0, 0.5), -5px 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .diceSet {
