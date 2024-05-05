@@ -145,7 +145,7 @@ function resetGame(text) {
   sequence = [];
   playerSequence = [];
   level = 0;
-  heading.textContent = 'Kalevi\'s Game';
+  heading.textContent = 'Kalevi Says';
   tileContainer.classList.add('unclickable');
 }
 
