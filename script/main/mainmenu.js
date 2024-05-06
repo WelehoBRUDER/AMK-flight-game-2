@@ -114,7 +114,7 @@ title_screen.addEventListener("click", function () {
 	in_main_menu = true;
 	options_menu.style.display = "flex";
 	options_open = true;
-	createLeaderboards();
+	soundController.playSound("shanty");
 	refreshText();
 });
 
@@ -220,7 +220,7 @@ if (dev.enabled) {
 	options_btn.hidden = false;
 	quests_btn.hidden = false;
 	quests_open = false;
-	createLeaderboards();
 	setup();
-	soundController.playSound("shanty");
 }
+
+createLeaderboards();
