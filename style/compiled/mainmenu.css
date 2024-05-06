@@ -1,1 +1,260 @@
-:root{font-size:62.5%;font-family:"Courier New",Courier,monospace;color:#fff;margin:0;text-shadow:0 0 .25rem #270a1b;--text-purple: rgb(252, 35, 252);--dark-purple: rgb(66, 20, 66);--purple: rgb(88, 25, 88);--neon-purple: rgb(97, 3, 97)}.title-screen{z-index:3;position:absolute;top:0;left:0;width:100vw;height:100vh;transition:1s}.title-screen img{width:100%;height:100%;z-index:2}.title-screen h1{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);z-index:4;font-size:3.5rem;-webkit-text-stroke:2px #000;animation:blinker 2s linear infinite}@keyframes blinker{50%{opacity:0}}.main-menu{background-color:#323232;width:100vw;height:100vh;position:absolute;margin:0}.main-menu img{width:100%;height:100%}.options-menu{position:absolute;display:flex;background-color:rgba(14,14,14,.85);border:1rem #3c3c3c ridge;border-radius:1rem;z-index:2;width:80%;height:90%;top:50%;left:50%;transform:translate(-50%, -50%)}.options-menu .buttons{border-right:1rem #3c3c3c ridge;box-sizing:border-box;padding:1rem;align-content:center}.options-menu .option-content{display:flex;box-sizing:border-box;width:100%}.options-menu .option-content .box{margin:1rem;width:100%;height:100%}.options-menu .option-content .box h1{font-size:3rem}.options-menu .option-content .box p{font-size:1.5rem}.options-menu .option-content .box pre{font-size:1.5rem;white-space:pre-wrap}.options-menu .option-content .box .leaderboards-list{border:1rem #3c3c3c ridge;border-right:none;border-radius:1rem;display:flex;width:100rem;height:30rem;position:absolute}.options-menu .option-content .box .leaderboards-list .column{background-color:dimgray;width:100%;height:100%;border-right:1rem #3c3c3c ridge;box-sizing:border-box}.options-menu .option-content .box .leaderboards-list .column .column-stat{font-size:1.5rem;text-align:center;margin:0;width:100%;height:5rem;border-bottom:1rem #3c3c3c ridge;box-sizing:border-box;background-color:#0e0e0e;display:flex;flex-direction:column;padding:.5rem}.options-menu .option-content .box .leaderboards-list .column .player-stat{font-size:1.5rem;text-align:center;margin:0;width:100%;height:5rem;border-bottom:1rem #3c3c3c ridge;box-sizing:border-box;display:flex;flex-direction:column;padding:.5rem}.options-menu .option-content .box #dialog-box{display:flex;align-items:center;gap:2px}.options-menu .option-content .box #dialog-box .text-side{width:60rem;height:20rem;margin:0;font-size:1.5rem;color:#0e0e0e;display:flex;flex-direction:column;align-items:center;justify-content:center;background:silver;border:1rem #3c3c3c ridge;box-sizing:border-box}.options-menu .option-content .box #dialog-box .text-side .name{text-align:center;margin:0;color:#0e0e0e}.options-menu .option-content .box #dialog-box .text-side .text-box{box-sizing:border-box;margin:0;width:95%;height:75%;display:flex;justify-content:center;align-items:center}.options-menu .option-content .box #dialog-box .text-side .text-box .text{width:100%;display:flex;flex-wrap:wrap;margin:2rem}.options-menu .option-content .box #dialog-box .text-side .text-box .text span{white-space:normal}.options-menu .option-content .box .portrait{border:1rem #3c3c3c ridge;box-sizing:border-box;margin:0;height:20rem}.options-menu .option-content .box .portrait .portrait-img{height:100%}.quests-screen{position:absolute;background-color:rgba(14,14,14,.85);border:1rem #3c3c3c ridge;box-sizing:border-box;border-radius:1rem;z-index:2;width:80%;height:90%;top:50%;left:50%;transform:translate(-50%, -50%);padding:1rem}.quests-screen h1{font-size:3rem}.quests-screen p{font-size:1.5rem}.quests-screen .button{position:absolute;margin-bottom:1rem;bottom:0}.button,.option{transition:.275s;color:#fff;padding:1rem;box-sizing:border-box;text-shadow:-0.4rem .4rem .8rem #000;border:.4rem solid gray;text-align:center;width:15rem;height:4rem;white-space:nowrap;position:relative;user-select:none;background:#202020;background-size:100% 100%;box-shadow:-0.3rem .3rem .6rem .6rem rgba(129,128,128,.75);display:block;margin:2rem 1rem}.button:not(.disabled):hover,.option:not(.disabled):hover{background:#101010;box-shadow:.2rem .2rem .3rem .3rem rgba(129,128,128,.75)}.button:not(.disabled):active,.option:not(.disabled):active{transform:translateY(0.8rem);background:#080808;box-shadow:-0.1rem .1rem .1rem .1rem rgba(129,128,128,.75)}.button.disabled,.option.disabled{filter:brightness(50%);pointer-events:none}.button img,.option img{margin-right:1rem}/*# sourceMappingURL=mainmenu.css.map */
+:root {
+  font-size: 62.5%;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  margin: 0;
+  text-shadow: 0 0 0.25rem rgb(39, 10, 27);
+  --text-purple: rgb(252, 35, 252);
+  --dark-purple: rgb(66, 20, 66);
+  --purple: rgb(88, 25, 88);
+  --neon-purple: rgb(97, 3, 97);
+}
+
+.title-screen {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: 1s;
+}
+.title-screen img {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.title-screen h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  font-size: 3.5rem;
+  -webkit-text-stroke: 2px black;
+  animation: blinker 2s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.main-menu {
+  background-color: rgb(50, 50, 50);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  margin: 0;
+}
+.main-menu img {
+  width: 100%;
+  height: 100%;
+}
+
+.options-menu {
+  position: absolute;
+  display: flex;
+  background-color: rgba(14, 14, 14, 0.85);
+  border: 1rem rgb(60, 60, 60) ridge;
+  border-radius: 1rem;
+  z-index: 2;
+  width: 80%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.options-menu .buttons {
+  border-right: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+  padding: 1rem;
+  align-content: center;
+}
+.options-menu .option-content {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+}
+.options-menu .option-content .box {
+  margin: 1rem;
+  width: 100%;
+  height: 100%;
+}
+.options-menu .option-content .box h1 {
+  font-size: 3rem;
+}
+.options-menu .option-content .box p {
+  font-size: 1.5rem;
+}
+.options-menu .option-content .box pre {
+  font-size: 1.5rem;
+  white-space: pre-wrap;
+}
+.options-menu .option-content .box .leaderboards-list {
+  border: 1rem rgb(60, 60, 60) ridge;
+  border-right: none;
+  border-radius: 1rem;
+  display: flex;
+  width: 100rem;
+  height: 30rem;
+  position: absolute;
+}
+.options-menu .option-content .box .leaderboards-list .column {
+  background-color: dimgray;
+  width: 100%;
+  height: 100%;
+  border-right: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+}
+.options-menu .option-content .box .leaderboards-list .column .column-stat {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  height: 5rem;
+  border-bottom: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+  background-color: rgb(14, 14, 14);
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+.options-menu .option-content .box .leaderboards-list .column .player-stat {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  height: 5rem;
+  border-bottom: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+.options-menu .option-content .box #dialog-box {
+  /* background: var(--purple);
+  border: 1rem solid var(--dark-purple); */
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.options-menu .option-content .box #dialog-box .text-side {
+  width: 60rem;
+  height: 20rem;
+  margin: 0;
+  font-size: 1.5rem;
+  color: rgb(14, 14, 14);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: silver;
+  border: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+}
+.options-menu .option-content .box #dialog-box .text-side .name {
+  text-align: center;
+  margin: 0;
+  color: rgb(14, 14, 14);
+}
+.options-menu .option-content .box #dialog-box .text-side .text-box {
+  box-sizing: border-box;
+  margin: 0;
+  width: 95%;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.options-menu .option-content .box #dialog-box .text-side .text-box .text {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem;
+}
+.options-menu .option-content .box #dialog-box .text-side .text-box .text span {
+  white-space: normal;
+}
+.options-menu .option-content .box .portrait {
+  border: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+  margin: 0;
+  height: 20rem;
+}
+.options-menu .option-content .box .portrait .portrait-img {
+  height: 100%;
+}
+
+.quests-screen {
+  position: absolute;
+  background-color: rgba(14, 14, 14, 0.85);
+  border: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  z-index: 2;
+  width: 80%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+}
+.quests-screen h1 {
+  font-size: 3rem;
+}
+.quests-screen p {
+  font-size: 1.5rem;
+}
+.quests-screen pre {
+  font-size: 1.5rem;
+  white-space: pre-wrap;
+}
+.quests-screen .button {
+  position: absolute;
+  margin-bottom: 1rem;
+  bottom: 0;
+}
+
+.button,
+.option {
+  transition: 0.275s;
+  color: white;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-shadow: -0.4rem 0.4rem 0.8rem black;
+  border: 0.4rem solid grey;
+  text-align: center;
+  width: 15rem;
+  height: 4rem;
+  white-space: nowrap;
+  position: relative;
+  user-select: none;
+  background: rgb(32, 32, 32);
+  background-size: 100% 100%;
+  box-shadow: -0.3rem 0.3rem 0.6rem 0.6rem rgba(129, 128, 128, 0.75);
+  display: block;
+  margin: 2rem 1rem;
+}
+.button:not(.disabled):hover,
+.option:not(.disabled):hover {
+  background: rgb(16, 16, 16);
+  box-shadow: 0.2rem 0.2rem 0.3rem 0.3rem rgba(129, 128, 128, 0.75);
+}
+.button:not(.disabled):active,
+.option:not(.disabled):active {
+  transform: translateY(0.8rem);
+  background: rgb(8, 8, 8);
+  box-shadow: -0.1rem 0.1rem 0.1rem 0.1rem rgba(129, 128, 128, 0.75);
+}
+.button.disabled,
+.option.disabled {
+  filter: brightness(50%);
+  pointer-events: none;
+}
+.button img,
+.option img {
+  margin-right: 1rem;
+}
+
+/*# sourceMappingURL=mainmenu.css.map */

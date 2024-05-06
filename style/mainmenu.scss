@@ -254,6 +254,11 @@ $text-light: rgb(243, 240, 240);
     font-size: 1.5rem;
   }
 
+  pre {
+    font-size: 1.5rem;
+    white-space: pre-wrap;
+  }
+
   .button {
     position: absolute;
     margin-bottom: 1rem;
