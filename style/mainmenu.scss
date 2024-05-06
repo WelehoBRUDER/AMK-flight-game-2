@@ -135,13 +135,15 @@ $text-light: rgb(243, 240, 240);
           box-sizing: border-box;
           text-align: center;
 
-          h2 {
+          .column-stat {
+            font-size: 1.5rem;
             margin: 0;
             width: 100%;
             height: 5rem;
             border-bottom: 1rem rgb(60, 60, 60) ridge;
             box-sizing: border-box;
             background-color: $text-dark;
+            display: flex;
           }
         }
 }

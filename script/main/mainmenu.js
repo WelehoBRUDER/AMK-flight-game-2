@@ -23,6 +23,13 @@ const close_dialog_btn = document.querySelector("#close-dialog");
 
 const leaderboards_btn = document.querySelector("#leaderboards");
 const leader_boards_scrn = document.querySelector("#leaderboards-screen");
+const lb_screen_name = document.querySelector("#screen-name");
+const lb_score = document.querySelector("#score");
+const lb_time = document.querySelector("#time");
+const lb_money = document.querySelector("#money");
+const lb_co2_consumed = document.querySelector("#co2-consumed");
+const lb_distance_traveled = document.querySelector("#distance-traveled");
+const lb_real_time = document.querySelector("#real-time");
 
 const settings_btn = document.querySelector("#settings");
 const settings_scrn = document.querySelector("#settings-screen");
@@ -124,6 +131,10 @@ close_dialog_btn.addEventListener("click", function () {
 leaderboards_btn.addEventListener("click", function () {
 	hideBoxes();
 	leader_boards_scrn.hidden = false;
+	const h2 = document.createElement("h2");
+	h2.textContent = "test";
+	h2.className = "column-stat";
+	lb_screen_name.append(h2);
 });
 
 settings_btn.addEventListener("click", openSettingsScreen);

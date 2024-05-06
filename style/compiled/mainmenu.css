@@ -121,13 +121,15 @@
   box-sizing: border-box;
   text-align: center;
 }
-.options-menu .option-content .box .leaderboards-list .column h2 {
+.options-menu .option-content .box .leaderboards-list .column .column-stat {
+  font-size: 1.5rem;
   margin: 0;
   width: 100%;
   height: 5rem;
   border-bottom: 1rem rgb(60, 60, 60) ridge;
   box-sizing: border-box;
   background-color: rgb(14, 14, 14);
+  display: flex;
 }
 .options-menu .option-content .box #dialog-box {
   /* background: var(--purple);
