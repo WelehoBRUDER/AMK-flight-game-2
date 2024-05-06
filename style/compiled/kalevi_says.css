@@ -38,7 +38,7 @@ html {
   display: none;
 }
 
-.hidden.start-button {
+.hidden.start-kalevi {
   display: none;
 }
 
@@ -53,11 +53,11 @@ h1 {
   font-family: "Palatino Linotype", sans-serif;
 }
 
-.heading {
+.kalevi-heading {
   font-size: 3em;
 }
 
-.tile-container {
+.kalevis-container {
   display: grid;
   grid-template-rows: 180px 180px;
   grid-template-columns: 180px 180px;
@@ -152,7 +152,7 @@ h1 {
   text-align: center;
 }
 
-.start-button {
+.start-kalevi {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
@@ -171,17 +171,14 @@ h1 {
   cursor: pointer;
 }
 
-.start-button:hover {
+.start-kalevi:hover {
   color: #5162ff;
   border-color: #5162ff;
   outline: 0;
 }
 
-.info {
+.kalevi-info {
   font-size: 22px;
-}
-
-span.info.js-info {
   color: whitesmoke;
 }
 

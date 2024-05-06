@@ -13,13 +13,13 @@ function kalevisElements() {
 
 // Heading
   const hElem = document.createElement('h1');
-  hElem.className = 'heading';
+  hElem.className = 'kalevi-heading';
   hElem.textContent = 'Kalevi Says';
   mainCon.appendChild(hElem);
 
 // Container for the tiles
   const tilesBody = document.createElement('section');
-  tilesBody.classList.add('tile-container', 'unclickable');
+  tilesBody.classList.add('kalevis-container', 'unclickable');
   mainCon.appendChild(tilesBody);
 
 // Creation of each tile
@@ -44,13 +44,13 @@ function kalevisElements() {
 
 // Start button
   const startBtn = document.createElement('button');
-  startBtn.classList.add('start-button');
+  startBtn.classList.add('start-kalevi');
   startBtn.textContent = 'Start';
   infoSec.appendChild(startBtn);
 
 // Info
   const information = document.createElement('span');
-  information.classList.add('info', 'hidden');
+  information.classList.add('kalevi-info', 'hidden');
   infoSec.appendChild(information);
 
 // Container for audio
@@ -99,10 +99,10 @@ let sequence = [];
 let playerSequence = [];
 let level = 0;
 
-const startButton = document.querySelector('.start-button');
-const info = document.querySelector('.info');
-const heading = document.querySelector('.heading');
-const tileContainer = document.querySelector('.tile-container');
+const startButton = document.querySelector('.start-kalevi');
+const info = document.querySelector('.kalevi-info');
+const heading = document.querySelector('.kalevi-heading');
+const tileContainer = document.querySelector('.kalevis-container');
 
 function startGame() {
   startButton.classList.add('hidden');
