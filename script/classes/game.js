@@ -38,6 +38,16 @@ class Game {
 			this.items.push({ id: item, airport: _ports[randomPort] });
 			_ports.splice(randomPort, 1);
 		});
+		// this.items.forEach((itm) => {
+		// 	const item = items[itm.id];
+		// 	const city = "Helsinki";
+		// 	const flavor = translate("flying_hint_1")
+		// 		.replace("[itmCol]", item.color)
+		// 		.replace("[item]", translate(item.id))
+		// 		.replace("[city]", city);
+		// 	console.log(flavor);
+		// 	bottom_bar.append(dialog.parseTextFast(flavor));
+		// });
 	}
 
 	getItemByPort(ident) {
@@ -136,5 +146,23 @@ class Game {
 		this.addItems(["coin", "photo", "watch", "sauce"]);
 	}
 }
+const items = {
+	coin: {
+		id: "coin",
+		color: "goldenrod",
+	},
+	photo: {
+		id: "photo",
+		color: "lightgray",
+	},
+	watch: {
+		id: "watch",
+		color: "cyan",
+	},
+	sauce: {
+		id: "sauce",
+		color: "crimson",
+	},
+};
 
 const game = new Game();
