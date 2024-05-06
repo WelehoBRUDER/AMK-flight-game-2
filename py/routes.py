@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from db import get_all_players_from_db, get_all_airports, get_country, generate_random_id, get_all_non_small_airports, get_airports_sorted_by_distance, get_airport, bearing_between_two_points, init_tables
+from db import get_all_players_from_db, get_all_airports, get_country, generate_random_id, get_all_non_small_airports, get_airports_sorted_by_distance, get_airport, bearing_between_two_points, init_tables, get_random_airports
 
 app = Flask(__name__)
 CORS(app)  # This configures the CORS requests automatically so that we don't need to rip all our hair out.
@@ -24,6 +24,11 @@ def airports_around():
     type = request.args.get("type")
     airport = get_airport(ident)
     response = jsonify(get_airports_sorted_by_distance(airport["latitude_deg"], airport["longitude_deg"], 435))
+    return response
+
+@app.route("/get-random-airports/<amnt>", methods=["GET"])
+def random_airports(amnt: int):
+    response = jsonify(get_random_airports(int(amnt)))
     return response
 
 

@@ -90,6 +90,18 @@ def bearing_between_two_points(point_a, point_b):
     bearing = Geodesic.WGS84.Inverse(lat1, lon1, lat2, lon2)
     return bearing["azi1"]
 
+def get_random_airports(amnt):
+    if amnt:
+        continents = []
+        ports = []
+        for _ in range(0, amnt):
+            port = all_airports[random.randint(0, len(all_airports) - 1)]
+            while(port["continent"] in continents):
+                port = all_airports[random.randint(0, len(all_airports) - 1)]
+            ports.append(port)
+            continents.append(port["continent"])
+    
+    return ports
 
 # This function returns data about the requested airport from the db
 # It requires the airports ident code as a parameter

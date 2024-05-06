@@ -42,6 +42,17 @@ const routes = {
 			console.warn(`getAirportsAround request failed: ${err}. Most likely backend server is off.`);
 		}
 	},
+	getRandomAirports: async (amount) => {
+		try {
+			const response = await fetch(`${host}/get-random-airports/${amount}`);
+			if (response.status === 200) {
+				const data = await response.json();
+				return data;
+			}
+		} catch (err) {
+			console.warn(`getRandomAirports request failed: ${err}. Most likely backend server is off.`);
+		}
+	},
 	getAllPlayers: async () => {
 		try {
 			const response = await fetch(`${host}/get-all-players`);
