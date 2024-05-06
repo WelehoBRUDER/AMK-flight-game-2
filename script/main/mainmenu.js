@@ -21,6 +21,9 @@ const story_btn = document.querySelector("#read-story");
 const story_scrn = document.querySelector("#story-screen");
 const close_dialog_btn = document.querySelector("#close-dialog");
 
+const leaderboards_btn = document.querySelector("#leaderboards");
+const leader_boards_scrn = document.querySelector("#leaderboards-screen");
+
 const settings_btn = document.querySelector("#settings");
 const settings_scrn = document.querySelector("#settings-screen");
 
@@ -56,6 +59,7 @@ function hideBoxes() {
 	load_save_scrn.hidden = true;
 	help_scrn.hidden = true;
 	story_scrn.hidden = true;
+	leader_boards_scrn.hidden = true;
 	settings_scrn.hidden = true;
 }
 
@@ -135,6 +139,11 @@ story_btn.addEventListener("click", function () {
 close_dialog_btn.addEventListener("click", function () {
 	buttons.hidden = false;
 	story_scrn.hidden = true;
+});
+
+leaderboards_btn.addEventListener("click", function() {
+	hideBoxes();
+	leader_boards_scrn.hidden = false;
 });
 
 settings_btn.addEventListener("click", openSettingsScreen);

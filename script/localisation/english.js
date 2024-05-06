@@ -49,6 +49,7 @@ const english = {
 	save_game: "Save game",
 	read_help: "Help",
 	read_story: "Story",
+	leaderboards: "Leaderboards",
 	settings: "Settings",
 	close: "Close",
 	// Dialog

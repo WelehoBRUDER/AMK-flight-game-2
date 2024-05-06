@@ -42,6 +42,7 @@ const finnish = {
 	save_game: "Tallenna peli",
 	read_help: "Apua",
 	read_story: "Tarina",
+	leaderboards: "Pistetaulukko",
 	settings: "Asetukset",
 	close: "Sulje",
 	// Dialog
