@@ -171,7 +171,7 @@ function winScreen() {
 	elements.keyboard.style.display = "none";
 	const win = document.createElement("h3");
 	elements.gameplayCon.appendChild(win);
-	return (win.textContent = `You're worthy! Here's your (insert item name)`);
+	return (win.textContent = `You're worthy! You clever, clever boeh. Here's your (insert item name)`);
 }
 
 function lossScreen() {
@@ -184,7 +184,7 @@ function lossScreen() {
 	const correctWordText = (correctWord.innerHTML = `Correct word: <br>${currentWord.toUpperCase()}</br>`);
 	const loss = document.createElement("h5");
 	elements.gameplayCon.appendChild(loss);
-	const lossText = (loss.textContent = `Not worthy! (insert item name) is gonna cost ya!`);
+	const lossText = loss.textContent = `Not worthy! (insert item name) is gonna cost ya now! Slide me my money and get out of my sight half-wit!`;
 
 	return correctWordText && lossText;
 }
