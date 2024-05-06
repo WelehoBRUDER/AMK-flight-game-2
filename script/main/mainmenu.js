@@ -88,9 +88,9 @@ title_screen.addEventListener("click", function () {
 	refreshText();
 });
 
-refresh.addEventListener("click", function() {
+refresh.addEventListener("click", function () {
 	refreshText();
-})
+});
 
 options_btn.addEventListener("click", function () {
 	if (options_open) {
@@ -141,7 +141,7 @@ close_dialog_btn.addEventListener("click", function () {
 	story_scrn.hidden = true;
 });
 
-leaderboards_btn.addEventListener("click", function() {
+leaderboards_btn.addEventListener("click", function () {
 	hideBoxes();
 	leader_boards_scrn.hidden = false;
 });
@@ -191,5 +191,3 @@ if (dev.enabled) {
 	options_open = false;
 	setup();
 }
-
-game.currentPlayer().rollFlights();
