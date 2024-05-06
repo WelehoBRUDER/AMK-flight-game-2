@@ -50,6 +50,11 @@ const map_area = document.querySelector("#map-area");
 const map_scrn = document.querySelector("#map");
 const bottom_bar = document.querySelector("#bottom-bar");
 
+const win_btn = document.querySelector("#win");
+const win_scrn = document.querySelector("#win-screen");
+const lose_btn = document.querySelector("#lose");
+const lose_scrn = document.querySelector("#loss-screen");
+
 let options_open = false;
 let quests_open = false;
 let in_main_menu = false;
@@ -69,6 +74,14 @@ all_buttons.forEach((btn) => {
 	btn.addEventListener("click", () => {
 		soundController.playSound("click", true);
 	});
+});
+
+win_btn.addEventListener("click", function () {
+	win_scrn.hidden = !win_scrn.hidden;
+});
+
+lose_btn.addEventListener("click", function () {
+	lose_scrn.hidden = !lose_scrn.hidden;
 });
 
 async function getAllPlayers() {

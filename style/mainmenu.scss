@@ -268,6 +268,41 @@ $text-light: rgb(243, 240, 240);
   }
 }
 
+.end-screen {
+  position: absolute;
+  background-color: rgb(14, 14, 14, 0.85);
+  border: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  z-index: 2;
+  width: 80%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  overflow: auto;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  pre {
+    font-size: 1.5rem;
+    white-space: pre-wrap;
+  }
+
+  .button {
+    position: sticky;
+    margin-bottom: 1rem;
+    bottom: 0;
+  }
+}
+
 .button,
 .option {
   transition: 0.275s;
