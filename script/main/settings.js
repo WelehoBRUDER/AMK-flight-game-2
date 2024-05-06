@@ -85,7 +85,11 @@ const all_buttons = document.querySelectorAll("button");
 function refreshText() {
 	all_elements.forEach((element) => {
 		if (element.title) {
-			element.textContent = translate(element.title);
+			if (element.getAttribute("data-richtext") === "true") {
+				element.append(dialog.parseTextFast(element.title));
+			} else {
+				element.textContent = translate(element.title);
+			}
 		}
 	});
 }
