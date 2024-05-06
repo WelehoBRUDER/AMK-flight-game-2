@@ -3,6 +3,7 @@
 // Main container
 const gameBody = document.createElement("div");
 gameBody.classList.add("container");
+gameBody.style.display = "none";
 document.body.appendChild(gameBody);
 
 // Container for the img

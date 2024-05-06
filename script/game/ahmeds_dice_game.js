@@ -3,6 +3,7 @@ function createDiceGameElem() {
 // Main container
   const mainCon = document.createElement('div');
   mainCon.className = 'diceGame';
+  mainCon.style.display = 'none';
   document.body.appendChild(mainCon);
 
 // Game title
