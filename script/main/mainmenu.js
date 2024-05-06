@@ -148,15 +148,25 @@ options_btn.addEventListener("click", function () {
 	}
 });
 
+function newInput(id) {
+	let inp = document.createElement("input");
+	inp.type = "text";
+	inp.id = id;
+	return inp
+}
+
 new_game_btn.addEventListener("click", function () {
 	hideBoxes();
 	new_game_scrn.hidden = false;
+	new_game_scrn.append(newInput("name1"));
 });
 
 let amount_of_players = 1;
 
 minus_btn.addEventListener("click", function () {
 	if (amount_of_players > 1) {
+		const inputs = document.querySelector("#name" + amount_of_players);
+		new_game_scrn.removeChild(inputs)
 		amount_of_players -= 1;
 		player_amount.textContent = String(amount_of_players);
 	}
@@ -165,6 +175,7 @@ minus_btn.addEventListener("click", function () {
 plus_btn.addEventListener("click", function () {
 	amount_of_players += 1;
 	player_amount.textContent = String(amount_of_players);
+	new_game_scrn.append(newInput("name" + amount_of_players));
 });
 
 start_btn.addEventListener("click", function () {
