@@ -187,12 +187,35 @@ Dice Styles
 
 }
 
-.player, .npc {
+.player {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 300px;
     height: 200px;
+    background-image: url("images/ronald.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #c99362;
+    border: 10px solid transparent;
+    border-image: linear-gradient(to right, #a26513, #dc8f0d) 1;
+    /*border-radius: 10px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.npc {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 200px;
+    /*background-image: url("images/ronald.webp");*/
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: #c99362;
     border: 10px solid transparent;
     border-image: linear-gradient(to right, #a26513, #dc8f0d) 1;
