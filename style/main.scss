@@ -328,14 +328,15 @@ $text-light: rgb(243, 240, 240);
   position: absolute;
   z-index: 300;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  width: 900px;
+  height: 900px;
 
   img {
-    position: relative;
+    position: absolute;
   }
 
   .blank-image {
     src: url("../../images/blank.png");
-    background: pink;
+    background: darkgray;
   }
 }

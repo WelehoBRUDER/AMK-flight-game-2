@@ -42,6 +42,8 @@ function startPuzzle() {
 			slider.style.objectFit = "none";
 			slider.style.width = "300px";
 			slider.style.height = "300px";
+			slider.style.left = `${x * 300}px`;
+			slider.style.top = `${y * 300}px`;
 			slider.style.objectPosition = `${Math.round(x * (100 / (columns - 1)))}% ${Math.round(y * (100 / (rows - 1)))}%`;
 			if (y === rows - 1 && x === columns - 1) {
 				slider.classList.add("blank-image");
@@ -55,6 +57,10 @@ function startPuzzle() {
 }
 
 startPuzzle();
+
+function slaughterPig() {
+	imgCon.remove();
+}
 
 // window.onload = function () {
 // 	for (let r = 0; r < rows; r++) {
