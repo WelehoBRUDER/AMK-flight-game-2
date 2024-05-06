@@ -169,8 +169,7 @@ async function moveMap(lat2, lon2, dist, port, marker) {
 		currentCords.lat = lat2;
 		currentCords.lon = lon2;
 		unlockMap();
-		game.currentPlayer().location = port.ident;
-		game.currentPlayer().location_name = port.name;
+		game.currentPlayer().setLocation(port);
 		addMarkers();
 		game.currentPlayer().distance_traveled += dist;
 		game.currentPlayer().co2_consumed += (157 * dist) / 1000;

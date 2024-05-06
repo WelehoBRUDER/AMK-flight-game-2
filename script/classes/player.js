@@ -94,6 +94,19 @@ class Player {
 			unlockMap();
 		}, 3000 / settings.animationSpeed);
 	}
+
+	setLocation(port) {
+		this.location = port.ident;
+		this.location_name = port.name;
+		const item = game.getItemByPort(this.location);
+		if (item) {
+			// jotain tapahtuu kun itemi löytyy :o
+			console.log("You found", item);
+			const text = document.createElement("div");
+			text.textContent = `${item.id} is in this city!`;
+			game.createWindow(text);
+		}
+	}
 }
 
 const diceRolling = document.querySelector(".dice-rolling");
