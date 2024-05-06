@@ -43,13 +43,15 @@ let options_open = true;
 let quests_open = false;
 let game_started = false;
 
+const all_elements = document.querySelectorAll("*");
 const all_buttons = document.querySelectorAll("button");
-const all_divs = document.querySelectorAll("div");
 
 // Refreshes all necessary text for translation purposes
 function refreshText() {
-	all_buttons.forEach((btn) => {
-		btn.textContent = translate(btn.name);
+	all_elements.forEach((element) => {
+		if (element.title) {
+			element.textContent = translate(element.title);
+		}
 	});
 }
 

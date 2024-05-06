@@ -52,6 +52,8 @@ const english = {
 	leaderboards: "Leaderboards",
 	settings: "Settings",
 	close: "Close",
+	// Menus
+
 	// Dialog
 	story_intro_1: "§<c>yellow<c>Ronald§ hasn't seen his grandfather in 20 years and was pretty anxious about the visit.",
 	story_intro_2:

@@ -45,6 +45,8 @@ const finnish = {
 	leaderboards: "Pistetaulukko",
 	settings: "Asetukset",
 	close: "Sulje",
+	// Menus
+
 	// Dialog
 	story_intro_1: "§<c>yellow<c>Ronald§ ei ole nähnyt isoisäänsä 20 vuoteen ja jännitti odotettua tapaamista.",
 	story_intro_2:
