@@ -1,7 +1,6 @@
 const currentCords = { lat: 60.1785553, lon: 24.8786212 };
 const plane = document.querySelector(".plane");
 let map;
-const items = {};
 
 async function createMap() {
 	map = L.map("map").setView([currentCords.lat, currentCords.lon], 5);
@@ -12,10 +11,6 @@ async function createMap() {
 		noWrap: true,
 	}).addTo(map);
 	document.querySelector("#map").style.zIndex = "1";
-	const randports = await routes.getRandomAirports(4);
-	randports.forEach((port) => {
-		items[port.ident] = port;
-	});
 }
 
 /**

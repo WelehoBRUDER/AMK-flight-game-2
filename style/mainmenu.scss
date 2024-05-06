@@ -274,8 +274,6 @@ $text-light: rgb(243, 240, 240);
   height: 4rem;
   white-space: nowrap;
   position: relative;
-  left: 0;
-  top: 0;
   user-select: none;
   background: rgb(32, 32, 32);
   background-size: 100% 100%;
@@ -284,13 +282,12 @@ $text-light: rgb(243, 240, 240);
   margin: 2rem 1rem;
 
   &:not(.disabled):hover {
-    top: 0.6rem;
     background: rgb(16, 16, 16);
     box-shadow: 0.2rem 0.2rem 0.3rem 0.3rem rgba(129, 128, 128, 0.75);
   }
 
   &:not(.disabled):active {
-    top: 0.8rem;
+    transform: translateY(0.8rem);
     background: rgb(8, 8, 8);
     box-shadow: -0.1rem 0.1rem 0.1rem 0.1rem rgba(129, 128, 128, 0.75);
   }

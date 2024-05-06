@@ -1,6 +1,7 @@
 class Game {
 	constructor() {
 		this.players = [];
+		this.items = [];
 		this.turn = 0;
 		this.currentPlayerIndex = 0;
 		this.lastPlayerIndex = 0;
@@ -16,6 +17,17 @@ class Game {
 		return this.players.filter((p) => {
 			return p.hasLost() || p.finished;
 		});
+	}
+
+	async addItems(ids) {
+		const airports = await routes.getRandomAirports(ids.length);
+		airports.forEach(({ ident }, index) => {
+			this.items.push({ id: ids[index], airport: ident });
+		});
+	}
+
+	getItemByPort(ident) {
+		return this.items.find(({ airport }) => airport === ident);
 	}
 
 	addPlayer(player) {
