@@ -247,11 +247,16 @@ $text-light: rgb(243, 240, 240);
   transform: translate(-50%, -50%);
   padding: 1rem;
   overflow: auto;
+  display: none;
+  flex-direction: column;
+  align-items: center;
 
   h1 {
     font-size: 3rem;
     text-align: center;
   }
+
+  .buttton {}
 
   .item-screen {
     display: flex;
@@ -261,13 +266,6 @@ $text-light: rgb(243, 240, 240);
     pre {
       font-size: 1.5rem;
       white-space: pre-wrap;
-    }
-
-    .button {
-      position: sticky;
-      margin-bottom: 1rem;
-      bottom: 0;
-      text-align: center;
     }
 
     .item {

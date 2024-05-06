@@ -56,7 +56,6 @@ const lose_btn = document.querySelector("#lose");
 const lose_scrn = document.querySelector("#loss-screen");
 
 let options_open = false;
-let quests_open = false;
 let in_main_menu = false;
 
 // Hides all the option menu screens. Used right before opening a screen, to prevent overlap.
@@ -227,19 +226,16 @@ close_options_btn.addEventListener("click", function () {
 });
 
 quests_btn.addEventListener("click", function () {
-	if (quests_open) {
-		quests_scrn.hidden = true;
-		quests_open = false;
+	if (quests_scrn.style.display === "flex") {
+		quests_scrn.style.display = "none";
 	} else {
 		options_menu.style.display = "none";
-		quests_scrn.hidden = false;
-		quests_open = true;
+		quests_scrn.style.display = "flex";
 	}
 });
 
 close_quests_btn.addEventListener("click", function () {
-	quests_scrn.hidden = true;
-	quests_open = false;
+	quests_scrn.style.display = "none";
 });
 
 end_turn_btn.addEventListener("click", function () {
