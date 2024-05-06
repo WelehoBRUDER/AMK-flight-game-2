@@ -222,4 +222,5 @@ if (dev.enabled) {
 	quests_open = false;
 	createLeaderboards();
 	setup();
+	soundController.playSound("shanty");
 }

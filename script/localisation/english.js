@@ -58,6 +58,7 @@ const english = {
 	close: "Close",
 	quest_title: "Grandpa's travels",
 	// Menus
+	click_anywhere: "Click anywhere to begin!",
 	easy: "Easy",
 	medium: "Medium",
 	hard: "Hard",

@@ -52,6 +52,7 @@ const finnish = {
 	close: "Sulje",
 	quest_title: "Isoisän matkailut",
 	// Menus
+	click_anywhere: "Klikkaa mistä vain aloittaaksesi!",
 	easy: "Helppo",
 	medium: "Normaali",
 	hard: "Vaikea",
