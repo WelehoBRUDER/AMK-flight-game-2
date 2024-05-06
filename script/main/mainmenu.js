@@ -37,9 +37,9 @@ const map_area = document.querySelector("#map-area");
 const map_scrn = document.querySelector("#map");
 const bottom_bar = document.querySelector("#bottom-bar");
 
-let options_open = true;
+let options_open = false;
 let quests_open = false;
-let game_started = false;
+let in_main_menu = false;
 
 // Hides all the option menu screens. Used right before opening a screen, to prevent overlap.
 function hideBoxes() {
@@ -66,7 +66,7 @@ function hideStart() {
 title_screen.addEventListener("click", function () {
 	title_screen.style.opacity = "0";
 	setTimeout(hideStart, 1000);
-	game_started = true;
+	in_main_menu = true;
 	options_menu.style.display = "flex";
 	options_open = true;
 	refreshText();
@@ -78,7 +78,7 @@ options_btn.addEventListener("click", function () {
 		options_open = false;
 	} else {
 		quests_scrn.hidden = true;
-		quests_open = true;
+		quests_open = false;
 		options_menu.style.display = "flex";
 		options_open = true;
 	}
@@ -138,10 +138,10 @@ function openSettingsScreen() {
 close_options_btn.addEventListener("click", function () {
 	options_menu.style.display = "none";
 	options_open = false;
-	if (game_started) {
+	if (in_main_menu) {
 		title_screen.hidden = false;
 		title_screen.style.opacity = "1";
-		game_started = true;
+		in_main_menu = false;
 	}
 });
 
@@ -163,6 +163,7 @@ close_quests_btn.addEventListener("click", function () {
 
 if (dev.enabled) {
 	hideStart();
+	in_main_menu = false;
 	main_menu.hidden = true;
 	options_menu.style.display = "none";
 	options_open = false;
@@ -171,5 +172,6 @@ if (dev.enabled) {
 	map_area.hidden = false;
 	options_btn.hidden = false;
 	quests_btn.hidden = false;
+	quests_open = false;
 	setup();
 }
