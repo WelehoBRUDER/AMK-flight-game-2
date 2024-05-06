@@ -30,35 +30,81 @@ let otherTile; //blank tile
 
 let turns = 0;
 
-const imgOrder = ["4", "2", "8", "5", "1", "6", "7", "9", "3"];
-const solvedOrder = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+class SlideGame {
+	constructor(src) {
+		this.src = src;
 
-function startPuzzle() {
-	const src = "images/pig.png";
-	for (let y = 0; y < rows; y++) {
-		for (let x = 0; x < columns; x++) {
-			const slider = document.createElement("img");
-			slider.src = src;
-			slider.style.objectFit = "none";
-			slider.style.width = "300px";
-			slider.style.height = "300px";
-			slider.style.left = `${x * 300}px`;
-			slider.style.top = `${y * 300}px`;
-			slider.style.objectPosition = `${Math.round(x * (100 / (columns - 1)))}% ${Math.round(y * (100 / (rows - 1)))}%`;
-			if (y === rows - 1 && x === columns - 1) {
-				slider.classList.add("blank-image");
-				slider.style.objectFit = "contain";
-				slider.src = "images/blank.png";
+		this.images = [];
+	}
+
+	createImages() {
+		for (let y = 0; y < rows; y++) {
+			this.images.push([]);
+			for (let x = 0; x < columns; x++) {
+				const slider = document.createElement("img");
+				slider.src = this.src;
+				slider.style.objectFit = "none";
+				slider.style.width = "300px";
+				slider.style.height = "300px";
+				slider.style.left = `${x * 300}px`;
+				slider.style.top = `${y * 300}px`;
+				slider.setAttribute("data-x", x);
+				slider.setAttribute("data-y", y);
+				slider.style.objectPosition = `${Math.round(x * (100 / (columns - 1)))}% ${Math.round(y * (100 / (rows - 1)))}%`;
+				if (y === rows - 1 && x === columns - 1) {
+					slider.classList.add("blank-image");
+					slider.style.objectFit = "contain";
+					slider.src = "images/blank.png";
+				}
+				const options = [0, 0, 0];
+				dragElem(slider, [imgCon], null, swapPlaces, options, true, slider, true);
+				this.images[y].push(slider);
 			}
-			dragElem(slider, [imgCon], null, () => {
-				console.log("void");
-			});
-			imgCon.append(slider);
+		}
+		this.scrambleImages();
+	}
+	/* Yoinked from https://stackoverflow.com/a/12646864 */
+	shuffle(array) {
+		for (let i = array.length - 1; i > 0; i--) {
+			let j = Math.floor(Math.random() * (i + 1));
+			let temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+		}
+	}
+
+	scrambleImages() {
+		for (let y = 0; y < rows; y++) {
+			this.shuffle(this.images[y]);
+		}
+		this.shuffle(this.images);
+	}
+
+	renderImages() {
+		for (let y = 0; y < rows; y++) {
+			for (let x = 0; x < columns; x++) {
+				const image = this.images[y][x];
+				image.style.top = `${y * 300}px`;
+				image.style.left = `${x * 300}px`;
+				imgCon.append(image);
+			}
 		}
 	}
 }
 
-startPuzzle();
+const slideGames = ["images/pig.png"];
+
+const imgOrder = ["4", "2", "8", "5", "1", "6", "7", "9", "3"];
+const solvedOrder = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+function startPuzzle() {}
+function swapPlaces(a, b) {
+	console.log(a, b);
+}
+
+const slideGame = new SlideGame(slideGames[0]);
+slideGame.createImages();
+slideGame.renderImages();
 
 function slaughterPig() {
 	imgCon.remove();

@@ -101,5 +101,5 @@ function dragElem(elem, snapContainers, onclick, callback, onclick_args, onclick
 
 function resetElemPosition(callback) {
 	if (callback) callback();
-	hideHover();
+	//hideHover();
 }
