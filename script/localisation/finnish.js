@@ -52,6 +52,10 @@ const finnish = {
 	close: "Sulje",
 	quest_title: "Isoisän matkailut",
 	// Menus
+	easy: "Helppo",
+	medium: "Normaali",
+	hard: "Vaikea",
+	player_amount: "Pelaajien määrä",
 	help_text1: "§<c>orange<c>Grandpa's Lost Sauce§ on peli jossa sinun täytyy lentää ympäri maailman, kerätäksesi isoisäsi §<c>lightblue<c>kadonneet esineet§. Maailmalta löytyy §<c>lightblue<c>neljä eri§ esinettä satunnaisesti siroteltuina.",
 	help_text2: "Peli alkaa satunnaisesti valitulta lentokentältä, ja taskusta löytyy §<c>blue<c>10000€§. Lähtiessäsi esineen suuntaan sinun täytyy valita lentokenttä mihin haluat lentää. Jokainen lento kuluttaa §<c>blue<c>rahaa§, ja kerryttää §<c>blue<c>CO2 päästöjä§.",
 	help_text3: "Jokaisen esineen kohdalla sinun täytyy läpäistä §<c>blue<c>haastava minipeli§, jonka voitettua saat kerätä palkintosi.",

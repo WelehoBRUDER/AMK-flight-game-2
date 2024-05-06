@@ -58,6 +58,10 @@ const english = {
 	close: "Close",
 	quest_title: "Grandpa's travels",
 	// Menus
+	easy: "Easy",
+	medium: "Medium",
+	hard: "Hard",
+	player_amount: "Player amount",
 	help_text1: "§<c>orange<c>Grandpa's Lost Sauce§ is a game where you have to fly around the world to collect your grandpa's §<c>lightblue<c>lost items§. There are §<c>lightblue<c>four items§ randomly scattered throughout the world.",
 	help_text2: "You start off at a randomly selected airport, with §<c>lightblue<c>10000€§ in hand. To make your way towards an item, you must select an airport to fly to. Each flight costs §<c>lightblue<c>money§, and adds to your §<c>lightblue<c>CO2 emissions§.",
 	help_text3: "At every item you will encounter a §<c>lightblue<c>challenging minigame§, that you have to win in order to collect your prize.",
