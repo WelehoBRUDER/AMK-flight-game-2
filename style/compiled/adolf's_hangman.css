@@ -4,6 +4,10 @@
 }
 
 .game-body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-image: url("/images/green-dirty-blackboard.jpg");
     background-color: #8f8989;
     background-size: cover;
