@@ -182,3 +182,35 @@ h1 {
   color: whitesmoke;
 }
 
+.kalevi-face {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: url("images/npc3.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ronald-face {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-image: url("images/ronald_transparent.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+

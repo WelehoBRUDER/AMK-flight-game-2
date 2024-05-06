@@ -37,6 +37,16 @@ function kalevisElements() {
     tilesBody.appendChild(tile);
   }
 
+// Container for Kalevi
+  const kalevisFace = document.createElement('div');
+  kalevisFace.classList.add('kalevi-face');
+  gameBody.appendChild(kalevisFace);
+
+// Container for Ronald
+  const ronaldsFace = document.createElement('div');
+  ronaldsFace.classList.add('ronald-face');
+  gameBody.appendChild(ronaldsFace);
+
 // Container for the information
   const infoSec = document.createElement('div');
   infoSec.className = 'info-section';
@@ -94,7 +104,7 @@ function kalevisElements() {
 
 // FUNCTIONALITIES
 
-kalevisElements()
+kalevisElements();
 let sequence = [];
 let playerSequence = [];
 let level = 0;
