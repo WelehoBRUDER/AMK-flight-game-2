@@ -204,18 +204,32 @@
 }
 .quests-screen h1 {
   font-size: 3rem;
+  text-align: center;
 }
-.quests-screen p {
-  font-size: 1.5rem;
+.quests-screen .item-screen {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
 }
-.quests-screen pre {
+.quests-screen .item-screen pre {
   font-size: 1.5rem;
   white-space: pre-wrap;
 }
-.quests-screen .button {
+.quests-screen .item-screen .button {
   position: sticky;
   margin-bottom: 1rem;
   bottom: 0;
+  text-align: center;
+}
+.quests-screen .item-screen .item {
+  width: 20rem;
+  padding: 1rem;
+}
+.quests-screen .item-screen .item img {
+  width: 100%;
+  border: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+  border-radius: 1rem;
 }
 
 .end-screen {

@@ -250,21 +250,37 @@ $text-light: rgb(243, 240, 240);
 
   h1 {
     font-size: 3rem;
+    text-align: center;
   }
 
-  p {
-    font-size: 1.5rem;
-  }
+  .item-screen {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
 
-  pre {
-    font-size: 1.5rem;
-    white-space: pre-wrap;
-  }
+    pre {
+      font-size: 1.5rem;
+      white-space: pre-wrap;
+    }
 
-  .button {
-    position: sticky;
-    margin-bottom: 1rem;
-    bottom: 0;
+    .button {
+      position: sticky;
+      margin-bottom: 1rem;
+      bottom: 0;
+      text-align: center;
+    }
+
+    .item {
+      width: 20rem;
+      padding: 1rem;
+
+      img {
+        width: 100%;
+        border: 1rem rgb(60, 60, 60) ridge;
+        box-sizing: border-box;
+        border-radius: 1rem;
+      }
+    }
   }
 }
 
