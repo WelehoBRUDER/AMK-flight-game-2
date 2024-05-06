@@ -63,7 +63,7 @@ class SlideGame {
 				this.images[y].push(slider);
 			}
 		}
-		//this.scrambleImages();
+		this.scrambleImages();
 	}
 	/* Yoinked from https://stackoverflow.com/a/12646864 */
 	shuffle(array) {
@@ -152,9 +152,9 @@ function swapPlaces(a, b) {
 	slideGame.renderImages();
 }
 
-const slideGame = new SlideGame(slideGames[0]);
-slideGame.createImages();
-slideGame.renderImages();
+// const slideGame = new SlideGame(slideGames[0]);
+// slideGame.createImages();
+// slideGame.renderImages();
 
 function slaughterPig() {
 	imgCon.remove();
