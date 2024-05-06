@@ -43,6 +43,11 @@ function startPuzzle() {
 			slider.style.width = "300px";
 			slider.style.height = "300px";
 			slider.style.objectPosition = `${Math.round(x * (100 / (columns - 1)))}% ${Math.round(y * (100 / (rows - 1)))}%`;
+			if (y === rows - 1 && x === columns - 1) {
+				slider.classList.add("blank-image");
+				slider.style.objectFit = "contain";
+				slider.src = "images/blank.png";
+			}
 			dragElem(slider);
 			imgCon.append(slider);
 		}
