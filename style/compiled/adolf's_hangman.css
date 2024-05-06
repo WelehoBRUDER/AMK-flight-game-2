@@ -72,6 +72,11 @@
     font-family: Chalkduster, sans-serif;
 }
 
+.display-boxes {
+    margin-bottom: 0;
+    padding: 0;
+}
+
 .main-container h2 {
     text-align: center;
     font-size: 1.1rem;
