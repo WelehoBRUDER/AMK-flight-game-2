@@ -142,7 +142,7 @@ function rollPlayerDices() {
       playerTotal += playerDiceValues[i];
     }
     setTimeout(() => {
-      pElemTwo.innerHTML = `Player's total: <b style="color: darkred">${playerTotal}</b>`;
+      pElemTwo.innerHTML = `Player's roll: <b style="color: darkred">${playerTotal}</b>`;
     }, 3500);
   }
 }
@@ -156,9 +156,9 @@ function checkWinner() {
         Player's roll: <b style="color: #1d8602">${playerTotal}</b>
       `;
       endScreenMsg.innerHTML = `
-        <h2>Congratulations I guess... You've beaten me with your lucky a** roll
+        Congratulations I guess... You've beaten me with your lucky a** roll
          <b style="font-size: 26px; color: #1d8602;">${playerTotal}. 
-        </b><br>Promise is a promise. Here's your grandpa's (insert item name)</br></h2>
+        </b><br>Promise is a promise. Here's your grandpa's (insert item name)</br>
       `;
       endScreenMsg.classList.remove('hidden');
     }, 3500);

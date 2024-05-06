@@ -9,8 +9,8 @@ General Styles
     transform: translate(-50%, -50%);
     display: grid;
     place-items: center;
-    width: 50rem;
-    height: 600px;
+    width: 35rem;
+    height: 450px;
     padding: 60px 0 40px;
     border-radius: 30px;
     background: linear-gradient(90deg, #8B4513 1px, transparent 1px) 0 0 / 20px 20px,
@@ -21,6 +21,7 @@ General Styles
     box-shadow: 0 8px 10px rgb(47, 47, 47),
     5px 0 10px rgba(0, 0, 0, 0.5), -5px 0 10px rgba(0, 0, 0, 0.5);
 }
+
 
 .diceSet {
     display: flex;
@@ -170,52 +171,46 @@ Dice Styles
     background: #b33951;
 }
 
-.player {
+.comp-score, .player-score {
+    position: absolute;
     display: flex;
-    flex-direction: column;
-}
-
-.comp-score {
     font-family: "Courier New", sans-serif;
     font-size: 28px;
-    text-align: center;
-}
-
-.player-score {
-    font-family: "Courier New", sans-serif;
-    font-size: 28px;
-    text-align: center;
+    bottom: 15px;
+    margin: 0;
 }
 
 .game-title {
     font-family: "Courier New", sans-serif;
     font-size: 36px;
+    color: #dcdc8a;
+
 }
 
-.npc {
-    position: absolute; /* Position the NPC containers relative to the .diceGame container */
-    width: 200px; /* Adjust width as needed */
-    height: 200px; /* Adjust height as needed */
-    background-color: #ccc; /* Example background color */
-    border-radius: 10px 0 10px 0;
+.player, .npc {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 200px;
+    background-color: #c99362;
+    border: 10px solid transparent;
+    border-image: linear-gradient(to right, #a26513, #dc8f0d) 1;
+    /*border-radius: 10px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.top-left {
-    top: 0;
-    left: 0;
+
+.body-left {
+    left: 5%;
+    transform-origin: left;
 }
 
-.player {
-    position: absolute; /* Position the NPC containers relative to the .diceGame container */
-    width: 200px; /* Adjust width as needed */
-    height: 200px; /* Adjust height as needed */
-    background-color: #ccc; /* Example background color */
-    border-radius: 10px 0 10px 0;
-}
-
-.bottom-right {
-    bottom: 0;
-    right: 0;
+.body-right {
+    right: 5%;
+    transform-origin: right;
 }
 
 .hidden {
@@ -223,6 +218,7 @@ Dice Styles
 }
 
 .end-screen {
+    color: #dcdc8a;
     margin: 0;
     width: 50%;
     text-align: center;
@@ -230,7 +226,18 @@ Dice Styles
     font-family: Courier, sans-serif;
 }
 
-h1 {
+h3 {
+    font-family: "Courier New", sans-serif;
+    font-size: 28px;
     color: #dcdc8a;
 }
+
+.image-ronald {
+    position: absolute;
+    width: 120px;
+    height: auto;
+    top: 10px;
+}
+
+
 /*# sourceMappingURL=mini_games.css.map */
