@@ -17,6 +17,7 @@ const finnish = {
 	real_time_tt: "Peliaika",
 	distance_traveled_tt: "Yhteensä kuljettu matka",
 	flights_tt: "Lentopisteet",
+	score: "Pisteet",
 	// Floating texts
 	not_enough_flight_points: "§<c>red<c>Liian vähän lentopisteitä!§",
 	// Characters
@@ -31,6 +32,7 @@ const finnish = {
 	soundVolume: "Efektien äänenvoimakkuus",
 	language: "Pelin kieli",
 	// UI
+	lost_sauce: "Isoisän Kadonnut Soossi",
 	distance: "Matka",
 	flight_cost: "Lennon hinta",
 	fly_to_airport: "Lennä tälle kentälle",

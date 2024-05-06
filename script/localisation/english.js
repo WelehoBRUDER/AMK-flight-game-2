@@ -17,6 +17,7 @@ const english = {
 	real_time_tt: "Playtime",
 	distance_traveled_tt: "Total distance traveled",
 	flights_tt: "Flight points",
+	score: "Score",
 	// Floating texts
 	not_enough_flight_points: "§<c>red<c>Not enough flight points!§",
 	// Characters
@@ -34,6 +35,7 @@ const english = {
 	music_volume_tt: "Music volume",
 	sound_volume_tt: "Sound effects volume",
 	// UI
+	lost_sauce: "Grandpa's Lost Sauce",
 	distance: "Distance",
 	flight_cost: "Flight cost",
 	fly_to_airport: "Fly to this port",
