@@ -17,6 +17,8 @@
     min-height: 500px;
     width: 1000px;
     border-radius: 10px;
+    box-shadow: 0 8px 10px rgb(47, 47, 47),
+    5px 0 10px rgba(0, 0, 0, 0.5), -5px 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .main-container {
