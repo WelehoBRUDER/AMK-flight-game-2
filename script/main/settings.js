@@ -129,7 +129,7 @@ const settingsOptions = [
 		],
 	},
 	{
-		group: "language",
+		group: "game_language",
 		options: [
 			{
 				id: "game_language",

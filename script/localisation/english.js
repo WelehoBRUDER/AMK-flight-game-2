@@ -30,7 +30,7 @@ const english = {
 	sound: "Sound",
 	musicVolume: "Music volume",
 	soundVolume: "Sound effect volume",
-	language: "Game language",
+	game_language: "Game language",
 	flight_speed_tt: "How fast the plane moves when flying between airports.",
 	music_volume_tt: "Music volume",
 	sound_volume_tt: "Sound effects volume",

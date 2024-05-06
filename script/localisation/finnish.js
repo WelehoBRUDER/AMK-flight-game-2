@@ -30,7 +30,7 @@ const finnish = {
 	sound: "Ääni",
 	musicVolume: "Musiikin äänenvoimakkuus",
 	soundVolume: "Efektien äänenvoimakkuus",
-	language: "Pelin kieli",
+	game_language: "Pelin kieli",
 	// UI
 	lost_sauce: "Isoisän Kadonnut Soossi",
 	distance: "Matka",
