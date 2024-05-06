@@ -107,6 +107,7 @@
 .options-menu .option-content .box .leaderboards-list {
   border: 1rem rgb(60, 60, 60) ridge;
   border-right: none;
+  border-radius: 1rem;
   display: flex;
   width: 100rem;
   height: 30rem;
@@ -114,15 +115,14 @@
 }
 .options-menu .option-content .box .leaderboards-list .column {
   background-color: dimgray;
-  display: flex;
   width: 100%;
   height: 100%;
   border-right: 1rem rgb(60, 60, 60) ridge;
   box-sizing: border-box;
-  text-align: center;
 }
 .options-menu .option-content .box .leaderboards-list .column .column-stat {
   font-size: 1.5rem;
+  text-align: center;
   margin: 0;
   width: 100%;
   height: 5rem;
@@ -130,6 +130,20 @@
   box-sizing: border-box;
   background-color: rgb(14, 14, 14);
   display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+.options-menu .option-content .box .leaderboards-list .column .player-stat {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  height: 5rem;
+  border-bottom: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
 }
 .options-menu .option-content .box #dialog-box {
   /* background: var(--purple);
