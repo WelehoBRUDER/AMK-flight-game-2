@@ -118,6 +118,11 @@ $text-light: rgb(243, 240, 240);
         font-size: 1.5rem;
       }
 
+      pre {
+        font-size: 1.5rem;
+        white-space: pre-wrap;
+      }
+
       .leaderboards-list {
         border: 1rem rgb(60, 60, 60) ridge;
         border-right: none;

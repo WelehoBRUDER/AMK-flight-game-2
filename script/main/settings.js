@@ -86,7 +86,7 @@ function refreshText() {
 	all_elements.forEach((element) => {
 		if (element.title) {
 			if (element.getAttribute("data-richtext") === "true") {
-				element.append(dialog.parseTextFast(element.title));
+				element.append(dialog.parseTextFast(translate(element.title)));
 			} else {
 				element.textContent = translate(element.title);
 			}

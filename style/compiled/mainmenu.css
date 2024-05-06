@@ -104,6 +104,10 @@
 .options-menu .option-content .box p {
   font-size: 1.5rem;
 }
+.options-menu .option-content .box pre {
+  font-size: 1.5rem;
+  white-space: pre-wrap;
+}
 .options-menu .option-content .box .leaderboards-list {
   border: 1rem rgb(60, 60, 60) ridge;
   border-right: none;
