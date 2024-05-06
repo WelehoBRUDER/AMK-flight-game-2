@@ -1,10 +1,10 @@
 @font-face {
-    src: url("../../../../../PycharmProjects/kokeilut/AMK-flight-game-2/fonts/Chalkduster.ttf") format('truetype');
+    src: url("/fonts/Chalkduster.ttf") format('truetype');
     font-family: Chalkduster;
 }
 
 .game-body {
-    background-image: url("../../../../../PycharmProjects/kokeilut/AMK-flight-game-2/images/green-dirty-blackboard.jpg");
+    background-image: url("/images/green-dirty-blackboard.jpg");
     background-color: #8f8989;
     background-size: cover;
     display: flex;
