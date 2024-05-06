@@ -2,6 +2,7 @@ class Game {
 	constructor() {
 		this.players = [];
 		this.items = [];
+		this.grandpasTravels = [];
 		this.turn = 0;
 		this.currentPlayerIndex = 0;
 		this.lastPlayerIndex = 0;
@@ -18,11 +19,24 @@ class Game {
 			return p.hasLost() || p.finished;
 		});
 	}
+	async createGrandpasTravels() {
+		this.grandpasTravels = [];
+		/* getRandomAirports can't return two airports from the same continent
+			so we call it twice to get enough airports.
+		 */
+		const a = await routes.getRandomAirports(6);
+		const b = await routes.getRandomAirports(6);
+		const airports = a.concat(b);
+		this.grandpasTravels = airports.map((port) => port.ident);
+	}
 
-	async addItems(ids) {
-		const airports = await routes.getRandomAirports(ids.length);
-		airports.forEach(({ ident }, index) => {
-			this.items.push({ id: ids[index], airport: ident });
+	addItems(ids) {
+		this.items = [];
+		const _ports = [...this.grandpasTravels];
+		ids.forEach((item) => {
+			const randomPort = random(_ports.length - 1, 0);
+			this.items.push({ id: item, airport: _ports[randomPort] });
+			_ports.splice(randomPort, 1);
 		});
 	}
 
@@ -115,6 +129,11 @@ class Game {
 
 	removeAllWindows() {
 		document.querySelectorAll(".pop-up-window").forEach((wind) => wind.remove());
+	}
+
+	async init() {
+		await this.createGrandpasTravels();
+		this.addItems(["coin", "photo", "watch", "sauce"]);
 	}
 }
 
