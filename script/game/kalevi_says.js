@@ -1,85 +1,100 @@
 // ELEMENTS
 
+function kalevisElements() {
 // Game body
-const gameBody = document.createElement('div');
-gameBody.className = 'kalevis-body';
-document.body.appendChild(gameBody);
+  const gameBody = document.createElement('div');
+  gameBody.className = 'kalevis-body';
+  document.body.appendChild(gameBody);
 
 // Main container
-const mainCon = document.createElement('div');
-mainCon.className = 'game';
-gameBody.appendChild(mainCon);
+  const mainCon = document.createElement('div');
+  mainCon.className = 'game';
+  gameBody.appendChild(mainCon);
 
 // Heading
-const hElem = document.createElement('h1');
-hElem.className = 'heading';
-hElem.textContent = 'Kalevi Says';
-mainCon.appendChild(hElem);
+  const hElem = document.createElement('h1');
+  hElem.className = 'heading';
+  hElem.textContent = 'Kalevi Says';
+  mainCon.appendChild(hElem);
 
 // Container for the tiles
-const tilesBody = document.createElement('section');
-tilesBody.classList.add('tile-container', 'unclickable');
-mainCon.appendChild(tilesBody);
+  const tilesBody = document.createElement('section');
+  tilesBody.classList.add('tile-container', 'unclickable');
+  mainCon.appendChild(tilesBody);
 
 // Creation of each tile
-const tileSet = [
-  {class: 'tile tile-red', data: 'red'},
-  {class: 'tile tile-green', data: 'green'},
-  {class: 'tile tile-blue', data: 'blue'},
-  {class: 'tile tile-yellow', data: 'yellow'},
-];
+  const tileSet = [
+    {class: 'tile tile-red', data: 'red'},
+    {class: 'tile tile-green', data: 'green'},
+    {class: 'tile tile-blue', data: 'blue'},
+    {class: 'tile tile-yellow', data: 'yellow'},
+  ];
 
-for (let i = 0; i < tileSet.length; i++) {
-  const tile = document.createElement('div');
-  tile.className = tileSet[i].class;
-  tile.setAttribute('data-tile', tileSet[i].data);
-  tilesBody.appendChild(tile);
-}
+  for (let i = 0; i < tileSet.length; i++) {
+    const tile = document.createElement('div');
+    tile.className = tileSet[i].class;
+    tile.setAttribute('data-tile', tileSet[i].data);
+    tilesBody.appendChild(tile);
+  }
 
 // Container for the information
-const infoSec = document.createElement('div');
-infoSec.className = 'info-section';
-mainCon.appendChild(infoSec);
+  const infoSec = document.createElement('div');
+  infoSec.className = 'info-section';
+  mainCon.appendChild(infoSec);
 
 // Start button
-const startBtn = document.createElement('button');
-startBtn.classList.add('start-button');
-startBtn.textContent = 'Start';
-infoSec.appendChild(startBtn);
+  const startBtn = document.createElement('button');
+  startBtn.classList.add('start-button');
+  startBtn.textContent = 'Start';
+  infoSec.appendChild(startBtn);
 
 // Info
-const information = document.createElement('span');
-information.classList.add('info', 'hidden');
-infoSec.appendChild(information);
+  const information = document.createElement('span');
+  information.classList.add('info', 'hidden');
+  infoSec.appendChild(information);
 
 // Container for audio
-const audioCon = document.createElement('div');
-audioCon.className = 'hidden';
-document.body.appendChild(audioCon);
+  const audioCon = document.createElement('div');
+  audioCon.className = 'hidden';
+  document.body.appendChild(audioCon);
 
 // Audio for each of the tiles
-const audioData = [
-  {id: 'simon1', sound: 'red'},
-  {
-    id: 'simon2',
-    sound: 'green',
-  },
-  {id: 'simon3', sound: 'blue'},
-  {
-    id: 'simon4',
-    sound: 'yellow',
-  },
-];
+  const audioData = [
+    {id: 'simon1', sound: 'red'},
+    {
+      id: 'simon2',
+      sound: 'green',
+    },
+    {id: 'simon3', sound: 'blue'},
+    {
+      id: 'simon4',
+      sound: 'yellow',
+    },
+  ];
 
-for (let i = 0; i < audioData.length; i++) {
-  const audioElem = document.createElement('audio');
-  audioElem.src = audioData[i].src;
-  audioElem.setAttribute('data-sound', audioData[i].sound);
-  audioCon.appendChild(audioElem);
+  for (let i = 0; i < audioData.length; i++) {
+    const audioElem = document.createElement('audio');
+    audioElem.src = audioData[i].src;
+    audioElem.setAttribute('data-sound', audioData[i].sound);
+    audioCon.appendChild(audioElem);
+  }
+  return {
+    gameBody,
+    mainCon,
+    hElem,
+    tilesBody,
+    tileSet,
+    infoSec,
+    startBtn,
+    information,
+    audioCon,
+    audioData,
+  };
 }
 
 // FUNCTIONALITIES
 
+kalevisElements()
 let sequence = [];
 let playerSequence = [];
 let level = 0;
@@ -101,7 +116,7 @@ function nextRound() {
 
   tileContainer.classList.add('unclickable');
   info.textContent = 'Wait for Urho Kalevi';
-  hElem.textContent = `Round ${level} of 6`;
+  heading.textContent = `Round ${level} of 6`;
 
   const nextSequence = [...sequence];
   nextSequence.push(nextPattern());
@@ -162,14 +177,16 @@ function handleClick(tile) {
   const remainingTaps = sequence.length - playerSequence.length;
 
   if (playerSequence[index] !== sequence[index]) {
-    resetGame('You were no match for Kekkonen. (insert item name) is gonna cost you!');
+    resetGame(
+        'You were no match for Kekkonen. (insert item name) is gonna cost you!');
     return;
   }
 
   if (playerSequence.length === sequence.length) {
     if (playerSequence.length === 6) {
-      resetGame("*Kekkonen is impressed* Congratulations you've bested me! Here's you (insert item name)");
-      return
+      resetGame(
+          '*Kekkonen is impressed* Congratulations you\'ve bested me! Here\'s you (insert item name)');
+      return;
     }
 
     playerSequence = [];
