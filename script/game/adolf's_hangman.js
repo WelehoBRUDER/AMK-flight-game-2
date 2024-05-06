@@ -123,8 +123,10 @@ let wrongGuessCount = 0;
 const maxGuesses = 6;
 
 function getRandomWord() {
-	const randomIndex = Math.floor(Math.random() * wordList.length);
-	const { word, hint } = wordList[randomIndex];
+	const randomIndex = random(wordList.length, 0);
+	const _word = wordList[randomIndex];
+	const word = translate(_word);
+	const hint = translate(_word + "_hint");
 	currentWord = word;
 	document.querySelector(".hint-display").innerHTML = hint;
 
