@@ -84,12 +84,20 @@
       <button class="button" id="options" title="options" hidden></button>
       <button class="button" id="quests" title="quest_title" hidden></button>
       <button class="button" id="end-turn" title="end_turn" hidden></button>
+      <button class="option" id="win">Win</button>
+      <button class="option" id="lose">Lose</button>
     </div>
     <div class="main-menu" id="main-menu">
       <img src="images/titleless-screen.webp" alt="background">
     </div>
     <div class="map-area" id="map-area">
       <div class="dice-rolling"></div>
+      <div class="end-screen" id="win-screen" hidden>
+        <h1>You won!</h1>
+      </div>
+      <div class="end-screen" id="loss-screen" hidden>
+        <h1>You lost!</h1>
+      </div>
       <div class="options-menu" id="options-menu">
         <div class="buttons" id="buttons">
           <button class="option" id="new-game" title="new_game"></button>
