@@ -74,7 +74,6 @@ function dragElem(elem, snapContainers, onclick, callback, onclick_args, onclick
 		let snapped = false;
 		if (!snapContainers) return;
 		for (const container of snapContainers) {
-			console.log(Array.from(container.childNodes));
 			Array.from(container.childNodes).forEach((_area, index) => {
 				let area = calcElementArea(_area);
 				if (e.x >= area.xMin && e.x <= area.xMax && e.y >= area.yMin && e.y <= area.yMax) {

@@ -48,6 +48,8 @@ class SlideGame {
 				slider.style.height = "300px";
 				slider.style.left = `${x * 300}px`;
 				slider.style.top = `${y * 300}px`;
+				slider.setAttribute("data-origin-x", x);
+				slider.setAttribute("data-origin-y", y);
 				slider.setAttribute("data-x", x);
 				slider.setAttribute("data-y", y);
 				slider.style.objectPosition = `${Math.round(x * (100 / (columns - 1)))}% ${Math.round(y * (100 / (rows - 1)))}%`;
@@ -61,7 +63,7 @@ class SlideGame {
 				this.images[y].push(slider);
 			}
 		}
-		this.scrambleImages();
+		//this.scrambleImages();
 	}
 	/* Yoinked from https://stackoverflow.com/a/12646864 */
 	shuffle(array) {
@@ -87,9 +89,40 @@ class SlideGame {
 				const image = this.images[y][x];
 				image.style.top = `${y * 300}px`;
 				image.style.left = `${x * 300}px`;
+				image.setAttribute("data-x", x);
+				image.setAttribute("data-y", y);
 				imgCon.append(image);
 			}
 		}
+	}
+
+	// This is some absolutely horrible code.
+	checkWin() {
+		let victoryRoyale = true;
+		for (let y = 0; y < rows; y++) {
+			let breakOut = false;
+			for (let x = 0; x < columns; x++) {
+				let expected;
+				let image;
+				if (x >= columns - 1 && y < columns - 1) {
+					expected = { x: 0, y: y + 1 };
+					image = this.images[y + 1][0];
+				} else {
+					let increment = x < columns - 1 ? 1 : 0;
+					expected = { x: x + increment, y: y };
+					image = this.images[y][x + increment];
+				}
+				const y_ = +image.getAttribute("data-origin-y");
+				const x_ = +image.getAttribute("data-origin-x");
+				if (!(y_ === expected.y && x_ === expected.x)) {
+					victoryRoyale = false;
+					breakOut = true;
+					break;
+				}
+			}
+			if (breakOut) break;
+		}
+		return victoryRoyale;
 	}
 }
 
@@ -101,7 +134,20 @@ const solvedOrder = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 function startPuzzle() {}
 function swapPlaces(a, b) {
 	if (b.classList.contains("blank-image")) {
-		console.log("COOKING");
+		const aPos = { x: +a.getAttribute("data-x"), y: +a.getAttribute("data-y") };
+		const bPos = { x: +b.getAttribute("data-x"), y: +b.getAttribute("data-y") };
+		if (
+			(bPos.x + 1 === aPos.x && bPos.y === aPos.y) ||
+			(bPos.x - 1 === aPos.x && bPos.y === aPos.y) ||
+			(bPos.x === aPos.x && bPos.y + 1 === aPos.y) ||
+			(bPos.x === aPos.x && bPos.y - 1 === aPos.y)
+		) {
+			console.log(aPos);
+			const aElem = slideGame.images[aPos.y][aPos.x];
+			const bElem = slideGame.images[bPos.y][bPos.x];
+			slideGame.images[aPos.y][aPos.x] = bElem;
+			slideGame.images[bPos.y][bPos.x] = aElem;
+		}
 	}
 	slideGame.renderImages();
 }
