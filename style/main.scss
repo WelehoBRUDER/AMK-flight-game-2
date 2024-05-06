@@ -322,3 +322,11 @@ $text-light: rgb(243, 240, 240);
     outline-offset: -10px;
   }
 }
+
+.board,
+.container {
+  position: absolute;
+  z-index: 300;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
