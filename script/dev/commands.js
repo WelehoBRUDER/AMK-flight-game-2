@@ -77,4 +77,13 @@ const developerCommands = [
 			}
 		},
 	},
+	{
+		name: "next",
+		help: "Go to next player",
+		verboseHelp: "next - Skips to next player's turn.",
+		availableParams: [],
+		execute: () => {
+			game.nextPlayer();
+		},
+	},
 ];
