@@ -227,12 +227,12 @@ Dice Styles
 
 
 .body-left {
-    left: 5%;
+    left: 105%;
     transform-origin: left;
 }
 
 .body-right {
-    right: 5%;
+    right: 105%;
     transform-origin: right;
 }
 

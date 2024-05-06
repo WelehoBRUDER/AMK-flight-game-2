@@ -6,22 +6,22 @@ const sounds = {
 		src: "sounds/click.mp3",
 		loop: false,
 	},
-	simon1: {
+	red: {
 		id: "red",
 		src: "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3",
 		loop: false,
 	},
-	simon2: {
+	green: {
 		id: "green",
 		src: "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3",
 		loop: false,
 	},
-	simon3: {
+	blue: {
 		id: "blue",
 		src: "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3",
 		loop: false,
 	},
-	simon4: {
+	yellow: {
 		id: "yellow",
 		src: "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3",
 		loop: false,
@@ -59,6 +59,7 @@ class SoundController {
 	 * @param {boolean} forceParallel - make this true if the sound needs to play parallel to a sound with the same id.
 	 */
 	playSound(id, forceParallel = false) {
+		console.log(id, sounds);
 		const sound = sounds[id];
 		const player = this.getAvailablePlayer(id);
 		if (player) {

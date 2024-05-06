@@ -155,12 +155,20 @@ class Game {
 			slideGame = new SlideGame(randomImage);
 			slideGame.createImages();
 			slideGame.renderImages();
+		} else if (minigame === "dice") {
+			startDiceGame();
+		} else if (minigame === "hangman") {
+			startHangman();
+		} else {
+			startKaleviGame();
 		}
 	}
 
 	closeMinigames() {
 		this.currentMinigameItem = "";
 		slaughterPig();
+		closeDiceGame();
+		closeKaleviGame();
 		elements.gameBody.style.display = "none";
 	}
 }
