@@ -16,7 +16,17 @@ function calcElementArea(element) {
 		yMax: y + height,
 	};
 }
-
+/**
+ *
+ * @param {HTMLElement} elem - element that can be dragged
+ * @param {Array[HTMLElement]} snapContainers - array of containers that have children for snip snapping
+ * @param {*} onclick
+ * @param {*} callback
+ * @param {*} onclick_args
+ * @param {*} onclick_params
+ * @param {*} callback_args
+ * @param {*} callback_params
+ */
 function dragElem(elem, snapContainers, onclick, callback, onclick_args, onclick_params, callback_args, callback_params) {
 	const dragTimeout = snapContainers ? 200 : 0;
 	elem.onmousedown = (e) => {
@@ -70,6 +80,7 @@ function dragElem(elem, snapContainers, onclick, callback, onclick_args, onclick
 					snapped = true;
 					elem.style.position = "absolute";
 					elem.style.boxShadow = "";
+					console.log(callback);
 					if (callback && callback_args && callback_params) {
 						resetElemPosition(callback(callback_args, _area));
 					}

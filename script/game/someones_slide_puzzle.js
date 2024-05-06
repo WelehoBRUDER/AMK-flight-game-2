@@ -50,7 +50,9 @@ function startPuzzle() {
 				slider.style.objectFit = "contain";
 				slider.src = "images/blank.png";
 			}
-			dragElem(slider);
+			dragElem(slider, [imgCon], null, () => {
+				console.log("void");
+			});
 			imgCon.append(slider);
 		}
 	}

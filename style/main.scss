@@ -333,6 +333,8 @@ $text-light: rgb(243, 240, 240);
 
   img {
     position: absolute;
+    -webkit-user-drag: none;
+    user-select: none;
   }
 
   .blank-image {
