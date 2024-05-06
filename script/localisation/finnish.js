@@ -45,6 +45,7 @@ const finnish = {
 	leaderboards: "Pistetaulukko",
 	settings: "Asetukset",
 	close: "Sulje",
+	quest_title: "Isoisän matkailut",
 	// Menus
 
 	// Dialog

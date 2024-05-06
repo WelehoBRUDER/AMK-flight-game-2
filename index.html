@@ -79,9 +79,9 @@
   <!-- Everything else -->
   <div class="game">
     <div class="top-bar">
-      <div class="quest-title">Grandpa's lost sauce</div>
-      <button class="button" id="options" hidden>Options</button>
-      <button class="button" id="quests" hidden>Grandpa's travels</button>
+      <div class="quest-title" title="quest_title"></div>
+      <button class="button" id="options" title="options" hidden></button>
+      <button class="button" id="quests" title="quest_button" hidden></button>
     </div>
     <div class="main-menu" id="main-menu">
       <img src="images/titleless-screen.webp" alt="background">
@@ -97,24 +97,23 @@
           <button class="option" id="leaderboards" title="leaderboards"></button>
           <button class="option" id="settings" title="settings"></button>
           <button class="option" id="close-options" title="close"></button>
-          <button class="option" id="refresh"></button>
         </div>
         <div class="container">
           <div class="box" id="new-game-screen">
             <h1 title="new_game"></h1>
-            <button class="button" id="start-game" name="start_game">Start</button>
+            <button class="button" id="start-game" title="start_game"></button>
           </div>
           <div class="box" id="load-save-screen" hidden>
-            <h1>Save / Load game</h1>
-            <button class="button" id="save-game" name="save_game">Save game</button>
-            <button class="button" id="load-game" name="load_game">Load game</button>
+            <h1 title="load_save"></h1>
+            <button class="button" id="save-game" title="save_game"></button>
+            <button class="button" id="load-game" title="load_game"></button>
           </div>
           <div class="box" id="help-screen" hidden>
-            <h1>Help</h1>
+            <h1 title="read_help"></h1>
             <p>Lorem ipsum</p>
           </div>
           <div class="box" id="story-screen" hidden>
-            <h1>Story</h1>
+            <h1 title="read_help"></h1>
             <div id="dialog-box">
               <div class="portrait">
                 <img src="images/unknown.png" alt="Portrait of the current character" class="portrait-img">
@@ -126,27 +125,25 @@
                 </div>
               </div>
             </div>
-            <button class="button" id="close-dialog" name="close">Close</button>
+            <button class="button" id="close-dialog" title="close"></button>
           </div>
           <div class="box" id="leaderboards-screen" hidden>
-            <h1>Leaderboards</h1>
+            <h1 title="leaderboards"></h1>
           </div>
           <div class="box" id="settings-screen" hidden></div>
         </div>
       </div>
       <div class="quests-screen" id="quests-screen" hidden>
-        <h1>Grandpa's travels</h1>
+        <h1 title="quest_title"></h1>
         <p>Lorem ipsum</p>
-        <button class="button" id="close-quests" name="close">Close</button>
+        <button class="button" id="close-quests" title="close"></button>
       </div>
       <div class="plane hide">
         <img src="images/plane.png" alt="plane icon">
       </div>
       <div id="map"></div>
     </div>
-    <div class="bottom-bar" id="bottom-bar">
-
-    </div>
+    <div class="bottom-bar" id="bottom-bar"></div>
   </div>
 </body>
 

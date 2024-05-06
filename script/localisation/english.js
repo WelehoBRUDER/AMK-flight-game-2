@@ -52,6 +52,7 @@ const english = {
 	leaderboards: "Leaderboards",
 	settings: "Settings",
 	close: "Close",
+	quest_title: "Grandpa's travels",
 	// Menus
 
 	// Dialog
