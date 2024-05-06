@@ -119,21 +119,30 @@ $text-light: rgb(243, 240, 240);
       }
 
       .leaderboards-list {
-        background-color: red;
+        border: 1rem rgb(60, 60, 60) ridge;
+        border-right: none;
         display: flex;
         width: 100rem;
+        height: 30rem;
         position: absolute;
-        border: 1rem rgb(60, 60, 60) ridge;
-        box-sizing: border-box;
 
         .column {
-          background-color: blue;
+          background-color: dimgray;
           display: flex;
           width: 100%;
           height: 100%;
-          border: 1rem rgb(60, 60, 60) ridge;
+          border-right: 1rem rgb(60, 60, 60) ridge;
           box-sizing: border-box;
-          justify-content: center;
+          text-align: center;
+
+          h2 {
+            margin: 0;
+            width: 100%;
+            height: 5rem;
+            border-bottom: 1rem rgb(60, 60, 60) ridge;
+            box-sizing: border-box;
+            background-color: $text-dark;
+          }
         }
 }
 
