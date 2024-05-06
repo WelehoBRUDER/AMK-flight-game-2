@@ -7,22 +7,22 @@ const sounds = {
 		loop: false,
 	},
 	simon1: {
-		id: "simon1",
+		id: "red",
 		src: "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3",
 		loop: false,
 	},
 	simon2: {
-		id: "simon2",
+		id: "green",
 		src: "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3",
 		loop: false,
 	},
 	simon3: {
-		id: "simon3",
+		id: "blue",
 		src: "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3",
 		loop: false,
 	},
 	simon4: {
-		id: "simon4",
+		id: "yellow",
 		src: "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3",
 		loop: false,
 	},

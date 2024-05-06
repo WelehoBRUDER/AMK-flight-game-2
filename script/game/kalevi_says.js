@@ -59,14 +59,14 @@ document.body.appendChild(audioCon);
 
 // Audio for each of the tiles
 const audioData = [
-  {src: 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3', sound: 'red'},
+  {id: 'simon1', sound: 'red'},
   {
-    src: 'https://s3.amazonaws.com/freecodecamp/simonSound2.mp3',
+    id: 'simon2',
     sound: 'green',
   },
-  {src: 'https://s3.amazonaws.com/freecodecamp/simonSound3.mp3', sound: 'blue'},
+  {id: 'simon3', sound: 'blue'},
   {
-    src: 'https://s3.amazonaws.com/freecodecamp/simonSound4.mp3',
+    id: 'simon4',
     sound: 'yellow',
   },
 ];
@@ -125,7 +125,7 @@ function activateTile(color) {
   const sound = document.querySelector(`[data-sound='${color}']`);
 
   tile.classList.add('activated');
-  sound.play();
+  soundController.playSound(color);
 
   setTimeout(() => {
     tile.classList.remove('activated');
