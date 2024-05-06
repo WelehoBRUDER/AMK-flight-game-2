@@ -79,25 +79,25 @@ $text-light: rgb(243, 240, 240);
     padding: 1rem;
     align-content: center;
 
-    .option {
-      width: 15rem;
-      height: 4rem;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      background-color: rgb(120, 120, 200);
-      border: none;
-      border-radius: 1rem;
-      display: block;
-    }
+    // .option {
+    //   width: 15rem;
+    //   height: 4rem;
+    //   padding: 1rem;
+    //   margin-bottom: 1rem;
+    //   background-color: rgb(120, 120, 200);
+    //   border: none;
+    //   border-radius: 1rem;
+    //   display: block;
+    // }
 
-    .option:hover {
-      background-color: rgb(60, 60, 150);
-    }
+    // .option:hover {
+    //   background-color: rgb(60, 60, 150);
+    // }
 
-    .option:active {
-      background-color: rgb(30, 30, 75);
-      transform: translateY(4px);
-    }
+    // .option:active {
+    //   background-color: rgb(30, 30, 75);
+    //   transform: translateY(4px);
+    // }
   }
 
   .option-content {
@@ -153,7 +153,6 @@ $text-light: rgb(243, 240, 240);
             padding: 0.5rem;
           }
 
-
           .player-stat {
             font-size: 1.5rem;
             text-align: center;
@@ -167,7 +166,7 @@ $text-light: rgb(243, 240, 240);
             padding: 0.5rem;
           }
         }
-}
+      }
 
       #dialog-box {
         /* background: var(--purple);
@@ -262,25 +261,55 @@ $text-light: rgb(243, 240, 240);
   }
 }
 
-.button {
+.button,
+.option {
+  transition: 0.275s;
+  color: white;
   padding: 1rem;
+  box-sizing: border-box;
+  text-shadow: -0.4rem 0.4rem 0.8rem black;
+  border: 0.4rem solid grey;
+  text-align: center;
   width: 15rem;
   height: 4rem;
-  background-color: rgb(120, 120, 200);
-  border: none;
-  border-radius: 1rem;
-  text-align: center;
+  white-space: nowrap;
+  position: relative;
+  left: 0;
+  top: 0;
+  user-select: none;
+  background: rgb(32, 32, 32);
+  background-size: 100% 100%;
+  box-shadow: -0.3rem 0.3rem 0.6rem 0.6rem rgba(129, 128, 128, 0.75);
+  display: block;
+  margin: 2rem 1rem;
+
+  &:not(.disabled):hover {
+    top: 0.6rem;
+    background: rgb(16, 16, 16);
+    box-shadow: 0.2rem 0.2rem 0.3rem 0.3rem rgba(129, 128, 128, 0.75);
+  }
+
+  &:not(.disabled):active {
+    top: 0.8rem;
+    background: rgb(8, 8, 8);
+    box-shadow: -0.1rem 0.1rem 0.1rem 0.1rem rgba(129, 128, 128, 0.75);
+  }
+
+  &.disabled {
+    filter: brightness(50%);
+    pointer-events: none;
+  }
 
   img {
     margin-right: 1rem;
   }
 }
 
-.button:hover {
-  background-color: rgb(60, 60, 150);
-}
+// .button:hover {
+//   background-color: rgb(60, 60, 150);
+// }
 
-.button:active {
-  background-color: rgb(30, 30, 75);
-  transform: translateY(4px);
-}
+// .button:active {
+//   background-color: rgb(30, 30, 75);
+//   transform: translateY(4px);
+// }
