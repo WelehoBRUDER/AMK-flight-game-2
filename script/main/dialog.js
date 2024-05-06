@@ -136,5 +136,3 @@ class Dialog {
 }
 
 const dialog = new Dialog();
-
-dialog.setFullDialog(dialogScenes.intro);

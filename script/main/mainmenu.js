@@ -160,6 +160,7 @@ story_btn.addEventListener("click", function () {
 	hideBoxes();
 	buttons.hidden = true;
 	story_scrn.hidden = false;
+	dialog.setFullDialog(dialogScenes.intro);
 });
 
 close_dialog_btn.addEventListener("click", function () {
