@@ -81,6 +81,7 @@ class SlideGame {
 	}
 
 	renderImages() {
+		imgCon.innerHTML = "";
 		for (let y = 0; y < rows; y++) {
 			for (let x = 0; x < columns; x++) {
 				const image = this.images[y][x];
@@ -99,7 +100,10 @@ const solvedOrder = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 function startPuzzle() {}
 function swapPlaces(a, b) {
-	console.log(a, b);
+	if (b.classList.contains("blank-image")) {
+		console.log("COOKING");
+	}
+	slideGame.renderImages();
 }
 
 const slideGame = new SlideGame(slideGames[0]);

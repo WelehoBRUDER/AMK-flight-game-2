@@ -11,9 +11,9 @@ function calcElementArea(element) {
 	const { width, height, x, y } = element.getBoundingClientRect();
 	return {
 		xMin: x,
-		xMax: x + width,
+		xMax: Math.abs(x + width),
 		yMin: y,
-		yMax: y + height,
+		yMax: Math.abs(y + height),
 	};
 }
 /**
@@ -74,13 +74,13 @@ function dragElem(elem, snapContainers, onclick, callback, onclick_args, onclick
 		let snapped = false;
 		if (!snapContainers) return;
 		for (const container of snapContainers) {
-			Array.from(container.childNodes).some((_area, index) => {
+			console.log(Array.from(container.childNodes));
+			Array.from(container.childNodes).forEach((_area, index) => {
 				let area = calcElementArea(_area);
 				if (e.x >= area.xMin && e.x <= area.xMax && e.y >= area.yMin && e.y <= area.yMax) {
 					snapped = true;
 					elem.style.position = "absolute";
 					elem.style.boxShadow = "";
-					console.log(callback);
 					if (callback && callback_args && callback_params) {
 						resetElemPosition(callback(callback_args, _area));
 					}
