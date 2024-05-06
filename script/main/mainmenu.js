@@ -7,6 +7,10 @@ const buttons = document.querySelector("#buttons");
 
 const new_game_btn = document.querySelector("#new-game");
 const new_game_scrn = document.querySelector("#new-game-screen");
+const difficulty_select = document.querySelector("#difficulty-select");
+const player_amount = document.querySelector("#player-amount");
+const minus_btn = document.querySelector("#minus-players");
+const plus_btn = document.querySelector("#plus-players");
 const start_btn = document.querySelector("#start-game");
 
 const load_save_btn = document.querySelector("#load-save");
@@ -135,6 +139,20 @@ options_btn.addEventListener("click", function () {
 new_game_btn.addEventListener("click", function () {
 	hideBoxes();
 	new_game_scrn.hidden = false;
+});
+
+let amount_of_players = 1;
+
+minus_btn.addEventListener("click", function () {
+	if (amount_of_players > 1) {
+		amount_of_players -= 1;
+		player_amount.textContent = String(amount_of_players);
+	}
+});
+
+plus_btn.addEventListener("click", function () {
+	amount_of_players += 1;
+	player_amount.textContent = String(amount_of_players);
 });
 
 start_btn.addEventListener("click", function () {
