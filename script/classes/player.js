@@ -7,6 +7,7 @@ class Player {
 		this.location_name = player.location_name;
 		this.money = player.money ?? 10000;
 		this.time = player.time;
+		this.items = player.items ?? [];
 		this.real_time_last_check = 0;
 		this.real_time = player.real_time;
 		this.distance_traveled = player.distance_traveled;
@@ -24,6 +25,11 @@ class Player {
 				break;
 		}
 		return lost;
+	}
+
+	wonMinigame() {
+		this.items.push(game.getItemByPort(this.location));
+		game.closeMinigames();
 	}
 
 	getAll() {
@@ -93,6 +99,19 @@ class Player {
 			this.setFlights(roll);
 			unlockMap();
 		}, 3000 / settings.animationSpeed);
+	}
+
+	setLocation(port) {
+		this.location = port.ident;
+		this.location_name = port.name;
+		const item = game.getItemByPort(this.location);
+		if (item) {
+			// jotain tapahtuu kun itemi löytyy :o
+			console.log("You found", item);
+			const text = document.createElement("div");
+			text.textContent = `${item.id} is in this city!`;
+			game.startMinigame("slider", item);
+		}
 	}
 }
 

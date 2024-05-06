@@ -44,10 +44,10 @@ class SlideGame {
 				const slider = document.createElement("img");
 				slider.src = this.src;
 				slider.style.objectFit = "none";
-				slider.style.width = "300px";
-				slider.style.height = "300px";
-				slider.style.left = `${x * 300}px`;
-				slider.style.top = `${y * 300}px`;
+				slider.style.width = "200px";
+				slider.style.height = "200px";
+				slider.style.left = `${x * 200}px`;
+				slider.style.top = `${y * 200}px`;
 				slider.setAttribute("data-origin-x", x);
 				slider.setAttribute("data-origin-y", y);
 				slider.setAttribute("data-x", x);
@@ -87,8 +87,8 @@ class SlideGame {
 		for (let y = 0; y < rows; y++) {
 			for (let x = 0; x < columns; x++) {
 				const image = this.images[y][x];
-				image.style.top = `${y * 300}px`;
-				image.style.left = `${x * 300}px`;
+				image.style.top = `${y * 200}px`;
+				image.style.left = `${x * 200}px`;
 				image.setAttribute("data-x", x);
 				image.setAttribute("data-y", y);
 				imgCon.append(image);
@@ -150,7 +150,12 @@ function swapPlaces(a, b) {
 		}
 	}
 	slideGame.renderImages();
+	if (slideGame.checkWin()) {
+		game.currentPlayer.wonMinigame();
+	}
 }
+
+let slideGame;
 
 // const slideGame = new SlideGame(slideGames[0]);
 // slideGame.createImages();

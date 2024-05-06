@@ -2,6 +2,8 @@ class Game {
 	constructor() {
 		this.players = [];
 		this.items = [];
+		this.grandpasTravels = [];
+		this.currentMinigameItem = "";
 		this.turn = 0;
 		this.currentPlayerIndex = 0;
 		this.lastPlayerIndex = 0;
@@ -18,12 +20,35 @@ class Game {
 			return p.hasLost() || p.finished;
 		});
 	}
+	async createGrandpasTravels() {
+		this.grandpasTravels = [];
+		/* getRandomAirports can't return two airports from the same continent
+			so we call it twice to get enough airports.
+		 */
+		const a = await routes.getRandomAirports(6);
+		const b = await routes.getRandomAirports(6);
+		const airports = a.concat(b);
+		this.grandpasTravels = airports.map((port) => port.ident);
+	}
 
-	async addItems(ids) {
-		const airports = await routes.getRandomAirports(ids.length);
-		airports.forEach(({ ident }, index) => {
-			this.items.push({ id: ids[index], airport: ident });
+	addItems(ids) {
+		this.items = [];
+		const _ports = [...this.grandpasTravels];
+		ids.forEach((item) => {
+			const randomPort = random(_ports.length - 1, 0);
+			this.items.push({ id: item, airport: _ports[randomPort] });
+			_ports.splice(randomPort, 1);
 		});
+		// this.items.forEach((itm) => {
+		// 	const item = items[itm.id];
+		// 	const city = "Helsinki";
+		// 	const flavor = translate("flying_hint_1")
+		// 		.replace("[itmCol]", item.color)
+		// 		.replace("[item]", translate(item.id))
+		// 		.replace("[city]", city);
+		// 	console.log(flavor);
+		// 	bottom_bar.append(dialog.parseTextFast(flavor));
+		// });
 	}
 
 	getItemByPort(ident) {
@@ -116,6 +141,46 @@ class Game {
 	removeAllWindows() {
 		document.querySelectorAll(".pop-up-window").forEach((wind) => wind.remove());
 	}
+
+	async init() {
+		await this.createGrandpasTravels();
+		this.addItems(["coin", "photo", "watch", "sauce"]);
+	}
+
+	startMinigame(minigame, item) {
+		this.currentMinigameItem = item;
+		if (minigame === "slider") {
+			console.log("?");
+			const randomImage = slideGames[random(slideGames.length - 1, 0)];
+			slideGame = new SlideGame(randomImage);
+			slideGame.createImages();
+			slideGame.renderImages();
+		}
+	}
+
+	closeMinigames() {
+		this.currentMinigameItem = "";
+		slaughterPig();
+		elements.gameBody.style.display = "none";
+	}
 }
+const items = {
+	coin: {
+		id: "coin",
+		color: "goldenrod",
+	},
+	photo: {
+		id: "photo",
+		color: "lightgray",
+	},
+	watch: {
+		id: "watch",
+		color: "cyan",
+	},
+	sauce: {
+		id: "sauce",
+		color: "crimson",
+	},
+};
 
 const game = new Game();

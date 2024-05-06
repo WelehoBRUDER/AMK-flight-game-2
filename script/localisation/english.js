@@ -44,6 +44,16 @@ const english = {
 	new_turn: "Beginning new turn",
 	turn: "Turn",
 	player: "Player",
+	quest_title: "Grandpa's travels",
+	end_turn: "End turn",
+	flying_hint1: "§<c>violet<c>Grandpa§ thinks he might have lost his §<c>[itmCol]<c>[item]§ while hiking in §<c>gold<c>[city]§.",
+	flying_hint2: "According to §<c>violet<c>Grandpa§, he accidentally dropped his §<c>[itmCol]<c>[item]§ somewhere in §<c>gold<c>[city]§.",
+	flying_hint3: "<c>violet<c>Grandpa§ says he forgot his §<c>[itmCol]<c>[item]§ at §<c>gold<c>[city]§.",
+	flying_hint4: "<c>violet<c>Grandpa§ might have lost his §<c>[itmCol]<c>[item]§ during his trip to §<c>gold<c>[city]§.",
+	flying_hint5: "Seems like <c>violet<c>Grandpa§ lost his §<c>[itmCol]<c>[item]§ during his adventures in §<c>gold<c>[city]§.",
+	flying_hint6: "<c>violet<c>Grandpa§ must have lost his §<c>[itmCol]<c>[item]§ while he was bar hopping in §<c>gold<c>[city]§.",
+	flying_hint7: "Apparently, <c>violet<c>Grandpa§ forgor his §<c>[itmCol]<c>[item]§ while sunbathing in §<c>gold<c>[city]§.",
+	flying_hint8: "Somehow <c>violet<c>Grandpa§ dropped his §<c>[itmCol]<c>[item]§ in the middle of §<c>gold<c>[city]§.",
 	// Options
 	options: "Options",
 	new_game: "Start a new game",
@@ -56,26 +66,36 @@ const english = {
 	leaderboards: "Leaderboards",
 	settings: "Settings",
 	close: "Close",
-	quest_title: "Grandpa's travels",
 	// Menus
+	click_anywhere: "Click anywhere to begin!",
 	easy: "Easy",
 	medium: "Medium",
 	hard: "Hard",
 	player_amount: "Player amount",
-	help_text1: "§<c>orange<c>Grandpa's Lost Sauce§ is a game where you have to fly around the world to collect your grandpa's §<c>lightblue<c>lost items§. There are §<c>lightblue<c>four items§ randomly scattered throughout the world.",
-	help_text2: "You start off at a randomly selected airport, with §<c>lightblue<c>10000€§ in hand. To make your way towards an item, you must select an airport to fly to. Each flight costs §<c>lightblue<c>money§, and adds to your §<c>lightblue<c>CO2 emissions§.",
-	help_text3: "At every item you will encounter a §<c>lightblue<c>challenging minigame§, that you have to win in order to collect your prize.",
+	// Game
+	flying_hint_1: "§<c>violet<c>Grandpa§ thinks he might have lost his §<c>[itmCol]<c>[item]§ while hiking in §<c>gold<c>[city]§.",
+	flying_hint_2: "§<c>violet<c>Grandpa§ believes he lost his §<c>[itmCol]<c>[item]§ while haggling in §<c>gold<c>[city]§.",
+	help_text1:
+		"§<c>orange<c>Grandpa's Lost Sauce§ is a game where you have to fly around the world to collect your grandpa's §<c>lightblue<c>lost items§. There are §<c>lightblue<c>four items§ randomly scattered throughout the world.",
+	help_text2:
+		"You start off at a randomly selected airport, with §<c>lightblue<c>10000€§ in hand. To make your way towards an item, you must select an airport to fly to. Each flight costs §<c>lightblue<c>money§, and adds to your §<c>lightblue<c>CO2 emissions§.",
+	help_text3:
+		"At every item you will encounter a §<c>lightblue<c>challenging minigame§, that you have to win in order to collect your prize.",
 	help_text4: "§<c>red<c>Running out of money during your trip means losing the game, so be careful!§",
 	help_text5: "Once you have collected all of the items, §<c>green<c>return to your starting airport to win the game!§",
-	help_text6: "Your score will be calculated based on your amount of §<c>lightblue<c>CO2 emissions§, §<c>lightblue<c>spent money§ and §<c>lightblue<c>time§.",
+	help_text6:
+		"Your score will be calculated based on your amount of §<c>lightblue<c>CO2 emissions§, §<c>lightblue<c>spent money§ and §<c>lightblue<c>time§.",
 	item1: "§<c>lightblue<c>The Coin§",
 	item2: "§<c>lightblue<c>The Photo§",
 	item3: "§<c>lightblue<c>The Watch§",
 	item4: "§<c>lightblue<c>The Sauce§",
-	item1_text: "Grandpa's favourite coin. Grandpa grew up poor, he had never owned a single cent to his name until he found his first coin. He has held on to it for his entire life.",
+	item1_text:
+		"Grandpa's favourite coin. Grandpa grew up poor, he had never owned a single cent to his name until he found his first coin. He has held on to it for his entire life.",
 	item2_text: "A photograph of grandpa's wife. Her beauty radiates through the photograph so powerfully it makes you sick.",
-	item3_text: "Grandpa's old favourite watch he always used to wear. It no longer works but it still has a home on top of grandpa's dresser.",
-	item4_text: "The sauce made with grandpa's secret recipe. No one knows what it contains, what it tastes like, or if it even actually is sauce.",
+	item3_text:
+		"Grandpa's old favourite watch he always used to wear. It no longer works but it still has a home on top of grandpa's dresser.",
+	item4_text:
+		"The sauce made with grandpa's secret recipe. No one knows what it contains, what it tastes like, or if it even actually is sauce.",
 	// Dialog
 	story_intro_1: "§<c>yellow<c>Ronald§ hasn't seen his grandfather in 20 years and was pretty anxious about the visit.",
 	story_intro_2:

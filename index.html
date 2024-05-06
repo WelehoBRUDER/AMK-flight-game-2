@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="style/compiled/settings.css">
   <link rel="stylesheet" href="style/compiled/ahmeds_dice_game.css">
   <!--<link rel="stylesheet" href="style/compiled/kalevi_says.css" -->
-  <!--<link rel="stylesheet" href="style/compiled/adolf's_hangman.css" -->
+  <link rel="stylesheet" href="style/compiled/adolf's_hangman.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js" defer></script>
 
   <!-- Plugins -->
@@ -43,8 +43,8 @@
 
   <!-- Game -->
   <script src="script/game/ahmeds_dice_game.js" defer></script>
-  <!-- <script src="script/game/someones_slide_puzzle.js" defer></script>
-   <script src="script/game/kalevi_says.js" defer></script> -->
+  <script src="script/game/someones_slide_puzzle.js" defer></script>
+  <!-- <script src="script/game/kalevi_says.js" defer></script> -->
   <script src="script/game/adolf's_hangman.js" defer></script>
 
   <!-- Main -->
@@ -74,7 +74,7 @@
   </div>
   <!-- Start screen (image is a placeholder) -->
   <div class="title-screen" id="title-screen">
-    <h1>Click anywhere to begin!</h1>
+    <h1 title="click_anywhere"></h1>
     <img src="images/titlescreen.webp" alt="title screen">
   </div>
   <!-- Everything else -->
@@ -83,6 +83,7 @@
       <div class="quest-title" title="lost_sauce"></div>
       <button class="button" id="options" title="options" hidden></button>
       <button class="button" id="quests" title="quest_title" hidden></button>
+      <button class="button" id="end-turn" title="end_turn" hidden></button>
     </div>
     <div class="main-menu" id="main-menu">
       <img src="images/titleless-screen.webp" alt="background">
