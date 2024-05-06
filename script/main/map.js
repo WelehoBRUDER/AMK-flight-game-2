@@ -1,8 +1,9 @@
 const currentCords = { lat: 60.1785553, lon: 24.8786212 };
 const plane = document.querySelector(".plane");
 let map;
+const items = {};
 
-function createMap() {
+async function createMap() {
 	map = L.map("map").setView([currentCords.lat, currentCords.lon], 5);
 	L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -11,6 +12,10 @@ function createMap() {
 		noWrap: true,
 	}).addTo(map);
 	document.querySelector("#map").style.zIndex = "1";
+	const randports = await routes.getRandomAirports(4);
+	randports.forEach((port) => {
+		items[port.ident] = port;
+	});
 }
 
 /**
@@ -77,6 +82,10 @@ async function addMarkers() {
 		if (port.ident === game.currentPlayer().location) {
 			marker._icon.classList.add("gold-shine");
 			hoverText += " (currently here)";
+		}
+		if (items[port.ident] !== undefined) {
+			marker._icon.classList.add("green-shine");
+			hoverText += " (has item!)";
 		}
 		const tooltip = new Tooltip({ marker, text: hoverText });
 		tooltip.create();
