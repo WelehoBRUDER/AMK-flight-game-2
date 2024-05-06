@@ -50,7 +50,7 @@ const finnish = {
 	close: "Sulje",
 	quest_title: "Isoisän matkailut",
 	// Menus
-
+	help_text1: "Grandpa's Lost Sauce is a game where you have to fly around the world, collecting various items your grandpa has forgotten.",
 	// Dialog
 	story_intro_1: "§<c>yellow<c>Ronald§ ei ole nähnyt isoisäänsä 20 vuoteen ja jännitti odotettua tapaamista.",
 	story_intro_2:
