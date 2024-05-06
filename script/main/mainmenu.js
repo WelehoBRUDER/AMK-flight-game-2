@@ -38,6 +38,7 @@ const refresh = document.querySelector("#refresh");
 
 let options_open = true;
 let quests_open = false;
+let game_started = false;
 
 const all_buttons = document.querySelectorAll("button");
 const all_divs = document.querySelectorAll("div");
@@ -69,10 +70,17 @@ function hideStart() {
 	title_screen.hidden = true;
 }
 
+function showStart() {
+	title_screen.hidden = false;
+}
+
 // Fading animation for the start screen
 title_screen.addEventListener("click", function () {
 	title_screen.style.opacity = "0";
 	setTimeout(hideStart, 1000);
+	game_started = true;
+	options_menu.style.display = "flex";
+	options_open = true;
 	refreshText();
 });
 
@@ -103,7 +111,6 @@ start_btn.addEventListener("click", function () {
 	map_scrn.hidden = false;
 	map_area.hidden = false;
 	bottom_bar.style.display = "flex";
-	close_options_btn.style.display = "block";
 	options_btn.hidden = false;
 	quests_btn.hidden = false;
 	setup();
@@ -142,6 +149,11 @@ function openSettingsScreen() {
 close_options_btn.addEventListener("click", function () {
 	options_menu.style.display = "none";
 	options_open = false;
+	if (game_started) {
+		title_screen.hidden = false;
+		title_screen.style.opacity = "1";
+		game_started = true;
+	}
 });
 
 quests_btn.addEventListener("click", function () {
