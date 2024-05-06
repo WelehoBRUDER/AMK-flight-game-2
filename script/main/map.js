@@ -78,7 +78,7 @@ async function addMarkers() {
 			marker._icon.classList.add("gold-shine");
 			hoverText += " (currently here)";
 		}
-		if (items[port.ident] !== undefined) {
+		if (game.getItemByPort(port.ident)) {
 			marker._icon.classList.add("green-shine");
 			hoverText += " (has item!)";
 		}
