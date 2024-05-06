@@ -3,6 +3,7 @@ class Game {
 		this.players = [];
 		this.items = [];
 		this.grandpasTravels = [];
+		this.currentMinigameItem = "";
 		this.turn = 0;
 		this.currentPlayerIndex = 0;
 		this.lastPlayerIndex = 0;
@@ -144,6 +145,23 @@ class Game {
 	async init() {
 		await this.createGrandpasTravels();
 		this.addItems(["coin", "photo", "watch", "sauce"]);
+	}
+
+	startMinigame(minigame, item) {
+		this.currentMinigameItem = item;
+		if (minigame === "slider") {
+			console.log("?");
+			const randomImage = slideGames[random(slideGames.length - 1, 0)];
+			slideGame = new SlideGame(randomImage);
+			slideGame.createImages();
+			slideGame.renderImages();
+		}
+	}
+
+	closeMinigames() {
+		this.currentMinigameItem = "";
+		slaughterPig();
+		elements.gameBody.style.display = "none";
 	}
 }
 const items = {
