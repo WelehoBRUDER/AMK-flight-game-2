@@ -145,7 +145,7 @@ const wordList = [
 ];
 
 // FUNCTIONALITIES
-const elements = createElements()
+const elements = createElements();
 let currentWord = '';
 let correctLetters = [];
 let wrongGuessCount = 0;
@@ -189,7 +189,9 @@ function lossScreen(hintCon, wordDisplay, keyboard, guessDisplay, gameplayCon) {
   return correctWordText && lossText;
 }
 
-const initGame = (button, clickedLetter, guessDisplay, wordDisplay, hangmanImg) => {
+const initGame = (
+    button, clickedLetter, hintCon, keyboard, gameplayCon, hangmanImg,
+    wordDisplay, guessDisplay) => {
   if (currentWord.includes(clickedLetter)) {
     [...currentWord].forEach((letter, index) => {
       if (letter === clickedLetter) {
@@ -202,8 +204,10 @@ const initGame = (button, clickedLetter, guessDisplay, wordDisplay, hangmanImg) 
     wrongGuessCount++;
     hangmanImg.src = `images/hangman-${wrongGuessCount}.svg`;
   }
-  if (currentWord.length === correctLetters.length) return winScreen();
-  if (wrongGuessCount === maxGuesses) return lossScreen();
+  if (currentWord.length === correctLetters.length) return winScreen(hintCon,
+      keyboard, gameplayCon);
+  if (wrongGuessCount === maxGuesses) return lossScreen(hintCon,
+      keyboard, gameplayCon, wordDisplay, guessDisplay);
 
   button.disabled = true;
   guessDisplay.innerText = `${wrongGuessCount} / ${maxGuesses}`;
@@ -219,8 +223,10 @@ function createKeyboard(keyboard) {
     keyboard.appendChild(button);
     button.addEventListener('click',
         (e) => initGame(e.target, String.fromCharCode(i),
-            elements.hangmanImg, elements.guessDisplay, elements.wordDisplay));
+            elements.hangmanImg, elements.guessDisplay, elements.wordDisplay,
+            elements.hintCon, elements.keyboard, elements.gameplayCon));
   }
 }
-createKeyboard(elements.keyboard)
+
+createKeyboard(elements.keyboard);
 getRandomWord(elements.wordDisplay);
