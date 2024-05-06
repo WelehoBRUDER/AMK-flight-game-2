@@ -40,6 +40,8 @@ const quests_btn = document.querySelector("#quests");
 const quests_scrn = document.querySelector("#quests-screen");
 const close_quests_btn = document.querySelector("#close-quests");
 
+const end_turn_btn = document.querySelector("#end-turn");
+
 const map_area = document.querySelector("#map-area");
 const map_scrn = document.querySelector("#map");
 const bottom_bar = document.querySelector("#bottom-bar");
@@ -143,6 +145,7 @@ start_btn.addEventListener("click", function () {
 	bottom_bar.style.display = "flex";
 	options_btn.hidden = false;
 	quests_btn.hidden = false;
+	end_turn_btn.hidden = false;
 	setup();
 });
 
@@ -208,6 +211,10 @@ close_quests_btn.addEventListener("click", function () {
 	quests_open = false;
 });
 
+end_turn_btn.addEventListener("click", function () {
+	game.nextPlayer();
+});
+
 if (dev.enabled) {
 	hideStart();
 	in_main_menu = false;
@@ -217,9 +224,6 @@ if (dev.enabled) {
 	bottom_bar.style.display = "flex";
 	map_scrn.hidden = false;
 	map_area.hidden = false;
-	options_btn.hidden = false;
-	quests_btn.hidden = false;
-	quests_open = false;
 	setup();
 }
 

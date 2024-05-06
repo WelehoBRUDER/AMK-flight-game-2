@@ -44,6 +44,8 @@ const english = {
 	new_turn: "Beginning new turn",
 	turn: "Turn",
 	player: "Player",
+	quest_title: "Grandpa's travels",
+	end_turn: "End turn",
 	// Options
 	options: "Options",
 	new_game: "Start a new game",
@@ -56,7 +58,6 @@ const english = {
 	leaderboards: "Leaderboards",
 	settings: "Settings",
 	close: "Close",
-	quest_title: "Grandpa's travels",
 	// Menus
 	click_anywhere: "Click anywhere to begin!",
 	easy: "Easy",

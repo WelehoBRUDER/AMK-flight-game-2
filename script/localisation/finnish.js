@@ -38,6 +38,8 @@ const finnish = {
 	distance: "Matka",
 	flight_cost: "Lennon hinta",
 	fly_to_airport: "Lennä tälle kentälle",
+	quest_title: "Isoisän matkailut",
+	end_turn: "Lopeta vuoro",
 	// Options
 	options: "Valikko",
 	new_game: "Aloita uusi peli",
@@ -50,7 +52,6 @@ const finnish = {
 	leaderboards: "Pistetaulukko",
 	settings: "Asetukset",
 	close: "Sulje",
-	quest_title: "Isoisän matkailut",
 	// Menus
 	click_anywhere: "Klikkaa mistä vain aloittaaksesi!",
 	easy: "Helppo",
