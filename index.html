@@ -90,23 +90,23 @@
       <div class="dice-rolling"></div>
       <div class="options-menu" id="options-menu">
         <div class="buttons" id="buttons">
-          <button class="option" id="new-game">Start a new game</button>
-          <button class="option" id="save-load">Save / Load game</button>
-          <button class="option" id="read-help">Help</button>
-          <button class="option" id="read-story">Story</button>
-          <button class="option" id="settings">Settings</button>
-          <button class="option" id="leaderboars">Leaderboards</button>
-          <button class="option" id="close-options">Close</button>
+          <button class="option" id="new-game" name="new_game"></button>
+          <button class="option" id="load-save" name="load_save"></button>
+          <button class="option" id="read-help" name="read_help"></button>
+          <button class="option" id="read-story" name="read_story"></button>
+          <button class="option" id="settings" name="settings"></button>
+          <button class="option" id="close-options" name="close"></button>
+          <button class="option" id="refresh"></button>
         </div>
         <div class="container">
           <div class="box" id="new-game-screen">
             <h1>Start a new game</h1>
-            <button class="button" id="start-game">Start</button>
+            <button class="button" id="start-game" name="start_game">Start</button>
           </div>
-          <div class="box" id="save-load-screen" hidden>
+          <div class="box" id="load-save-screen" hidden>
             <h1>Save / Load game</h1>
-            <button class="button" id="save-game">Save game</button>
-            <button class="button" id="load-game">Load game</button>
+            <button class="button" id="save-game" name="save_game">Save game</button>
+            <button class="button" id="load-game" name="load_game">Load game</button>
           </div>
           <div class="box" id="help-screen" hidden>
             <h1>Help</h1>
@@ -125,7 +125,7 @@
                 </div>
               </div>
             </div>
-            <button class="button" id="close-dialog">Close</button>
+            <button class="button" id="close-dialog" name="close">Close</button>
           </div>
           <div class="box" id="settings-screen" hidden></div>
         </div>
@@ -133,7 +133,7 @@
       <div class="quests-screen" id="quests-screen" hidden>
         <h1>Grandpa's travels</h1>
         <p>Lorem ipsum</p>
-        <button class="button" id="close-quests">Close</button>
+        <button class="button" id="close-quests" name="close">Close</button>
       </div>
       <div class="plane hide">
         <img src="images/plane.png" alt="plane icon">

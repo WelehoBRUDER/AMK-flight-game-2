@@ -9,8 +9,10 @@ const new_game_btn = document.querySelector("#new-game");
 const new_game_scrn = document.querySelector("#new-game-screen");
 const start_btn = document.querySelector("#start-game");
 
-const save_load_btn = document.querySelector("#save-load");
-const save_load_scrn = document.querySelector("#save-load-screen");
+const load_save_btn = document.querySelector("#load-save");
+const load_save_scrn = document.querySelector("#load-save-screen");
+const load_btn = document.querySelector("#load-game");
+const save_btn = document.querySelector("#save-game");
 
 const help_btn = document.querySelector("#read-help");
 const help_scrn = document.querySelector("#help-screen");
@@ -32,20 +34,32 @@ const map_area = document.querySelector("#map-area");
 const map_scrn = document.querySelector("#map");
 const bottom_bar = document.querySelector("#bottom-bar");
 
+const refresh = document.querySelector("#refresh");
+
 let options_open = true;
 let quests_open = false;
+
+const all_buttons = document.querySelectorAll("button");
+const all_divs = document.querySelectorAll("div");
+
+// Refreshes all necessary text for translation purposes
+function refreshText() {
+	all_buttons.forEach((btn) => {
+		btn.textContent = translate(btn.name);
+	});
+}
 
 // Hides all the option menu screens. Used right before opening a screen, to prevent overlap.
 function hideBoxes() {
 	new_game_scrn.hidden = true;
-	save_load_scrn.hidden = true;
+	load_save_scrn.hidden = true;
 	help_scrn.hidden = true;
 	story_scrn.hidden = true;
 	settings_scrn.hidden = true;
 }
 
 // Plays a 'click' sound effect every time any button is clicked.
-document.querySelectorAll("button").forEach((btn) => {
+all_buttons.forEach((btn) => {
 	btn.addEventListener("click", () => {
 		soundController.playSound("click", true);
 	});
@@ -59,7 +73,12 @@ function hideStart() {
 title_screen.addEventListener("click", function () {
 	title_screen.style.opacity = "0";
 	setTimeout(hideStart, 1000);
+	refreshText();
 });
+
+refresh.addEventListener("click", function() {
+	refreshText();
+})
 
 options_btn.addEventListener("click", function () {
 	if (options_open) {
@@ -90,9 +109,9 @@ start_btn.addEventListener("click", function () {
 	setup();
 });
 
-save_load_btn.addEventListener("click", function () {
+load_save_btn.addEventListener("click", function () {
 	hideBoxes();
-	save_load_scrn.hidden = false;
+	load_save_scrn.hidden = false;
 });
 
 help_btn.addEventListener("click", function () {
