@@ -65,6 +65,44 @@ all_buttons.forEach((btn) => {
 	});
 });
 
+async function getAllPlayers() {
+	return await routes.getAllPlayers();
+}
+
+async function createLeaderboards () {
+	let players = await getAllPlayers();
+	for (let i = 0; i < players.length; i++) {
+		const div1 = document.createElement("div");
+		div1.className = "player-stat";
+		div1.textContent = players[i]["screen_name"];
+		lb_screen_name.append(div1);
+		const div2 = document.createElement("div");
+		div2.className = "player-stat";
+		div2.textContent = players[i]["score"];
+		lb_score.append(div2);
+		const div3 = document.createElement("div");
+		div3.className = "player-stat";
+		div3.textContent = players[i]["time"];
+		lb_time.append(div3);
+		const div4 = document.createElement("div");
+		div4.className = "player-stat";
+		div4.textContent = players[i]["money"];
+		lb_money.append(div4);
+		const div5 = document.createElement("div");
+		div5.className = "player-stat";
+		div5.textContent = players[i]["co2_consumed"];
+		lb_co2_consumed.append(div5);
+		const div6 = document.createElement("div");
+		div6.className = "player-stat";
+		div6.textContent = players[i]["distance_traveled"];
+		lb_distance_traveled.append(div6);
+		const div7 = document.createElement("div");
+		div7.className = "player-stat";
+		div7.textContent = players[i]["real_time"];
+		lb_real_time.append(div7);
+	}
+}
+
 function hideStart() {
 	title_screen.hidden = true;
 }
@@ -76,6 +114,7 @@ title_screen.addEventListener("click", function () {
 	in_main_menu = true;
 	options_menu.style.display = "flex";
 	options_open = true;
+	createLeaderboards();
 	refreshText();
 });
 
@@ -128,48 +167,9 @@ close_dialog_btn.addEventListener("click", function () {
 	story_scrn.hidden = true;
 });
 
-async function getAllPlayers() {
-	return await routes.getAllPlayers();
-}
-
-async function createLeaderboards () {
-	let players = await getAllPlayers();
-	for (let i = 0; i < players.length; i++) {
-		const div1 = document.createElement("div");
-		div1.className = "player-stat";
-		div1.textContent = players[i]["screen_name"];
-		lb_screen_name.append(div1);
-		const div2 = document.createElement("div");
-		div2.className = "player-stat";
-		div2.textContent = players[i]["score"];
-		lb_score.append(div2);
-		const div3 = document.createElement("div");
-		div3.className = "player-stat";
-		div3.textContent = players[i]["time"];
-		lb_time.append(div3);
-		const div4 = document.createElement("div");
-		div4.className = "player-stat";
-		div4.textContent = players[i]["money"];
-		lb_money.append(div4);
-		const div5 = document.createElement("div");
-		div5.className = "player-stat";
-		div5.textContent = players[i]["co2_consumed"];
-		lb_co2_consumed.append(div5);
-		const div6 = document.createElement("div");
-		div6.className = "player-stat";
-		div6.textContent = players[i]["distance_traveled"];
-		lb_distance_traveled.append(div6);
-		const div7 = document.createElement("div");
-		div7.className = "player-stat";
-		div7.textContent = players[i]["real_time"];
-		lb_real_time.append(div7);
-	}
-}
-
 leaderboards_btn.addEventListener("click", function () {
 	hideBoxes();
 	leader_boards_scrn.hidden = false;
-	createLeaderboards();
 });
 
 settings_btn.addEventListener("click", openSettingsScreen);
@@ -219,5 +219,6 @@ if (dev.enabled) {
 	options_btn.hidden = false;
 	quests_btn.hidden = false;
 	quests_open = false;
+	createLeaderboards();
 	setup();
 }
