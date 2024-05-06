@@ -223,7 +223,6 @@ $text-light: rgb(243, 240, 240);
   background: rgba(0, 0, 0, 0.2);
   pointer-events: none;
   animation-name: swoop-in-right;
-  animation-duration: 5.5s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
   margin: 0;
@@ -240,7 +239,6 @@ $text-light: rgb(243, 240, 240);
   background: rgba(0, 0, 0, 0.2);
   pointer-events: none;
   animation-name: swoop-in-left;
-  animation-duration: 5.5s;
   animation-fill-mode: forwards;
   margin: 0;
 }

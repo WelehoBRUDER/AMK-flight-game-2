@@ -287,6 +287,7 @@ $text-light: rgb(243, 240, 240);
   margin: 2rem 1rem;
 
   &:not(.disabled):hover {
+    transform: translateY(0.6rem);
     background: rgb(16, 16, 16);
     box-shadow: 0.2rem 0.2rem 0.3rem 0.3rem rgba(129, 128, 128, 0.75);
   }

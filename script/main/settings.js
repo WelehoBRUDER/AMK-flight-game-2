@@ -7,6 +7,7 @@ class Settings {
 		this.soundVolume = base.soundVolume ?? 0.2;
 		this.lang = base.lang ?? "english";
 		this.flightSpeed = base.flightSpeed ?? 1;
+		this.animationSpeed = base.animationSpeed ?? 1;
 		if (!noLoad) this.load();
 	}
 
@@ -52,6 +53,11 @@ class Settings {
 
 	setFlightSpeed(value) {
 		this.flightSpeed = value;
+		this.save();
+	}
+
+	setAnimationSpeed(value) {
+		this.animationSpeed = value;
 		this.save();
 	}
 
@@ -109,6 +115,18 @@ const settingsOptions = [
 					appendix: "x",
 				},
 				tooltip: "flight_speed_tt",
+			},
+			{
+				id: "animationSpeed",
+				type: "range",
+				callback: "settings.setAnimationSpeed(<x>)",
+				scale: 0.1,
+				values: [1, 50],
+				display: {
+					scale: "use",
+					appendix: "x",
+				},
+				tooltip: "animation_speed_tt",
 			},
 		],
 	},

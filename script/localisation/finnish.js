@@ -20,6 +20,8 @@ const finnish = {
 	score: "Pisteet",
 	// Floating texts
 	not_enough_flight_points: "§<c>red<c>Liian vähän lentopisteitä!§",
+	too_far: "§<c>red<c>Tuo kenttä on liian kaukana!§<c>orange<c> (4300km+)§",
+	too_poor: "§<c>red<c>Sinulla ei ole varaa tuohon lentoon!§",
 	// Characters
 	narrator: "Kertoja",
 	grandfather: "Isoisä",
@@ -50,9 +52,16 @@ const finnish = {
 	close: "Sulje",
 	quest_title: "Isoisän matkailut",
 	// Menus
-	help_text1: "§<c>orange<c>Grandpa's Lost Sauce§ on peli jossa sinun täytyy lentää ympäri maailman, kerätäksesi isoisäsi §<c>lightblue<c>kadonneet esineet§. Maailmalta löytyy §<c>lightblue<c>neljä eri§ esinettä satunnaisesti siroteltuina.",
-	help_text2: "Peli alkaa satunnaisesti valitulta lentokentältä, ja taskusta löytyy §<c>lightblue<c>10000€§. Lähtiessäsi esineen suuntaan sinun täytyy valita lentokenttä mihin haluat lentää. Jokainen lento kuluttaa §<c>lightblue<c>rahaa§, ja kerryttää §<c>lightblue<c>CO2 päästöjä§.",
+	help_text1:
+		"§<c>orange<c>Grandpa's Lost Sauce§ on peli jossa sinun täytyy lentää ympäri maailman, kerätäksesi isoisäsi §<c>lightblue<c>kadonneet esineet§. Maailmalta löytyy §<c>lightblue<c>neljä eri§ esinettä satunnaisesti siroteltuina.",
+	help_text2:
+		"Peli alkaa satunnaisesti valitulta lentokentältä, ja taskusta löytyy §<c>lightblue<c>10000€§. Lähtiessäsi esineen suuntaan sinun täytyy valita lentokenttä mihin haluat lentää. Jokainen lento kuluttaa §<c>lightblue<c>rahaa§, ja kerryttää §<c>lightblue<c>CO2 päästöjä§.",
 	help_text3: "Jokaisen esineen kohdalla sinun täytyy läpäistä §<c>lightblue<c>haastava minipeli§, jonka voitettua saat kerätä palkintosi.",
+	help_text1:
+		"§<c>orange<c>Grandpa's Lost Sauce§ on peli jossa sinun täytyy lentää ympäri maailman, kerätäksesi isoisäsi §<c>blue<c>kadonneet esineet§. Maailmalta löytyy §<c>blue<c>neljä eri§ esinettä satunnaisesti siroteltuina.",
+	help_text2:
+		"Peli alkaa satunnaisesti valitulta lentokentältä, ja taskusta löytyy §<c>blue<c>10000€§. Lähtiessäsi esineen suuntaan sinun täytyy valita lentokenttä mihin haluat lentää. Jokainen lento kuluttaa §<c>blue<c>rahaa§, ja kerryttää §<c>blue<c>CO2 päästöjä§.",
+	help_text3: "Jokaisen esineen kohdalla sinun täytyy läpäistä §<c>blue<c>haastava minipeli§, jonka voitettua saat kerätä palkintosi.",
 	help_text4: "§<c>red<c>Rahojen loppuessa peli päättyy, joten ole maltillinen!§",
 	help_text5: "Kun olet kerännyt kaikki esineet, §<c>green<c>palaa lähtölentokentälle voittaaksesi pelin!§",
 	help_text6: "Pisteesi lasketaan §<c>lightblue<c>CO2 päästöjen§, §<c>lightblue<c>kulutetun rahan§ ja §<c>lightblue<c>ajan§ perusteella.",

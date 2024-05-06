@@ -51,9 +51,11 @@ function airportInfo(port, marker) {
 	flyToButton.classList.add("fly");
 	flyToButton.textContent = translate("fly_to_airport");
 	flyToButton.addEventListener("click", () => {
+		game.removeAllWindows();
 		if (canClick(marker)) {
-			game.removeAllWindows();
 			moveMap(port.latitude_deg, port.longitude_deg, port.distance, port, marker._icon);
+		} else {
+			floatingText(marker._icon, translate("too_far"), 2);
 		}
 	});
 	buttons.append(flyToButton);
@@ -132,8 +134,13 @@ function unlockMap() {
 }
 
 async function moveMap(lat2, lon2, dist, port, marker) {
+	const price = dist * 0.17;
 	if (game.currentPlayer().flights < 1) {
 		floatingText(marker, translate("not_enough_flight_points"), 2);
+		return;
+	}
+	if (game.currentPlayer().money < price) {
+		floatingText(marker, translate("too_poor"), 2);
 		return;
 	}
 	const { lat, lon } = currentCords;
@@ -146,7 +153,7 @@ async function moveMap(lat2, lon2, dist, port, marker) {
 	const duration = dist / settings.flightSpeed;
 	const bearing = await routes.bearing(lat, lon, lat2, lon2);
 	plane.style.setProperty("--angle", `${bearing}deg`);
-	game.currentPlayer().setMoney(game.currentPlayer().money - dist * 0.17);
+	game.currentPlayer().setMoney(game.currentPlayer().money - price);
 	game.currentPlayer().setFlights(game.currentPlayer().flights - 1);
 	setTimeout(() => {
 		map.setView([lat2, lon2], map.getZoom(), {
@@ -218,10 +225,12 @@ function badassText(title, bottom) {
 	bottomText.classList.add("badass-bottom-text");
 	titleText.append(dialog.parseTextFast(title));
 	bottomText.append(dialog.parseTextFast(bottom));
+	titleText.style.animationDuration = `${5.5 / settings.animationSpeed}s`;
+	bottomText.style.animationDuration = `${5.5 / settings.animationSpeed}s`;
 	document.body.append(titleText, bottomText);
 	soundController.playSound("newarea");
 	setTimeout(() => {
 		titleText.remove();
 		bottomText.remove();
-	}, 5500);
+	}, 5500 / settings.animationSpeed);
 }

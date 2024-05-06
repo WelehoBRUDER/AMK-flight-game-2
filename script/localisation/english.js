@@ -20,6 +20,8 @@ const english = {
 	score: "Score",
 	// Floating texts
 	not_enough_flight_points: "§<c>red<c>Not enough flight points!§",
+	too_far: "§<c>red<c>That port is too far away!§<c>orange<c> (4300km+)§",
+	too_poor: "§<c>red<c>You can't afford that!§",
 	// Characters
 	narrator: "Narrator",
 	granfather: "Grandfather",
@@ -56,20 +58,36 @@ const english = {
 	close: "Close",
 	quest_title: "Grandpa's travels",
 	// Menus
-	help_text1: "§<c>orange<c>Grandpa's Lost Sauce§ is a game where you have to fly around the world to collect your grandpa's §<c>lightblue<c>lost items§. There are §<c>lightblue<c>four items§ randomly scattered throughout the world.",
-	help_text2: "You start off at a randomly selected airport, with §<c>lightblue<c>10000€§ in hand. To make your way towards an item, you must select an airport to fly to. Each flight costs §<c>lightblue<c>money§, and adds to your §<c>lightblue<c>CO2 emissions§.",
-	help_text3: "At every item you will encounter a §<c>lightblue<c>challenging minigame§, that you have to win in order to collect your prize.",
+	help_text1:
+		"§<c>orange<c>Grandpa's Lost Sauce§ is a game where you have to fly around the world to collect your grandpa's §<c>lightblue<c>lost items§. There are §<c>lightblue<c>four items§ randomly scattered throughout the world.",
+	help_text2:
+		"You start off at a randomly selected airport, with §<c>lightblue<c>10000€§ in hand. To make your way towards an item, you must select an airport to fly to. Each flight costs §<c>lightblue<c>money§, and adds to your §<c>lightblue<c>CO2 emissions§.",
+	help_text3:
+		"At every item you will encounter a §<c>lightblue<c>challenging minigame§, that you have to win in order to collect your prize.",
 	help_text4: "§<c>red<c>Running out of money during your trip means losing the game, so be careful!§",
 	help_text5: "Once you have collected all of the items, §<c>green<c>return to your starting airport to win the game!§",
-	help_text6: "Your score will be calculated based on your amount of §<c>lightblue<c>CO2 emissions§, §<c>lightblue<c>spent money§ and §<c>lightblue<c>time§.",
+	help_text6:
+		"Your score will be calculated based on your amount of §<c>lightblue<c>CO2 emissions§, §<c>lightblue<c>spent money§ and §<c>lightblue<c>time§.",
 	item1: "§<c>lightblue<c>The Coin§",
 	item2: "§<c>lightblue<c>The Photo§",
 	item3: "§<c>lightblue<c>The Watch§",
 	item4: "§<c>lightblue<c>The Sauce§",
-	item1_text: "Grandpa's favourite coin. Grandpa grew up poor, he had never owned a single cent to his name until he found his first coin. He has held on to it for his entire life.",
+	item1_text:
+		"Grandpa's favourite coin. Grandpa grew up poor, he had never owned a single cent to his name until he found his first coin. He has held on to it for his entire life.",
 	item2_text: "A photograph of grandpa's wife. Her beauty radiates through the photograph so powerfully it makes you sick.",
-	item3_text: "Grandpa's old favourite watch he always used to wear. It no longer works but it still has a home on top of grandpa's dresser.",
-	item4_text: "The sauce made with grandpa's secret recipe. No one knows what it contains, what it tastes like, or if it even actually is sauce.",
+	item3_text:
+		"Grandpa's old favourite watch he always used to wear. It no longer works but it still has a home on top of grandpa's dresser.",
+	item4_text:
+		"The sauce made with grandpa's secret recipe. No one knows what it contains, what it tastes like, or if it even actually is sauce.",
+	help_text1:
+		"§<c>orange<c>Grandpa's Lost Sauce§ is a game where you have to fly around the world to collect your grandpa's §<c>blue<c>lost items§. There are §<c>blue<c>four items§ randomly scattered throughout the world.",
+	help_text2:
+		"You start off at a randomly selected airport, with §<c>blue<c>10000€§ in hand. To make your way towards an item, you must select an airport to fly to. Each flight costs §<c>blue<c>money§, and adds to your §<c>blue<c>CO2 emissions§.",
+	help_text3: "At every item you will encounter a §<c>blue<c>challenging minigame§, that you have to win in order to collect your prize.",
+	help_text4: "§<c>red<c>Running out of money during your trip means losing the game, so be careful!§",
+	help_text5: "Once you have collected all of the items, §<c>green<c>return to your starting airport to win the game!§",
+	help_text6:
+		"Your score will be calculated based on your amount of §<c>blue<c>CO2 emissions§, §<c>blue<c>spent money§ and §<c>blue<c>time§.",
 	// Dialog
 	story_intro_1: "§<c>yellow<c>Ronald§ hasn't seen his grandfather in 20 years and was pretty anxious about the visit.",
 	story_intro_2:

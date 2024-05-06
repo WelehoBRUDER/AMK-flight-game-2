@@ -63,7 +63,7 @@ class Game {
 			);
 			setTimeout(() => {
 				this.currentPlayer().rollFlights();
-			}, 5550);
+			}, 5550 / settings.animationSpeed);
 		}
 	}
 
@@ -77,7 +77,7 @@ class Game {
 		);
 		setTimeout(() => {
 			this.currentPlayer().rollFlights();
-		}, 5550);
+		}, 5550 / settings.animationSpeed);
 	}
 
 	resetTurns() {
