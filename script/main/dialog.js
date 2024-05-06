@@ -8,15 +8,6 @@ function sleep(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-/**
- * Translates given id to text corresponding the current language
- * @returns translated text
- */
-function translate(id) {
-	const txt = lang[id];
-	return txt ? txt : id;
-}
-
 function closeEverything() {
 	if (devConsole.open) {
 		devConsole.toggle();

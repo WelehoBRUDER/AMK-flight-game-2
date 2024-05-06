@@ -43,18 +43,6 @@ let options_open = true;
 let quests_open = false;
 let game_started = false;
 
-const all_elements = document.querySelectorAll("*");
-const all_buttons = document.querySelectorAll("button");
-
-// Refreshes all necessary text for translation purposes
-function refreshText() {
-	all_elements.forEach((element) => {
-		if (element.title) {
-			element.textContent = translate(element.title);
-		}
-	});
-}
-
 // Hides all the option menu screens. Used right before opening a screen, to prevent overlap.
 function hideBoxes() {
 	new_game_scrn.hidden = true;

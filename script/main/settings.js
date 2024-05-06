@@ -58,8 +58,36 @@ class Settings {
 	setLanguage(code) {
 		this.lang = code;
 		lang = eval(code);
+		refreshText();
+		if (typeof game !== "undefined") {
+			if (game.currentPlayer()) {
+				game.currentPlayer().updateStatsScreen();
+			}
+		}
+
 		this.save();
 	}
+}
+
+/**
+ * Translates given id to text corresponding the current language
+ * @returns translated text
+ */
+function translate(id) {
+	const txt = lang[id];
+	return txt ? txt : id;
+}
+
+const all_elements = document.querySelectorAll("*");
+const all_buttons = document.querySelectorAll("button");
+
+// Refreshes all necessary text for translation purposes
+function refreshText() {
+	all_elements.forEach((element) => {
+		if (element.title) {
+			element.textContent = translate(element.title);
+		}
+	});
 }
 const settingsOptions = [
 	{
