@@ -88,28 +88,47 @@
   background-color: rgb(30, 30, 75);
   transform: translateY(4px);
 }
-.options-menu .container {
+.options-menu .option-content {
   display: flex;
   box-sizing: border-box;
   width: 100%;
 }
-.options-menu .container .box {
+.options-menu .option-content .box {
   margin: 1rem;
+  width: 100%;
+  height: 100%;
 }
-.options-menu .container .box h1 {
+.options-menu .option-content .box h1 {
   font-size: 3rem;
 }
-.options-menu .container .box p {
+.options-menu .option-content .box p {
   font-size: 1.5rem;
 }
-.options-menu .container .box #dialog-box {
+.options-menu .option-content .box .leaderboards-list {
+  background-color: red;
+  display: flex;
+  width: 100rem;
+  position: absolute;
+  border: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+}
+.options-menu .option-content .box .leaderboards-list .column {
+  background-color: blue;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+  justify-content: center;
+}
+.options-menu .option-content .box #dialog-box {
   /* background: var(--purple);
   border: 1rem solid var(--dark-purple); */
   display: flex;
   align-items: center;
   gap: 2px;
 }
-.options-menu .container .box #dialog-box .text-side {
+.options-menu .option-content .box #dialog-box .text-side {
   width: 60rem;
   height: 20rem;
   margin: 0;
@@ -123,12 +142,12 @@
   border: 1rem rgb(60, 60, 60) ridge;
   box-sizing: border-box;
 }
-.options-menu .container .box #dialog-box .text-side .name {
+.options-menu .option-content .box #dialog-box .text-side .name {
   text-align: center;
   margin: 0;
   color: rgb(14, 14, 14);
 }
-.options-menu .container .box #dialog-box .text-side .text-box {
+.options-menu .option-content .box #dialog-box .text-side .text-box {
   box-sizing: border-box;
   margin: 0;
   width: 95%;
@@ -137,22 +156,22 @@
   justify-content: center;
   align-items: center;
 }
-.options-menu .container .box #dialog-box .text-side .text-box .text {
+.options-menu .option-content .box #dialog-box .text-side .text-box .text {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   margin: 2rem;
 }
-.options-menu .container .box #dialog-box .text-side .text-box .text span {
+.options-menu .option-content .box #dialog-box .text-side .text-box .text span {
   white-space: normal;
 }
-.options-menu .container .box .portrait {
+.options-menu .option-content .box .portrait {
   border: 1rem rgb(60, 60, 60) ridge;
   box-sizing: border-box;
   margin: 0;
   height: 20rem;
 }
-.options-menu .container .box .portrait .portrait-img {
+.options-menu .option-content .box .portrait .portrait-img {
   height: 100%;
 }
 

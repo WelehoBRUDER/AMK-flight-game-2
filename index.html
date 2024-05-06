@@ -99,8 +99,8 @@
           <button class="option" id="settings" title="settings"></button>
           <button class="option" id="close-options" title="close"></button>
         </div>
-        <div class="container">
-          <div class="box" id="new-game-screen">
+        <div class="option-content">
+          <div class="box" id="new-game-screen" hidden>
             <h1 title="new_game"></h1>
             <button class="button" id="start-game" title="start_game"></button>
           </div>
@@ -130,6 +130,15 @@
           </div>
           <div class="box" id="leaderboards-screen" hidden>
             <h1 title="leaderboards"></h1>
+            <div class="leaderboards-list" id="leaderboards-list">
+              <div class="column" id="screen-name"><h2 title="screen_name"></h2></div>
+              <div class="column" id="score"><h2 title="score"></h2></div>
+              <div class="column" id="time"><h2 title="time"></h2></div>
+              <div class="column" id="money"><h2 title="money"></h2></div>
+              <div class="column" id="co2-consumed"><h2 title="co2_consumed"></h2></div>
+              <div class="column" id="distance-traveled"><h2 title="distance_traveled"></h2></div>
+              <div class="column" id="real-time"><h2 title="real_time_tt"></h2></div>
+            </div>
           </div>
           <div class="box" id="settings-screen" hidden></div>
         </div>
