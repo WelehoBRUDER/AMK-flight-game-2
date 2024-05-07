@@ -7,6 +7,7 @@ const buttons = document.querySelector("#buttons");
 
 const new_game_btn = document.querySelector("#new-game");
 const new_game_scrn = document.querySelector("#new-game-screen");
+const new_game_inputs = document.querySelector("#new-game-inputs");
 const difficulty_select = document.querySelector("#difficulty-select");
 const player_amount = document.querySelector("#player-amount");
 const minus_btn = document.querySelector("#minus-players");
@@ -83,7 +84,7 @@ const grandpa_death_gif = document.createElement("img");
 grandpa_death_gif.src = "images/grandpa_death.gif";
 
 function hideGif() {
-	grandpa_death_gif.style.opacity = 0;
+	grandpa_death_gif.style.opacity = "0";
 }
 
 lose_btn.addEventListener("click", function () {
@@ -165,14 +166,15 @@ options_btn.addEventListener("click", function () {
 function newInput(id) {
 	let inp = document.createElement("input");
 	inp.type = "text";
-	inp.id = id;
+	inp.id = "name" + String(id);
+	inp.placeholder = "Player " + String(id) + " name";
 	return inp
 }
 
 new_game_btn.addEventListener("click", function () {
 	hideBoxes();
 	new_game_scrn.hidden = false;
-	new_game_scrn.append(newInput("name1"));
+	new_game_inputs.append(newInput(1));
 });
 
 let amount_of_players = 1;
@@ -180,7 +182,7 @@ let amount_of_players = 1;
 minus_btn.addEventListener("click", function () {
 	if (amount_of_players > 1) {
 		const inputs = document.querySelector("#name" + amount_of_players);
-		new_game_scrn.removeChild(inputs)
+		new_game_inputs.removeChild(inputs)
 		amount_of_players -= 1;
 		player_amount.textContent = String(amount_of_players);
 	}
@@ -189,7 +191,7 @@ minus_btn.addEventListener("click", function () {
 plus_btn.addEventListener("click", function () {
 	amount_of_players += 1;
 	player_amount.textContent = String(amount_of_players);
-	new_game_scrn.append(newInput("name" + amount_of_players));
+	new_game_inputs.append(newInput(amount_of_players));
 });
 
 start_btn.addEventListener("click", function () {
