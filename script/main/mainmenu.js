@@ -110,7 +110,7 @@ function displayWinScreen() {
 }
 function closeWinScreen() {
 	win_scrn.hidden = true;
-	soundController.pauseSound("victory");
+	soundController.stopAllSounds();
 }
 
 const grandpa_death_gif = document.createElement("img");
