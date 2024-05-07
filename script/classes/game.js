@@ -54,12 +54,21 @@ class Game {
 	}
 
 	randomizeGrandpasHints(item, cities) {
+		const hintsUsed = [];
 		cities.forEach((city) => {
+			let hintNumber = random(8);
+			let hint = `flying_hint${hintNumber}`;
+			while (hintsUsed.findIndex((h) => h === hint) !== -1) {
+				hintNumber = random(8);
+				hint = `flying_hint${hintNumber}`;
+			}
 			if (!this.grandpasHints[item]?.item) {
-				this.grandpasHints[item] = { item, cities: [city] };
+				this.grandpasHints[item] = { item, cities: [city], hints: [hint] };
 			} else {
 				this.grandpasHints[item].cities.push(city);
+				this.grandpasHints[item].hints.push(hint);
 			}
+			hintsUsed.push(hint);
 		});
 	}
 
