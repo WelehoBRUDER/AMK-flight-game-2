@@ -4,6 +4,11 @@ body {
 
 }
 
+.container .leave-minigame-button {
+    position: absolute;
+    top: 600px;
+}
+
 .title {
     height: 150px;
     width: 400px;
