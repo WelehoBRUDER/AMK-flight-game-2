@@ -69,6 +69,11 @@ const lose_btn = document.querySelector("#lose");
 const lose_scrn = document.querySelector("#loss-screen");
 lose_scrn.style.display = "none";
 
+if (!dev.enabled) {
+	win_btn.style.display = "none";
+	lose_btn.style.display = "none";
+}
+
 let in_main_menu = false;
 
 // Hides all the option menu screens. Used right before opening a screen, to prevent overlap.
