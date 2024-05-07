@@ -67,6 +67,7 @@ const win_scrn = document.querySelector("#win-screen");
 const score_value = document.querySelector("#score-value");
 const lose_btn = document.querySelector("#lose");
 const lose_scrn = document.querySelector("#loss-screen");
+lose_scrn.style.display = "none";
 
 let in_main_menu = false;
 
@@ -135,13 +136,13 @@ lose_btn.addEventListener("click", function () {
 });
 
 function displayLoseScreen() {
-	if (lose_scrn.hidden) {
-		lose_scrn.hidden = false;
+	if (lose_scrn.style.display === "none") {
+		lose_scrn.style.display = "flex";
 		lose_scrn.append(grandpa_death_gif);
 		soundController.playSound("death");
 		setTimeout(hideGif, 2100);
 	} else {
-		lose_scrn.hidden = true;
+		lose_scrn.style.display = "none";
 	}
 }
 
