@@ -4,13 +4,13 @@ General Styles
 
 .diceGame {
     position: absolute;
-    top: 50%;
+    top: 41%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: grid;
     place-items: center;
-    width: 35rem;
-    height: 450px;
+    width: 50rem;
+    height: auto;
     padding: 60px 0 40px;
     border-radius: 30px;
     background: linear-gradient(90deg, #8B4513 1px, transparent 1px) 0 0 / 20px 20px,
@@ -158,6 +158,7 @@ Dice Styles
     cursor: pointer;
     color: #b33951;
     padding: 6px 12px;
+    margin-top: 2rem;
     border-radius: 3px;
     font: 700 16px 'Verdana';
     border: 2px solid #b33951;
