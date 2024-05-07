@@ -243,6 +243,12 @@ $text-light: rgb(243, 240, 240);
   margin: 0;
 }
 
+.clock {
+  position: absolute;
+  z-index: 500;
+  font-size: 4rem;
+}
+
 .game {
   position: absolute;
   width: 100%;
