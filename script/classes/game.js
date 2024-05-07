@@ -3,6 +3,7 @@ class Game {
 		this.players = [];
 		this.items = [];
 		this.grandpasTravels = [];
+		this.grandpasContinents = [];
 		this.currentMinigameItem = "";
 		this.turn = 0;
 		this.currentPlayerIndex = 0;
@@ -32,29 +33,27 @@ class Game {
 		const b = await routes.getRandomAirports(6);
 		const airports = a.concat(b);
 		this.grandpasTravels = airports.map((port) => port.ident);
+		this.grandpasContinents = airports.map((port) => port.continent);
 	}
 
 	addItems(ids) {
 		this.items = [];
 		const minigames = ["slider", "dice", "hangman", "kalevi"];
-		const _ports = [...this.grandpasTravels];
 		ids.forEach((item) => {
-			const randomPort = random(_ports.length - 1, 0);
+			const wantedPorts = this.getPortsFromContinent(items[item].continent);
+			const randomPort = random(wantedPorts.length - 1, 0);
 			const minigameIndex = random(minigames.length - 1, 0);
-			this.items.push({ id: item, airport: _ports[randomPort], game: minigames[minigameIndex] });
+			this.items.push({ id: item, airport: wantedPorts[randomPort], game: minigames[minigameIndex] });
 			minigames.splice(minigameIndex, 1);
-			_ports.splice(randomPort, 1);
 		});
-		// this.items.forEach((itm) => {
-		// 	const item = items[itm.id];
-		// 	const city = "Helsinki";
-		// 	const flavor = translate("flying_hint_1")
-		// 		.replace("[itmCol]", item.color)
-		// 		.replace("[item]", translate(item.id))
-		// 		.replace("[city]", city);
-		// 	console.log(flavor);
-		// 	bottom_bar.append(dialog.parseTextFast(flavor));
-		// });
+	}
+
+	getPortsFromContinent(continent) {
+		return [
+			...this.grandpasTravels.filter((p, index) => {
+				if (this.grandpasContinents[index] === continent) return p;
+			}),
+		];
 	}
 
 	getItemByPort(ident) {
@@ -207,21 +206,25 @@ const items = {
 	coin: {
 		id: "coin",
 		img: "images/coin.webp",
+		continent: "EU",
 		color: "goldenrod",
 	},
 	photo: {
 		id: "photo",
 		img: "images/photo.webp",
+		continent: "AS",
 		color: "lightgray",
 	},
 	watch: {
 		id: "watch",
 		img: "images/wristwatch.webp",
+		continent: "NA",
 		color: "cyan",
 	},
 	sauce: {
 		id: "sauce",
 		img: "images/sauce.webp",
+		continent: "AF",
 		color: "crimson",
 	},
 };
