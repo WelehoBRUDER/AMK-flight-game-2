@@ -161,6 +161,7 @@ async function moveMap(lat2, lon2, dist, port, marker) {
 		floatingText(marker, translate("too_poor"), 2);
 		return;
 	}
+	soundController.playSound("flying");
 	const { lat, lon } = currentCords;
 	map.setView([lat, lon], 6, {
 		animate: false,

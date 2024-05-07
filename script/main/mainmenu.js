@@ -97,11 +97,16 @@ music_toggle.addEventListener("click", function () {
 });
 
 win_btn.addEventListener("click", function () {
-	win_scrn.hidden = !win_scrn.hidden;
+	if (win_scrn.hidden) {
+		displayWinScreen();
+	} else {
+		closeWinScreen();
+	}
 });
 
 function displayWinScreen() {
 	win_scrn.hidden = false;
+	soundController.playSound("victory");
 }
 function closeWinScreen() {
 	win_scrn.hidden = true;
@@ -241,6 +246,7 @@ start_btn.addEventListener("click", function () {
 	options_btn.hidden = false;
 	quests_btn.hidden = false;
 	end_turn_btn.hidden = false;
+	in_main_menu = false;
 	game.startGame();
 	setup();
 });

@@ -42,6 +42,20 @@ const sounds = {
 		src: "sounds/death.mp3",
 		loop: false,
 	},
+	flying: {
+		id: "flying",
+		src: "sounds/flying.wav",
+		loop: false,
+	},
+	victory: {
+		id: "victory",
+		src: "sounds/victory.mp3",
+	},
+	diceRoll: {
+		id: "diceRoll",
+		src: "sounds/dice-roll.mp3",
+		loop: false,
+	},
 };
 
 class SoundController {

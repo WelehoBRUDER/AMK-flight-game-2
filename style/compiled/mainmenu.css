@@ -11,8 +11,9 @@
 }
 
 .music-toggle {
-  bottom: 0;
-  margin: 1.5rem;
+  top: 0;
+  right: 0;
+  margin: 0.5rem;
   width: 4rem;
   position: absolute;
   z-index: 5;
@@ -108,6 +109,11 @@
 .options-menu .option-content .box pre {
   font-size: 1.5rem;
   white-space: pre-wrap;
+}
+.options-menu .option-content .box .story-screen {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 .options-menu .option-content .box .new-game-inputs {
   display: flex;
@@ -316,6 +322,7 @@
   position: absolute;
   left: 50%;
   transform: translate(-50%);
+  border: 1rem rgb(60, 60, 60) ridge;
 }
 
 .button,

@@ -40,6 +40,7 @@ Dice Styles
     transform-style: preserve-3d;
     transition: 1s ease;
     margin: 1rem;
+    text-align: start;
 }
 
 .dice, .face {
@@ -117,37 +118,37 @@ Dice Styles
 
 .back::after {
     margin: -35px 0 0 -30px;
-    box-shadow: 40px 0,
-    0 25px,
-    40px 25px,
-    0 50px,
-    40px 50px;
+    box-shadow: 40px 0 black,
+    0 25px black,
+    40px 25px black,
+    0 50px black,
+    40px 50px black;
 }
 
 .top::after {
     margin: -30px 0 0 -30px;
-    box-shadow: 40px 40px;
+    box-shadow: 40px 40px black;
 }
 
 .bottom::after {
-    margin: -36px 0 0 -36px;
-    box-shadow: 26px 26px,
-    52px 52px,
-    52px 0,
-    0 52px;
+    margin: -36px 0 0 -36px; 
+    box-shadow: 26px 26px black,
+    52px 52px black,
+    52px 0 black,
+    0 52px black;
 }
 
 .right::after {
     margin: -30px 0 0 -30px;
-    box-shadow: 40px 0,
-    0 40px,
-    40px 40px;
+    box-shadow: 40px 0 black,
+    0 40px black,
+    40px 40px black;
 }
 
 .left::after {
     margin: -35px 0 0 -35px;
-    box-shadow: 25px 25px,
-    50px 50px;
+    box-shadow: 25px 25px black,
+    50px 50px black;
 }
 
 /*

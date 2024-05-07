@@ -201,21 +201,19 @@ function checkWinner(gameElem) {
 }
 
 function displayDiceValues(dice, values) {
+	soundController.playSound("diceRoll");
 	dice.style.animation = `rolling ${3 / settings.animationSpeed}s`;
+	setTimeout((dice.style.transition = `${0.4 / settings.animationSpeed}s`), 0);
 	setTimeout(() => {
 		values.forEach((value) => {
 			const rotation = getRotationForValue(value);
-
-			dice.style.transition = `${0.2 / settings.animationSpeed}s`;
 			dice.style.animationFillMode = "forwards";
 			dice.style.transform = rotation;
-			setTimeout(() => {
-				dice.style.transition = `${1 / settings.animationSpeed}s ease`;
-			}, 200 / settings.animationSpeed);
+			setTimeout(() => {}, 400 / settings.animationSpeed);
 		});
 
 		dice.style.animation = "none";
-	}, 3150 / settings.animationSpeed);
+	}, 3300 / settings.animationSpeed);
 }
 
 function getRotationForValue(value) {

@@ -78,7 +78,7 @@
   <img class="music-toggle" id="music-toggle" alt="music-toggle" src="images/mute.png">
   <!-- Title screen -->
   <div class="title-screen" id="title-screen">
-    <h1 title="click_anywhere"></h1>
+    <h1 data-text="click_anywhere"></h1>
     <img src="images/titlescreen.webp" alt="title screen">
   </div>
   <!-- Everything else -->
@@ -98,6 +98,8 @@
       <div class="dice-rolling"></div>
       <div class="end-screen" id="win-screen" hidden>
         <h1>You won!</h1>
+        <img src="images/confetti.gif" alt="confetti">
+        <img src="images/grandpa_win.webp" alt="grandpa-win">
       </div>
       <div class="end-screen" id="loss-screen" hidden>
         <h1>You lost!</h1>
@@ -134,7 +136,6 @@
               </div>
               <button class="button" id="start-game" data-text="start_game"></button>
             </div>
-
           </div>
           <div class="box" id="load-save-screen" hidden>
             <h1 data-text="load_save"></h1>
@@ -156,19 +157,21 @@
             <pre data-text="help_text6" data-richtext="true"></pre>
           </div>
           <div class="box" id="story-screen" hidden>
-            <h1 data-text="read_help"></h1>
-            <div id="dialog-box">
-              <div class="portrait">
-                <img src="images/unknown.png" alt="Portrait of the current character" class="portrait-img">
-              </div>
-              <div class="text-side">
-                <h2 class="name"></h2>
-                <div class="text-box">
-                  <pre class="text"></pre>
+            <h1 data-text="read_story"></h1>
+            <div class="story-screen">
+              <div id="dialog-box">
+                <div class="portrait">
+                  <img src="images/unknown.png" alt="Portrait of the current character" class="portrait-img">
+                </div>
+                <div class="text-side">
+                  <h2 class="name"></h2>
+                  <div class="text-box">
+                    <pre class="text"></pre>
+                  </div>
                 </div>
               </div>
+              <button class="button" id="close-dialog" data-text="close"></button>
             </div>
-            <button class="button" id="close-dialog" data-text="close"></button>
           </div>
           <div class="box" id="leaderboards-screen" hidden>
             <h1 data-text="leaderboards"></h1>
