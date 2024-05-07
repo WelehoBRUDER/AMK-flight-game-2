@@ -114,8 +114,9 @@ async function getAllPlayers() {
 	return await routes.getAllPlayers();
 }
 
-async function createLeaderboards () {
+async function createLeaderboards() {
 	let players = await getAllPlayers();
+	if (!players || players?.length === 0) return;
 	for (let i = 0; i < players.length; i++) {
 		const div1 = document.createElement("div");
 		div1.className = "player-stat";
@@ -178,7 +179,7 @@ function newInput(id) {
 	inp.type = "text";
 	inp.id = "name" + String(id);
 	inp.placeholder = "Player " + String(id) + " name";
-	return inp
+	return inp;
 }
 
 new_game_btn.addEventListener("click", function () {
@@ -191,7 +192,7 @@ let amount_of_players = 1;
 minus_btn.addEventListener("click", function () {
 	if (amount_of_players > 1) {
 		const inputs = document.querySelector("#name" + amount_of_players);
-		player_names.removeChild(inputs)
+		player_names.removeChild(inputs);
 		amount_of_players -= 1;
 		player_amount.textContent = String(amount_of_players);
 	}
