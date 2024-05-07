@@ -281,4 +281,7 @@ const english = {
 	nostalgia_hint: "A sentimental longing or wistful affection for the past.",
 	brilliant: "brilliant",
 	brilliant_hint: "Exceptionally clever, talented, or impressive.",
+	// Minigames
+	theodore_win: "Damn bro, that was slick as hell. Hope that glue holds it together KID. Here's your grandpa's (?)",
+	theodore_loss: "What are you even doing?? Can't you glue a simple photo together... Shame on you bro, that's your grandma! Guess you'll have to pay some professional to do the job for you."
 };
