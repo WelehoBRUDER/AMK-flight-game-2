@@ -26,6 +26,7 @@ class Player {
 		this.items.push(game.getItemByPort(this.location));
 		game.createItemPopUp();
 		game.closeMinigames();
+		updateItems();
 	}
 
 	lostMinigame() {
@@ -33,6 +34,7 @@ class Player {
 		this.setMoney(this.money - 3000);
 		game.createItemPopUp(false);
 		game.closeMinigames();
+		updateItems();
 	}
 
 	getAll() {
