@@ -17,7 +17,7 @@ function createElements() {
 
   // Hangman title
   const hangmanTitle = document.createElement('h1');
-  hangmanTitle.innerHTML = `Adolf's Hangman`;
+  hangmanTitle.innerHTML = `Adolph's Hangman`;
   hangmanTitle.classList.add('hangman-title');
   hangmanCon.appendChild(hangmanTitle);
 
