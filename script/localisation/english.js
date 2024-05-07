@@ -29,11 +29,13 @@ const english = {
 	// Settings
 	gameplay: "Gameplay",
 	flightSpeed: "Flight speed",
+	animationSpeed: "Animation speed",
 	sound: "Sound",
 	musicVolume: "Music volume",
 	soundVolume: "Sound effect volume",
 	game_language: "Game language",
 	flight_speed_tt: "How fast the plane moves when flying between airports.",
+	animation_speed_tt: "How quickly in-game animations should be played",
 	music_volume_tt: "Music volume",
 	sound_volume_tt: "Sound effects volume",
 	// UI
