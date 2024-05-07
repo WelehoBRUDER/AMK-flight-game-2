@@ -46,6 +46,9 @@ const english = {
 	player: "Player",
 	quest_title: "Grandpa's travels",
 	end_turn: "End turn",
+	// Minigames UI
+	hangman_win: "You're worthy! You clever, clever boeh. Here's your §<v>game.currentMinigameItem<v>§",
+	hangman_loss: "Not worthy! §<v>game.currentMinigameItem<v>§ is gonna cost ya now! Slide me my money and get out of my sight half-wit!",
 	flying_hint1: "§<c>violet<c>Grandpa§ thinks he might have lost his §<c>[itmCol]<c>[item]§ while hiking in §<c>gold<c>[city]§.",
 	flying_hint2: "According to §<c>violet<c>Grandpa§, he accidentally dropped his §<c>[itmCol]<c>[item]§ somewhere in §<c>gold<c>[city]§.",
 	flying_hint3: "<c>violet<c>Grandpa§ says he forgot his §<c>[itmCol]<c>[item]§ at §<c>gold<c>[city]§.",
