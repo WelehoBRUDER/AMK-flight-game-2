@@ -118,9 +118,9 @@ class Player {
 		diceRolling.append(dice);
 		displayDiceValues(dice, [roll]);
 		setTimeout(() => {
-			//diceRolling.innerHTML = "";
-			//this.setFlights(roll);
-			//unlockMap();
+			diceRolling.innerHTML = "";
+			this.setFlights(roll);
+			unlockMap();
 		}, 3150 / settings.animationSpeed);
 	}
 
