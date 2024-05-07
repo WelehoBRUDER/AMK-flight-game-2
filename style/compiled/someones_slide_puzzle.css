@@ -12,9 +12,9 @@ body {
 .board {
     width: 360px;
     height: 360px;
+    color: #0c67ae;
     background-color: lightblue;
     border: 10px solid #0c67ae;
-    color: #0c67ae;
 
     margin: 0 auto;
     display: flex;
@@ -32,9 +32,16 @@ body {
 .container {
   position: absolute;
   z-index: 300;
-  display: grid;
-  width: 900px;
-  height: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70rem;
+  height: 70rem;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
 
   img {
     position: absolute;
@@ -46,4 +53,19 @@ body {
     src: url("../../images/blank.png");
     background: darkgray;
   }
+}
+
+section.board {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none;
+    width: 60rem;
+    height: 60rem;
+}
+
+.clock {
+    top: -5rem;
+    left: 5rem;
+    background: rgba(0, 0, 0, 0.5);
 }
