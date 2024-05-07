@@ -103,6 +103,9 @@ $text-light: rgb(243, 240, 240);
   pointer-events: none;
 }
 
+.leave-minigame-button {
+}
+
 .pop-up-window {
   position: absolute;
   left: 50%;
@@ -173,6 +176,13 @@ $text-light: rgb(243, 240, 240);
     img {
       width: 2rem;
     }
+  }
+}
+
+.container {
+  .leave-minigame-button {
+    position: absolute;
+    top: 600px;
   }
 }
 
