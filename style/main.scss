@@ -370,23 +370,3 @@ $text-light: rgb(243, 240, 240);
     }
   }
 }
-
-.board,
-.container {
-  position: absolute;
-  z-index: 300;
-  display: grid;
-  width: 900px;
-  height: 900px;
-
-  img {
-    position: absolute;
-    -webkit-user-drag: none;
-    user-select: none;
-  }
-
-  .blank-image {
-    src: url("../../images/blank.png");
-    background: darkgray;
-  }
-}

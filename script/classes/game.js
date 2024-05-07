@@ -150,7 +150,9 @@ class Game {
 
 	advanceTurn() {
 		if (this.overlayDisabled) return;
-		lockMap();
+		try {
+			lockMap();
+		} catch {}
 		this.currentPlayerIndex = 0;
 		this.turn++;
 		badassText(
@@ -241,12 +243,13 @@ class Game {
 		const image = document.createElement("img");
 		const text = document.createElement("pre");
 		image.src = items[this.currentMinigameItem.id].img;
-		text.append(dialog.parseTextFast(translate(win ? "player_got_item_win" : "player_got_item_lose")));
+		text.append(dialog.parseTextFast(translate(win ? "player_got_item_win" : "player_got_item_loss")));
 		content.append(image, text);
 		this.createWindow(content);
 	}
 
 	startGame() {
+		this.init();
 		const difficulties = {
 			easy: {
 				money: 20000,
@@ -264,6 +267,8 @@ class Game {
 			const pName = document.querySelector(`#name${i}`).value;
 			this.addPlayer(new Player({ screen_name: pName, money: this.difficulty.money }));
 		}
+		this.currentPlayerIndex = -1;
+		setTimeout(() => this.nextPlayer(), 200);
 	}
 }
 const items = {

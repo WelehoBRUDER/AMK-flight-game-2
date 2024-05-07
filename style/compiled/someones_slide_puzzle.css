@@ -26,3 +26,23 @@ body {
     border: 1px solid #0c67ae;
 }
 
+
+.board,
+.container {
+  position: absolute;
+  z-index: 300;
+  display: grid;
+  width: 900px;
+  height: 900px;
+
+  img {
+    position: absolute;
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  .blank-image {
+    src: url("../../images/blank.png");
+    background: darkgray;
+  }
+}
