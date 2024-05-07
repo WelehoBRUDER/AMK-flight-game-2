@@ -338,8 +338,6 @@ $text-light: rgb(243, 240, 240);
     left: 0;
     bottom: 0;
     display: none;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     height: 18rem;
     z-index: 1;
@@ -350,8 +348,25 @@ $text-light: rgb(243, 240, 240);
     .items {
       border: 1rem rgb(60, 60, 60) ridge;
       box-sizing: border-box;
-      display: flex;
-      gap: 1rem;
+      height: 100%;
+      padding: 1rem;
+
+      .items-found {
+        display: flex;
+        justify-content: center;
+        margin: 1rem;
+      }
+
+      .item-images {
+        display: flex;
+      }
+
+      img {
+        width: 8rem;
+        height: 8rem;
+        border: 1rem rgb(60, 60, 60) ridge;
+        box-sizing: border-box;
+      }
     }
   }
 }

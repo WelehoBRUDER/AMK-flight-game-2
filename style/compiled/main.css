@@ -308,8 +308,6 @@
   left: 0;
   bottom: 0;
   display: none;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: 18rem;
   z-index: 1;
@@ -320,8 +318,22 @@
 .game .bottom-bar .items {
   border: 1rem rgb(60, 60, 60) ridge;
   box-sizing: border-box;
+  height: 100%;
+  padding: 1rem;
+}
+.game .bottom-bar .items .items-found {
   display: flex;
-  gap: 1rem;
+  justify-content: center;
+  margin: 1rem;
+}
+.game .bottom-bar .items .item-images {
+  display: flex;
+}
+.game .bottom-bar .items img {
+  width: 8rem;
+  height: 8rem;
+  border: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
 }
 
 .board,
