@@ -261,4 +261,6 @@ const finnish = {
 	hangman_win: "Olet haasteen arvoinen! Sää fiksu, fiksu poeeka. Tässä on sun §<v>translate(game.currentMinigameItem.id)<v>§",
 	hangman_loss:
 		"Et ole haasteen arvoinen! §<v>translate(game.currentMinigameItem.id)<v>>§ tulee maksamaan sulle! Heitäs mulle mun rahat ja poistu mun silmistä puoliälykäs",
+	kalevi_game_win: "*Kekkonen on vaikuttunut* Onnittelun päihitit minut! Tässä on vaarisi The Coin, mee ostaa ittelles muumitikkari!",
+	kalevi_game_loss: "Sinusta ei ollut mitään vastusta Kekkoselle. Hän oli vain ovelampi kuin sinä. The Coin tulee maksamaan sinulle, ja ei summaa jota voisit olettaa."
 };
