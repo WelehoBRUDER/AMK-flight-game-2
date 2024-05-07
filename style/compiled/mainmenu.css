@@ -299,30 +299,32 @@
   transform: translate(-50%, -50%);
   padding: 1rem;
   overflow: auto;
+  display: none;
+  flex-direction: column;
+  align-items: center;
 }
 .end-screen h1 {
   font-size: 3rem;
 }
-.end-screen p {
-  font-size: 1.5rem;
+.end-screen .win-wrapper {
+  position: relative;
 }
-.end-screen pre {
-  font-size: 1.5rem;
-  white-space: pre-wrap;
-}
-.end-screen .button {
-  position: sticky;
-  margin-bottom: 1rem;
-  bottom: 0;
-}
-.end-screen img {
+.end-screen .win-wrapper .grandpa {
   width: 30rem;
   height: 30rem;
-  transition: 1s;
+}
+.end-screen .win-wrapper .grandpa .grandpa-win {
   position: absolute;
-  left: 50%;
-  transform: translate(-50%);
+  transition: 1s;
+  width: 30rem;
+  height: 30rem;
+  left: 0;
+  top: 0;
   border: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+}
+.end-screen .win-wrapper .score-screen {
+  position: relative;
 }
 
 .button,

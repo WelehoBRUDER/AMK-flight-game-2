@@ -96,12 +96,20 @@
     </div>
     <div class="map-area" id="map-area">
       <div class="dice-rolling"></div>
-      <div class="end-screen" id="win-screen" hidden>
+      <div class="end-screen" id="win-screen">
         <h1>You won!</h1>
-        <img src="images/confetti.gif" alt="confetti">
-        <img src="images/grandpa_win.webp" alt="grandpa-win">
+        <div class="win-wrapper">
+          <div class="grandpa">
+            <img src="images/confetti.gif" class="grandpa-win" alt="confetti">
+            <img src="images/grandpa_win.webp" class="grandpa-win" alt="grandpa-win">
+          </div>
+          <div class="score-screen" id="score-screen">
+            <h1 data-text="your_score"></h1>
+            <h2 id="score-value"></h2>
+          </div>
+        </div>
       </div>
-      <div class="end-screen" id="loss-screen" hidden>
+      <div class="end-screen" id="loss-screen">
         <h1>You lost!</h1>
         <img src="images/grave.png" alt="grave">
       </div>

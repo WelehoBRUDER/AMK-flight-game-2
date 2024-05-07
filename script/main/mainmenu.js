@@ -64,6 +64,7 @@ const coin_image = document.querySelector("#coin-image");
 
 const win_btn = document.querySelector("#win");
 const win_scrn = document.querySelector("#win-screen");
+const score_value = document.querySelector("#score-value");
 const lose_btn = document.querySelector("#lose");
 const lose_scrn = document.querySelector("#loss-screen");
 
@@ -97,20 +98,17 @@ music_toggle.addEventListener("click", function () {
 });
 
 win_btn.addEventListener("click", function () {
-	if (win_scrn.hidden) {
-		displayWinScreen();
-	} else {
-		closeWinScreen();
-	}
+	displayWinScreen();
+	console.log(win_scrn.style.display)
 });
 
 function displayWinScreen() {
-	win_scrn.hidden = false;
+	win_scrn.style.display = "flex";
 	soundController.playSound("victory");
-}
-function closeWinScreen() {
-	win_scrn.hidden = true;
-	soundController.stopAllSounds();
+	game.currentPlayer().calcScore();
+	const score = game.currentPlayer().score;
+	score_value.innerHTML = "";
+	score_value.append(String(score));
 }
 
 const grandpa_death_gif = document.createElement("img");
@@ -399,10 +397,10 @@ if (dev.enabled) {
 	in_main_menu = false;
 	main_menu.hidden = true;
 	options_menu.style.display = "none";
-	options_open = false;
 	bottom_bar.style.display = "flex";
 	map_scrn.hidden = false;
 	map_area.hidden = false;
+	console.log(win_scrn.style.display)
 	setup();
 }
 
