@@ -19,7 +19,7 @@ class Game {
 
 	getRemainingPlayers() {
 		return this.players.filter((p) => {
-			return p.hasLost() || p.finished;
+			return !p.hasLost() && !p.finished;
 		});
 	}
 	async createGrandpasTravels() {
@@ -83,7 +83,9 @@ class Game {
 		this.currentPlayerIndex += 1;
 		if (this.currentPlayerIndex >= this.playersAmount()) {
 			this.advanceTurn();
+			this.currentPlayer().updateStatsScreen();
 		} else {
+			this.currentPlayer().updateStatsScreen();
 			badassText(
 				`§<c>gold<c>${translate("next_player")}§`,
 				`${translate("player")} ${this.currentPlayerIndex + 1} | ${this.currentPlayer().screen_name}`

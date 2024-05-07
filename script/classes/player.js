@@ -98,7 +98,7 @@ class Player {
 			diceRolling.innerHTML = "";
 			this.setFlights(roll);
 			unlockMap();
-		}, 3000 / settings.animationSpeed);
+		}, 3150 / settings.animationSpeed);
 	}
 
 	setLocation(port) {
@@ -117,19 +117,34 @@ class Player {
 
 const diceRolling = document.querySelector(".dice-rolling");
 
-game.addPlayer({
-	screen_name: "Test",
-	co2_consumed: 0,
-	location: "EFHK",
-	location_name: "Helsinki Vantaa Airport",
-	time: 0,
-	real_time_last_check: 0,
-	real_time: 0,
-	distance_traveled: 0,
-	origin_latitude: 0,
-	origin_longitude: 0,
-	finished: false,
-});
+if (dev.enabled) {
+	game.addPlayer({
+		screen_name: "Test",
+		co2_consumed: 0,
+		location: "EFHK",
+		location_name: "Helsinki Vantaa Airport",
+		time: 0,
+		real_time_last_check: 0,
+		real_time: 0,
+		distance_traveled: 0,
+		origin_latitude: 0,
+		origin_longitude: 0,
+		finished: false,
+	});
+	game.addPlayer({
+		screen_name: "Best",
+		co2_consumed: 0,
+		location: "EFHK",
+		location_name: "Helsinki Vantaa Airport",
+		time: 0,
+		real_time_last_check: 0,
+		real_time: 0,
+		distance_traveled: 0,
+		origin_latitude: 0,
+		origin_longitude: 0,
+		finished: false,
+	});
+}
 
 const statUnits = {
 	screen_name: "",

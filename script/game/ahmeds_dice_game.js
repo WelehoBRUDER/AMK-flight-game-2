@@ -192,21 +192,21 @@ function checkWinner(gameElem) {
 }
 
 function displayDiceValues(dice, values) {
-	dice.style.animation = "rolling 3s";
+	dice.style.animation = `rolling ${3 / settings.animationSpeed}s`;
 	setTimeout(() => {
 		values.forEach((value) => {
 			const rotation = getRotationForValue(value);
 
-			dice.style.transition = "0.2s";
+			dice.style.transition = `${0.2 / settings.animationSpeed}s`;
 			dice.style.animationFillMode = "forwards";
 			dice.style.transform = rotation;
 			setTimeout(() => {
-				dice.style.transition = "1s ease";
-			}, 200);
+				dice.style.transition = `${1 / settings.animationSpeed}s ease`;
+			}, 200 / settings.animationSpeed);
 		});
 
 		dice.style.animation = "none";
-	}, 3050);
+	}, 3150 / settings.animationSpeed);
 }
 
 function getRotationForValue(value) {
