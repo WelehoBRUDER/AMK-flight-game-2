@@ -45,6 +45,10 @@ const close_options_btn = document.querySelector("#close-options");
 
 const quests_btn = document.querySelector("#quests");
 const quests_scrn = document.querySelector("#quests-screen");
+const item_coin = document.querySelector("#item-coin");
+const item_photo = document.querySelector("#item-photo");
+const item_watch = document.querySelector("#item-watch");
+const item_sauce = document.querySelector("#item-sauce");
 const close_quests_btn = document.querySelector("#close-quests");
 
 const end_turn_btn = document.querySelector("#end-turn");
@@ -303,6 +307,53 @@ function updateItems() {
 	}
 }
 
+function createHints() {
+	const coin_item = game.grandpasHints.coin.item;
+	const coin_hints = game.grandpasHints.coin.hints;
+	for (let i = 0; i < coin_hints.length; i++) {
+		const coin_city = game.grandpasHints.coin.cities[i].city;
+		const hint = coin_hints[i];
+		const styled_hint = translate(hint).replace("[itmCol]", items[coin_item].color).replace("[item]", translate(coin_item)).replace("[city]", coin_city);
+		const pre = document.createElement("pre");
+		pre.className = "hint";
+		pre.append(dialog.parseTextFast(styled_hint));
+		item_coin.append(pre);
+	}
+	const photo_item = game.grandpasHints.photo.item;
+	const photo_hints = game.grandpasHints.photo.hints;
+	for (let i = 0; i < photo_hints.length; i++) {
+		const photo_city = game.grandpasHints.photo.cities[i].city;
+		const hint = photo_hints[i];
+		const styled_hint = translate(hint).replace("[itmCol]", items[photo_item].color).replace("[item]", translate(photo_item)).replace("[city]", photo_city);
+		const pre = document.createElement("pre");
+		pre.className = "hint";
+		pre.append(dialog.parseTextFast(styled_hint));
+		item_photo.append(pre);
+	}
+	const watch_item = game.grandpasHints.watch.item;
+	const watch_hints = game.grandpasHints.watch.hints;
+	for (let i = 0; i < watch_hints.length; i++) {
+		const watch_city = game.grandpasHints.watch.cities[i].city;
+		const hint = watch_hints[i];
+		const styled_hint = translate(hint).replace("[itmCol]", items[watch_item].color).replace("[item]", translate(watch_item)).replace("[city]", watch_city);
+		const pre = document.createElement("pre");
+		pre.className = "hint";
+		pre.append(dialog.parseTextFast(styled_hint));
+		item_watch.append(pre);
+	}
+	const sauce_item = game.grandpasHints.sauce.item;
+	const sauce_hints = game.grandpasHints.sauce.hints;
+	for (let i = 0; i < sauce_hints.length; i++) {
+		const sauce_city = game.grandpasHints.sauce.cities[i].city;
+		const hint = sauce_hints[i];
+		const styled_hint = translate(hint).replace("[itmCol]", items[sauce_item].color).replace("[item]", translate(sauce_item)).replace("[city]", sauce_city);
+		const pre = document.createElement("pre");
+		pre.className = "hint";
+		pre.append(dialog.parseTextFast(styled_hint));
+		item_sauce.append(pre);
+	}
+}
+
 if (dev.enabled) {
 	hideStart();
 	in_main_menu = false;
@@ -317,3 +368,4 @@ if (dev.enabled) {
 
 createLeaderboards();
 player_names.append(newInput(1));
+setTimeout(createHints, 1000);
