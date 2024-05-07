@@ -98,8 +98,11 @@ music_toggle.addEventListener("click", function () {
 });
 
 win_btn.addEventListener("click", function () {
-	displayWinScreen();
-	console.log(win_scrn.style.display)
+	if (win_scrn.style.display === "flex") {
+		closeWinScreen();
+	} else {
+		displayWinScreen();
+	}
 });
 
 function displayWinScreen() {
@@ -109,6 +112,11 @@ function displayWinScreen() {
 	const score = game.currentPlayer().score;
 	score_value.innerHTML = "";
 	score_value.append(String(score));
+}
+
+function closeWinScreen() {
+	win_scrn.style.display = "none";
+	soundController.stopAllSounds();
 }
 
 const grandpa_death_gif = document.createElement("img");
@@ -123,15 +131,7 @@ function showGif() {
 }
 
 lose_btn.addEventListener("click", function () {
-	if (lose_scrn.hidden) {
-		showGif();
-		lose_scrn.hidden = false;
-		lose_scrn.append(grandpa_death_gif);
-		soundController.playSound("death");
-		setTimeout(hideGif, 2100);
-	} else {
-		lose_scrn.hidden = true;
-	}
+	displayLoseScreen();
 });
 
 function displayLoseScreen() {
@@ -400,7 +400,7 @@ if (dev.enabled) {
 	bottom_bar.style.display = "flex";
 	map_scrn.hidden = false;
 	map_area.hidden = false;
-	console.log(win_scrn.style.display)
+	console.log(win_scrn.style.display);
 	setup();
 }
 
