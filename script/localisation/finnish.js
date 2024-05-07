@@ -253,7 +253,7 @@ const finnish = {
 	brilliant: "nerokas",
 	brilliant_hint: "Poikkeuksellisen fiksu, lahjakas tai vaikuttava.",
 	theodore_win: "Damn veli, toi oli hiton nättii. Toivottavasti toi liima pitää kuvan yhessä LAPSI. Tässä on sun mummon Kuva",
-	theodore_loss: "Mitä ihmettä sä teet?? Etkö sä osaa ees liimaa yhtä kuvaa kokoon... Häpee veli, toi on kumminki kuva sun mummosta! Kai sun pitää viedä kuvas ammattilaisille et voi tehä tonki sun puolesta."
+	theodore_loss: "Mitä ihmettä sä teet?? Etkö sä osaa ees liimaa yhtä kuvaa kokoon... Häpee veli, toi on kumminki kuva sun mummosta! Kai sun pitää viedä kuvas ammattilaisille et voi tehä tonki sun puolesta.",
 	ahmed_dice_loss:
 		"HAA KUKAAN EI PYSTY VOITTAMAAN AHMEDIA! Näytä mulle sitä fyrkkaa... Jos siis haluut ukkis §<v>translate(game.currentMinigameItem.id)<v>§, koska se tulee maksamaan sulle.",
 	ahmed_dice_win:
