@@ -18,6 +18,14 @@
   z-index: 5;
 }
 
+.music-toggle:hover {
+  opacity: 0.5;
+}
+
+.music-toggle:active {
+  transform: translateY(0.6rem);
+}
+
 .title-screen {
   z-index: 3;
   position: absolute;
@@ -33,6 +41,7 @@
   z-index: 2;
 }
 .title-screen h1 {
+  user-select: none;
   position: absolute;
   top: 50%;
   left: 50%;

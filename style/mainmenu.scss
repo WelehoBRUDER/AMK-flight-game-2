@@ -22,6 +22,14 @@ $text-light: rgb(243, 240, 240);
   z-index: 5;
 }
 
+.music-toggle:hover {
+  opacity: 0.5;
+}
+
+.music-toggle:active {
+  transform: translateY(0.6rem);
+}
+
 .title-screen {
   z-index: 3;
   position: absolute;
@@ -38,6 +46,7 @@ $text-light: rgb(243, 240, 240);
   }
 
   h1 {
+    user-select: none;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -86,26 +95,6 @@ $text-light: rgb(243, 240, 240);
     box-sizing: border-box;
     padding: 1rem;
     align-content: center;
-
-    // .option {
-    //   width: 15rem;
-    //   height: 4rem;
-    //   padding: 1rem;
-    //   margin-bottom: 1rem;
-    //   background-color: rgb(120, 120, 200);
-    //   border: none;
-    //   border-radius: 1rem;
-    //   display: block;
-    // }
-
-    // .option:hover {
-    //   background-color: rgb(60, 60, 150);
-    // }
-
-    // .option:active {
-    //   background-color: rgb(30, 30, 75);
-    //   transform: translateY(4px);
-    // }
   }
 
   .option-content {
@@ -406,12 +395,3 @@ $text-light: rgb(243, 240, 240);
     margin-right: 1rem;
   }
 }
-
-// .button:hover {
-//   background-color: rgb(60, 60, 150);
-// }
-
-// .button:active {
-//   background-color: rgb(30, 30, 75);
-//   transform: translateY(4px);
-// }
