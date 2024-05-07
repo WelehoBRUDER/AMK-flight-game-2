@@ -74,6 +74,7 @@ async function addMarkers() {
 	for (const port of ports) {
 		const marker = L.marker([port.latitude_deg, port.longitude_deg], { icon: mapIcons.port, interactive: true }).addTo(map);
 		marker.distance = port.distance;
+		marker.ident = port.ident;
 		let hoverText = port.name;
 
 		if (port.ident === game.currentPlayer().location) {
@@ -131,6 +132,21 @@ function unlockMap() {
 	map.keyboard.enable();
 	map.dragging.enable();
 	document.querySelector(".leaflet-control-zoom").style.display = "block";
+}
+function resetToPlayer() {
+	port = Object.values(map._layers).find((marker) => {
+		if (marker.ident === game.currentPlayer().location) {
+			return marker;
+		}
+	});
+	if (port) {
+		console.log(port);
+		const lat = port._latlng.lat;
+		const lon = port._latlng.lng;
+		map.setView([lat, lon], 6, {
+			animate: false,
+		});
+	}
 }
 
 async function moveMap(lat2, lon2, dist, port, marker) {

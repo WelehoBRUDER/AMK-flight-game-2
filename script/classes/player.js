@@ -115,10 +115,9 @@ class Player {
 		const item = game.getItemByPort(this.location);
 		if (item) {
 			// jotain tapahtuu kun itemi löytyy :o
-			console.log("You found", item);
 			const text = document.createElement("div");
 			text.textContent = `${item.id} is in this city!`;
-			game.startMinigame("slider", item);
+			game.startMinigame(item.game, item);
 		}
 	}
 }
@@ -152,6 +151,7 @@ if (dev.enabled) {
 		origin_longitude: 0,
 		finished: false,
 	});
+	game.init();
 }
 
 const statUnits = {

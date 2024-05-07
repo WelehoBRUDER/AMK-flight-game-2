@@ -35,10 +35,13 @@ class Game {
 
 	addItems(ids) {
 		this.items = [];
+		const minigames = ["slider", "dice", "hangman", "kalevi"];
 		const _ports = [...this.grandpasTravels];
 		ids.forEach((item) => {
 			const randomPort = random(_ports.length - 1, 0);
-			this.items.push({ id: item, airport: _ports[randomPort] });
+			const minigameIndex = random(minigames.length - 1, 0);
+			this.items.push({ id: item, airport: _ports[randomPort], game: minigames[minigameIndex] });
+			minigames.splice(minigameIndex, 1);
 			_ports.splice(randomPort, 1);
 		});
 		// this.items.forEach((itm) => {
@@ -84,8 +87,12 @@ class Game {
 		if (this.currentPlayerIndex >= this.playersAmount()) {
 			this.advanceTurn();
 			this.currentPlayer().updateStatsScreen();
+			resetToPlayer();
+			addMarkers();
 		} else {
 			this.currentPlayer().updateStatsScreen();
+			resetToPlayer();
+			addMarkers();
 			badassText(
 				`§<c>gold<c>${translate("next_player")}§`,
 				`${translate("player")} ${this.currentPlayerIndex + 1} | ${this.currentPlayer().screen_name}`
@@ -154,7 +161,6 @@ class Game {
 	startMinigame(minigame, item) {
 		this.currentMinigameItem = item;
 		if (minigame === "slider") {
-			console.log("?");
 			const randomImage = slideGames[random(slideGames.length - 1, 0)];
 			if (slideGame) {
 				slideGame.timer.removeTimer();
@@ -178,12 +184,12 @@ class Game {
 		elements.gameBody.style.display = "none";
 	}
 
-	createItemPopUp() {
+	createItemPopUp(win = true) {
 		const content = document.createElement("div");
 		const image = document.createElement("img");
 		const text = document.createElement("pre");
-		image.src = items[this.currentMinigameItem].img;
-		text.append(dialog.parseTextFast(translate("player_got_item")));
+		image.src = items[this.currentMinigameItem.id].img;
+		text.append(dialog.parseTextFast(translate(win ? "player_got_item_win" : "player_got_item_lose")));
 		content.append(image, text);
 		this.createWindow(content);
 	}
@@ -201,12 +207,12 @@ const items = {
 	},
 	watch: {
 		id: "watch",
-		img: "images/watch.webp",
+		img: "images/wristwatch.webp",
 		color: "cyan",
 	},
 	sauce: {
 		id: "sauce",
-		img: "images/watch.webp",
+		img: "images/sauce.webp",
 		color: "crimson",
 	},
 };

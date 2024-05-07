@@ -46,14 +46,18 @@ const english = {
 	player: "Player",
 	quest_title: "Grandpa's travels",
 	end_turn: "End turn",
+	player_got_item_win:
+		"You won! Congratulations are in order,\n you have definitely earned §<v>translate(game.currentMinigameItem.id)<v>§.",
+	player_got_item_loss:
+		"You've lost, and must pay up to get your item. §<c>red<c>(-3000€)§. \nAt least you got §<v>translate(game.currentMinigameItem.id)<v>§.",
 	// Minigames UI
-	hangman_win: "You're worthy! You clever, clever boeh. Here's your §<v>translate(game.currentMinigameItem)<v>§",
+	hangman_win: "You're worthy! You clever, clever boeh. Here's your §<v>translate(game.currentMinigameItem.id)<v>§",
 	hangman_loss:
-		"Not worthy! §<v>translate(game.currentMinigameItem)<v>>§ is gonna cost ya now! Slide me my money and get out of my sight half-wit!",
+		"Not worthy! §<v>translate(game.currentMinigameItem.id)<v>>§ is gonna cost ya now! Slide me my money and get out of my sight half-wit!",
 	ahmed_dice_loss:
-		"HAA NO ONE CAN BEAT AHMED! Show me the moneyyy... That is, if you want your grandpa's §<v>translate(game.currentMinigameItem)<v>§, because it's gonna cost ya.",
+		"HAA NO ONE CAN BEAT AHMED! Show me the moneyyy... That is, if you want your grandpa's §<v>translate(game.currentMinigameItem.id)<v>§, because it's gonna cost ya.",
 	ahmed_dice_win:
-		"Congratulations I guess... You've beaten me with your lucky a** roll§<c>green<c>[total].§\nPromise is a promise. Here's your grandpa's §<v>translate(game.currentMinigameItem)<v>§</br>",
+		"Congratulations I guess... You've beaten me with your lucky a** roll§<c>green<c>[total].§\nPromise is a promise. Here's your grandpa's §<v>translate(game.currentMinigameItem.id)<v>§</br>",
 
 	flying_hint1: "§<c>violet<c>Grandpa§ thinks he might have lost his §<c>[itmCol]<c>[item]§ while hiking in §<c>gold<c>[city]§.",
 	flying_hint2: "According to §<c>violet<c>Grandpa§, he accidentally dropped his §<c>[itmCol]<c>[item]§ somewhere in §<c>gold<c>[city]§.",
