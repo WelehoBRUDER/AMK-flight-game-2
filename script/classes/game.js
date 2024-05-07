@@ -4,6 +4,7 @@ class Game {
 		this.items = [];
 		this.grandpasTravels = [];
 		this.grandpasContinents = [];
+		this.grandpasHints = {};
 		this.currentMinigameItem = "";
 		this.turn = 0;
 		this.currentPlayerIndex = 0;
@@ -27,13 +28,16 @@ class Game {
 	async createGrandpasTravels() {
 		this.grandpasTravels = [];
 		/* getRandomAirports can't return two airports from the same continent
-			so we call it twice to get enough airports.
+			so we call it thrice to get enough airports.
 		 */
 		const a = await routes.getRandomAirports(6);
 		const b = await routes.getRandomAirports(6);
-		const airports = a.concat(b);
+		const c = await routes.getRandomAirports(6);
+		const airports = a.concat(b).concat(c);
 		this.grandpasTravels = airports.map((port) => port.ident);
-		this.grandpasContinents = airports.map((port) => port.continent);
+		this.grandpasContinents = airports.map((port) => {
+			return { continent: port.continent, city: port.municipality };
+		});
 	}
 
 	addItems(ids) {
@@ -44,14 +48,33 @@ class Game {
 			const randomPort = random(wantedPorts.length - 1, 0);
 			const minigameIndex = random(minigames.length - 1, 0);
 			this.items.push({ id: item, airport: wantedPorts[randomPort], game: minigames[minigameIndex] });
+			this.randomizeGrandpasHints(item, this.getCitiesFromContinent(items[item].continent));
 			minigames.splice(minigameIndex, 1);
+		});
+	}
+
+	randomizeGrandpasHints(item, cities) {
+		cities.forEach((city) => {
+			if (!this.grandpasHints[item]?.item) {
+				this.grandpasHints[item] = { item, cities: [city] };
+			} else {
+				this.grandpasHints[item].cities.push(city);
+			}
 		});
 	}
 
 	getPortsFromContinent(continent) {
 		return [
 			...this.grandpasTravels.filter((p, index) => {
-				if (this.grandpasContinents[index] === continent) return p;
+				if (this.grandpasContinents[index].continent === continent) return p;
+			}),
+		];
+	}
+
+	getCitiesFromContinent(continent) {
+		return [
+			...this.grandpasContinents.filter((c, index) => {
+				if (c.continent === continent) return c.city;
 			}),
 		];
 	}
