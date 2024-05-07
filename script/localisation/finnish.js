@@ -62,10 +62,12 @@ const finnish = {
 	close: "Sulje",
 	// Menus
 	click_anywhere: "Klikkaa mistä vain aloittaaksesi!",
+	difficulty_select: "Valitse vaikeustaso",
 	easy: "Helppo",
 	medium: "Normaali",
 	hard: "Vaikea",
 	player_amount: "Pelaajien määrä",
+	enter_name: "Syötä nimesi",
 	help_text1: "§<c>orange<c>Grandpa's Lost Sauce§ on peli jossa sinun täytyy lentää ympäri maailman, kerätäksesi isoisäsi §<c>lightblue<c>kadonneet esineet§. Maailmalta löytyy §<c>lightblue<c>neljä eri§ esinettä satunnaisesti siroteltuina.",
 	help_text2: "Peli alkaa satunnaisesti valitulta lentokentältä, ja taskusta löytyy §<c>lightblue<c>10000€§. Lähtiessäsi esineen suuntaan sinun täytyy valita lentokenttä mihin haluat lentää. Jokainen lento kuluttaa §<c>lightblue<c>rahaa§, ja kerryttää §<clight>blue<c>CO2 päästöjä§.",
 	help_text3: "Jokaisen esineen kohdalla sinun täytyy läpäistä §<c>lightblue<c>haastava minipeli§, jonka voitettua saat kerätä palkintosi.",
