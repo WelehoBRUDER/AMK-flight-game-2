@@ -54,14 +54,11 @@ class Game {
 
 	addItems(ids) {
 		this.items = [];
-		const minigames = ["slider", "dice", "hangman", "kalevi"];
 		ids.forEach((item) => {
 			const wantedPorts = this.getPortsFromContinent(items[item].continent);
 			const randomPort = random(wantedPorts.length - 1, 0);
-			const minigameIndex = random(minigames.length - 1, 0);
-			this.items.push({ id: item, airport: wantedPorts[randomPort], game: minigames[minigameIndex] });
+			this.items.push({ id: item, airport: wantedPorts[randomPort], game: items[item].minigame });
 			this.randomizeGrandpasHints(item, this.getCitiesFromContinent(items[item].continent));
-			minigames.splice(minigameIndex, 1);
 		});
 	}
 
@@ -290,24 +287,28 @@ const items = {
 		img: "images/coin.webp",
 		continent: "EU",
 		color: "goldenrod",
+		minigame: "kalevi",
 	},
 	photo: {
 		id: "photo",
 		img: "images/photo.webp",
 		continent: "AS",
 		color: "lightgray",
+		minigame: "slider",
 	},
 	watch: {
 		id: "watch",
 		img: "images/wristwatch.webp",
 		continent: "NA",
 		color: "cyan",
+		minigame: "dice",
 	},
 	sauce: {
 		id: "sauce",
 		img: "images/sauce.webp",
 		continent: "AF",
 		color: "crimson",
+		minigame: "hangman",
 	},
 };
 
