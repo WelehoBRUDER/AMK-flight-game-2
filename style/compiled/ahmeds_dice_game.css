@@ -40,6 +40,7 @@ Dice Styles
     transform-style: preserve-3d;
     transition: 1s ease;
     margin: 1rem;
+    text-align: start;
 }
 
 .dice, .face {

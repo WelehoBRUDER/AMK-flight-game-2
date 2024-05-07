@@ -118,9 +118,9 @@ class Player {
 		diceRolling.append(dice);
 		displayDiceValues(dice, [roll]);
 		setTimeout(() => {
-			diceRolling.innerHTML = "";
-			this.setFlights(roll);
-			unlockMap();
+			//diceRolling.innerHTML = "";
+			//this.setFlights(roll);
+			//unlockMap();
 		}, 3150 / settings.animationSpeed);
 	}
 
@@ -178,6 +178,7 @@ if (dev.enabled) {
 		finished: false,
 	});
 	game.init();
+	setTimeout(() => game.currentPlayer().rollFlights(), 500);
 }
 
 const statUnits = {
