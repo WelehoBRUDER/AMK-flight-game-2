@@ -30,6 +30,7 @@
     gap: 10px;
     padding: 60px 40px;
     justify-content: space-between;
+    align-items: center;
 }
 
 .hangman-container {
@@ -81,7 +82,7 @@
 
 .main-container h2 {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 2.4rem;
     font-weight: 500;
     margin-bottom: 15px;
     font-family: Chalkduster, sans-serif;
@@ -177,3 +178,4 @@ h4 {
     color: whitesmoke;
     font-family: Chalkduster, sans-serif;
 }
+
