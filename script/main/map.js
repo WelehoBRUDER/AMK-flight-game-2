@@ -111,6 +111,7 @@ function clearMarkers() {
 function setup() {
 	createMap();
 	addMarkers();
+	setTimeout(createHints, 1000);
 	game.currentPlayer().updateStatsScreen();
 }
 
