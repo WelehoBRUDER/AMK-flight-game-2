@@ -90,7 +90,7 @@ class SoundController {
 			player.audio.play();
 		} else {
 			const newPlayer = this.createPlayer(sound);
-			if (!sound.music) {
+			if (!sound.music && sound.animated) {
 				newPlayer.audio.playbackRate = 1 * settings.animationSpeed;
 			}
 			newPlayer.audio.play();
