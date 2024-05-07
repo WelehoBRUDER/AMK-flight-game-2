@@ -236,7 +236,7 @@ function getRotationForValue(value) {
 }
 
 function startDiceGame() {
-	gameElem.mainCon.style.display = "block";
+	gameElem.mainCon.style.display = "grid";
 }
 
 function closeDiceGame() {
