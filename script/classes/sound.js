@@ -46,6 +46,10 @@ const sounds = {
 		id: "flying",
 		src: "sounds/flying.wav",
 		loop: false,
+	},
+	victory: {
+		id: "victory",
+		src: "sounds/victory.mp3"
 	}
 };
 

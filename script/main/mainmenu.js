@@ -97,11 +97,16 @@ music_toggle.addEventListener("click", function () {
 });
 
 win_btn.addEventListener("click", function () {
-	win_scrn.hidden = !win_scrn.hidden;
+	if (win_scrn.hidden) {
+		displayWinScreen();
+	} else {
+		closeWinScreen();
+	}
 });
 
 function displayWinScreen() {
 	win_scrn.hidden = false;
+	soundController.playSound("victory");
 }
 function closeWinScreen() {
 	win_scrn.hidden = true;
