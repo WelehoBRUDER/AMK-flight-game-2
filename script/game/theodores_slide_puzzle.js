@@ -7,6 +7,16 @@ function createSlidePuzzleElements() {
 	//gameBody.style.display = "none";
 	document.body.appendChild(gameBody);
 
+	// NPC Container
+	const npcContainer = document.createElement('div')
+	npcContainer.classList.add('theodore-container')
+	gameBody.appendChild(npcContainer)
+
+	// Dialogue Container
+	const dialogueCon = document.createElement('div')
+	dialogueCon.classList.add('dialogue-container')
+	gameBody.appendChild(dialogueCon)
+
 	// Container for the img
 	const imgCon = document.createElement("section");
 	imgCon.classList.add("board");
