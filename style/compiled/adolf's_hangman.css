@@ -22,6 +22,21 @@
     5px 0 10px rgba(0, 0, 0, 0.5), -5px 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.npc-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: url("../../images/npc2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .main-container {
     display: flex;
@@ -177,5 +192,6 @@ h4 {
 .hangman-title {
     color: whitesmoke;
     font-family: Chalkduster, sans-serif;
+    margin-bottom: 3rem;
 }
 
