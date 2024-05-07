@@ -156,6 +156,9 @@ class Game {
 		if (minigame === "slider") {
 			console.log("?");
 			const randomImage = slideGames[random(slideGames.length - 1, 0)];
+			if (slideGame) {
+				slideGame.timer.removeTimer();
+			}
 			slideGame = new SlideGame(randomImage);
 			slideGame.createImages();
 			slideGame.renderImages();

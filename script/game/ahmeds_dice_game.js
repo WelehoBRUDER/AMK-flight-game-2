@@ -45,7 +45,7 @@ function createDiceGameElem() {
 	mainCon.appendChild(rollBtn);
 
 	// Heading element that shows the win/loss messages
-	const endScreenMsg = document.createElement("h2");
+	const endScreenMsg = document.createElement("div");
 	endScreenMsg.classList.add("end-screen", "hidden");
 	mainCon.appendChild(endScreenMsg);
 
@@ -174,18 +174,27 @@ function checkWinner(gameElem) {
 			gameElem.pElemTwo.innerHTML = `
         Player's roll: <b style="color: #1d8602">${playerTotal}</b>
       `;
-			gameElem.endScreenMsg.innerHTML = `
-        Congratulations I guess... You've beaten me with your lucky a** roll
-         <b style="font-size: 26px; color: #1d8602;">${playerTotal}. 
-        </b><br>Promise is a promise. Here's your grandpa's (insert item name)</br>
-      `;
+			gameElem.endScreenMsg.append(dialog.parseTextFast(translate("ahmed_dice_win").replace("[total]", playerTotal)));
+			const leaveButton = document.createElement("button");
+			leaveButton.classList.add("leave-minigame-button");
+			leaveButton.textContent = translate("leave");
+			leaveButton.addEventListener("click", () => {
+				game.currentPlayer().wonMinigame();
+			});
+			gameElem.endScreenMsg.append(leaveButton);
 			gameElem.endScreenMsg.classList.remove("hidden");
 		}, 3500);
 	} else if (attempts === 0) {
 		setTimeout(() => {
 			gameElem.rollBtn.hidden = true;
-			gameElem.endScreenMsg.textContent = `HAA NO ONE CAN BEAT AHMED! Show me the moneyyy... That is, if you want
-       your grandpa's (insert item name), because it's gonna cost ya.`;
+			gameElem.endScreenMsg.append(dialog.parseTextFast(translate("ahmed_dice_loss")));
+			const leaveButton = document.createElement("button");
+			leaveButton.classList.add("leave-minigame-button");
+			leaveButton.textContent = translate("leave");
+			leaveButton.addEventListener("click", () => {
+				game.currentPlayer().lostMinigame();
+			});
+			gameElem.endScreenMsg.append(leaveButton);
 			gameElem.endScreenMsg.classList.remove("hidden");
 		}, 3500);
 	}

@@ -45,7 +45,7 @@ class SlideGame {
 		this.src = src;
 
 		this.images = [];
-		this.timer = new Timer(slidePuzzleElements.clock, loseSlideGame, 60000);
+		this.timer = new Timer(slidePuzzleElements.clock, loseSlideGame, 6000);
 		slidePuzzleElements.gameBody.style.display = "block";
 	}
 
@@ -167,7 +167,10 @@ function swapPlaces(a, b) {
 }
 
 function loseSlideGame() {
-	console.log("You lose lol");
+	game.currentPlayer().lostMinigame();
+	const message = document.createElement("div");
+	message.textContent = translate("you_lost_slidegame");
+	game.createWindow(message);
 }
 
 let slideGame;

@@ -193,7 +193,7 @@ Dice Styles
     transform: translateY(-50%);
     width: 300px;
     height: 200px;
-    background-image: url("images/ronald_transparent.png");
+    background-image: url("../../images/ronald_transparent.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -212,7 +212,7 @@ Dice Styles
     transform: translateY(-50%);
     width: 300px;
     height: 200px;
-    background-image: url("images/npc1.png");
+    background-image: url("../../images/npc1.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

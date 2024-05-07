@@ -47,8 +47,14 @@ const english = {
 	quest_title: "Grandpa's travels",
 	end_turn: "End turn",
 	// Minigames UI
-	hangman_win: "You're worthy! You clever, clever boeh. Here's your §<v>game.currentMinigameItem<v>§",
-	hangman_loss: "Not worthy! §<v>game.currentMinigameItem<v>§ is gonna cost ya now! Slide me my money and get out of my sight half-wit!",
+	hangman_win: "You're worthy! You clever, clever boeh. Here's your §<v>translate(game.currentMinigameItem)<v>§",
+	hangman_loss:
+		"Not worthy! §<v>translate(game.currentMinigameItem)<v>>§ is gonna cost ya now! Slide me my money and get out of my sight half-wit!",
+	ahmed_dice_loss:
+		"HAA NO ONE CAN BEAT AHMED! Show me the moneyyy... That is, if you want your grandpa's §<v>translate(game.currentMinigameItem)<v>§, because it's gonna cost ya.",
+	ahmed_dice_win:
+		"Congratulations I guess... You've beaten me with your lucky a** roll§<c>green<c>[total].§\nPromise is a promise. Here's your grandpa's §<v>translate(game.currentMinigameItem)<v>§</br>",
+
 	flying_hint1: "§<c>violet<c>Grandpa§ thinks he might have lost his §<c>[itmCol]<c>[item]§ while hiking in §<c>gold<c>[city]§.",
 	flying_hint2: "According to §<c>violet<c>Grandpa§, he accidentally dropped his §<c>[itmCol]<c>[item]§ somewhere in §<c>gold<c>[city]§.",
 	flying_hint3: "<c>violet<c>Grandpa§ says he forgot his §<c>[itmCol]<c>[item]§ at §<c>gold<c>[city]§.",
