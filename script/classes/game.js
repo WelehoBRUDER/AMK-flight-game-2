@@ -9,6 +9,8 @@ class Game {
 		this.lastPlayerIndex = 0;
 		this.flights = [];
 		this.difficulty = null;
+
+		this.closeMinigames();
 	}
 
 	setDifficulty(difficulty) {
