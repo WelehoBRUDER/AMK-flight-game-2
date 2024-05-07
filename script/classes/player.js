@@ -29,12 +29,14 @@ class Player {
 
 	wonMinigame() {
 		this.items.push(game.getItemByPort(this.location));
+		game.createItemPopUp();
 		game.closeMinigames();
 	}
 
 	lostMinigame() {
 		this.items.push(game.getItemByPort(this.location));
 		this.setMoney(this.money - 3000);
+		game.createItemPopUp();
 		game.closeMinigames();
 	}
 

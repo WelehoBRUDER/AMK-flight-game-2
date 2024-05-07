@@ -96,6 +96,10 @@ const english = {
 	help_text5: "Once you have collected all of the items, §<c>green<c>return to your starting airport to win the game!§",
 	help_text6:
 		"Your score will be calculated based on your amount of §<c>lightblue<c>CO2 emissions§, §<c>lightblue<c>spent money§ and §<c>lightblue<c>time§.",
+	coin: "The Coin",
+	photo: "The Photo",
+	watch: "The Watch",
+	sauce: "The Sauce",
 	item1: "§<c>lightblue<c>The Coin§",
 	item2: "§<c>lightblue<c>The Photo§",
 	item3: "§<c>lightblue<c>The Watch§",

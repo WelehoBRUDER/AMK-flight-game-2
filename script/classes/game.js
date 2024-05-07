@@ -172,28 +172,41 @@ class Game {
 	}
 
 	closeMinigames() {
-		this.currentMinigameItem = "";
 		slaughterPig();
 		closeDiceGame();
 		closeKaleviGame();
 		elements.gameBody.style.display = "none";
 	}
+
+	createItemPopUp() {
+		const content = document.createElement("div");
+		const image = document.createElement("img");
+		const text = document.createElement("pre");
+		image.src = items[this.currentMinigameItem].img;
+		text.append(dialog.parseTextFast(translate("player_got_item")));
+		content.append(image, text);
+		this.createWindow(content);
+	}
 }
 const items = {
 	coin: {
 		id: "coin",
+		img: "images/coin.webp",
 		color: "goldenrod",
 	},
 	photo: {
 		id: "photo",
+		img: "images/photo.webp",
 		color: "lightgray",
 	},
 	watch: {
 		id: "watch",
+		img: "images/watch.webp",
 		color: "cyan",
 	},
 	sauce: {
 		id: "sauce",
+		img: "images/watch.webp",
 		color: "crimson",
 	},
 };

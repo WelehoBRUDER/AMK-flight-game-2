@@ -111,6 +111,10 @@ $text-light: rgb(243, 240, 240);
   z-index: 100;
   font-size: 1.5rem;
 
+  img {
+    max-width: 12rem;
+  }
+
   .drag {
     width: 100%;
     height: 3rem;
