@@ -3,6 +3,7 @@ class Player {
 		this.id = !player.id ? generateID() : player.id;
 		this.screen_name = player.screen_name;
 		this.co2_consumed = parseInt(player.co2_consumed);
+		this.home = player.location;
 		this.location = player.location;
 		this.location_name = player.location_name;
 		this.money = player.money ?? 10000;
@@ -18,13 +19,8 @@ class Player {
 	}
 
 	hasLost() {
-		let lost = false;
-		switch (this) {
-			case this.money <= 0:
-				lost = true;
-				break;
-		}
-		return lost;
+		if (this.money <= 0) return true;
+		return false;
 	}
 
 	wonMinigame() {
@@ -36,7 +32,7 @@ class Player {
 	lostMinigame() {
 		this.items.push(game.getItemByPort(this.location));
 		this.setMoney(this.money - 3000);
-		game.createItemPopUp();
+		game.createItemPopUp(false);
 		game.closeMinigames();
 	}
 
@@ -50,8 +46,6 @@ class Player {
 			co2_consumed: this.co2_consumed,
 			location: this.location_name,
 			money: this.money,
-			time: this.time,
-			real_time: this.real_time,
 			distance_traveled: this.distance_traveled,
 			flights: this.flights,
 		};
@@ -109,11 +103,22 @@ class Player {
 		}, 3150 / settings.animationSpeed);
 	}
 
+	winCheck() {
+		if (this.items.length === 4 && this.location === this.home) {
+			return true;
+		}
+	}
+
+	getItem(item) {
+		return this.items.find((itm) => itm === item);
+	}
+
 	setLocation(port) {
 		this.location = port.ident;
 		this.location_name = port.name;
 		const item = game.getItemByPort(this.location);
 		if (item) {
+			if (this.getItem(item)) return;
 			// jotain tapahtuu kun itemi löytyy :o
 			const text = document.createElement("div");
 			text.textContent = `${item.id} is in this city!`;
