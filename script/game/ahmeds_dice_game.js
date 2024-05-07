@@ -93,7 +93,7 @@ function rollComputerDices(gameElem) {
 	gameElem.rollBtn.disabled = true;
 	setTimeout(() => {
 		gameElem.rollBtn.disabled = false;
-	}, 3500);
+	}, 3500 / settings.animationSpeed);
 
 	const compDiceValues = [];
 
@@ -114,7 +114,7 @@ function rollComputerDices(gameElem) {
 	}
 	setTimeout(() => {
 		gameElem.pElemOne.innerHTML = `Ahmed's roll: <b style="color: darkred">${computerTotal}</b>`;
-	}, 3500);
+	}, 3500 / settings.animationSpeed);
 	updateRollsLeft(gameElem);
 }
 
@@ -153,7 +153,7 @@ function rollPlayerDices(gameElem) {
 		gameElem.rollBtn.disabled = true;
 		setTimeout(() => {
 			gameElem.rollBtn.disabled = false;
-		}, 3500);
+		}, 3500 / settings.animationSpeed);
 
 		updateRollsLeft(gameElem);
 		playerTotal = 0;
@@ -162,7 +162,7 @@ function rollPlayerDices(gameElem) {
 		}
 		setTimeout(() => {
 			gameElem.pElemTwo.innerHTML = `Player's roll: <b style="color: darkred">${playerTotal}</b>`;
-		}, 3500);
+		}, 3500 / settings.animationSpeed);
 	}
 }
 
@@ -183,7 +183,7 @@ function checkWinner(gameElem) {
 			});
 			gameElem.endScreenMsg.append(leaveButton);
 			gameElem.endScreenMsg.classList.remove("hidden");
-		}, 3500);
+		}, 3500 / settings.animationSpeed);
 	} else if (attempts === 0) {
 		setTimeout(() => {
 			gameElem.rollBtn.hidden = true;
@@ -196,7 +196,7 @@ function checkWinner(gameElem) {
 			});
 			gameElem.endScreenMsg.append(leaveButton);
 			gameElem.endScreenMsg.classList.remove("hidden");
-		}, 3500);
+		}, 3500 / settings.animationSpeed);
 	}
 }
 

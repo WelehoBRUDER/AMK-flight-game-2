@@ -29,10 +29,15 @@ const finnish = {
 	// Settings
 	gameplay: "Pelattavuus",
 	flightSpeed: "Lentonopeus",
+	animationSpeed: "Animaationopeus",
 	sound: "Ääni",
 	musicVolume: "Musiikin äänenvoimakkuus",
 	soundVolume: "Efektien äänenvoimakkuus",
 	game_language: "Pelin kieli",
+	flight_speed_tt: "Miten nopeasti lentokone kulkee kenttien välillä.",
+	animation_speed_tt: "Miten nopeasti animaatiot suoritetaan.",
+	music_volume_tt: "Musiikin äänenvoimakkuus",
+	sound_volume_tt: "Ääniefektien äänenvoimakkuus",
 	// UI
 	lost_sauce: "Isoisän Kadonnut Soossi",
 	distance: "Matka",
@@ -46,7 +51,8 @@ const finnish = {
 	flying_hint3: "<c>violet<c>Isoisä§ sanoi että hän unohti hänen §<c>[itmCol]<c>[item]§ ollessaan §<c>gold<c>[city]§.",
 	flying_hint4: "<c>violet<c>Isoisä§ saattoi kadottaa hänen §<c>[itmCol]<c>[item]§ matkatessaan §<c>gold<c>[city]§.",
 	flying_hint5: "Näyttää siltä, että <c>violet<c>Isoisä§ kadotti hänen §<c>[itmCol]<c>[item]§ ollessaan seikkailemassa §<c>gold<c>[city]§.",
-	flying_hint6: "<c>violet<c>Isoisä§ on varmasti kadottanut hänen §<c>[itmCol]<c>[item]§, kun hän oli baarikierroksella §<c>gold<c>[city]§.",
+	flying_hint6:
+		"<c>violet<c>Isoisä§ on varmasti kadottanut hänen §<c>[itmCol]<c>[item]§, kun hän oli baarikierroksella §<c>gold<c>[city]§.",
 	flying_hint7: "Vaikuttaa siltä, että <c>violet<c>Isoisä§ unohti hänen §<c>[itmCol]<c>[item]§ ottaessaan aurinkoa §<c>gold<c>[city]§.",
 	flying_hint8: "Jotenkin <c>violet<c>Isoisä§ onnistui pudottamaan hänen §<c>[itmCol]<c>[item]§ keskelle §<c>gold<c>[city]§.",
 	// Options
@@ -69,8 +75,10 @@ const finnish = {
 	hard: "Vaikea",
 	player_amount: "Pelaajien määrä",
 	enter_name: "Syötä nimesi",
-	help_text1: "§<c>orange<c>Grandpa's Lost Sauce§ on peli jossa sinun täytyy lentää ympäri maailman, kerätäksesi isoisäsi §<c>lightblue<c>kadonneet esineet§. Maailmalta löytyy §<c>lightblue<c>neljä eri§ esinettä satunnaisesti siroteltuina.",
-	help_text2: "Peli alkaa satunnaisesti valitulta lentokentältä, ja taskusta löytyy §<c>lightblue<c>10000€§. Lähtiessäsi esineen suuntaan sinun täytyy valita lentokenttä mihin haluat lentää. Jokainen lento kuluttaa §<c>lightblue<c>rahaa§, ja kerryttää §<clight>blue<c>CO2 päästöjä§.",
+	help_text1:
+		"§<c>orange<c>Grandpa's Lost Sauce§ on peli jossa sinun täytyy lentää ympäri maailman, kerätäksesi isoisäsi §<c>lightblue<c>kadonneet esineet§. Maailmalta löytyy §<c>lightblue<c>neljä eri§ esinettä satunnaisesti siroteltuina.",
+	help_text2:
+		"Peli alkaa satunnaisesti valitulta lentokentältä, ja taskusta löytyy §<c>lightblue<c>10000€§. Lähtiessäsi esineen suuntaan sinun täytyy valita lentokenttä mihin haluat lentää. Jokainen lento kuluttaa §<c>lightblue<c>rahaa§, ja kerryttää §<clight>blue<c>CO2 päästöjä§.",
 	help_text3: "Jokaisen esineen kohdalla sinun täytyy läpäistä §<c>lightblue<c>haastava minipeli§, jonka voitettua saat kerätä palkintosi.",
 	help_text4: "§<c>red<c>Rahojen loppuessa peli päättyy, joten ole maltillinen!§",
 	help_text5: "Kun olet kerännyt kaikki esineet, §<c>green<c>palaa lähtölentokentälle voittaaksesi pelin!§",
@@ -79,13 +87,16 @@ const finnish = {
 	item2: "§<c>lightblue<c>Valokuva§",
 	item3: "§<c>lightblue<c>Rannekello§",
 	item4: "§<c>lightblue<c>Kastike§",
-	item1_text: "Isoisän lempilantti. Isoisä eli lapsuutensa köyhyydessä, omistamatta ainuttakaan senttiä ennen kuin hän löysi ensilanttinsa. Hän on pitänyt sen tallessa koko elämänsä.",
+	item1_text:
+		"Isoisän lempilantti. Isoisä eli lapsuutensa köyhyydessä, omistamatta ainuttakaan senttiä ennen kuin hän löysi ensilanttinsa. Hän on pitänyt sen tallessa koko elämänsä.",
 	item2_text: "Valokuva isoisän vaimosta. Hänen kauneutensa loistaa valokuvasta niin voimakkaasti että alat voimaan pahoin.",
 	item3_text: "Isoisän vanha lempikello, jota hän aina käytti. Se on päässyt päiviltään mutta silti asustelee isoisän lipaston päällä.",
-	item4_text: "Isoisän salaisella reseptillä valmistettu kastike. Kukaan ei tiedä mitä se sisältää, miltä se maistuu taikka että onko se oikeasti edes kastiketta.",
+	item4_text:
+		"Isoisän salaisella reseptillä valmistettu kastike. Kukaan ei tiedä mitä se sisältää, miltä se maistuu taikka että onko se oikeasti edes kastiketta.",
 	// Dialog
 	story_intro_1: "§<c>yellow<c>Ronald§ ei ole nähnyt isoisäänsä 20 vuoteen ja jännitti odotettua tapaamista.",
-	story_intro_2: "Hän muistaa isoisänsä mukavana tyyppinä joka on aina valmiina jakamaan elämän viisauksiaan jotka hän oppi kantapään kautta.",
+	story_intro_2:
+		"Hän muistaa isoisänsä mukavana tyyppinä joka on aina valmiina jakamaan elämän viisauksiaan jotka hän oppi kantapään kautta.",
 	story_intro_3: "§<c>yellow<c>Ronald§ koputtaa isoisänsä ovelle, jonka takana §<c>lime<c>hän odottaa virne naamallaan.§",
 	story_intro_4: "Terve §<c>yellow<c>Ronaldi§, pitkästä aikaa",
 	story_intro_5: "Morjes",
@@ -94,7 +105,8 @@ const finnish = {
 	story_intro_8: "Ei nyt ruveta käymään mittää tylsiä elämän juttuja läpi.",
 	story_intro_9: "§<c>red<c>Kuolema kolkuttaa pian.§",
 	story_intro_10: "Vai niin",
-	story_intro_11: "Jotenkas... sä kun satut olemaan käytännössä mun koko perhe, niin oon päättänyt jättää kaiken mitä omistan sulle... yhellä ehdolla.",
+	story_intro_11:
+		"Jotenkas... sä kun satut olemaan käytännössä mun koko perhe, niin oon päättänyt jättää kaiken mitä omistan sulle... yhellä ehdolla.",
 	story_intro_12: "Mä jätän kaiken sulle jos hoidat pari juttua mulle.",
 	story_intro_13: "Mitä sä tarviit?",
 	story_intro_14: "Heitän sulle §<c>gold<c>20 tonnii§, käytä se raha lentämisee. §<c>green<c>Tartten 4 tavaraa eripuolilt maailmaa.§",

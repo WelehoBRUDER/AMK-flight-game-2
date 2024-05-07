@@ -9,8 +9,9 @@ class Game {
 		this.lastPlayerIndex = 0;
 		this.flights = [];
 		this.difficulty = null;
+		this.overlayDisabled = false;
 
-		this.closeMinigames();
+		this.closeMinigames(false);
 	}
 
 	setDifficulty(difficulty) {
@@ -82,6 +83,7 @@ class Game {
 	}
 
 	nextPlayer() {
+		if (this.overlayDisabled) return;
 		lockMap();
 		this.currentPlayerIndex += 1;
 		if (this.currentPlayerIndex >= this.playersAmount()) {
@@ -104,6 +106,7 @@ class Game {
 	}
 
 	advanceTurn() {
+		if (this.overlayDisabled) return;
 		lockMap();
 		this.currentPlayerIndex = 0;
 		this.turn++;
@@ -159,6 +162,8 @@ class Game {
 	}
 
 	startMinigame(minigame, item) {
+		lockMap();
+		this.overlayDisabled = true;
 		this.currentMinigameItem = item;
 		if (minigame === "slider") {
 			const randomImage = slideGames[random(slideGames.length - 1, 0)];
@@ -177,10 +182,14 @@ class Game {
 		}
 	}
 
-	closeMinigames() {
+	closeMinigames(_unlockMap = true) {
+		if (_unlockMap) {
+			unlockMap();
+		}
 		slaughterPig();
 		closeDiceGame();
 		closeKaleviGame();
+		this.overlayDisabled = false;
 		elements.gameBody.style.display = "none";
 	}
 
