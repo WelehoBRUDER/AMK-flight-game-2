@@ -175,7 +175,7 @@ h1 {
     position: absolute;
     bottom: 0;
     left: 0;
-    background-image: url("images/npc3.png");
+    background-image: url("../../images/npc3.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -190,7 +190,7 @@ h1 {
     position: absolute;
     bottom: 0;
     right: 0;
-    background-image: url("images/ronald_transparent.png");
+    background-image: url("../../images/ronald_transparent.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -199,6 +199,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 
 .info-section {
@@ -207,9 +209,5 @@ h1 {
     justify-content: center;
     align-items: center;
     margin-top: 0;
-}
-
-button .leave-minigame-button {
-    /*bottom: 0;*/
 }
 
