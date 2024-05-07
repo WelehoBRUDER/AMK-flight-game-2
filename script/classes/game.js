@@ -10,7 +10,7 @@ class Game {
 		this.currentPlayerIndex = 0;
 		this.lastPlayerIndex = 0;
 		this.flights = [];
-		this.difficulty = null;
+		this.difficulty = { money: 20000, scoreMulti: 0.5 };
 		this.overlayDisabled = false;
 
 		this.closeMinigames(false);
