@@ -16,6 +16,18 @@ class Game {
 		this.closeMinigames(false);
 	}
 
+	reset(set) {
+		Object.keys(this).forEach((key) => {
+			this[key] = set[key];
+		});
+		this.closeMinigames();
+		hideBoxes();
+		this.players.forEach((pl, index) => {
+			this.players[index] = new Player(pl);
+		});
+		this.currentPlayer().updateStatsScreen();
+	}
+
 	setDifficulty(difficulty) {
 		this.difficulty = difficulty;
 	}
@@ -232,6 +244,26 @@ class Game {
 		text.append(dialog.parseTextFast(translate(win ? "player_got_item_win" : "player_got_item_lose")));
 		content.append(image, text);
 		this.createWindow(content);
+	}
+
+	startGame() {
+		const difficulties = {
+			easy: {
+				money: 20000,
+			},
+			medium: {
+				money: 13000,
+			},
+			hard: {
+				money: 10000,
+			},
+		};
+		const diff = difficulties[difficulty_select.value];
+		this.setDifficulty(diff);
+		for (let i = 1; i <= amount_of_players; i++) {
+			const pName = document.querySelector(`#name${i}`).value;
+			this.addPlayer(new Player({ screen_name: pName, money: this.difficulty.money }));
+		}
 	}
 }
 const items = {
