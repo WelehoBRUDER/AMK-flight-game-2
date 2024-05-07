@@ -322,6 +322,7 @@
   position: absolute;
   left: 50%;
   transform: translate(-50%);
+  border: 1rem rgb(60, 60, 60) ridge;
 }
 
 .button,
