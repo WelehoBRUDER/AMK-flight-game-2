@@ -6,8 +6,11 @@ body {
 
 .container .leave-minigame-button {
     position: absolute;
-    top: 600px;
+    top: 85%;
+    left: 38%;
+
 }
+
 
 .title {
     height: 150px;
@@ -15,11 +18,6 @@ body {
 }
 
 .board {
-     /* Existing styles for .board */
-    position: relative; /* Ensure .board is positioned */
-    display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
     width: 60rem;
     height: 60rem;
     background-color: #747a7a;
@@ -66,9 +64,12 @@ body {
 }
 
 .clock {
-    top: -5rem;
-    left: 5rem;
+    bottom: 102%;
+    left: 43%;
     background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5),
+    0 0 0 10px #2f2f31,
+    0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .theodore-container {
@@ -108,10 +109,6 @@ body {
     margin-top: 1rem;
 }
 
-.leave-minigame-button {
-    position: relative;
-    z-index: 500;
-}
 
 .npc-dialogue {
     font-size: 1.8rem;
