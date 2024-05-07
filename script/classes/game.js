@@ -34,7 +34,7 @@ class Game {
 
 	getRemainingPlayers() {
 		return this.players.filter((p) => {
-			return !p.hasLost() && !p.finished;
+			return !p.finished;
 		});
 	}
 	async createGrandpasTravels() {
@@ -143,7 +143,11 @@ class Game {
 				`${translate("player")} ${this.currentPlayerIndex + 1} | ${this.currentPlayer().screen_name}`
 			);
 			setTimeout(() => {
-				this.currentPlayer().rollFlights();
+				if (this.currentPlayer().hasLost() && !this.currentPlayer().finished) {
+					this.currentPlayer().lose();
+				} else if (this.currentPlayer().winCheck() && !this.currentPlayer().finished) {
+					this.currentPlayer().win();
+				} else this.currentPlayer().rollFlights();
 			}, 5550 / settings.animationSpeed);
 		}
 	}
@@ -160,7 +164,11 @@ class Game {
 			`${translate("turn")} ${this.turn + 1} | ${translate("player")}: ${this.currentPlayer().screen_name}`
 		);
 		setTimeout(() => {
-			this.currentPlayer().rollFlights();
+			if (this.currentPlayer().hasLost() && !this.currentPlayer().finished) {
+				this.currentPlayer().lose();
+			} else if (this.currentPlayer().winCheck() && !this.currentPlayer().finished) {
+				this.currentPlayer().win();
+			} else this.currentPlayer().rollFlights();
 		}, 5550 / settings.animationSpeed);
 	}
 
@@ -253,12 +261,15 @@ class Game {
 		const difficulties = {
 			easy: {
 				money: 20000,
+				scoreMulti: 0.5,
 			},
 			medium: {
 				money: 13000,
+				scoreMulti: 0.8,
 			},
 			hard: {
 				money: 10000,
+				scoreMulti: 1.1,
 			},
 		};
 		const diff = difficulties[difficulty_select.value];

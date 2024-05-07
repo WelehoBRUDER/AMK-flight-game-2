@@ -299,6 +299,15 @@ $text-light: rgb(243, 240, 240);
       width: 20rem;
       padding: 1rem;
 
+      .hint-title {
+        margin-top: 1rem;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .hint {
+        margin-top: 1rem;
+      }
+
       img {
         width: 100%;
         border: 1rem rgb(60, 60, 60) ridge;

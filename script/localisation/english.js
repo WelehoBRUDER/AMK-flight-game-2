@@ -90,6 +90,7 @@ const english = {
 	hard: "Hard",
 	player_amount: "Player amount",
 	enter_name: "Enter your name",
+	hints: "Hints",
 	// Game
 	flying_hint_1: "§<c>violet<c>Grandpa§ thinks he might have lost his §<c>[itmCol]<c>[item]§ while hiking in §<c>gold<c>[city]§.",
 	flying_hint_2: "§<c>violet<c>Grandpa§ believes he lost his §<c>[itmCol]<c>[item]§ while haggling in §<c>gold<c>[city]§.",
