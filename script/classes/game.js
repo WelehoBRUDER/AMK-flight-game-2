@@ -142,6 +142,7 @@ class Game {
 				`§<c>gold<c>${translate("next_player")}§`,
 				`${translate("player")} ${this.currentPlayerIndex + 1} | ${this.currentPlayer().screen_name}`
 			);
+			updateItems();
 			setTimeout(() => {
 				if (this.currentPlayer().hasLost() && !this.currentPlayer().finished) {
 					this.currentPlayer().lose();
@@ -159,6 +160,7 @@ class Game {
 		} catch {}
 		this.currentPlayerIndex = 0;
 		this.turn++;
+		updateItems();
 		badassText(
 			`§<c>gold<c>${translate("new_turn")}§`,
 			`${translate("turn")} ${this.turn + 1} | ${translate("player")}: ${this.currentPlayer().screen_name}`
