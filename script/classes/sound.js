@@ -29,6 +29,7 @@ const sounds = {
 	newarea: {
 		id: "newarea",
 		src: "sounds/newarea.mp3",
+		animated: true,
 		loop: false,
 	},
 	shanty: {
@@ -50,10 +51,12 @@ const sounds = {
 	victory: {
 		id: "victory",
 		src: "sounds/victory.mp3",
+		loop: true,
 	},
 	diceRoll: {
 		id: "diceRoll",
 		src: "sounds/dice-roll.mp3",
+		animated: true,
 		loop: false,
 	},
 };
@@ -102,7 +105,7 @@ class SoundController {
 	pauseSound(id) {
 		const player = this.players.find((pl) => pl.id === id);
 		if (player) {
-			player.pause();
+			player.audio.pause();
 		}
 	}
 

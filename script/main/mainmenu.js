@@ -110,6 +110,7 @@ function displayWinScreen() {
 }
 function closeWinScreen() {
 	win_scrn.hidden = true;
+	soundController.pauseSound("victory");
 }
 
 const grandpa_death_gif = document.createElement("img");
@@ -340,7 +341,10 @@ function createHints() {
 	for (let i = 0; i < coin_hints.length; i++) {
 		const coin_city = game.grandpasHints.coin.cities[i].city;
 		const hint = coin_hints[i];
-		const styled_hint = translate(hint).replace("[itmCol]", items[coin_item].color).replace("[item]", translate(coin_item)).replace("[city]", coin_city);
+		const styled_hint = translate(hint)
+			.replace("[itmCol]", items[coin_item].color)
+			.replace("[item]", translate(coin_item))
+			.replace("[city]", coin_city);
 		const pre = document.createElement("pre");
 		pre.className = "hint";
 		pre.append(dialog.parseTextFast(styled_hint));
@@ -351,7 +355,10 @@ function createHints() {
 	for (let i = 0; i < photo_hints.length; i++) {
 		const photo_city = game.grandpasHints.photo.cities[i].city;
 		const hint = photo_hints[i];
-		const styled_hint = translate(hint).replace("[itmCol]", items[photo_item].color).replace("[item]", translate(photo_item)).replace("[city]", photo_city);
+		const styled_hint = translate(hint)
+			.replace("[itmCol]", items[photo_item].color)
+			.replace("[item]", translate(photo_item))
+			.replace("[city]", photo_city);
 		const pre = document.createElement("pre");
 		pre.className = "hint";
 		pre.append(dialog.parseTextFast(styled_hint));
@@ -362,7 +369,10 @@ function createHints() {
 	for (let i = 0; i < watch_hints.length; i++) {
 		const watch_city = game.grandpasHints.watch.cities[i].city;
 		const hint = watch_hints[i];
-		const styled_hint = translate(hint).replace("[itmCol]", items[watch_item].color).replace("[item]", translate(watch_item)).replace("[city]", watch_city);
+		const styled_hint = translate(hint)
+			.replace("[itmCol]", items[watch_item].color)
+			.replace("[item]", translate(watch_item))
+			.replace("[city]", watch_city);
 		const pre = document.createElement("pre");
 		pre.className = "hint";
 		pre.append(dialog.parseTextFast(styled_hint));
@@ -373,7 +383,10 @@ function createHints() {
 	for (let i = 0; i < sauce_hints.length; i++) {
 		const sauce_city = game.grandpasHints.sauce.cities[i].city;
 		const hint = sauce_hints[i];
-		const styled_hint = translate(hint).replace("[itmCol]", items[sauce_item].color).replace("[item]", translate(sauce_item)).replace("[city]", sauce_city);
+		const styled_hint = translate(hint)
+			.replace("[itmCol]", items[sauce_item].color)
+			.replace("[item]", translate(sauce_item))
+			.replace("[city]", sauce_city);
 		const pre = document.createElement("pre");
 		pre.className = "hint";
 		pre.append(dialog.parseTextFast(styled_hint));
