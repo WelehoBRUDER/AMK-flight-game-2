@@ -245,6 +245,26 @@ class Game {
 		content.append(image, text);
 		this.createWindow(content);
 	}
+
+	startGame() {
+		const difficulties = {
+			easy: {
+				money: 20000,
+			},
+			medium: {
+				money: 13000,
+			},
+			hard: {
+				money: 10000,
+			},
+		};
+		const diff = difficulties[difficulty_select.value];
+		this.setDifficulty(diff);
+		for (let i = 1; i <= amount_of_players; i++) {
+			const pName = document.querySelector(`#name${i}`).value;
+			this.addPlayer(new Player({ screen_name: pName, money: this.difficulty.money }));
+		}
+	}
 }
 const items = {
 	coin: {

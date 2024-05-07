@@ -2,19 +2,17 @@ class Player {
 	constructor(player) {
 		this.id = !player.id ? generateID() : player.id;
 		this.screen_name = player.screen_name;
-		this.co2_consumed = parseInt(player.co2_consumed);
-		this.home = player.location;
-		this.location = player.location;
-		this.location_name = player.location_name;
+		this.co2_consumed = player.co2_consumed ?? 0;
+		this.home = player.location ?? "EFHK";
+		this.location = player.location ?? "EFHK";
+		this.location_name = player.location_name ?? "Helsinki Vantaa Airport";
 		this.money = player.money ?? 10000;
-		this.time = player.time;
+		this.time = player.time ?? 0;
 		this.items = player.items ?? [];
 		this.real_time_last_check = 0;
-		this.real_time = player.real_time;
-		this.distance_traveled = player.distance_traveled;
-		this.origin_latitude = player.origin_latitude;
-		this.origin_longitude = player.origin_longitude;
-		this.finished = player.finished;
+		this.real_time = player.real_time ?? 0;
+		this.distance_traveled = player.distance_traveled ?? 0;
+		this.finished = player.finished ?? false;
 		this.flights = player.flights ?? 0;
 	}
 

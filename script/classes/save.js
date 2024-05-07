@@ -61,6 +61,7 @@ class GameState {
 		if (save) {
 			this.currentSave = save.id;
 			game.reset(save.game);
+			setup();
 			try {
 			} catch (err) {
 				console.error("Oopsie", err);
