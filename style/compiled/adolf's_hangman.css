@@ -5,7 +5,7 @@
 
 .game-body {
     position: absolute;
-    top: 50%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-image: url("/images/green-dirty-blackboard.jpg");
@@ -58,7 +58,7 @@
 }
 
 .hangman-container h1 {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     text-align: center;
     margin-top: 20px;
     text-transform: uppercase;
@@ -193,5 +193,6 @@ h4 {
     color: whitesmoke;
     font-family: Chalkduster, sans-serif;
     margin-bottom: 3rem;
+    font-size: 28rem;
 }
 
