@@ -261,15 +261,15 @@ class Game {
 		this.init();
 		const difficulties = {
 			easy: {
-				money: 20000,
+				money: 20025,
 				scoreMulti: 0.5,
 			},
 			medium: {
-				money: 13000,
+				money: 13025,
 				scoreMulti: 0.8,
 			},
 			hard: {
-				money: 10000,
+				money: 10025,
 				scoreMulti: 1.1,
 			},
 		};
