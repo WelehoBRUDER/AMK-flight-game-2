@@ -81,9 +81,15 @@ class SoundController {
 		const sound = sounds[id];
 		const player = this.getAvailablePlayer(id);
 		if (player) {
+			if (!sound.music) {
+				player.audio.playbackRate = 1 * settings.animationSpeed;
+			}
 			player.audio.play();
 		} else {
 			const newPlayer = this.createPlayer(sound);
+			if (!sound.music) {
+				newPlayer.audio.playbackRate = 1 * settings.animationSpeed;
+			}
 			newPlayer.audio.play();
 			this.players.push(newPlayer);
 		}
