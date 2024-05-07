@@ -49,8 +49,13 @@ const sounds = {
 	},
 	victory: {
 		id: "victory",
-		src: "sounds/victory.mp3"
-	}
+		src: "sounds/victory.mp3",
+	},
+	diceRoll: {
+		id: "diceRoll",
+		src: "sounds/dice-roll.mp3",
+		loop: false,
+	},
 };
 
 class SoundController {
