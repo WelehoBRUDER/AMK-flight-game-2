@@ -39,6 +39,8 @@ const finnish = {
 	music_volume_tt: "Musiikin äänenvoimakkuus",
 	sound_volume_tt: "Ääniefektien äänenvoimakkuus",
 	// UI
+	next_player: "Seuraavan pelaajan vuoro",
+	new_turn: "Uusi vuoro alkaa",
 	lost_sauce: "Isoisän Kadonnut Soossi",
 	distance: "Matka",
 	flight_cost: "Lennon hinta",

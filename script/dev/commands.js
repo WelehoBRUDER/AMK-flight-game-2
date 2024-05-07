@@ -84,6 +84,7 @@ const developerCommands = [
 		availableParams: [],
 		execute: () => {
 			game.nextPlayer();
+			devConsole.commandHistory.push("Skipped to next player's turn");
 		},
 	},
 
@@ -104,6 +105,7 @@ const developerCommands = [
 			const _item = game.items.find((itm) => itm.game === minigame);
 			game.currentPlayer().location = _item.airport;
 			game.startMinigame(minigame, _item);
+			devConsole.commandHistory.push(`Started minigame "${minigame}" with item "${_item.id}".`);
 		},
 	},
 ];

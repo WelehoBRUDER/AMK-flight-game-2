@@ -39,6 +39,7 @@ const english = {
 	music_volume_tt: "Music volume",
 	sound_volume_tt: "Sound effects volume",
 	// UI
+	next_player: "Next Player's Turn",
 	lost_sauce: "Grandpa's Lost Sauce",
 	distance: "Distance",
 	flight_cost: "Flight cost",
