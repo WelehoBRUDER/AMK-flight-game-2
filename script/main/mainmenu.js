@@ -282,7 +282,7 @@ end_turn_btn.addEventListener("click", function () {
 
 function updateItems() {
 	const player_items = game.currentPlayer().items;
-	item_counter.textContent = String(player_items.length);
+	item_counter.textContent = String(player_items.length + "/4");
 }
 
 if (dev.enabled) {
