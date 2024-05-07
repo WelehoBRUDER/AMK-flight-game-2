@@ -90,12 +90,13 @@ const all_buttons = document.querySelectorAll("button");
 // Refreshes all necessary text for translation purposes
 function refreshText() {
 	all_elements.forEach((element) => {
-		if (element.title) {
+		const text = element.getAttribute("data-text");
+		if (text) {
 			if (element.getAttribute("data-richtext") === "true") {
 				element.innerHTML = "";
-				element.append(dialog.parseTextFast(translate(element.title)));
+				element.append(dialog.parseTextFast(translate(text)));
 			} else {
-				element.textContent = translate(element.title);
+				element.textContent = translate(text);
 			}
 		}
 	});

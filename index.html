@@ -83,10 +83,10 @@
   <!-- Everything else -->
   <div class="game">
     <div class="top-bar">
-      <div class="quest-title" title="lost_sauce"></div>
-      <button class="button" id="options" title="options" hidden></button>
-      <button class="button" id="quests" title="quest_title" hidden></button>
-      <button class="button" id="end-turn" title="end_turn" hidden></button>
+      <div class="quest-title" data-text="lost_sauce"></div>
+      <button class="button" id="options" data-text="options" hidden></button>
+      <button class="button" id="quests" data-text="quest_title" hidden></button>
+      <button class="button" id="end-turn" data-text="end_turn" hidden></button>
       <button class="option" id="win">Win</button>
       <button class="option" id="lose">Lose</button>
     </div>
@@ -104,53 +104,53 @@
       </div>
       <div class="options-menu" id="options-menu">
         <div class="buttons" id="buttons">
-          <button class="option" id="new-game" title="new_game"></button>
-          <button class="option" id="load-save" title="load_save"></button>
-          <button class="option" id="read-help" title="read_help"></button>
-          <button class="option" id="read-story" title="read_story"></button>
-          <button class="option" id="leaderboards" title="leaderboards"></button>
-          <button class="option" id="settings" title="settings"></button>
-          <button class="option" id="close-options" title="close"></button>
+          <button class="option" id="new-game" data-text="new_game"></button>
+          <button class="option" id="load-save" data-text="load_save"></button>
+          <button class="option" id="read-help" data-text="read_help"></button>
+          <button class="option" id="read-story" data-text="read_story"></button>
+          <button class="option" id="leaderboards" data-text="leaderboards"></button>
+          <button class="option" id="settings" data-text="settings"></button>
+          <button class="option" id="close-options" data-text="close"></button>
         </div>
         <div class="option-content">
           <div class="box" id="new-game-screen" hidden>
-            <h1 title="new_game"></h1>
+            <h1 data-text="new_game"></h1>
             <div class="new-game-inputs" id="new-game-inputs">
-              <h2 title="difficulty_select"></h2>
+              <h2 data-text="difficulty_select"></h2>
               <select id="difficulty-select">
-                <option value="easy" title="easy"></option>
-                <option value="medium" title="medium"></option>
-                <option value="hard" title="hard"></option>
+                <option value="easy" data-text="easy"></option>
+                <option value="medium" data-text="medium"></option>
+                <option value="hard" data-text="hard"></option>
               </select>
               <div class="player-amount">
-                <h2 title="player_amount"></h2>
+                <h2 data-text="player_amount"></h2>
                 <h2 id="player-amount">1</h2>
                 <button class="button" id="minus-players">-</button>
                 <button class="button" id="plus-players">+</button>
               </div>
               <div class="player-names" id="player-names">
-                <h2 title="enter_name"></h2>
+                <h2 data-text="enter_name"></h2>
               </div>
-              <button class="button" id="start-game" title="start_game"></button>
+              <button class="button" id="start-game" data-text="start_game"></button>
             </div>
 
           </div>
           <div class="box" id="load-save-screen" hidden>
-            <h1 title="load_save"></h1>
-            <button class="button" id="save-game" title="save_game"></button>
-            <button class="button" id="load-game" title="load_game"></button>
+            <h1 data-text="load_save"></h1>
+            <button class="button" id="save-game" data-text="save_game"></button>
+            <button class="button" id="load-game" data-text="load_game"></button>
           </div>
           <div class="box" id="help-screen" hidden>
-            <h1 title="read_help"></h1>
-            <pre title="help_text1" data-richtext="true"></pre>
-            <pre title="help_text2" data-richtext="true"></pre>
-            <pre title="help_text3" data-richtext="true"></pre>
-            <pre title="help_text4" data-richtext="true"></pre>
-            <pre title="help_text5" data-richtext="true"></pre>
-            <pre title="help_text6" data-richtext="true"></pre>
+            <h1 data-text="read_help"></h1>
+            <pre data-text="help_text1" data-richtext="true"></pre>
+            <pre data-text="help_text2" data-richtext="true"></pre>
+            <pre data-text="help_text3" data-richtext="true"></pre>
+            <pre data-text="help_text4" data-richtext="true"></pre>
+            <pre data-text="help_text5" data-richtext="true"></pre>
+            <pre data-text="help_text6" data-richtext="true"></pre>
           </div>
           <div class="box" id="story-screen" hidden>
-            <h1 title="read_help"></h1>
+            <h1 data-text="read_help"></h1>
             <div id="dialog-box">
               <div class="portrait">
                 <img src="images/unknown.png" alt="Portrait of the current character" class="portrait-img">
@@ -162,31 +162,31 @@
                 </div>
               </div>
             </div>
-            <button class="button" id="close-dialog" title="close"></button>
+            <button class="button" id="close-dialog" data-text="close"></button>
           </div>
           <div class="box" id="leaderboards-screen" hidden>
-            <h1 title="leaderboards"></h1>
+            <h1 data-text="leaderboards"></h1>
             <div class="leaderboards-list" id="leaderboards-list">
               <div class="column" id="screen-name">
-                <div class="column-stat" title="screen_name"></div>
+                <div class="column-stat" data-text="screen_name"></div>
               </div>
               <div class="column" id="score">
-                <div class="column-stat" title="score"></div>
+                <div class="column-stat" data-text="score"></div>
               </div>
               <div class="column" id="time">
-                <div class="column-stat" title="time"></div>
+                <div class="column-stat" data-text="time"></div>
               </div>
               <div class="column" id="money">
-                <div class="column-stat" title="money"></div>
+                <div class="column-stat" data-text="money"></div>
               </div>
               <div class="column" id="co2-consumed">
-                <div class="column-stat" title="co2_consumed"></div>
+                <div class="column-stat" data-text="co2_consumed"></div>
               </div>
               <div class="column" id="distance-traveled">
-                <div class="column-stat" title="distance_traveled"></div>
+                <div class="column-stat" data-text="distance_traveled"></div>
               </div>
               <div class="column" id="real-time">
-                <div class="column-stat" title="real_time_tt"></div>
+                <div class="column-stat" data-text="real_time_tt"></div>
               </div>
             </div>
           </div>
@@ -194,30 +194,30 @@
         </div>
       </div>
       <div class="quests-screen" id="quests-screen" hidden>
-        <h1 title="quest_title"></h1>
+        <h1 data-text="quest_title"></h1>
         <div class="item-screen">
           <div class="item">
-            <pre title="item1" data-richtext="true"></pre>
+            <pre data-text="item1" data-richtext="true"></pre>
             <img src="images/coin.webp" alt="coin">
-            <pre title="item1_text" data-richtext="true"></pre>
+            <pre data-text="item1_text" data-richtext="true"></pre>
           </div>
           <div class="item">
-            <pre title="item2" data-richtext="true"></pre>
+            <pre data-text="item2" data-richtext="true"></pre>
             <img src="images/photo.webp" alt="photo">
-            <pre title="item2_text" data-richtext="true"></pre>
+            <pre data-text="item2_text" data-richtext="true"></pre>
           </div>
           <div class="item">
-            <pre title="item3" data-richtext="true"></pre>
+            <pre data-text="item3" data-richtext="true"></pre>
             <img src="images/wristwatch.webp" alt="watch">
-            <pre title="item3_text" data-richtext="true"></pre>
+            <pre data-text="item3_text" data-richtext="true"></pre>
           </div>
           <div class="item">
-            <pre title="item4" data-richtext="true"></pre>
+            <pre data-text="item4" data-richtext="true"></pre>
             <img src="images/sauce.webp" alt="sauce">
-            <pre title="item4_text" data-richtext="true"></pre>
+            <pre data-text="item4_text" data-richtext="true"></pre>
           </div>
         </div>
-        <button class="button" id="close-quests" title="close"></button>
+        <button class="button" id="close-quests" data-text="close"></button>
       </div>
       <div class="plane hide">
         <img src="images/plane.png" alt="plane icon">
