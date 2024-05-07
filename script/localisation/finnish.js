@@ -40,6 +40,7 @@ const finnish = {
 	fly_to_airport: "Lennä tälle kentälle",
 	quest_title: "Isoisän matkailut",
 	end_turn: "Lopeta vuoro",
+	items_found: "Esineitä löydetty:",
 	flying_hint1: "§<c>violet<c>Isoisä§ luulee hukanneensa §<c>[itmCol]<c>[item]§ vaeltaessaan §<c>gold<c>[city]§.",
 	flying_hint2: "§<c>violet<c>Isoisän§ mukaan hän vahingossa pudotti hänen §<c>[itmCol]<c>[item]§ jonnekkin §<c>gold<c>[city]§.",
 	flying_hint3: "<c>violet<c>Isoisä§ sanoi että hän unohti hänen §<c>[itmCol]<c>[item]§ ollessaan §<c>gold<c>[city]§.",

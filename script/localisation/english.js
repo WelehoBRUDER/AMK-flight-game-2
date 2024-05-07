@@ -46,6 +46,7 @@ const english = {
 	player: "Player",
 	quest_title: "Grandpa's travels",
 	end_turn: "End turn",
+	items_found: "Items found:",
 	player_got_item_win:
 		"You won! Congratulations are in order,\n you have definitely earned §<v>translate(game.currentMinigameItem.id)<v>§.",
 	player_got_item_loss:

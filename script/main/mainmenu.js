@@ -52,6 +52,7 @@ const end_turn_btn = document.querySelector("#end-turn");
 const map_area = document.querySelector("#map-area");
 const map_scrn = document.querySelector("#map");
 const bottom_bar = document.querySelector("#bottom-bar");
+const item_counter = document.querySelector("#item-counter");
 
 const win_btn = document.querySelector("#win");
 const win_scrn = document.querySelector("#win-screen");
@@ -278,6 +279,11 @@ close_quests_btn.addEventListener("click", function () {
 end_turn_btn.addEventListener("click", function () {
 	game.nextPlayer();
 });
+
+function updateItems() {
+	const player_items = game.currentPlayer().items;
+	item_counter.textContent = String(player_items.length);
+}
 
 if (dev.enabled) {
 	hideStart();

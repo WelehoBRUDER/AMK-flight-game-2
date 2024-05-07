@@ -346,6 +346,13 @@ $text-light: rgb(243, 240, 240);
     background: $text-dark;
     outline: 1rem rgb(60, 60, 60) ridge;
     outline-offset: -10px;
+
+    .items {
+      border: 1rem rgb(60, 60, 60) ridge;
+      box-sizing: border-box;
+      display: flex;
+      gap: 1rem;
+    }
   }
 }
 

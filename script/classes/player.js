@@ -80,9 +80,9 @@ class Player {
 	}
 
 	updateStatsScreen() {
-		const bottomBar = document.querySelector(".bottom-bar");
-		bottomBar.innerHTML = "";
-		bottomBar.append(this.getStatsDisplay());
+		const stats = document.querySelector(".stats");
+		stats.innerHTML = "";
+		stats.append(this.getStatsDisplay());
 	}
 
 	setMoney(value) {
