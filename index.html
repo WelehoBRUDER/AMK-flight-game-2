@@ -137,8 +137,13 @@
           </div>
           <div class="box" id="load-save-screen" hidden>
             <h1 data-text="load_save"></h1>
-            <button class="button" id="save-game" data-text="save_game"></button>
-            <button class="button" id="load-game" data-text="load_game"></button>
+            <div class="save-load-container">
+              <div class="new-save">
+                <input name="save-name" class="save-name" type="text">
+                <button class="create-save" onclick="createNewSave()" data-text="new_save"></button>
+              </div>
+              <div class="existing-saves"></div>
+            </div>
           </div>
           <div class="box" id="help-screen" hidden>
             <h1 data-text="read_help"></h1>

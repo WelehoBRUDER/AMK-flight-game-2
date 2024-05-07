@@ -220,6 +220,8 @@ start_btn.addEventListener("click", function () {
 
 load_save_btn.addEventListener("click", function () {
 	hideBoxes();
+	gameState.displaySavedGames();
+
 	load_save_scrn.hidden = false;
 });
 
@@ -283,7 +285,7 @@ end_turn_btn.addEventListener("click", function () {
 
 function updateItems() {
 	const player_items = [...game.currentPlayer().items];
-	item_counter.textContent = String(player_items.length + "/4")
+	item_counter.textContent = String(player_items.length + "/4");
 	if (player_items.length > 0) {
 		for (let i = 0; i < player_items.length; i++) {
 			if (player_items[i].id === "sauce") {

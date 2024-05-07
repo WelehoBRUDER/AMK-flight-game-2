@@ -2,6 +2,7 @@ class GameState {
 	constructor() {
 		this.savedGames = [];
 		this.currentSave = "";
+		this.loadSavedGames();
 	}
 
 	loadSavedGames() {
@@ -17,6 +18,38 @@ class GameState {
 
 	sortSaves() {
 		this.savedGames = this.savedGames.sort((a, b) => b.lastSaved.getTime() - a.lastSaved.getTime());
+	}
+
+	displaySavedGames() {
+		savesDiv.innerHTML = "";
+		console.log(this.savedGames);
+		this.savedGames.forEach((save) => {
+			console.log(save);
+			const saveRow = document.createElement("div");
+			saveRow.classList.add("save-row");
+			const saveInfo = document.createElement("pre");
+			saveInfo.textContent = `${save.name} || ${translate("last_saved")}: ${new Date(save.lastSaved).toLocaleDateString(
+				"fi-FI"
+			)} @ ${new Date(save.lastSaved).toLocaleTimeString("fi-FI")}`;
+			const saveOver = document.createElement("button");
+			const loadSave = document.createElement("button");
+			const deleteSave = document.createElement("button");
+			saveRow.style.display = "flex";
+			saveOver.textContent = translate("save");
+			loadSave.textContent = translate("load");
+			deleteSave.textContent = translate("delete");
+			saveOver.addEventListener("click", () => {
+				this.saveOver(save.id);
+			});
+			loadSave.addEventListener("click", () => {
+				this.loadGame(save.id);
+			});
+			deleteSave.addEventListener("click", () => {
+				this.deleteSave(save.id);
+			});
+			saveRow.append(saveInfo, saveOver, loadSave, deleteSave);
+			savesDiv.append(saveRow);
+		});
 	}
 
 	// WIP
@@ -41,6 +74,7 @@ class GameState {
 		}
 		this.sortSaves();
 		localStorage.setItem("grandpas-lost-sauce_save-games", JSON.stringify(this.savedGames));
+		this.displaySavedGames();
 	}
 
 	saveOver(id, auto) {
@@ -48,6 +82,7 @@ class GameState {
 		if (save) {
 			this.saveGame(save.name, id, save);
 		}
+		this.displaySavedGames();
 	}
 
 	deleteSave(id) {
@@ -55,18 +90,26 @@ class GameState {
 		if (save) {
 			this.savedGames = this.savedGames.filter((save) => save.id !== id);
 			localStorage.setItem("grandpas-lost-sauce_save-games", JSON.stringify(this.savedGames));
+			this.displaySavedGames();
 		}
 	}
 }
+
+const saveInput = document.querySelector(".save-name");
+const savesDiv = document.querySelector(".existing-saves");
 
 class SaveFile {
 	constructor(file) {
 		this.id = file.id ?? generateID();
 		this.name = file.name;
-		this.game = file.game;
+		this.game = file.game ?? game;
 		this.firstCreated = file.firstCreated ?? new Date();
 		this.lastSaved = new Date();
 	}
 }
 
 const gameState = new GameState();
+
+function createNewSave() {
+	gameState.saveGame(saveInput.value);
+}
