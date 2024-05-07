@@ -170,8 +170,14 @@ function winScreen() {
 	elements.hintCon.style.display = "none";
 	elements.keyboard.style.display = "none";
 	const win = document.createElement("h3");
-	elements.gameplayCon.appendChild(win);
-	return (win.textContent = `You're worthy! You clever, clever boeh. Here's your (insert item name)`);
+	const leaveButton = document.createElement("button");
+	leaveButton.classList.add("leave-minigame-button");
+	leaveButton.textContent = translate("leave");
+	leaveButton.addEventListener("click", () => {
+		game.currentPlayer().wonMinigame();
+	});
+	elements.gameplayCon.append(win, leaveButton);
+	return win.append(dialog.parseTextFast(translate("hangman_win")));
 }
 
 function lossScreen() {
@@ -181,12 +187,18 @@ function lossScreen() {
 	elements.guessDisplay.style.display = "none";
 	const correctWord = document.createElement("h4");
 	elements.gameplayCon.appendChild(correctWord);
-	const correctWordText = (correctWord.innerHTML = `Correct word: <br>${currentWord.toUpperCase()}</br>`);
+	const leaveButton = document.createElement("button");
+	leaveButton.classList.add("leave-minigame-button");
+	leaveButton.textContent = translate("leave");
+	leaveButton.addEventListener("click", () => {
+		game.currentPlayer().lostMinigame();
+	});
+	const correctWordText = (correctWord.innerHTML = `${translate("correct_word")}: <br>${currentWord.toUpperCase()}</br>`);
 	const loss = document.createElement("h5");
-	elements.gameplayCon.appendChild(loss);
-	const lossText = loss.textContent = `Not worthy! (insert item name) is gonna cost ya now! Slide me my money and get out of my sight half-wit!`;
+	elements.gameplayCon.append(loss, leaveButton);
+	loss.append(dialog.parseTextFast(translate("hangman_loss")));
 
-	return correctWordText && lossText;
+	return correctWordText;
 }
 
 const initGame = (button, clickedLetter, hintCon, keyboard, gameplayCon, hangmanImg, wordDisplay, guessDisplay) => {
@@ -213,12 +225,17 @@ function startHangman() {
 	currentWord = "";
 	correctLetters = [];
 	wrongGuessCount = 0;
+	elements.hintCon.style.display = "block";
+	elements.wordDisplay.classList.remove("hidden");
+	elements.keyboard.style.display = "flex";
+	elements.guessDisplay.style.display = "block";
 	getRandomWord();
 	elements.gameBody.style.display = "flex";
 }
 
 // Creates keyboard buttons and adds eventlisteners to each of them
 function createKeyboard(keyboard) {
+	elements.keyboard.innerHTML = "";
 	// Creates keyboard buttons and adds eventlisteners to each of them
 	for (let i = 97; i <= 122; i++) {
 		const button = document.createElement("button");

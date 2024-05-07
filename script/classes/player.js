@@ -32,6 +32,12 @@ class Player {
 		game.closeMinigames();
 	}
 
+	lostMinigame() {
+		this.items.push(game.getItemByPort(this.location));
+		this.setMoney(this.money - 3000);
+		game.closeMinigames();
+	}
+
 	getAll() {
 		return this;
 	}

@@ -18,11 +18,15 @@ function createSlidePuzzleElements() {
   imgCon.appendChild(puzzleImg)
   */
 
+	const clock = document.createElement("div");
+	clock.classList.add("clock");
+	gameBody.append(clock);
+
 	const hElem = document.createElement("h2");
 	hElem.classList.add("turns");
 	gameBody.appendChild(hElem);
 	//hElem.textContent = 'Turns: ';
-	return { gameBody, imgCon, hElem };
+	return { gameBody, imgCon, hElem, clock };
 }
 
 // FUNCTIONALITIES
@@ -41,7 +45,7 @@ class SlideGame {
 		this.src = src;
 
 		this.images = [];
-
+		this.timer = new Timer(slidePuzzleElements.clock, loseSlideGame, 60000);
 		slidePuzzleElements.gameBody.style.display = "block";
 	}
 
@@ -67,11 +71,12 @@ class SlideGame {
 					slider.src = "images/blank.png";
 				}
 				const options = [0, 0, 0];
-				dragElem(slider, [imgCon], null, swapPlaces, options, true, slider, true);
+				dragElem(slider, [slidePuzzleElements.imgCon], null, swapPlaces, options, true, slider, true);
 				this.images[y].push(slider);
 			}
 		}
 		this.scrambleImages();
+		this.timer.startTimer();
 	}
 
 	/* Yoinked from https://stackoverflow.com/a/12646864 */
@@ -159,6 +164,10 @@ function swapPlaces(a, b) {
 	if (slideGame.checkWin()) {
 		game.currentPlayer.wonMinigame();
 	}
+}
+
+function loseSlideGame() {
+	console.log("You lose lol");
 }
 
 let slideGame;

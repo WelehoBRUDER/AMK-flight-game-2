@@ -196,3 +196,62 @@ const items = {
 };
 
 const game = new Game();
+
+/**
+ * @param {HTMLElement} element - HTML element you want the timer to update the textContent in
+ * @param {number} max - Set this above 0 if you want the timer to count down from it (milliseconds)
+ */
+class Timer {
+	constructor(element, callback, max = -1) {
+		this.current = -1;
+		this.last = Date.now();
+		this.ms = 0;
+		this.callback = callback;
+		this.element = element;
+		this.max = max ?? -1;
+	}
+
+	startTimer() {
+		this.timer = setInterval(() => this.update(this), 10);
+	}
+
+	clearTimer() {
+		clearInterval(this.timer);
+	}
+
+	removeTimer() {
+		this.clearTimer();
+		this.element.textContent = "";
+	}
+
+	displayTime() {
+		if (this.max > -1) {
+			const stamp = new Date(this.max);
+			const cur = new Date(this.ms);
+			const remaining = new Date(stamp.getTime() - cur.getTime());
+			const minutes = remaining.getMinutes();
+			const seconds = remaining.getSeconds();
+			this.element.textContent = `${this.padZero(minutes)}:${this.padZero(seconds)}`;
+			if (minutes <= 0 && seconds <= 0) {
+				this.clearTimer();
+				this.callback();
+			}
+		} else {
+			const stamp = new Date(this.ms);
+			const minutes = stamp.getMinutes();
+			const seconds = stamp.getSeconds();
+			this.element.textContent = `${this.padZero(minutes)}:${this.padZero(seconds)}`;
+		}
+	}
+
+	update() {
+		this.current = Date.now();
+		this.ms += this.current - this.last;
+		this.last = this.current;
+		this.displayTime();
+	}
+
+	padZero(num) {
+		return num > 9 ? num : "0" + num;
+	}
+}
