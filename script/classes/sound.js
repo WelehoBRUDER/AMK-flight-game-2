@@ -42,6 +42,11 @@ const sounds = {
 		src: "sounds/death.mp3",
 		loop: false,
 	},
+	flying: {
+		id: "flying",
+		src: "sounds/flying.wav",
+		loop: false,
+	}
 };
 
 class SoundController {
