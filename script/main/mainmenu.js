@@ -190,7 +190,6 @@ title_screen.addEventListener("click", function () {
 	setTimeout(hideStart, 1000);
 	in_main_menu = true;
 	options_menu.style.display = "flex";
-	options_open = true;
 	refreshText();
 });
 
@@ -287,7 +286,6 @@ function openSettingsScreen() {
 
 close_options_btn.addEventListener("click", function () {
 	options_menu.style.display = "none";
-	options_open = false;
 	if (in_main_menu) {
 		title_screen.hidden = false;
 		title_screen.style.opacity = "1";
@@ -320,7 +318,7 @@ function updateItems() {
 			if (player_items[i].id === "sauce") {
 				sauce_image.src = "images/sauce.webp";
 			} else if (player_items[i].id === "watch") {
-				watch_image.src = "images/watch.webp";
+				watch_image.src = "images/wristwatch.webp";
 			} else if (player_items[i].id === "photo") {
 				photo_image.src = "images/photo.webp";
 			} else {
@@ -391,4 +389,3 @@ if (dev.enabled) {
 
 createLeaderboards();
 player_names.append(newInput(1));
-setTimeout(createHints, 1000);
