@@ -110,6 +110,7 @@ let sequence = [];
 let playerSequence = [];
 let level = 0;
 
+const kaleviInfoSection = document.querySelector(".game .info-section");
 const startButton = document.querySelector(".start-kalevi");
 const info = document.querySelector(".kalevi-info");
 const heading = document.querySelector(".kalevi-heading");
@@ -172,13 +173,24 @@ function play(nextSequence) {
 	});
 }
 
-function resetGame(text) {
+function resetGame(text, condition = "none") {
 	info.textContent = text;
 	sequence = [];
 	playerSequence = [];
 	level = 0;
 	heading.textContent = "Kalevi Says";
 	tileContainer.classList.add("unclickable");
+	if (condition !== "none") {
+		const leaveButton = document.createElement("button");
+		leaveButton.classList.add("leave-minigame-button");
+		leaveButton.textContent = translate("leave");
+		kaleviInfoSection.append(leaveButton);
+		leaveButton.addEventListener("click", () => {
+			if (condition === "win") game.currentPlayer().wonMinigame();
+			else if (condition === "lose") game.currentPlayer().lostMinigame();
+			leaveButton.remove();
+		});
+	}
 }
 
 function playerTurn(level) {
@@ -195,13 +207,13 @@ function handleClick(tile) {
 	const remainingTaps = sequence.length - playerSequence.length;
 
 	if (playerSequence[index] !== sequence[index]) {
-		resetGame("You were no match for Kekkonen. (insert item name) is gonna cost you!");
+		resetGame("You were no match for Kekkonen. (insert item name) is gonna cost you!", "lose");
 		return;
 	}
 
 	if (playerSequence.length === sequence.length) {
 		if (playerSequence.length === 6) {
-			resetGame("*Kekkonen is impressed* Congratulations you've bested me! Here's you (insert item name)");
+			resetGame("*Kekkonen is impressed* Congratulations you've bested me! Here's you (insert item name)", "win");
 			return;
 		}
 

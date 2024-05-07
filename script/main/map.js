@@ -140,9 +140,10 @@ function resetToPlayer() {
 		}
 	});
 	if (port) {
-		console.log(port);
 		const lat = port._latlng.lat;
 		const lon = port._latlng.lng;
+		currentCords.lat = lat;
+		currentCords.lon = lon;
 		map.setView([lat, lon], 6, {
 			animate: false,
 		});

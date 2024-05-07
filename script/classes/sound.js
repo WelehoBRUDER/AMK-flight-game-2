@@ -41,7 +41,7 @@ const sounds = {
 		id: "death",
 		src: "sounds/death.mp3",
 		loop: false,
-	}
+	},
 };
 
 class SoundController {
@@ -64,7 +64,6 @@ class SoundController {
 	 * @param {boolean} forceParallel - make this true if the sound needs to play parallel to a sound with the same id.
 	 */
 	playSound(id, forceParallel = false) {
-		console.log(id, sounds);
 		const sound = sounds[id];
 		const player = this.getAvailablePlayer(id);
 		if (player) {

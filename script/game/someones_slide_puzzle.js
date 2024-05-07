@@ -47,6 +47,7 @@ class SlideGame {
 		this.images = [];
 		this.timer = new Timer(slidePuzzleElements.clock, loseSlideGame, 6000);
 		slidePuzzleElements.gameBody.style.display = "block";
+		slidePuzzleElements.imgCon.classList.remove("locked");
 	}
 
 	createImages() {
@@ -162,15 +163,30 @@ function swapPlaces(a, b) {
 	}
 	slideGame.renderImages();
 	if (slideGame.checkWin()) {
-		game.currentPlayer.wonMinigame();
+		slidePuzzleElements.imgCon.classList.add("locked");
+		const leaveButton = document.createElement("button");
+		leaveButton.classList.add("leave-minigame-button");
+		leaveButton.textContent = translate("leave");
+		kaleviInfoSection.append(leaveButton);
+		leaveButton.addEventListener("click", () => {
+			game.currentPlayer().lostMinigame();
+			leaveButton.remove();
+		});
+		slidePuzzleElements.gameBody.append(leaveButton);
 	}
 }
 
 function loseSlideGame() {
-	game.currentPlayer().lostMinigame();
-	const message = document.createElement("div");
-	message.textContent = translate("you_lost_slidegame");
-	game.createWindow(message);
+	slidePuzzleElements.imgCon.classList.add("locked");
+	const leaveButton = document.createElement("button");
+	leaveButton.classList.add("leave-minigame-button");
+	leaveButton.textContent = translate("leave");
+	kaleviInfoSection.append(leaveButton);
+	leaveButton.addEventListener("click", () => {
+		game.currentPlayer().lostMinigame();
+		leaveButton.remove();
+	});
+	slidePuzzleElements.gameBody.append(leaveButton);
 }
 
 let slideGame;
