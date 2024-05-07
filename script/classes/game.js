@@ -128,10 +128,12 @@ class Game {
 		this.currentPlayerIndex += 1;
 		if (this.currentPlayerIndex >= this.playersAmount()) {
 			this.advanceTurn();
+			this.currentPlayer().setMoney(this.currentPlayer().money - 25);
 			this.currentPlayer().updateStatsScreen();
 			resetToPlayer();
 			addMarkers();
 		} else {
+			this.currentPlayer().setMoney(this.currentPlayer().money - 25);
 			this.currentPlayer().updateStatsScreen();
 			resetToPlayer();
 			addMarkers();
