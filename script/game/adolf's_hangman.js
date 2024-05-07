@@ -6,20 +6,24 @@ function createElements() {
   gameBody.style.display = 'none';
   document.body.appendChild(gameBody);
 
+  const npcImg = document.createElement('div');
+  npcImg.classList.add('npc-image');
+  gameBody.appendChild(npcImg);
+
   // Hangman container
   const hangmanCon = document.createElement('div');
   hangmanCon.classList.add('hangman-container');
   gameBody.appendChild(hangmanCon);
-
-  // Hangman img
-  const hangmanImg = document.createElement('img');
-  hangmanCon.appendChild(hangmanImg);
 
   // Hangman title
   const hangmanTitle = document.createElement('h1');
   hangmanTitle.innerHTML = `Adolf's Hangman`;
   hangmanTitle.classList.add('hangman-title');
   hangmanCon.appendChild(hangmanTitle);
+
+  // Hangman img
+  const hangmanImg = document.createElement('img');
+  hangmanCon.appendChild(hangmanImg);
 
   hangmanImg.src = 'images/hangman-0.svg';
   hangmanImg.alt = 'hangman image';
@@ -62,6 +66,7 @@ function createElements() {
 
   return {
     gameBody,
+    npcImg,
     hangmanCon,
     hangmanImg,
     hangmanTitle,
