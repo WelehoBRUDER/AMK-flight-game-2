@@ -415,5 +415,6 @@ if (dev.enabled) {
 	setup();
 }
 
+refreshText();
 createLeaderboards();
 player_names.append(newInput(1));

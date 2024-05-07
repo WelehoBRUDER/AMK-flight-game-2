@@ -160,6 +160,7 @@ const english = {
   finnish: 'Suomi',
   // Minigames
   // Adolf's Hangman
+  adolph_hint: "Adolph's hint",
   guitar: 'guitar',
   guitar_hint: 'A musical instrument with strings.',
   oxygen: 'oxygen',

@@ -126,6 +126,7 @@ const finnish = {
 	finnish: "Suomi",
 	// Minigames
 	// Adolf's Hangman
+	adolph_hint: "Aatun vihje",
 	guitar: "kitara",
 	guitar_hint: "soitin, jossa on kielet.",
 	oxygen: "happi",

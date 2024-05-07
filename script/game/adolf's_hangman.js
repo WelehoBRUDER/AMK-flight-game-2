@@ -45,7 +45,7 @@ function createElements() {
 
   // Hint title
   const hintTitle = document.createElement('h3');
-  hintTitle.textContent = 'Adolf\'s hint';
+  hintTitle.textContent = translate("adolph_hint");
   hintTitle.classList.add('hint-title');
   hintCon.appendChild(hintTitle);
 
