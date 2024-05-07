@@ -215,3 +215,9 @@ h1 {
     margin-top: 0;
 }
 
+.info-section .leave-minigame-button {
+    position: absolute;
+    bottom: -1%;
+    left: 42%;
+}
+
