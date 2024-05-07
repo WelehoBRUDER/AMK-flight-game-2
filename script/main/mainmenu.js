@@ -158,7 +158,6 @@ options_btn.addEventListener("click", function () {
 		options_open = false;
 	} else {
 		quests_scrn.hidden = true;
-		quests_open = false;
 		options_menu.style.display = "flex";
 		options_open = true;
 	}
@@ -175,7 +174,6 @@ function newInput(id) {
 new_game_btn.addEventListener("click", function () {
 	hideBoxes();
 	new_game_scrn.hidden = false;
-	player_names.append(newInput(1));
 });
 
 let amount_of_players = 1;
@@ -283,3 +281,4 @@ if (dev.enabled) {
 }
 
 createLeaderboards();
+player_names.append(newInput(1));
