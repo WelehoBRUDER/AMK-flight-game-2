@@ -86,4 +86,24 @@ const developerCommands = [
 			game.nextPlayer();
 		},
 	},
+
+	{
+		name: "minigame",
+		help: "Start a minigame",
+		verboseHelp: "minigame - Starts minigame specified and sets all needed parameters",
+		availableParams: [
+			[
+				{ id: "slider", onSelect: "slider" },
+				{ id: "dice", onSelect: "dice" },
+				{ id: "hangman", onSelect: "hangman" },
+				{ id: "kalevi", onSelect: "kalevi" },
+			],
+		],
+		execute: (args) => {
+			const minigame = args[0];
+			const _item = game.items.find((itm) => itm.game === minigame);
+			game.currentPlayer().location = _item.airport;
+			game.startMinigame(minigame, _item);
+		},
+	},
 ];
