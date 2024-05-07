@@ -97,4 +97,14 @@ const routes = {
 			console.warn(`createId request failed: ${err}. Most likely backend server is off.`);
 		}
 	},
+	addPlayerToLeaderboards: () => {
+		fetch(`${host}/add-player-to-leaderboards`, {
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			method: "POST",
+			body: JSON.stringify(game.currentPlayer()),
+		});
+	},
 };

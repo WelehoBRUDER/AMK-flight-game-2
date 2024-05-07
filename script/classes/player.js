@@ -14,6 +14,7 @@ class Player {
 		this.distance_traveled = player.distance_traveled ?? 0;
 		this.finished = player.finished ?? false;
 		this.flights = player.flights ?? 0;
+		this.score = player.score ?? 0;
 	}
 
 	hasLost() {
@@ -85,6 +86,26 @@ class Player {
 	setFlights(value) {
 		this.flights = value;
 		this.updateStatsScreen();
+	}
+
+	lose() {
+		this.finished = true;
+		displayLoseScreen();
+	}
+
+	win() {
+		displayWinScreen();
+		this.finished = true;
+		this.calcScore();
+		routes.addPlayerToLeaderboards();
+	}
+
+	calcScore() {
+		let score = 0;
+		score += this.money * 2;
+		score -= this.co2_consumed * 0.66;
+		score += this.distance_traveled * 0.18;
+		this.score = Math.floor(score * game.difficulty.scoreMulti);
 	}
 
 	rollFlights() {

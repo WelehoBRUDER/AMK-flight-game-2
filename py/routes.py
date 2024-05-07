@@ -58,6 +58,12 @@ def get_bearing():
     lon2 = float(request.args.get("lon2"))
     angle = jsonify(bearing_between_two_points((lat1, lon1), (lat2, lon2)))
     return angle
+
+@app.route("/add-player-to-leaderboards/", methods=["POST"])
+def add_player_to_lb():
+    player = request.values
+    print(player)
+    
     
 # This function ensures that the database tables have been modified to suit the game's needs.
 # It looks for a file named "init.txt". If it can't be found, then the tables will be altered.

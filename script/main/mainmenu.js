@@ -100,6 +100,13 @@ win_btn.addEventListener("click", function () {
 	win_scrn.hidden = !win_scrn.hidden;
 });
 
+function displayWinScreen() {
+	win_scrn.hidden = false;
+}
+function closeWinScreen() {
+	win_scrn.hidden = true;
+}
+
 const grandpa_death_gif = document.createElement("img");
 grandpa_death_gif.src = "images/grandpa_death.gif";
 
@@ -107,8 +114,13 @@ function hideGif() {
 	grandpa_death_gif.style.opacity = "0";
 }
 
+function showGif() {
+	grandpa_death_gif.style.opacity = "1";
+}
+
 lose_btn.addEventListener("click", function () {
 	if (lose_scrn.hidden) {
+		showGif();
 		lose_scrn.hidden = false;
 		lose_scrn.append(grandpa_death_gif);
 		soundController.playSound("death");
@@ -117,6 +129,17 @@ lose_btn.addEventListener("click", function () {
 		lose_scrn.hidden = true;
 	}
 });
+
+function displayLoseScreen() {
+	if (lose_scrn.hidden) {
+		lose_scrn.hidden = false;
+		lose_scrn.append(grandpa_death_gif);
+		soundController.playSound("death");
+		setTimeout(hideGif, 2100);
+	} else {
+		lose_scrn.hidden = true;
+	}
+}
 
 async function getAllPlayers() {
 	return await routes.getAllPlayers();

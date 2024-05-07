@@ -45,7 +45,7 @@ class SlideGame {
 		this.src = src;
 
 		this.images = [];
-		this.timer = new Timer(slidePuzzleElements.clock, loseSlideGame, 6000);
+		this.timer = new Timer(slidePuzzleElements.clock, loseSlideGame, 90000);
 		slidePuzzleElements.gameBody.style.display = "block";
 		slidePuzzleElements.imgCon.classList.remove("locked");
 	}

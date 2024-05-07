@@ -183,8 +183,8 @@ def add_player_to_db(player):
     # ID must be generated so that the chance of duplicates is effectively 0%
     player_id = generate_random_id()
     db["cursor"].execute(f"""
-    INSERT INTO game (id, screen_name, co2_consumed, money, time, real_time, distance_traveled, score)
-    VALUES ('{player_id}', '{player.screen_name}', {player.co2_consumed}, {player.money}, {player.time}, {player.real_time}, {player.distance_traveled}, {player.score()});
+    INSERT INTO game (id, screen_name, co2_consumed, money, distance_traveled, score)
+    VALUES ('{player_id}', '{player.screen_name}', {player.co2_consumed}, {player.money}, {player.distance_traveled}, {player.score()});
     """)
     db["database"].commit()
     if debug_mode:
