@@ -9,6 +9,9 @@ class GameState {
 		const savedGames = localStorage.getItem("grandpas-lost-sauce_save-games");
 		if (savedGames) {
 			this.savedGames = JSON.parse(savedGames);
+			this.savedGames.forEach((save, index) => {
+				this.savedGames[index] = new SaveFile(save, false);
+			});
 		}
 	}
 
@@ -56,6 +59,8 @@ class GameState {
 	loadGame(id, confirm = false) {
 		const save = this.savedGames[this.getFile(id)];
 		if (save) {
+			this.currentSave = save.id;
+			game.reset(save.game);
 			try {
 			} catch (err) {
 				console.error("Oopsie", err);
@@ -99,12 +104,12 @@ const saveInput = document.querySelector(".save-name");
 const savesDiv = document.querySelector(".existing-saves");
 
 class SaveFile {
-	constructor(file) {
+	constructor(file, save = true) {
 		this.id = file.id ?? generateID();
 		this.name = file.name;
 		this.game = file.game ?? game;
-		this.firstCreated = file.firstCreated ?? new Date();
-		this.lastSaved = new Date();
+		this.firstCreated = new Date(file.firstCreated) ?? new Date();
+		this.lastSaved = save ? new Date() : new Date(file.lastSaved);
 	}
 }
 

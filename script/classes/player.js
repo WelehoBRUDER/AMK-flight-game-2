@@ -15,7 +15,7 @@ class Player {
 		this.origin_latitude = player.origin_latitude;
 		this.origin_longitude = player.origin_longitude;
 		this.finished = player.finished;
-		this.flights = 0;
+		this.flights = player.flights ?? 0;
 	}
 
 	hasLost() {

@@ -219,10 +219,11 @@ start_btn.addEventListener("click", function () {
 });
 
 load_save_btn.addEventListener("click", function () {
-	hideBoxes();
-	gameState.displaySavedGames();
-
-	load_save_scrn.hidden = false;
+	if (!game.overlayDisabled) {
+		hideBoxes();
+		gameState.displaySavedGames();
+		load_save_scrn.hidden = false;
+	}
 });
 
 help_btn.addEventListener("click", function () {

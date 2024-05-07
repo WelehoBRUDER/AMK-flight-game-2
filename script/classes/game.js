@@ -16,6 +16,18 @@ class Game {
 		this.closeMinigames(false);
 	}
 
+	reset(set) {
+		Object.keys(this).forEach((key) => {
+			this[key] = set[key];
+		});
+		this.closeMinigames();
+		hideBoxes();
+		this.players.forEach((pl, index) => {
+			this.players[index] = new Player(pl);
+		});
+		this.currentPlayer().updateStatsScreen();
+	}
+
 	setDifficulty(difficulty) {
 		this.difficulty = difficulty;
 	}
