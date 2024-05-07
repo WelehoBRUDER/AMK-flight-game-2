@@ -15,13 +15,18 @@ body {
 }
 
 .board {
-    width: 360px;
-    height: 360px;
+     /* Existing styles for .board */
+    position: relative; /* Ensure .board is positioned */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 60rem;
+    height: 60rem;
     background-color: #747a7a;
     border: 10px solid #2f2f31;
     margin: 0 auto;
-    display: flex;
     flex-wrap: wrap;
+    align-content: center;
     box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5),
     0 0 0 10px #2f2f31,
     0 0 10px rgba(0, 0, 0, 0.5);
@@ -34,7 +39,6 @@ body {
 }
 
 
-.board,
 .container {
     position: absolute;
     z-index: 300;
@@ -61,15 +65,6 @@ body {
     }
 }
 
-section.board {
-    position: relative;
-    left: 0;
-    top: 0;
-    transform: none;
-    width: 60rem;
-    height: 60rem;
-}
-
 .clock {
     top: -5rem;
     left: 5rem;
@@ -78,12 +73,48 @@ section.board {
 
 .theodore-container {
     position: fixed;
+    background-image: url("../../images/npc4.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     top: 30%;
     left: -45%;
     width: 30rem;
     height: 20rem;
-    background-color: #d06a20;
+    background-color: #01112c;
     box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5),
     0 0 0 10px #2f2f31,
     0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.dialogue-container {
+    display: flex;
+    text-align: center;
+    position: fixed;
+    top: 30%;
+    right: -45%;
+    width: 30rem;
+    height: 20rem;
+    background-color: #01112c;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5),
+    0 0 0 10px #2f2f31,
+    0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.npc-h1 {
+    font-family: "Courier New", sans-serif;
+    color: whitesmoke;
+    font-size: 2.4rem;
+    margin-top: 1rem;
+}
+
+.leave-minigame-button {
+    position: relative;
+    z-index: 500;
+}
+
+.npc-dialogue {
+    font-size: 1.8rem;
+    font-family: "Courier New", sans-serif;
+    color: whitesmoke;
 }
