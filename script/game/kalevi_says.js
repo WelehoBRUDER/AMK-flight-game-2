@@ -115,8 +115,11 @@ const startButton = document.querySelector(".start-kalevi");
 const info = document.querySelector(".kalevi-info");
 const heading = document.querySelector(".kalevi-heading");
 const tileContainer = document.querySelector(".kalevis-container");
+const gameContainer = document.querySelector('.game')
 
 function startKaleviGame() {
+	tileContainer.style.display = ''
+	kaleviInfoSection.style.marginTop = '0'
 	startButton.classList.add("hidden");
 	info.classList.remove("hidden");
 	sequence = [];
@@ -174,6 +177,7 @@ function play(nextSequence) {
 }
 
 function resetGame(text, condition = "none") {
+
 	info.textContent = text;
 	sequence = [];
 	playerSequence = [];
@@ -184,6 +188,7 @@ function resetGame(text, condition = "none") {
 		const leaveButton = document.createElement("button");
 		leaveButton.classList.add("leave-minigame-button");
 		leaveButton.textContent = translate("leave");
+		console.log(gameContainer)
 		kaleviInfoSection.append(leaveButton);
 		leaveButton.addEventListener("click", () => {
 			if (condition === "win") game.currentPlayer().wonMinigame();
@@ -207,12 +212,16 @@ function handleClick(tile) {
 	const remainingTaps = sequence.length - playerSequence.length;
 
 	if (playerSequence[index] !== sequence[index]) {
+		tileContainer.style.display = 'none'
+		kaleviInfoSection.style.marginTop = '15rem'
 		resetGame("You were no match for Kekkonen. (insert item name) is gonna cost you!", "lose");
 		return;
 	}
 
 	if (playerSequence.length === sequence.length) {
 		if (playerSequence.length === 6) {
+			tileContainer.style.display = 'none'
+			kaleviInfoSection.style.marginTop = '15rem'
 			resetGame("*Kekkonen is impressed* Congratulations you've bested me! Here's you (insert item name)", "win");
 			return;
 		}
