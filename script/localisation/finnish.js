@@ -258,4 +258,7 @@ const finnish = {
 		"HAA KUKAAN EI PYSTY VOITTAMAAN AHMEDIA! Näytä mulle sitä fyrkkaa... Jos siis haluut ukkis §<v>translate(game.currentMinigameItem.id)<v>§, koska se tulee maksamaan sulle.",
 	ahmed_dice_win:
 		"Kai täs on onnittelut paikallaan... Voitit mut vaan sun helv**** moisella tuuri heitolla... §<c>green<c>[total].§\nLupaus on lupaus. Tässä on sun ukin §<v>translate(game.currentMinigameItem.id)<v>§</br>",
+	hangman_win: "Olet haasteen arvoinen! Sää fiksu, fiksu poeeka. Tässä on sun §<v>translate(game.currentMinigameItem.id)<v>§",
+	hangman_loss:
+		"Et ole haasteen arvoinen! §<v>translate(game.currentMinigameItem.id)<v>>§ tulee maksamaan sulle! Heitäs mulle mun rahat ja poistu mun silmistä puoliälykäs",
 };
