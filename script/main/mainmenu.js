@@ -53,6 +53,10 @@ const map_area = document.querySelector("#map-area");
 const map_scrn = document.querySelector("#map");
 const bottom_bar = document.querySelector("#bottom-bar");
 const item_counter = document.querySelector("#item-counter");
+const sauce_image = document.querySelector("#sauce-image");
+const watch_image = document.querySelector("#watch-image");
+const photo_image = document.querySelector("#photo-image");
+const coin_image = document.querySelector("#coin-image");
 
 const win_btn = document.querySelector("#win");
 const win_scrn = document.querySelector("#win-screen");
@@ -281,8 +285,21 @@ end_turn_btn.addEventListener("click", function () {
 });
 
 function updateItems() {
-	const player_items = game.currentPlayer().items;
-	item_counter.textContent = String(player_items.length + "/4");
+	const player_items = [...game.currentPlayer().items];
+	item_counter.textContent = String(player_items.length + "/4")
+	if (player_items.length > 0) {
+		for (let i = 0; i < player_items.length; i++) {
+			if (player_items[i].id === "sauce") {
+				sauce_image.src = "images/sauce.webp";
+			} else if (player_items[i].id === "watch") {
+				watch_image.src = "images/watch.webp";
+			} else if (player_items[i].id === "photo") {
+				photo_image.src = "images/photo.webp";
+			} else {
+				coin_image.src = "images/coin.webp";
+			}
+		}
+	}
 }
 
 if (dev.enabled) {
