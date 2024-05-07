@@ -96,8 +96,8 @@
     </div>
     <div class="map-area" id="map-area">
       <div class="dice-rolling"></div>
-      <div class="end-screen" id="win-screen">
-        <h1>You won!</h1>
+      <div class="win-screen" id="win-screen">
+        <h1 data-text="you_won"></h1>
         <div class="win-wrapper">
           <div class="grandpa">
             <img src="images/confetti.gif" class="grandpa-win" alt="confetti">
@@ -109,9 +109,11 @@
           </div>
         </div>
       </div>
-      <div class="end-screen" id="loss-screen">
-        <h1>You lost!</h1>
-        <img src="images/grave.png" alt="grave">
+      <div class="loss-screen" id="loss-screen">
+        <h1 data-text="you_lost"></h1>
+        <div class="grandpa-loss" id="grandpa-lose">
+          <img src="images/grave.png" alt="grave">
+        </div>
       </div>
       <div class="options-menu" id="options-menu">
         <div class="buttons" id="buttons">

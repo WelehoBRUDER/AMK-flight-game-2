@@ -325,7 +325,7 @@ $text-light: rgb(243, 240, 240);
   }
 }
 
-.end-screen {
+.win-screen {
   position: absolute;
   background-color: rgb(14, 14, 14, 0.85);
   border: 1rem rgb(60, 60, 60) ridge;
@@ -370,6 +370,47 @@ $text-light: rgb(243, 240, 240);
       position: relative;
     }
   }
+}
+
+.loss-screen {
+  position: absolute;
+  background-color: rgb(14, 14, 14, 0.85);
+  border: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  z-index: 2;
+  width: 80%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  overflow: auto;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .grandpa-loss {
+    width: 30rem;
+    height: 30rem;
+    border: 1rem rgb(60, 60, 60) ridge;
+    position: relative;
+
+    img {
+      width: 30rem;
+      height: 30rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: 1s;
+    }
+  }
+
+
 }
 
 .button,

@@ -78,6 +78,9 @@ const finnish = {
 	player_amount: "Pelaajien määrä",
 	enter_name: "Syötä nimesi",
 	hints: "Vihjeet",
+	you_lost: "Hävisit pelin!",
+	you_won: "Voitit pelin!",
+	your_score: "Pisteet:",
 	help_text1:
 		"§<c>orange<c>Grandpa's Lost Sauce§ on peli jossa sinun täytyy lentää ympäri maailman, kerätäksesi isoisäsi §<c>lightblue<c>kadonneet esineet§. Maailmalta löytyy §<c>lightblue<c>neljä eri§ esinettä satunnaisesti siroteltuina.",
 	help_text2:

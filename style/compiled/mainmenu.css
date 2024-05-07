@@ -285,7 +285,7 @@
   border-radius: 1rem;
 }
 
-.end-screen {
+.win-screen {
   position: absolute;
   background-color: rgba(14, 14, 14, 0.85);
   border: 1rem rgb(60, 60, 60) ridge;
@@ -303,17 +303,17 @@
   flex-direction: column;
   align-items: center;
 }
-.end-screen h1 {
+.win-screen h1 {
   font-size: 3rem;
 }
-.end-screen .win-wrapper {
+.win-screen .win-wrapper {
   position: relative;
 }
-.end-screen .win-wrapper .grandpa {
+.win-screen .win-wrapper .grandpa {
   width: 30rem;
   height: 30rem;
 }
-.end-screen .win-wrapper .grandpa .grandpa-win {
+.win-screen .win-wrapper .grandpa .grandpa-win {
   position: absolute;
   transition: 1s;
   width: 30rem;
@@ -323,8 +323,44 @@
   border: 1rem rgb(60, 60, 60) ridge;
   box-sizing: border-box;
 }
-.end-screen .win-wrapper .score-screen {
+.win-screen .win-wrapper .score-screen {
   position: relative;
+}
+
+.loss-screen {
+  position: absolute;
+  background-color: rgba(14, 14, 14, 0.85);
+  border: 1rem rgb(60, 60, 60) ridge;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  z-index: 2;
+  width: 80%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  overflow: auto;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+.loss-screen h1 {
+  font-size: 3rem;
+}
+.loss-screen .grandpa-loss {
+  width: 30rem;
+  height: 30rem;
+  border: 1rem rgb(60, 60, 60) ridge;
+  position: relative;
+}
+.loss-screen .grandpa-loss img {
+  width: 30rem;
+  height: 30rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 1s;
 }
 
 .button,

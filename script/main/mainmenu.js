@@ -67,7 +67,6 @@ const win_scrn = document.querySelector("#win-screen");
 const score_value = document.querySelector("#score-value");
 const lose_btn = document.querySelector("#lose");
 const lose_scrn = document.querySelector("#loss-screen");
-lose_scrn.style.display = "none";
 
 let in_main_menu = false;
 
@@ -135,10 +134,12 @@ lose_btn.addEventListener("click", function () {
 	displayLoseScreen();
 });
 
+const grandpa_lose = document.querySelector("#grandpa-lose");
+
 function displayLoseScreen() {
 	if (lose_scrn.style.display === "none") {
 		lose_scrn.style.display = "flex";
-		lose_scrn.append(grandpa_death_gif);
+		grandpa_lose.append(grandpa_death_gif);
 		soundController.playSound("death");
 		setTimeout(hideGif, 2100);
 	} else {
@@ -401,7 +402,6 @@ if (dev.enabled) {
 	bottom_bar.style.display = "flex";
 	map_scrn.hidden = false;
 	map_area.hidden = false;
-	console.log(win_scrn.style.display);
 	setup();
 }
 
