@@ -214,7 +214,7 @@ function handleClick(tile) {
 	if (playerSequence[index] !== sequence[index]) {
 		tileContainer.style.display = 'none'
 		kaleviInfoSection.style.marginTop = '15rem'
-		resetGame("You were no match for Kekkonen. (insert item name) is gonna cost you!", "lose");
+		resetGame("You were no match for Kekkonen. He simply outsmarted you. The Coin is gonna cost you, and not the amount you would assume.", "lose");
 		return;
 	}
 
@@ -222,7 +222,7 @@ function handleClick(tile) {
 		if (playerSequence.length === 6) {
 			tileContainer.style.display = 'none'
 			kaleviInfoSection.style.marginTop = '15rem'
-			resetGame("*Kekkonen is impressed* Congratulations you've bested me! Here's you (insert item name)", "win");
+			resetGame("*Kekkonen is impressed* Congratulations you've bested me! Here's your grandfather's The Coin, go buy yourself a muumitikkari!", "win");
 			return;
 		}
 
