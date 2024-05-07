@@ -67,6 +67,7 @@ const win_scrn = document.querySelector("#win-screen");
 const score_value = document.querySelector("#score-value");
 const lose_btn = document.querySelector("#lose");
 const lose_scrn = document.querySelector("#loss-screen");
+lose_scrn.style.display = "none";
 
 let in_main_menu = false;
 
