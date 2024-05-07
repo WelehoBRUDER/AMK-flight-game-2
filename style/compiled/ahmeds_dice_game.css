@@ -266,10 +266,10 @@ h3 {
     top: 10px;
 }
 
-.leave-minigame-button {
+.dice-end-screen .leave-minigame-button {
     position: absolute;
-    bottom: -10%;
-    left: 34%;
+    bottom: -9%;
+    left: 33%;
 }
 
 
