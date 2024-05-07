@@ -241,6 +241,7 @@ start_btn.addEventListener("click", function () {
 	options_btn.hidden = false;
 	quests_btn.hidden = false;
 	end_turn_btn.hidden = false;
+	in_main_menu = false;
 	game.startGame();
 	setup();
 });
