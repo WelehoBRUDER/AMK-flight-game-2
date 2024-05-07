@@ -37,6 +37,11 @@ const sounds = {
 		music: true,
 		loop: true,
 	},
+	death: {
+		id: "death",
+		src: "sounds/death.mp3",
+		loop: false,
+	}
 };
 
 class SoundController {

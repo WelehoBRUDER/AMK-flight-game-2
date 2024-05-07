@@ -79,8 +79,22 @@ win_btn.addEventListener("click", function () {
 	win_scrn.hidden = !win_scrn.hidden;
 });
 
+const grandpa_death_gif = document.createElement("img");
+grandpa_death_gif.src = "images/grandpa_death.gif";
+
+function hideGif() {
+	grandpa_death_gif.style.opacity = 0;
+}
+
 lose_btn.addEventListener("click", function () {
-	lose_scrn.hidden = !lose_scrn.hidden;
+	if (lose_scrn.hidden) {
+		lose_scrn.hidden = false;
+		lose_scrn.append(grandpa_death_gif);
+		soundController.playSound("death");
+		setTimeout(hideGif, 2100);
+	} else {
+		lose_scrn.hidden = true;
+	}
 });
 
 async function getAllPlayers() {
