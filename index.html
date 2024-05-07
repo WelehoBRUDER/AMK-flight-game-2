@@ -113,20 +113,25 @@
         <div class="option-content">
           <div class="box" id="new-game-screen" hidden>
             <h1 title="new_game"></h1>
-            <div id="new-game-inputs">
+            <div class="new-game-inputs" id="new-game-inputs">
               <h2 title="difficulty_select"></h2>
-              <select class="dropdown" id="difficulty-select">
+              <select id="difficulty-select">
                 <option value="easy" title="easy"></option>
                 <option value="medium" title="medium"></option>
                 <option value="hard" title="hard"></option>
               </select>
-              <h2 title="player_amount"></h2>
-              <p id="player-amount">1</p>
-              <button id="minus-players">-</button>
-              <button id="plus-players">+</button>
-              <h2 title="enter_name"></h2>
+              <div class="player-amount">
+                <h2 title="player_amount"></h2>
+                <h2 id="player-amount">1</h2>
+                <button class="button" id="minus-players">-</button>
+                <button class="button" id="plus-players">+</button>
+              </div>
+              <div class="player-names" id="player-names">
+                <h2 title="enter_name"></h2>
+              </div>
+              <button class="button" id="start-game" title="start_game"></button>
             </div>
-            <button class="button" id="start-game" title="start_game"></button>
+
           </div>
           <div class="box" id="load-save-screen" hidden>
             <h1 title="load_save"></h1>

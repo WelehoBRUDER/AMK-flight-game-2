@@ -92,6 +92,29 @@
   font-size: 1.5rem;
   white-space: pre-wrap;
 }
+.options-menu .option-content .box .new-game-inputs {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.options-menu .option-content .box .new-game-inputs h2 {
+  font-size: 2rem;
+  margin: 1rem 0 1rem;
+}
+.options-menu .option-content .box .new-game-inputs .player-amount {
+  display: block;
+  text-align: center;
+}
+.options-menu .option-content .box .new-game-inputs .player-amount button {
+  margin-top: 0;
+  width: 5rem;
+  display: inline-block;
+}
+.options-menu .option-content .box .new-game-inputs .player-names {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .options-menu .option-content .box .leaderboards-list {
   border: 1rem rgb(60, 60, 60) ridge;
   border-right: none;
@@ -208,6 +231,10 @@
 .quests-screen h1 {
   font-size: 3rem;
   text-align: center;
+}
+.quests-screen button {
+  position: absolute;
+  bottom: 0;
 }
 .quests-screen .item-screen {
   display: flex;

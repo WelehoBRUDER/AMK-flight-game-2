@@ -12,6 +12,7 @@ const difficulty_select = document.querySelector("#difficulty-select");
 const player_amount = document.querySelector("#player-amount");
 const minus_btn = document.querySelector("#minus-players");
 const plus_btn = document.querySelector("#plus-players");
+const player_names = document.querySelector("#player-names");
 const start_btn = document.querySelector("#start-game");
 
 const load_save_btn = document.querySelector("#load-save");
@@ -174,7 +175,7 @@ function newInput(id) {
 new_game_btn.addEventListener("click", function () {
 	hideBoxes();
 	new_game_scrn.hidden = false;
-	new_game_inputs.append(newInput(1));
+	player_names.append(newInput(1));
 });
 
 let amount_of_players = 1;
@@ -182,7 +183,7 @@ let amount_of_players = 1;
 minus_btn.addEventListener("click", function () {
 	if (amount_of_players > 1) {
 		const inputs = document.querySelector("#name" + amount_of_players);
-		new_game_inputs.removeChild(inputs)
+		player_names.removeChild(inputs)
 		amount_of_players -= 1;
 		player_amount.textContent = String(amount_of_players);
 	}
@@ -191,7 +192,7 @@ minus_btn.addEventListener("click", function () {
 plus_btn.addEventListener("click", function () {
 	amount_of_players += 1;
 	player_amount.textContent = String(amount_of_players);
-	new_game_inputs.append(newInput(amount_of_players));
+	player_names.append(newInput(amount_of_players));
 });
 
 start_btn.addEventListener("click", function () {

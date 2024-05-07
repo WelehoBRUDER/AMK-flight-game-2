@@ -124,6 +124,34 @@ $text-light: rgb(243, 240, 240);
         white-space: pre-wrap;
       }
 
+      .new-game-inputs {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        h2 {
+          font-size: 2rem;
+          margin: 1rem 0 1rem;
+        }
+
+        .player-amount {
+          display: block;
+          text-align: center;
+
+          button {
+            margin-top: 0;
+            width: 5rem;
+            display: inline-block;
+          }
+        }
+
+        .player-names {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+        }
+      }
+
       .leaderboards-list {
         border: 1rem rgb(60, 60, 60) ridge;
         border-right: none;
@@ -256,7 +284,10 @@ $text-light: rgb(243, 240, 240);
     text-align: center;
   }
 
-  .buttton {}
+  button {
+    position: absolute;
+    bottom: 0;
+  }
 
   .item-screen {
     display: flex;
