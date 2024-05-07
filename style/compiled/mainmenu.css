@@ -10,6 +10,14 @@
   --neon-purple: rgb(97, 3, 97);
 }
 
+.music-toggle {
+  bottom: 0;
+  margin: 1.5rem;
+  width: 4rem;
+  position: absolute;
+  z-index: 5;
+}
+
 .title-screen {
   z-index: 3;
   position: absolute;

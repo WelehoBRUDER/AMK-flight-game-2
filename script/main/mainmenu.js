@@ -1,3 +1,4 @@
+const music_toggle = document.querySelector("#music-toggle");
 const title_screen = document.querySelector("#title-screen");
 const main_menu = document.querySelector("#main-menu");
 
@@ -77,6 +78,16 @@ all_buttons.forEach((btn) => {
 	});
 });
 
+music_toggle.addEventListener("click", function () {
+	if (soundController.isMusicPlaying()) {
+		music_toggle.src = "images/mute.png";
+		soundController.pauseMusic();
+	} else {
+		music_toggle.src = "images/volume.png";
+		soundController.playSound("shanty");
+	}
+});
+
 win_btn.addEventListener("click", function () {
 	win_scrn.hidden = !win_scrn.hidden;
 });
@@ -148,7 +159,6 @@ title_screen.addEventListener("click", function () {
 	in_main_menu = true;
 	options_menu.style.display = "flex";
 	options_open = true;
-	soundController.playSound("shanty");
 	refreshText();
 });
 
