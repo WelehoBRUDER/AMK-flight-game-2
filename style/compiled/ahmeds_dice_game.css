@@ -242,13 +242,15 @@ Dice Styles
     display: none;
 }
 
-.end-screen {
+.dice-end-screen {
     color: #dcdc8a;
     margin: 0;
     width: 50%;
     text-align: center;
     font-size: 18px;
     font-family: Courier, sans-serif;
+    justify-content: center;
+    align-content: center;
 }
 
 h3 {
@@ -262,6 +264,12 @@ h3 {
     width: 120px;
     height: auto;
     top: 10px;
+}
+
+.leave-minigame-button {
+    position: absolute;
+    bottom: -10%;
+    left: 34%;
 }
 
 

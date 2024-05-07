@@ -61,7 +61,7 @@ const english = {
 	ahmed_dice_loss:
 		"HAA NO ONE CAN BEAT AHMED! Show me the moneyyy... That is, if you want your grandpa's §<v>translate(game.currentMinigameItem.id)<v>§, because it's gonna cost ya.",
 	ahmed_dice_win:
-		"Congratulations I guess... You've beaten me with your lucky a** roll§<c>green<c>[total].§\nPromise is a promise. Here's your grandpa's §<v>translate(game.currentMinigameItem.id)<v>§</br>",
+		"Congratulations I guess... You've beaten me with your lucky a** roll §<c>green<c>[total].§\nPromise is a promise. Here's your grandpa's §<v>translate(game.currentMinigameItem.id)<v>§</br>",
 
 	flying_hint1: "§<c>violet<c>Grandpa§ thinks he might have lost his §<c>[itmCol]<c>[item]§ while hiking in §<c>gold<c>[city]§.",
 	flying_hint2: "According to §<c>violet<c>Grandpa§, he accidentally dropped his §<c>[itmCol]<c>[item]§ somewhere in §<c>gold<c>[city]§.",

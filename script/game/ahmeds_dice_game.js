@@ -46,7 +46,7 @@ function createDiceGameElem() {
 
 	// Heading element that shows the win/loss messages
 	const endScreenMsg = document.createElement("div");
-	endScreenMsg.classList.add("end-screen", "hidden");
+	endScreenMsg.classList.add("dice-end-screen", "hidden");
 	mainCon.appendChild(endScreenMsg);
 
 	// Element for displaying the remaining rolls
