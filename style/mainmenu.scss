@@ -15,8 +15,9 @@ $text-dark: rgb(14, 14, 14);
 $text-light: rgb(243, 240, 240);
 
 .music-toggle {
-  bottom: 0;
-  margin: 1.5rem;
+  top: 0;
+  right: 0;
+  margin: 0.5rem;
   width: 4rem;
   position: absolute;
   z-index: 5;
@@ -119,6 +120,12 @@ $text-light: rgb(243, 240, 240);
       pre {
         font-size: 1.5rem;
         white-space: pre-wrap;
+      }
+
+      .story-screen {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
       }
 
       .new-game-inputs {
