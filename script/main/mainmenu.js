@@ -307,6 +307,7 @@ close_options_btn.addEventListener("click", function () {
 });
 
 quests_btn.addEventListener("click", function () {
+	createHints();
 	if (quests_scrn.style.display === "flex") {
 		quests_scrn.style.display = "none";
 	} else {
@@ -342,6 +343,9 @@ function updateItems() {
 }
 
 function createHints() {
+	document.querySelectorAll(".item-screen .hint")?.forEach((itm) => {
+		itm.remove();
+	});
 	const coin_item = game.grandpasHints.coin.item;
 	const coin_hints = game.grandpasHints.coin.hints;
 	for (let i = 0; i < coin_hints.length; i++) {
